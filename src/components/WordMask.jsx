@@ -218,6 +218,7 @@ function buildCells(text, glyphs, letterSpacing, textScale) {
         if (structure + densityBoost > keepThreshold && fracture > 0.12) {
           return {
             char: baseGlyph(column, row, glyphs),
+            interactive: true,
             tone:
               alpha > 0.58 || immediateNeighbors > 4 || fracture > 0.84
                 ? "bright"
@@ -227,6 +228,7 @@ function buildCells(text, glyphs, letterSpacing, textScale) {
 
         return {
           char: fracture > 0.58 ? baseGlyph(column + 3, row + 2, glyphs) : ".",
+          interactive: true,
           tone: "ghost",
         };
       }
@@ -234,6 +236,7 @@ function buildCells(text, glyphs, letterSpacing, textScale) {
       if (alpha > EDGE_ALPHA) {
         return {
           char: fracture > 0.42 ? baseGlyph(column + 5, row + 1, glyphs) : ".",
+          interactive: true,
           tone: "ghost",
         };
       }
@@ -245,6 +248,7 @@ function buildCells(text, glyphs, letterSpacing, textScale) {
       ) {
         return {
           char: drift > 0.94 ? baseGlyph(column + 2, row + 4, glyphs) : ".",
+          interactive: false,
           tone: "ghost",
         };
       }
@@ -256,6 +260,7 @@ function buildCells(text, glyphs, letterSpacing, textScale) {
       ) {
         return {
           char: ".",
+          interactive: false,
           tone: "ghost",
         };
       }
@@ -263,6 +268,7 @@ function buildCells(text, glyphs, letterSpacing, textScale) {
       if (wideNeighbors > 0 && edgeNoise > 0.93 + rowBias * 0.05) {
         return {
           char: edgeNoise > 0.978 ? baseGlyph(column + 1, row + 5, glyphs) : ".",
+          interactive: false,
           tone: "ghost",
         };
       }
@@ -270,6 +276,7 @@ function buildCells(text, glyphs, letterSpacing, textScale) {
       if (edgeNoise > 0.993) {
         return {
           char: baseGlyph(column + 7, row + 3, glyphs),
+          interactive: false,
           tone: "ghost",
         };
       }
@@ -277,12 +284,14 @@ function buildCells(text, glyphs, letterSpacing, textScale) {
       if (edgeNoise > 0.974) {
         return {
           char: ".",
+          interactive: false,
           tone: "ghost",
         };
       }
 
       return {
         char: " ",
+        interactive: false,
         tone: "empty",
       };
     }),
@@ -296,6 +305,14 @@ export default function WordMask({
   textScale = DEFAULT_TEXT_SCALE,
 }) {
   const canvasRef = useRef(null);
+  const pointerRef = useRef({
+    active: false,
+    energy: 0,
+    x: COLUMNS / 2,
+    y: ROWS / 2,
+    targetX: COLUMNS / 2,
+    targetY: ROWS / 2,
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -335,6 +352,14 @@ export default function WordMask({
       context.textAlign = "center";
       context.textBaseline = "middle";
 
+      const pointer = pointerRef.current;
+      pointer.x += (pointer.targetX - pointer.x) * 0.18;
+      pointer.y += (pointer.targetY - pointer.y) * 0.18;
+      pointer.energy = pointer.active
+        ? Math.min(1, pointer.energy + 0.08)
+        : Math.max(0, pointer.energy - 0.06);
+      const hoverRadius = 12;
+
       for (let row = 0; row < ROWS; row += 1) {
         for (let column = 0; column < COLUMNS; column += 1) {
           const cell = cells[row][column];
@@ -342,20 +367,33 @@ export default function WordMask({
             continue;
           }
 
+          const dx = column + 0.5 - pointer.x;
+          const dy = row + 0.5 - pointer.y;
+          const distance = Math.hypot(dx * 0.95, dy * 1.2);
+          const hoverStrength = cell.interactive
+            ? Math.max(0, 1 - distance / hoverRadius) * pointer.energy
+            : 0;
           const flicker = noise(column + time * 0.002, row + time * 0.0015);
-          const alpha = cell.tone === "ghost"
+          const baseAlpha = cell.tone === "ghost"
             ? 0.45 + flicker * 0.7
             : 0.84 + flicker * 0.18;
+          const distortionNoise = noise(column * 1.7 + time * 0.003, row * 2.1 + 17);
+          const angle = noise(column * 0.73 + 5, row * 0.61 + 11) * Math.PI * 2;
+          const drift = hoverStrength * (4 + distortionNoise * 18);
+          const drawX = (column + 0.5) * cellWidth + Math.cos(angle) * drift;
+          const drawY = offsetY + (row + 0.5) * cellHeight + Math.sin(angle) * drift;
+          const alpha = Math.max(
+            0.08,
+            baseAlpha * (cell.interactive ? 1 - hoverStrength * 0.42 : 1),
+          );
           const char = cell.char === "."
             ? "."
-            : animatedGlyph(column, row, time, glyphs);
+            : hoverStrength > 0.04
+              ? animatedGlyph(column + 7, row + 3, time * 1.35, glyphs)
+              : animatedGlyph(column, row, time, glyphs);
 
           context.fillStyle = toneColor(cell.tone, alpha);
-          context.fillText(
-            char,
-            (column + 0.5) * cellWidth,
-            offsetY + (row + 0.5) * cellHeight,
-          );
+          context.fillText(char, drawX, drawY);
         }
       }
     };
@@ -376,6 +414,30 @@ export default function WordMask({
 
     resizeObserver.observe(canvas);
 
+    const updatePointerTarget = (clientX, clientY) => {
+      const rect = canvas.getBoundingClientRect();
+      pointerRef.current.targetX = ((clientX - rect.left) / rect.width) * COLUMNS;
+      pointerRef.current.targetY = ((clientY - rect.top) / rect.height) * ROWS;
+    };
+
+    const handlePointerMove = (event) => {
+      pointerRef.current.active = true;
+      updatePointerTarget(event.clientX, event.clientY);
+    };
+
+    const handlePointerEnter = (event) => {
+      pointerRef.current.active = true;
+      updatePointerTarget(event.clientX, event.clientY);
+    };
+
+    const handlePointerLeave = () => {
+      pointerRef.current.active = false;
+    };
+
+    canvas.addEventListener("pointermove", handlePointerMove);
+    canvas.addEventListener("pointerenter", handlePointerEnter);
+    canvas.addEventListener("pointerleave", handlePointerLeave);
+
     const handleMotionPreferenceChange = () => {
       window.cancelAnimationFrame(frameId);
       render(performance.now());
@@ -386,6 +448,9 @@ export default function WordMask({
     return () => {
       window.cancelAnimationFrame(frameId);
       resizeObserver.disconnect();
+      canvas.removeEventListener("pointermove", handlePointerMove);
+      canvas.removeEventListener("pointerenter", handlePointerEnter);
+      canvas.removeEventListener("pointerleave", handlePointerLeave);
       prefersReducedMotion.removeEventListener("change", handleMotionPreferenceChange);
     };
   }, [glyphs, letterSpacing, text, textScale]);
