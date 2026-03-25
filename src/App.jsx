@@ -8,7 +8,7 @@ export default function App() {
 
       <section className="hero-section">
         <div className="word-mask">
-          <WordMask text="ART" />
+          <WordMask text="art" letterSpacing={0.18} textScale={2.18} />
         </div>
 
         <div className="copy copy-left">

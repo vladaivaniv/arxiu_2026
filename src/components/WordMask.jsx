@@ -7,6 +7,8 @@ const ROWS = 28;
 const MASK_SCALE = 4;
 const FILLED_ALPHA = 0.16;
 const EDGE_ALPHA = 0.035;
+const DEFAULT_LETTER_SPACING = 0.12;
+const DEFAULT_TEXT_SCALE = 1.1;
 
 function noise(x, y) {
   const value = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
@@ -57,19 +59,44 @@ function buildAlphaGrid(data, maskWidth) {
   );
 }
 
-function fitFontSize(context, text, maxWidth, maxHeight) {
+function measureSpacedText(context, text, tracking) {
+  const glyphWidths = [...text].map((char) => context.measureText(char).width);
+  const trackingWidth = Math.max(0, text.length - 1) * tracking;
+  const textWidth = glyphWidths.reduce((total, width) => total + width, 0) + trackingWidth;
+
+  return {
+    glyphWidths,
+    textWidth,
+  };
+}
+
+function fitFontSize(context, text, maxWidth, maxHeight, letterSpacing, textScale) {
   let fontSize = maxHeight * 0.92;
   context.font = `700 ${fontSize}px "Space Mono", monospace`;
 
-  const metrics = context.measureText(text);
-  const textWidth = Math.max(metrics.width, 1);
+  const tracking = fontSize * letterSpacing;
+  const spacedMetrics = measureSpacedText(context, text, tracking);
+  const textWidth = Math.max(spacedMetrics.textWidth, 1);
   const textHeight = Math.max(
-    metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent,
+    context.measureText(text).actualBoundingBoxAscent +
+      context.measureText(text).actualBoundingBoxDescent,
     fontSize,
   );
   const scale = Math.min(maxWidth / textWidth, maxHeight / textHeight);
 
-  return fontSize * Math.min(scale, 1.28);
+  return fontSize * Math.min(scale * textScale, 1.34);
+}
+
+function drawSpacedText(context, text, centerX, centerY, fontSize, letterSpacing) {
+  const tracking = fontSize * letterSpacing;
+  const { glyphWidths, textWidth } = measureSpacedText(context, text, tracking);
+  let cursorX = centerX - textWidth / 2;
+
+  [...text].forEach((char, index) => {
+    const glyphWidth = glyphWidths[index];
+    context.fillText(char, cursorX + glyphWidth / 2, centerY);
+    cursorX += glyphWidth + tracking;
+  });
 }
 
 function countNeighbors(alphaGrid, row, column, radius) {
@@ -125,7 +152,7 @@ function baseGlyph(column, row, glyphs) {
   return glyphs[(row * 17 + column * 11) % glyphs.length];
 }
 
-function buildCells(text, glyphs) {
+function buildCells(text, glyphs, letterSpacing, textScale) {
   const content = text.trim() || DEFAULT_TEXT;
   const maskCanvas = document.createElement("canvas");
   const maskWidth = COLUMNS * MASK_SCALE;
@@ -149,12 +176,21 @@ function buildCells(text, glyphs) {
   const fontSize = fitFontSize(
     maskContext,
     content,
-    maskWidth * 0.94,
-    maskHeight * 0.8,
+    maskWidth * 0.98,
+    maskHeight * 0.88,
+    letterSpacing,
+    textScale,
   );
 
   maskContext.font = `700 ${fontSize}px "Space Mono", monospace`;
-  maskContext.fillText(content, maskWidth / 2, maskHeight / 2 + maskHeight * 0.02);
+  drawSpacedText(
+    maskContext,
+    content,
+    maskWidth / 2,
+    maskHeight / 2 + maskHeight * 0.02,
+    fontSize,
+    letterSpacing,
+  );
 
   const imageData = maskContext.getImageData(0, 0, maskWidth, maskHeight).data;
   const alphaGrid = buildAlphaGrid(imageData, maskWidth);
@@ -256,6 +292,8 @@ function buildCells(text, glyphs) {
 export default function WordMask({
   text = DEFAULT_TEXT,
   glyphs = DEFAULT_GLYPHS,
+  letterSpacing = DEFAULT_LETTER_SPACING,
+  textScale = DEFAULT_TEXT_SCALE,
 }) {
   const canvasRef = useRef(null);
 
@@ -265,7 +303,7 @@ export default function WordMask({
       return undefined;
     }
 
-    const cells = buildCells(text, glyphs);
+    const cells = buildCells(text, glyphs, letterSpacing, textScale);
     const context = canvas.getContext("2d");
     if (!context) {
       return undefined;
@@ -350,7 +388,7 @@ export default function WordMask({
       resizeObserver.disconnect();
       prefersReducedMotion.removeEventListener("change", handleMotionPreferenceChange);
     };
-  }, [glyphs, text]);
+  }, [glyphs, letterSpacing, text, textScale]);
 
   return <canvas ref={canvasRef} className="word-canvas" aria-hidden="true" />;
 }
