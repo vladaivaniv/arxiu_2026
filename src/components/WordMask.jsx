@@ -5,6 +5,8 @@ const DEFAULT_GLYPHS = "ART4#%+=:*R/TX3";
 const COLUMNS = 120;
 const ROWS = 28;
 const MASK_SCALE = 4;
+const FILLED_ALPHA = 0.16;
+const EDGE_ALPHA = 0.035;
 
 function noise(x, y) {
   const value = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
@@ -47,6 +49,14 @@ function sampleAlpha(data, maskWidth, column, row) {
   return totalAlpha / (MASK_SCALE * MASK_SCALE * 255);
 }
 
+function buildAlphaGrid(data, maskWidth) {
+  return Array.from({ length: ROWS }, (_, row) =>
+    Array.from({ length: COLUMNS }, (_, column) =>
+      sampleAlpha(data, maskWidth, column, row),
+    ),
+  );
+}
+
 function fitFontSize(context, text, maxWidth, maxHeight) {
   let fontSize = maxHeight * 0.92;
   context.font = `700 ${fontSize}px "Space Mono", monospace`;
@@ -59,10 +69,63 @@ function fitFontSize(context, text, maxWidth, maxHeight) {
   );
   const scale = Math.min(maxWidth / textWidth, maxHeight / textHeight);
 
-  return fontSize * Math.min(scale, 1.25);
+  return fontSize * Math.min(scale, 1.28);
 }
 
-function buildCells(text) {
+function countNeighbors(alphaGrid, row, column, radius) {
+  let count = 0;
+
+  for (let offsetY = -radius; offsetY <= radius; offsetY += 1) {
+    for (let offsetX = -radius; offsetX <= radius; offsetX += 1) {
+      if (offsetX === 0 && offsetY === 0) {
+        continue;
+      }
+
+      const nextRow = row + offsetY;
+      const nextColumn = column + offsetX;
+
+      if (
+        nextRow < 0 ||
+        nextRow >= ROWS ||
+        nextColumn < 0 ||
+        nextColumn >= COLUMNS
+      ) {
+        continue;
+      }
+
+      if (alphaGrid[nextRow][nextColumn] > FILLED_ALPHA) {
+        count += 1;
+      }
+    }
+  }
+
+  return count;
+}
+
+function buildColumnBounds(alphaGrid) {
+  return Array.from({ length: COLUMNS }, (_, column) => {
+    let top = -1;
+    let bottom = -1;
+
+    for (let row = 0; row < ROWS; row += 1) {
+      if (alphaGrid[row][column] > FILLED_ALPHA) {
+        if (top === -1) {
+          top = row;
+        }
+
+        bottom = row;
+      }
+    }
+
+    return { top, bottom };
+  });
+}
+
+function baseGlyph(column, row, glyphs) {
+  return glyphs[(row * 17 + column * 11) % glyphs.length];
+}
+
+function buildCells(text, glyphs) {
   const content = text.trim() || DEFAULT_TEXT;
   const maskCanvas = document.createElement("canvas");
   const maskWidth = COLUMNS * MASK_SCALE;
@@ -86,50 +149,96 @@ function buildCells(text) {
   const fontSize = fitFontSize(
     maskContext,
     content,
-    maskWidth * 0.9,
-    maskHeight * 0.64,
+    maskWidth * 0.94,
+    maskHeight * 0.8,
   );
 
   maskContext.font = `700 ${fontSize}px "Space Mono", monospace`;
-  maskContext.fillText(content, maskWidth / 2, maskHeight / 2 + maskHeight * 0.03);
+  maskContext.fillText(content, maskWidth / 2, maskHeight / 2 + maskHeight * 0.02);
 
   const imageData = maskContext.getImageData(0, 0, maskWidth, maskHeight).data;
+  const alphaGrid = buildAlphaGrid(imageData, maskWidth);
+  const columnBounds = buildColumnBounds(alphaGrid);
 
   return Array.from({ length: ROWS }, (_, row) =>
     Array.from({ length: COLUMNS }, (_, column) => {
-      const alpha = sampleAlpha(imageData, maskWidth, column, row);
-      const value = noise(column + 1, row + 1);
-      const edgeValue = noise(column + 9, row + 13);
+      const alpha = alphaGrid[row][column];
+      const immediateNeighbors = countNeighbors(alphaGrid, row, column, 1);
+      const wideNeighbors = countNeighbors(alphaGrid, row, column, 2);
+      const structure = noise(column * 0.83 + 1, row * 0.47 + 1);
+      const fracture = noise(column * 1.91 + 9, row * 2.37 + 13);
+      const edgeNoise = noise(column * 0.36 + 29, row * 1.17 + 7);
+      const drift = noise(column * 0.51 + 81, row * 1.41 + 31);
+      const rowBias = Math.abs(row / ROWS - 0.5);
+      const bounds = columnBounds[column];
+      const aboveDistance = bounds.top === -1 ? Infinity : bounds.top - row;
+      const belowDistance = bounds.bottom === -1 ? Infinity : row - bounds.bottom;
 
-      if (alpha > 0.12) {
-        if (value > 0.14) {
+      if (alpha > FILLED_ALPHA) {
+        const densityBoost = alpha * 0.52 + immediateNeighbors * 0.06;
+        const keepThreshold =
+          0.22 + rowBias * 0.12 - Math.min(wideNeighbors, 10) * 0.012;
+
+        if (structure + densityBoost > keepThreshold && fracture > 0.12) {
           return {
-            char: DEFAULT_GLYPHS[(row * 17 + column * 11) % DEFAULT_GLYPHS.length],
-            tone: alpha > 0.52 || value > 0.76 ? "bright" : "solid",
+            char: baseGlyph(column, row, glyphs),
+            tone:
+              alpha > 0.58 || immediateNeighbors > 4 || fracture > 0.84
+                ? "bright"
+                : "solid",
           };
         }
 
         return {
-          char: ".",
+          char: fracture > 0.58 ? baseGlyph(column + 3, row + 2, glyphs) : ".",
           tone: "ghost",
         };
       }
 
-      if (alpha > 0.035) {
+      if (alpha > EDGE_ALPHA) {
+        return {
+          char: fracture > 0.42 ? baseGlyph(column + 5, row + 1, glyphs) : ".",
+          tone: "ghost",
+        };
+      }
+
+      if (
+        aboveDistance > 0 &&
+        aboveDistance < 7 &&
+        drift > 0.83 + aboveDistance * 0.02
+      ) {
+        return {
+          char: drift > 0.94 ? baseGlyph(column + 2, row + 4, glyphs) : ".",
+          tone: "ghost",
+        };
+      }
+
+      if (
+        belowDistance > 0 &&
+        belowDistance < 4 &&
+        drift > 0.88 + belowDistance * 0.025
+      ) {
         return {
           char: ".",
           tone: "ghost",
         };
       }
 
-      if (edgeValue > 0.992) {
+      if (wideNeighbors > 0 && edgeNoise > 0.93 + rowBias * 0.05) {
         return {
-          char: DEFAULT_GLYPHS[(row * 13 + column * 7) % DEFAULT_GLYPHS.length],
+          char: edgeNoise > 0.978 ? baseGlyph(column + 1, row + 5, glyphs) : ".",
           tone: "ghost",
         };
       }
 
-      if (edgeValue > 0.968) {
+      if (edgeNoise > 0.993) {
+        return {
+          char: baseGlyph(column + 7, row + 3, glyphs),
+          tone: "ghost",
+        };
+      }
+
+      if (edgeNoise > 0.974) {
         return {
           char: ".",
           tone: "ghost",
@@ -156,7 +265,7 @@ export default function WordMask({
       return undefined;
     }
 
-    const cells = buildCells(text);
+    const cells = buildCells(text, glyphs);
     const context = canvas.getContext("2d");
     if (!context) {
       return undefined;
@@ -197,8 +306,8 @@ export default function WordMask({
 
           const flicker = noise(column + time * 0.002, row + time * 0.0015);
           const alpha = cell.tone === "ghost"
-            ? 0.55 + flicker * 0.65
-            : 0.82 + flicker * 0.2;
+            ? 0.45 + flicker * 0.7
+            : 0.84 + flicker * 0.18;
           const char = cell.char === "."
             ? "."
             : animatedGlyph(column, row, time, glyphs);
