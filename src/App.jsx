@@ -8,7 +8,7 @@ export default function App() {
 
       <section className="hero-section">
         <div className="word-mask">
-          <WordMask />
+          <WordMask text="ART" />
         </div>
 
         <div className="copy copy-left">

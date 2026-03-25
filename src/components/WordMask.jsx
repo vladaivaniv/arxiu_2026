@@ -1,110 +1,15 @@
 import { useEffect, useRef } from "react";
 
-const GLYPHS = "ART4#%+=:*R/TX3";
+const DEFAULT_TEXT = "ART";
+const DEFAULT_GLYPHS = "ART4#%+=:*R/TX3";
 const COLUMNS = 120;
 const ROWS = 28;
+const MASK_SCALE = 4;
 
 function noise(x, y) {
   const value = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
   return value - Math.floor(value);
 }
-
-function inA(x, y) {
-  const leftLeg = x >= 0.08 + y * 0.18 && x <= 0.17 + y * 0.18;
-  const rightLeg = x >= 0.62 - y * 0.18 && x <= 0.71 - y * 0.18;
-  const crossbar = y >= 0.44 && y <= 0.56 && x >= 0.19 && x <= 0.59;
-  const cap = y <= 0.14 && x >= 0.28 && x <= 0.5;
-  return leftLeg || rightLeg || crossbar || cap;
-}
-
-function inR(x, y) {
-  const spine = x >= 0.08 && x <= 0.18;
-  const top = y <= 0.14 && x >= 0.08 && x <= 0.6;
-  const bowlSide = x >= 0.5 && x <= 0.62 && y >= 0.14 && y <= 0.46;
-  const bowlMid = y >= 0.28 && y <= 0.4 && x >= 0.18 && x <= 0.52;
-  const diagonal =
-    x >= 0.16 + (y - 0.46) * 0.5 &&
-    x <= 0.28 + (y - 0.46) * 0.5 &&
-    y >= 0.46;
-
-  return spine || top || bowlSide || bowlMid || diagonal;
-}
-
-function inT(x, y) {
-  const top = y <= 0.16 && x >= 0.08 && x <= 0.72;
-  const stem = x >= 0.34 && x <= 0.46 && y >= 0.14;
-  return top || stem;
-}
-
-function inLetter(column, row) {
-  const x = column / COLUMNS;
-  const y = row / ROWS;
-
-  if (x >= 0.03 && x <= 0.31) {
-    return inA((x - 0.03) / 0.28, y);
-  }
-
-  if (x >= 0.36 && x <= 0.66) {
-    return inR((x - 0.36) / 0.3, y);
-  }
-
-  if (x >= 0.71 && x <= 0.98) {
-    return inT((x - 0.71) / 0.27, y);
-  }
-
-  return false;
-}
-
-function pickGlyph(column, row) {
-  return GLYPHS[(row * 17 + column * 11) % GLYPHS.length];
-}
-
-function buildCells() {
-  return Array.from({ length: ROWS }, (_, row) =>
-    Array.from({ length: COLUMNS }, (_, column) => {
-      const letter = inLetter(column, row);
-      const value = noise(column + 1, row + 1);
-      const edgeValue = noise(column + 9, row + 13);
-
-      if (letter) {
-        if (value > 0.18) {
-          return {
-            char: pickGlyph(column, row),
-            tone: value > 0.78 ? "bright" : "solid",
-          };
-        }
-
-        if (value > 0.09) {
-          return {
-            char: ".",
-            tone: "ghost",
-          };
-        }
-      }
-
-      if (edgeValue > 0.992) {
-        return {
-          char: pickGlyph(column + 3, row + 5),
-          tone: "ghost",
-        };
-      }
-
-      if (edgeValue > 0.965) {
-        return {
-          char: ".",
-          tone: "ghost",
-        };
-      }
-
-      return {
-        char: " ",
-        tone: "empty",
-      };
-    }),
-  );
-}
-
-const cells = buildCells();
 
 function toneColor(tone, alpha = 1) {
   if (tone === "bright") {
@@ -122,12 +27,127 @@ function toneColor(tone, alpha = 1) {
   return "transparent";
 }
 
-function animatedGlyph(column, row, time) {
+function animatedGlyph(column, row, time, glyphs) {
   const shuffleIndex = Math.floor(time * 0.01 + noise(column + 21, row + 7) * 9);
-  return GLYPHS[(column * 11 + row * 17 + shuffleIndex) % GLYPHS.length];
+  return glyphs[(column * 11 + row * 17 + shuffleIndex) % glyphs.length];
 }
 
-export default function WordMask() {
+function sampleAlpha(data, maskWidth, column, row) {
+  let totalAlpha = 0;
+
+  for (let sampleY = 0; sampleY < MASK_SCALE; sampleY += 1) {
+    for (let sampleX = 0; sampleX < MASK_SCALE; sampleX += 1) {
+      const x = column * MASK_SCALE + sampleX;
+      const y = row * MASK_SCALE + sampleY;
+      const index = (y * maskWidth + x) * 4 + 3;
+      totalAlpha += data[index];
+    }
+  }
+
+  return totalAlpha / (MASK_SCALE * MASK_SCALE * 255);
+}
+
+function fitFontSize(context, text, maxWidth, maxHeight) {
+  let fontSize = maxHeight * 0.92;
+  context.font = `700 ${fontSize}px "Space Mono", monospace`;
+
+  const metrics = context.measureText(text);
+  const textWidth = Math.max(metrics.width, 1);
+  const textHeight = Math.max(
+    metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent,
+    fontSize,
+  );
+  const scale = Math.min(maxWidth / textWidth, maxHeight / textHeight);
+
+  return fontSize * Math.min(scale, 1.25);
+}
+
+function buildCells(text) {
+  const content = text.trim() || DEFAULT_TEXT;
+  const maskCanvas = document.createElement("canvas");
+  const maskWidth = COLUMNS * MASK_SCALE;
+  const maskHeight = ROWS * MASK_SCALE;
+
+  maskCanvas.width = maskWidth;
+  maskCanvas.height = maskHeight;
+
+  const maskContext = maskCanvas.getContext("2d", { willReadFrequently: true });
+  if (!maskContext) {
+    return Array.from({ length: ROWS }, () =>
+      Array.from({ length: COLUMNS }, () => ({ char: " ", tone: "empty" })),
+    );
+  }
+
+  maskContext.clearRect(0, 0, maskWidth, maskHeight);
+  maskContext.fillStyle = "#ffffff";
+  maskContext.textAlign = "center";
+  maskContext.textBaseline = "middle";
+
+  const fontSize = fitFontSize(
+    maskContext,
+    content,
+    maskWidth * 0.9,
+    maskHeight * 0.64,
+  );
+
+  maskContext.font = `700 ${fontSize}px "Space Mono", monospace`;
+  maskContext.fillText(content, maskWidth / 2, maskHeight / 2 + maskHeight * 0.03);
+
+  const imageData = maskContext.getImageData(0, 0, maskWidth, maskHeight).data;
+
+  return Array.from({ length: ROWS }, (_, row) =>
+    Array.from({ length: COLUMNS }, (_, column) => {
+      const alpha = sampleAlpha(imageData, maskWidth, column, row);
+      const value = noise(column + 1, row + 1);
+      const edgeValue = noise(column + 9, row + 13);
+
+      if (alpha > 0.12) {
+        if (value > 0.14) {
+          return {
+            char: DEFAULT_GLYPHS[(row * 17 + column * 11) % DEFAULT_GLYPHS.length],
+            tone: alpha > 0.52 || value > 0.76 ? "bright" : "solid",
+          };
+        }
+
+        return {
+          char: ".",
+          tone: "ghost",
+        };
+      }
+
+      if (alpha > 0.035) {
+        return {
+          char: ".",
+          tone: "ghost",
+        };
+      }
+
+      if (edgeValue > 0.992) {
+        return {
+          char: DEFAULT_GLYPHS[(row * 13 + column * 7) % DEFAULT_GLYPHS.length],
+          tone: "ghost",
+        };
+      }
+
+      if (edgeValue > 0.968) {
+        return {
+          char: ".",
+          tone: "ghost",
+        };
+      }
+
+      return {
+        char: " ",
+        tone: "empty",
+      };
+    }),
+  );
+}
+
+export default function WordMask({
+  text = DEFAULT_TEXT,
+  glyphs = DEFAULT_GLYPHS,
+}) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -136,6 +156,7 @@ export default function WordMask() {
       return undefined;
     }
 
+    const cells = buildCells(text);
     const context = canvas.getContext("2d");
     if (!context) {
       return undefined;
@@ -161,8 +182,8 @@ export default function WordMask() {
       const cellHeight = Math.min(height / ROWS, cellWidth * 1.18);
       const gridHeight = cellHeight * ROWS;
       const offsetY = (height - gridHeight) * 0.42;
-
       const fontSize = Math.max(5, cellHeight * 0.9);
+
       context.font = `700 ${fontSize}px "Space Mono", monospace`;
       context.textAlign = "center";
       context.textBaseline = "middle";
@@ -180,7 +201,7 @@ export default function WordMask() {
             : 0.82 + flicker * 0.2;
           const char = cell.char === "."
             ? "."
-            : animatedGlyph(column, row, time);
+            : animatedGlyph(column, row, time, glyphs);
 
           context.fillStyle = toneColor(cell.tone, alpha);
           context.fillText(
@@ -207,6 +228,7 @@ export default function WordMask() {
     });
 
     resizeObserver.observe(canvas);
+
     const handleMotionPreferenceChange = () => {
       window.cancelAnimationFrame(frameId);
       render(performance.now());
@@ -219,7 +241,7 @@ export default function WordMask() {
       resizeObserver.disconnect();
       prefersReducedMotion.removeEventListener("change", handleMotionPreferenceChange);
     };
-  }, []);
+  }, [glyphs, text]);
 
   return <canvas ref={canvasRef} className="word-canvas" aria-hidden="true" />;
 }
