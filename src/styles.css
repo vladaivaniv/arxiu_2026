@@ -55,11 +55,20 @@ body::before {
 }
 
 .noise-layer {
-  opacity: 0.05;
+  opacity: var(--noise-opacity, 0.04);
   background-image:
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px),
-    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px);
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px),
+    radial-gradient(circle at 55% 60%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px);
   background-size: 220px 220px;
+  background-position:
+    var(--noise-offset-x, 0px) var(--noise-offset-y, 0px),
+    calc(var(--noise-offset-x, 0px) * -0.6) calc(var(--noise-offset-y, 0px) * 0.5),
+    calc(var(--noise-offset-x, 0px) * 0.35) calc(var(--noise-offset-y, 0px) * -0.4);
+  transition:
+    opacity 90ms steps(1),
+    background-position 90ms steps(1);
+  mix-blend-mode: screen;
 }
 
 .scanline-layer {
@@ -154,8 +163,11 @@ body::before {
 
 @media (prefers-reduced-motion: reduce) {
   body::before,
-  .noise-layer,
   .scanline-layer {
     opacity: 0.06;
+  }
+
+  .noise-layer {
+    transition: opacity 220ms linear, background-position 220ms linear;
   }
 }
