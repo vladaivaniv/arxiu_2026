@@ -70,7 +70,7 @@ export default function WorksSection({ works }) {
           <ScrollTypeText
             as="h2"
             id="works-title"
-            text="WORKS"
+            text="Projectes"
             className="works-title"
             speed={42}
             threshold={0.2}
