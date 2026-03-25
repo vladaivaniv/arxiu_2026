@@ -39,7 +39,7 @@ body::before {
 .landing-shell {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background-image:
     linear-gradient(var(--grid-dot) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-dot) 1px, transparent 1px);
@@ -106,6 +106,278 @@ body::before {
   contain: strict;
 }
 
+.works-section {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem) 5rem;
+}
+
+.works-toolbar-layer {
+  position: sticky;
+  top: 1rem;
+  z-index: 12;
+  height: 0;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.works-shell {
+  width: min(100%, 38rem);
+  margin: 0 auto;
+}
+
+.works-header {
+  margin-bottom: 2rem;
+}
+
+.works-title {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Arial Black", "Helvetica Neue", sans-serif;
+  font-size: clamp(4.25rem, 18vw, 7.6rem);
+  font-weight: 900;
+  line-height: 0.83;
+  letter-spacing: -0.09em;
+  text-transform: uppercase;
+}
+
+.works-list {
+  display: grid;
+  gap: clamp(2.2rem, 6vw, 3rem);
+}
+
+.work-card {
+  position: relative;
+  display: grid;
+  gap: 0.95rem;
+}
+
+.work-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(245, 245, 245, 0.54);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.work-meta p {
+  margin: 0;
+}
+
+.work-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10.2;
+  border: 1px solid rgba(245, 245, 245, 0.08);
+  background: #080808;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.34);
+}
+
+.work-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.28)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+}
+
+.work-preview {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.9) contrast(1.08) brightness(0.88);
+  transform: scale(1.02);
+  transition:
+    transform 300ms ease,
+    filter 300ms ease;
+}
+
+.work-card:hover .work-preview {
+  filter: saturate(0.98) contrast(1.08) brightness(0.94);
+  transform: scale(1.05);
+}
+
+.work-title-text {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Arial Black", "Helvetica Neue", sans-serif;
+  font-size: clamp(2.2rem, 9vw, 3.55rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+
+.works-toolbar {
+  pointer-events: auto;
+  width: min(18rem, calc(100vw - 2rem));
+  margin-right: 0;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: #f1ede5;
+  color: #fefdfd;
+  box-shadow: 0 16px 42px rgba(255, 255, 255, 0.42);
+}
+
+.works-toolbar-main {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.72rem 1rem 0.58rem;
+  font: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.works-toolbar-plus {
+  font-family: "Arial Black", "Helvetica Neue", sans-serif;
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: transform 220ms ease;
+}
+
+.works-toolbar.is-open .works-toolbar-plus {
+  transform: rotate(45deg);
+}
+
+.works-toolbar-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.38rem 1rem 0.52rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(18, 18, 18, 0.7);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.works-filter-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: 0.8rem 1rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.works-filter-chip {
+  border: 1px solid rgba(249, 248, 248, 0.18);
+  background: rgba(255, 255, 255, 0.45);
+  color: #121212;
+  padding: 0.52rem 0.6rem;
+  font: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.works-filter-chip:hover,
+.works-filter-chip.is-active {
+  border-color: #121212;
+  background: #121212;
+  color: #f1ede5;
+}
+
+.works-empty {
+  padding-top: 0.5rem;
+  color: rgba(245, 245, 245, 0.56);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.works-empty p {
+  margin: 0;
+}
+
+.video-parallax-section {
+  position: relative;
+  min-height: 225vh;
+}
+
+.video-parallax-section + .video-parallax-section {
+  margin-top: -100vh;
+}
+
+.video-sequence {
+  position: relative;
+}
+
+.video-stage {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.video-frame {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  will-change: transform, opacity;
+}
+
+.video-source {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.06) 38%, rgba(0, 0, 0, 0.44)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.video-meta {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--fg);
+  font-size: clamp(0.72rem, 0.9vw, 1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  mix-blend-mode: screen;
+}
+
+.video-meta p {
+  margin: 0;
+}
+
 .copy {
   position: relative;
   z-index: 2;
@@ -137,6 +409,10 @@ body::before {
     grid-template-columns: 1fr 1fr;
   }
 
+  .works-shell {
+    width: min(100%, 44rem);
+  }
+
   .copy-left {
     grid-column: 1;
   }
@@ -154,6 +430,32 @@ body::before {
 
   .word-mask {
     padding-inline: 1rem;
+  }
+
+  .works-section {
+    padding-inline: 1rem;
+  }
+
+  .works-toolbar {
+    width: min(14.75rem, calc(100vw - 2rem));
+  }
+
+  .works-toolbar-summary {
+    font-size: 0.58rem;
+  }
+
+  .video-stage {
+    padding: 0;
+  }
+
+  .video-frame {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .video-meta {
+    flex-direction: column;
+    justify-content: end;
   }
 
   .copy-right {

@@ -1,6 +1,43 @@
 import { useEffect, useRef } from "react";
+import videoOne from "../assets/video1.mov";
 import ShuffleText from "./components/ShuffleText.jsx";
 import WordMask from "./components/WordMask.jsx";
+import WorksSection from "./components/WorksSection.jsx";
+
+const workEntries = [
+  {
+    title: "KASY",
+    client: "MCDONALDS",
+    year: "2025",
+    category: "COMMERCIAL",
+    mediaSrc: videoOne,
+    objectPosition: "50% 42%",
+  },
+  {
+    title: "POLAR ROOM",
+    client: "GENERALI",
+    year: "2025",
+    category: "COMMERCIAL",
+    mediaSrc: videoOne,
+    objectPosition: "50% 52%",
+  },
+  {
+    title: "INDEX 04",
+    client: "LAB 04",
+    year: "2024",
+    category: "INSTALLATION",
+    mediaSrc: videoOne,
+    objectPosition: "50% 60%",
+  },
+  {
+    title: "SIGNAL",
+    client: "ARXIU",
+    year: "2024",
+    category: "EDITORIAL",
+    mediaSrc: videoOne,
+    objectPosition: "50% 48%",
+  },
+];
 
 export default function App() {
   const noiseRef = useRef(null);
@@ -85,6 +122,7 @@ export default function App() {
           />
         </div>
       </section>
+      <WorksSection works={workEntries} />
     </main>
   );
 }
