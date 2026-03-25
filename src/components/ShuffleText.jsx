@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createElement, useEffect, useRef, useState } from "react";
 
 const SHUFFLE_GLYPHS = "ART4#%+=:*R/TX3ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
@@ -26,20 +26,37 @@ function scrambleText(text, progress, seed) {
 }
 
 export default function ShuffleText({
+  as = "p",
   text,
   delay = 0,
   interval = 3200,
   duration = 850,
   className,
+  triggerOnView = false,
+  playOnce = false,
+  threshold = 0.35,
+  ...props
 }) {
-  const [displayText, setDisplayText] = useState(text);
+  const elementRef = useRef(null);
+  const startedRef = useRef(false);
+  const [displayText, setDisplayText] = useState(triggerOnView ? "" : text);
 
   useEffect(() => {
-    setDisplayText(text);
+    startedRef.current = false;
+    setDisplayText(triggerOnView ? "" : text);
 
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let timeoutId = 0;
     let frameId = 0;
+    let observer;
+
+    const complete = () => {
+      setDisplayText(text);
+
+      if (!triggerOnView && !playOnce) {
+        schedule(interval + Math.random() * 1800);
+      }
+    };
 
     const schedule = (wait) => {
       timeoutId = window.setTimeout(runShuffle, wait);
@@ -48,12 +65,15 @@ export default function ShuffleText({
     const runShuffle = () => {
       if (mediaQuery.matches) {
         setDisplayText(text);
-        schedule(interval + Math.random() * 1800);
+        if (!triggerOnView && !playOnce) {
+          schedule(interval + Math.random() * 1800);
+        }
         return;
       }
 
       const startTime = performance.now();
       const seed = Math.floor(Math.random() * 1000);
+      setDisplayText(scrambleText(text, 0, seed));
 
       const animate = (now) => {
         const progress = Math.min(1, (now - startTime) / duration);
@@ -64,30 +84,68 @@ export default function ShuffleText({
           return;
         }
 
-        setDisplayText(text);
-        schedule(interval + Math.random() * 1800);
+        complete();
       };
 
       frameId = window.requestAnimationFrame(animate);
     };
 
-    schedule(delay);
+    if (triggerOnView) {
+      const element = elementRef.current;
+      if (!element) {
+        return undefined;
+      }
+
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting || startedRef.current) {
+            return;
+          }
+
+          startedRef.current = true;
+          timeoutId = window.setTimeout(runShuffle, delay);
+
+          if (playOnce) {
+            observer.disconnect();
+          }
+        },
+        {
+          threshold,
+          rootMargin: "0px 0px -8% 0px",
+        },
+      );
+
+      observer.observe(element);
+    } else {
+      schedule(delay);
+    }
 
     const handleMotionChange = () => {
       window.clearTimeout(timeoutId);
       window.cancelAnimationFrame(frameId);
       setDisplayText(text);
-      schedule(delay);
+      if (!triggerOnView) {
+        schedule(delay);
+      }
     };
 
     mediaQuery.addEventListener("change", handleMotionChange);
 
     return () => {
+      observer?.disconnect();
       window.clearTimeout(timeoutId);
       window.cancelAnimationFrame(frameId);
       mediaQuery.removeEventListener("change", handleMotionChange);
     };
-  }, [delay, duration, interval, text]);
+  }, [delay, duration, interval, playOnce, text, threshold, triggerOnView]);
 
-  return <p className={className}>{displayText}</p>;
+  return createElement(
+    as,
+    {
+      ref: elementRef,
+      className,
+      ...props,
+    },
+    displayText,
+  );
 }

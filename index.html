@@ -17,6 +17,34 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- pages-fallback:start -->
+    <script>
+      (function () {
+        const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+        if (isLocalHost) {
+          return;
+        }
+
+        window.__PAGES_STATIC_BOOTSTRAP__ = true;
+
+        const stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = "./dist/assets/index.css";
+        document.head.appendChild(stylesheet);
+
+        const moduleScript = document.createElement("script");
+        moduleScript.type = "module";
+        moduleScript.src = "./dist/assets/index.js";
+        document.body.appendChild(moduleScript);
+      })();
+    </script>
+    <!-- pages-fallback:end -->
+    <!-- pages-dev-loader:start -->
+    <script type="module">
+      if (!window.__PAGES_STATIC_BOOTSTRAP__) {
+        import("/src/main.jsx");
+      }
+    </script>
+    <!-- pages-dev-loader:end -->
   </body>
   </html>
