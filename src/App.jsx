@@ -2,11 +2,11 @@ import { useMemo, useRef, useState } from "react";
 import { WORK_FILTERS, workEntries } from "./data/workEntries.js";
 import ArchiveIntroSection from "./components/ArchiveIntroSection.jsx";
 import HeroSection from "./components/HeroSection.jsx";
-import PixelCreationTransition from "./components/PixelCreationTransition.jsx";
 import ProjectsChrome from "./components/ProjectsChrome.jsx";
 import WorksSection from "./components/WorksSection.jsx";
 import useHorizontalScroll from "./hooks/useHorizontalScroll.js";
 import useNoiseLayer from "./hooks/useNoiseLayer.js";
+import PixelSectionTransition from "./components/PixelSectionTransition.jsx";
 
 export default function App() {
   const shellRef = useRef(null);
@@ -49,7 +49,6 @@ export default function App() {
       <div ref={viewportRef} className="horizontal-viewport">
         <div ref={noiseRef} className="noise-layer" aria-hidden="true" />
         <div className="scanline-layer" aria-hidden="true" />
-        <PixelCreationTransition />
 
         <ProjectsChrome
           activeFilter={activeFilter}
@@ -62,7 +61,9 @@ export default function App() {
 
         <div ref={trackRef} className="horizontal-track">
           <HeroSection />
+          <PixelSectionTransition />
           <ArchiveIntroSection />
+          <PixelSectionTransition />
           <WorksSection pages={projectPages} projectCount={visibleWorks.length} />
         </div>
       </div>
