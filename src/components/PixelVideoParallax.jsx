@@ -26,8 +26,14 @@ export default function PixelVideoParallax({
 
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let animationContext;
+    let visibilityObserver;
+    let isVisible = false;
 
     const ensurePlayback = () => {
+      if (!isVisible) {
+        return;
+      }
+
       video.play().catch(() => {});
     };
 
@@ -84,8 +90,26 @@ export default function PixelVideoParallax({
       ScrollTrigger.refresh();
     };
 
-    ensurePlayback();
     setupAnimation();
+
+    visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+
+        if (isVisible) {
+          ensurePlayback();
+          return;
+        }
+
+        video.pause();
+      },
+      {
+        threshold: 0.01,
+        rootMargin: "18% 0px",
+      },
+    );
+
+    visibilityObserver.observe(section);
 
     const handleLoadedData = () => {
       ensurePlayback();
@@ -101,6 +125,8 @@ export default function PixelVideoParallax({
 
     return () => {
       animationContext?.revert();
+      visibilityObserver?.disconnect();
+      video.pause();
       video.removeEventListener("loadeddata", handleLoadedData);
       mediaQuery.removeEventListener("change", handleMotionChange);
     };
@@ -118,7 +144,6 @@ export default function PixelVideoParallax({
             ref={videoRef}
             className="video-source"
             src={src}
-            autoPlay
             loop
             muted
             playsInline

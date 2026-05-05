@@ -101,6 +101,8 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     const pixelCanvas = document.createElement("canvas");
     const pixelContext = pixelCanvas.getContext("2d");
     let animationContext;
+    let visibilityObserver;
+    let isVisible = false;
 
     if (!canvasContext || !pixelContext) {
       return undefined;
@@ -110,10 +112,19 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     pixelContext.imageSmoothingEnabled = false;
 
     const ensurePlayback = () => {
+      if (!isVisible) {
+        return;
+      }
+
       video.play().catch(() => {});
     };
 
     const renderPixelFrame = () => {
+      if (!isVisible) {
+        frameRef.current = 0;
+        return;
+      }
+
       const rect = media.getBoundingClientRect();
       const width = Math.max(1, Math.round(rect.width));
       const height = Math.max(1, Math.round(rect.height));
@@ -173,6 +184,19 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       }
 
       frameRef.current = window.requestAnimationFrame(renderPixelFrame);
+    };
+
+    const startRenderLoop = () => {
+      if (!frameRef.current) {
+        frameRef.current = window.requestAnimationFrame(renderPixelFrame);
+      }
+    };
+
+    const stopRenderLoop = () => {
+      if (frameRef.current) {
+        window.cancelAnimationFrame(frameRef.current);
+        frameRef.current = 0;
+      }
     };
 
     const setupAnimation = () => {
@@ -354,9 +378,28 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       ScrollTrigger.refresh();
     };
 
-    ensurePlayback();
     setupAnimation();
-    frameRef.current = window.requestAnimationFrame(renderPixelFrame);
+
+    visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+
+        if (isVisible) {
+          ensurePlayback();
+          startRenderLoop();
+          return;
+        }
+
+        video.pause();
+        stopRenderLoop();
+      },
+      {
+        threshold: 0.01,
+        rootMargin: "18% 0px",
+      },
+    );
+
+    visibilityObserver.observe(media);
 
     const handleLoadedData = () => {
       ensurePlayback();
@@ -372,7 +415,9 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
 
     return () => {
       animationContext?.revert();
-      window.cancelAnimationFrame(frameRef.current);
+      visibilityObserver?.disconnect();
+      stopRenderLoop();
+      video.pause();
       video.removeEventListener("loadeddata", handleLoadedData);
       mediaQuery.removeEventListener("change", handleMotionChange);
     };
@@ -384,7 +429,6 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         ref={videoRef}
         className="work-preview"
         src={src}
-        autoPlay
         loop
         muted
         playsInline

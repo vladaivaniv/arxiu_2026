@@ -32,6 +32,9 @@ export default function WebcamAscii() {
     let lastTime = 0;
     let prevW = 0;
     let prevH = 0;
+    let isMounted = true;
+    let isVisible = false;
+    let isRequestingCamera = false;
 
     const sampleCanvas = document.createElement("canvas");
     const sampleCtx = sampleCanvas.getContext("2d", { willReadFrequently: true });
@@ -58,6 +61,11 @@ export default function WebcamAscii() {
     let prevRows = 0;
 
     const draw = (now) => {
+      if (!isVisible) {
+        frameId = 0;
+        return;
+      }
+
       frameId = requestAnimationFrame(draw);
 
       if (now - lastTime < FRAME_INTERVAL) return;
@@ -143,20 +151,83 @@ export default function WebcamAscii() {
       ctx.drawImage(bufferCanvas, 0, 0);
     };
 
-    frameId = requestAnimationFrame(draw);
+    const startDrawLoop = () => {
+      if (!frameId) {
+        lastTime = 0;
+        frameId = requestAnimationFrame(draw);
+      }
+    };
 
-    navigator.mediaDevices
-      .getUserMedia({ video: { facingMode: "user", width: 480, height: 360 }, audio: false })
-      .then((mediaStream) => {
-        stream = mediaStream;
-        video.srcObject = mediaStream;
-        video.play();
-      })
-      .catch(() => {});
+    const stopDrawLoop = () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+        frameId = 0;
+      }
+    };
+
+    const stopCamera = () => {
+      video.pause();
+      video.srcObject = null;
+
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+        stream = null;
+      }
+    };
+
+    const startCamera = () => {
+      if (stream || isRequestingCamera || !navigator.mediaDevices?.getUserMedia) {
+        return;
+      }
+
+      isRequestingCamera = true;
+
+      navigator.mediaDevices
+        .getUserMedia({ video: { facingMode: "user", width: 480, height: 360 }, audio: false })
+        .then((mediaStream) => {
+          isRequestingCamera = false;
+
+          if (!isMounted || !isVisible) {
+            mediaStream.getTracks().forEach((track) => track.stop());
+            return;
+          }
+
+          stream = mediaStream;
+          video.srcObject = mediaStream;
+          video.play().catch(() => {});
+        })
+        .catch(() => {
+          isRequestingCamera = false;
+        });
+    };
+
+    const observer = new IntersectionObserver(
+
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+
+        if (isVisible) {
+          startCamera();
+          startDrawLoop();
+          return;
+        }
+
+        stopDrawLoop();
+        stopCamera();
+      },
+      {
+        threshold: 0.81, // Allows to start the camera  bit later when the component is more visible, and stop it sooner when it's less visible. ( So no performance is impacted while scrolling fast, but the camera starts quickly enough when the user scrolls slowly or stops on the section. )
+        rootMargin: "12% 0px",
+      },
+    );
+
+    observer.observe(canvas);
 
     return () => {
-      cancelAnimationFrame(frameId);
-      if (stream) stream.getTracks().forEach((t) => t.stop());
+      isMounted = false;
+      observer.disconnect();
+      stopDrawLoop();
+      stopCamera();
     };
   }, []);
 
