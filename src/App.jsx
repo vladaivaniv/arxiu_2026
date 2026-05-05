@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import videoOne from "../assets/video1.mov";
 import ShuffleText from "./components/ShuffleText.jsx";
+import WebcamAscii from "./components/WebcamAscii.jsx";
 import WordMask from "./components/WordMask.jsx";
 import WorksSection from "./components/WorksSection.jsx";
 
@@ -93,6 +94,7 @@ export default function App() {
       <div className="scanline-layer" aria-hidden="true" />
 
       <section className="hero-section">
+        <WebcamAscii />
         <div className="word-mask">
           <WordMask text="art" letterSpacing={0.2} textScale={2.18} />
         </div>

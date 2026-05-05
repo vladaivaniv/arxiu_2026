@@ -17,15 +17,15 @@ function noise(x, y) {
 
 function toneColor(tone, alpha = 1) {
   if (tone === "bright") {
-    return `rgba(255, 255, 255, ${0.98 * alpha})`;
+    return `rgba(255, 42, 42, ${0.98 * alpha})`;
   }
 
   if (tone === "solid") {
-    return `rgba(245, 245, 245, ${0.86 * alpha})`;
+    return `rgba(255, 42, 42, ${0.86 * alpha})`;
   }
 
   if (tone === "ghost") {
-    return `rgba(255, 255, 255, ${0.24 * alpha})`;
+    return `rgba(255, 42, 42, ${0.24 * alpha})`;
   }
 
   return "transparent";
