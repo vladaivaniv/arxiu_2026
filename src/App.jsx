@@ -1,6 +1,8 @@
 import { useMemo, useRef, useState } from "react";
 import { WORK_FILTERS, workEntries } from "./data/workEntries.js";
+import ArchiveIntroSection from "./components/ArchiveIntroSection.jsx";
 import HeroSection from "./components/HeroSection.jsx";
+import PixelCreationTransition from "./components/PixelCreationTransition.jsx";
 import ProjectsChrome from "./components/ProjectsChrome.jsx";
 import WorksSection from "./components/WorksSection.jsx";
 import useHorizontalScroll from "./hooks/useHorizontalScroll.js";
@@ -23,28 +25,12 @@ export default function App() {
   }, [activeFilter]);
 
   const projectPages = useMemo(
-    () => [
-      {
-        id: "projectes-explanation",
-        type: "info",
-        kicker: "00 / CONTEXT",
-        title: "COM LLEGIR L'ARXIU",
-        body: [
-          "Cada pagina funciona com una entrada independent dins la seccio de projectes.",
-          "Pots afegir pagines explicatives, credits, processos o projectes nous canviant aquesta llista.",
-        ],
-        stats: [
-          { label: "CURSOS", value: "02" },
-          { label: "FORMATS", value: "VIDEO / TEXT / ARXIU" },
-          { label: "PROJECTES", value: visibleWorks.length.toString().padStart(2, "0") },
-        ],
-      },
-      ...visibleWorks.map((work) => ({
+    () =>
+      visibleWorks.map((work) => ({
         id: work.title,
         type: "project",
         work,
       })),
-    ],
     [visibleWorks],
   );
 
@@ -63,6 +49,7 @@ export default function App() {
       <div ref={viewportRef} className="horizontal-viewport">
         <div ref={noiseRef} className="noise-layer" aria-hidden="true" />
         <div className="scanline-layer" aria-hidden="true" />
+        <PixelCreationTransition />
 
         <ProjectsChrome
           activeFilter={activeFilter}
@@ -75,6 +62,7 @@ export default function App() {
 
         <div ref={trackRef} className="horizontal-track">
           <HeroSection />
+          <ArchiveIntroSection />
           <WorksSection pages={projectPages} projectCount={visibleWorks.length} />
         </div>
       </div>

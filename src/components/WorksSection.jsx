@@ -1,11 +1,6 @@
 import ProjectCard from "./ProjectCard.jsx";
-import ProjectInfoPage from "./ProjectInfoPage.jsx";
 
 function renderProjectPage(page, projectIndex) {
-  if (page.type === "info") {
-    return <ProjectInfoPage key={page.id} page={page} />;
-  }
-
   if (page.type === "project") {
     return (
       <ProjectCard

@@ -40,6 +40,7 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
 
           if (!distance || !worksSection) {
             viewport.classList.remove("is-projects-active");
+            viewport.style.setProperty("--hero-project-transition", "0");
             return;
           }
 
@@ -51,6 +52,19 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
           viewport.classList.toggle(
             "is-projects-active",
             scrollX >= start && scrollX <= end,
+          );
+
+          const transitionStart = worksSection.offsetLeft - viewport.clientWidth;
+          const transitionEnd = worksSection.offsetLeft;
+          const transitionRange = Math.max(1, transitionEnd - transitionStart);
+          const transitionProgress = Math.min(
+            1,
+            Math.max(0, (scrollX - transitionStart) / transitionRange),
+          );
+
+          viewport.style.setProperty(
+            "--hero-project-transition",
+            transitionProgress.toFixed(4),
           );
         };
 
@@ -88,6 +102,8 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
 
     return () => {
       animationContext?.revert();
+      viewport.classList.remove("is-projects-active");
+      viewport.style.removeProperty("--hero-project-transition");
       refreshScroll.kill();
       resizeObserver?.disconnect();
       mediaQuery.removeEventListener("change", handleMotionChange);
