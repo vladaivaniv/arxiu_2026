@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import ShuffleText from "./ShuffleText.jsx";
 
 const ARCHIVE_INTRO = {
-  title: "COM LLEGIR L'ARXIU",
+  title: "[ ARXIU_2026 ]",
   body: [
-    "UN ESPAI DIGITAL QUE REUNEIX ELS PROJECTES DESENVOLUPATS A LES",
-    "ASSIGNATURES D'ART I CULTURA DIGITAL I LABORATORI DE CREACIONS",
-    "ARTÍSTIQUES.",
-    "AQUÍ S'HI RECULL MATERIAL VISUAL, AUDIOVISUAL I INFORMACIÓ SOBRE CADA",
-    "PROPOSTA I ELS SEUS AUTORS.",
+    "Aquest espai reuneix els projectes creats durant el curs a les assignatures d’Art i",
+    "Cultura Digital i Laboratori de Creacions Artístiques. Un espai per descobrir",
+    "processos creatius, peces digitals i mirades artístiques del curs.",
+    "",
+    "Cada projecte inclou una breu explicació, materials visuals i informació sobre",
+    "l’autor o autora, mostrant diferents maneres d’explorar la creació digital.",
   ],
 };
 

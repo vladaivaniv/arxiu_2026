@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function useHorizontalScroll({ shellRef, viewportRef, trackRef }) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const shell = shellRef.current;
     const viewport = viewportRef.current;
     const track = trackRef.current;
@@ -17,6 +17,7 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let animationContext;
     let resizeObserver;
+    let fontsReadyFrame = 0;
     const refreshScroll = gsap.delayedCall(0.16, () => {
       ScrollTrigger.refresh();
     }).pause();
@@ -97,17 +98,33 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
       setupHorizontalScroll();
     };
 
+    const handleLoad = () => {
+      refreshScroll.restart(true);
+    };
+
+    const handleFontsReady = () => {
+      window.cancelAnimationFrame(fontsReadyFrame);
+      fontsReadyFrame = window.requestAnimationFrame(() => {
+        setupHorizontalScroll();
+      });
+    };
+
     mediaQuery.addEventListener("change", handleMotionChange);
-    window.addEventListener("load", ScrollTrigger.refresh);
+    window.addEventListener("load", handleLoad);
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(handleFontsReady).catch(() => {});
+    }
 
     return () => {
       animationContext?.revert();
+      window.cancelAnimationFrame(fontsReadyFrame);
       viewport.classList.remove("is-projects-active");
       viewport.style.removeProperty("--hero-project-transition");
       refreshScroll.kill();
       resizeObserver?.disconnect();
       mediaQuery.removeEventListener("change", handleMotionChange);
-      window.removeEventListener("load", ScrollTrigger.refresh);
+      window.removeEventListener("load", handleLoad);
     };
   }, [shellRef, viewportRef, trackRef]);
 }

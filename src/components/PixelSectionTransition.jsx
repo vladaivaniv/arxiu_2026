@@ -1,11 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 const CELL_SIZE = 18;
 const FRAME_INTERVAL = 1000 / 30;
 const DPR_LIMIT = 2;
 
 const BLACK = "#000000";
-const RED = "#ff2a2a";
+const RED = "#630000";
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -24,7 +25,7 @@ function hash(col, row, salt = 0) {
   return value - Math.floor(value);
 }
 
-function getBoundaryProgress(boundaryElement) {
+function getBoundaryMetrics(boundaryElement) {
   const rect = boundaryElement.getBoundingClientRect();
   const viewportWidth = window.innerWidth;
 
@@ -36,7 +37,10 @@ function getBoundaryProgress(boundaryElement) {
     Cuando la línea sale por el borde izquierdo => progress 1.
   */
 
-  return clamp((viewportWidth - rect.left) / viewportWidth, 0, 1);
+  return {
+    progress: clamp((viewportWidth - rect.left) / viewportWidth, 0, 1),
+    x: rect.left,
+  };
 }
 
 export default function PixelSectionTransition() {
@@ -44,6 +48,11 @@ export default function PixelSectionTransition() {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const lastFrameRef = useRef(0);
+  const [portalTarget, setPortalTarget] = useState(null);
+
+  useEffect(() => {
+    setPortalTarget(document.body);
+  }, []);
 
   useEffect(() => {
     const boundary = boundaryRef.current;
@@ -74,7 +83,7 @@ export default function PixelSectionTransition() {
       const width = window.innerWidth;
       const height = window.innerHeight;
 
-      const progress = getBoundaryProgress(boundary);
+      const { progress, x: boundaryX } = getBoundaryMetrics(boundary);
       const intensity = smoothstep(progress);
 
       ctx.clearRect(0, 0, width, height);
@@ -88,14 +97,13 @@ export default function PixelSectionTransition() {
       const cols = Math.ceil(width / CELL_SIZE);
       const rows = Math.ceil(height / CELL_SIZE);
 
-      const centerX = width / 2;
-
       /*
         Zona activa alrededor del punto donde se tocan las secciones.
         Cuanto más avanza el scroll, más ancho y más agresivo es el glitch.
       */
       const maxBandWidth = width * 0.75;
       const bandWidth = maxBandWidth * Math.sin(progress * Math.PI);
+      const bandCenterX = clamp(boundaryX, 0, width);
 
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
@@ -103,7 +111,7 @@ export default function PixelSectionTransition() {
           const y = row * CELL_SIZE;
 
           const cellCenterX = x + CELL_SIZE / 2;
-          const distanceFromCenter = Math.abs(cellCenterX - centerX);
+          const distanceFromCenter = Math.abs(cellCenterX - bandCenterX);
 
           const insideBand = distanceFromCenter < bandWidth / 2;
 
@@ -155,7 +163,7 @@ export default function PixelSectionTransition() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [portalTarget]);
 
   return (
     <div
@@ -163,7 +171,12 @@ export default function PixelSectionTransition() {
       className="pixel-section-boundary"
       aria-hidden="true"
     >
-      <canvas ref={canvasRef} className="pixel-section-canvas" />
+      {portalTarget
+        ? createPortal(
+            <canvas ref={canvasRef} className="pixel-section-canvas" />,
+            portalTarget,
+          )
+        : null}
     </div>
   );
 }

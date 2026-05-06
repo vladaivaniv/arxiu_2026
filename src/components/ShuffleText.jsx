@@ -32,6 +32,8 @@ export default function ShuffleText({
   interval = 3200,
   duration = 850,
   className,
+  color,
+  style,
   triggerOnView = false,
   playOnce = false,
   threshold = 0.35,
@@ -144,6 +146,10 @@ export default function ShuffleText({
     {
       ref: elementRef,
       className,
+      style: {
+        ...style,
+        ...(color ? { color } : null),
+      },
       ...props,
     },
     displayText,

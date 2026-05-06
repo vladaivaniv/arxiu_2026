@@ -2,7 +2,8 @@
   color-scheme: dark;
   --bg: #000000;
   --fg: #f5f5f5;
-  --accent: #ff2a2a;
+  --accent: #630000;
+  --red-hero: #FF0000;
   --grid-dot: rgb(10, 10, 10);
   --grid-shadow: rgba(10, 10, 10, 0.035);
 }
@@ -89,14 +90,14 @@ body::before {
   width: 0;
   height: 100vh;
   min-height: 100vh;
-  z-index: 18;
+  z-index: 0;
   pointer-events: none;
 }
 
 .pixel-section-canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: -50vw;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: block;
@@ -181,6 +182,23 @@ body::before {
   z-index: 3;
 }
 
+.hero-logo {
+  position: absolute;
+  top: clamp(0.25rem, 1vw, 0.75rem);
+  left: 50%;
+  z-index: 10;
+  width: min(8vw, 18rem);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-logo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .word-mask {
   position: absolute;
   inset: 0;
@@ -214,12 +232,23 @@ body::before {
   contain: strict;
 }
 
+@media (max-width: 720px) {
+  .hero-logo {
+    top: 0.35rem;
+    width: min(44vw, 12rem);
+  }
+}
+
 .archive-intro-section {
   position: relative;
   overflow: hidden;
   isolation: isolate;
   z-index: 3;
 }
+
+.archive-intro-title {
+  color: var(--red-hero);
+} 
 
 .archive-intro-loader {
   position: absolute;
@@ -264,8 +293,8 @@ body::before {
   display: grid;
   gap: 0.08rem;
   max-width: min(42rem, 100%);
-  color: #000000;
-  font-size: clamp(1rem, 1vw, 1.15rem);
+  color: #ffffff;
+  font-size: clamp(1rem, 1vw, 2.15rem);
   line-height: 1.05;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -741,7 +770,7 @@ body::before {
   position: relative;
   z-index: 8;
   max-width: 36rem;
-  color: var(--accent);
+  color: var(--red-hero);
   font-size: clamp(0.78rem, 1vw, 1.15rem);
   line-height: 1.05;
   letter-spacing: 0.06em;
@@ -761,6 +790,28 @@ body::before {
   justify-self: end;
   align-self: end;
   text-align: left;
+}
+
+.hero-scroll-callout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.45rem;
+}
+
+.hero-scroll-label,
+.hero-scroll-copy {
+  display: inline-block;
+}
+
+.hero-scroll-label {
+  opacity: 0.72;
+}
+
+.hero-scroll-copy {
+  max-width: 22rem;
+  line-height: 1.15;
 }
 
 @keyframes archive-loader-drift {
@@ -888,6 +939,14 @@ body::before {
 
   .copy-right {
     justify-self: start;
+  }
+
+  .hero-scroll-callout {
+    gap: 0.35rem;
+  }
+
+  .hero-scroll-copy {
+    max-width: 16rem;
   }
 }
 
