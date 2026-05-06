@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import AsciiBackground from "./AsciiBackground.jsx";
 import ShuffleText from "./ShuffleText.jsx";
+import WordMask from "./WordMask.jsx";
 
 const ARCHIVE_INTRO = {
-  title: "[ ARXIU_2026 ]",
+  title: "[2026]",
   body: [
     "Aquest espai reuneix els projectes creats durant el curs a les assignatures d’Art i",
     "Cultura Digital i Laboratori de Creacions Artístiques. Un espai per descobrir",
@@ -10,6 +12,10 @@ const ARCHIVE_INTRO = {
     "",
     "Cada projecte inclou una breu explicació, materials visuals i informació sobre",
     "l’autor o autora, mostrant diferents maneres d’explorar la creació digital.",
+  ],
+  stats: [
+    { label: "Projectes", value: "10" },
+    { label: "Autors", value: "20" },
   ],
 };
 
@@ -49,9 +55,8 @@ export default function ArchiveIntroSection() {
       className={`project-info-page archive-intro-section horizontal-panel ${sectionStateClass}`}
       aria-labelledby="archive-intro-title"
     >
-      <h2 id="archive-intro-title" className="sr-only">
-        {ARCHIVE_INTRO.title}
-      </h2>
+
+      <AsciiBackground color="#000000" opacity={0.18} />
 
       {!isLoaded && (
         <div className="archive-intro-loader" aria-hidden="true">
@@ -61,19 +66,38 @@ export default function ArchiveIntroSection() {
         </div>
       )}
 
-      <div className="project-info-body">
-        {ARCHIVE_INTRO.body.map((line, index) => (
-          <ShuffleText
-            key={`archive-line-${index}`}
-            text={line}
-            delay={index * 170}
-            duration={780}
-            interval={3400 + index * 180}
-            triggerOnView
-            playOnce
-            aria-label={line}
-          />
-        ))}
+      <div className="archive-intro-layout">
+        <div className="project-info-body archive-intro-copy">
+          {ARCHIVE_INTRO.body.map((line, index) => (
+            <ShuffleText
+              key={`archive-line-${index}`}
+              text={line}
+              delay={index * 100}
+              duration={200}
+              interval={200 + index * 180}
+              aria-label={line}
+            />
+          ))}
+        </div>
+
+        <div className="archive-intro-stats" aria-label="Dades de l'arxiu">
+          {ARCHIVE_INTRO.stats.map((stat, index) => (
+            <div key={stat.label} className="archive-intro-stat">
+              <ShuffleText
+                text={`${stat.label}: ${stat.value}`}
+                delay={index * 180}
+                duration={780}
+                interval={1000 + index * 220}
+                aria-label={`${stat.label}: ${stat.value}`}
+              />
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <div className="archive-intro-footer" aria-hidden="true">
+        <ShuffleText text="[ ARXIU_2026 ]" interval={3000} duration={600} />
       </div>
     </article>
   );
