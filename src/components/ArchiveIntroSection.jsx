@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AsciiBackground from "./AsciiBackground.jsx";
 import ShuffleText from "./ShuffleText.jsx";
 import WordMask from "./WordMask.jsx";
@@ -32,6 +32,8 @@ const ASCII_LOADER_LINES = [
 
 export default function ArchiveIntroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const sectionRef = useRef(null);
+  const mouseRef = useRef({ x: -999, y: -999 });
 
   useEffect(() => {
     const markAsLoaded = () => setIsLoaded(true);
@@ -50,13 +52,26 @@ export default function ArchiveIntroSection() {
 
   const sectionStateClass = isLoaded ? "is-loaded" : "is-loading";
 
+  const handlePointerMove = (e) => {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  };
+
+  const handlePointerLeave = () => {
+    mouseRef.current = { x: -999, y: -999 };
+  };
+
   return (
     <article
+      ref={sectionRef}
       className={`project-info-page archive-intro-section horizontal-panel ${sectionStateClass}`}
       aria-labelledby="archive-intro-title"
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
     >
 
-      <AsciiBackground color="#000000" opacity={0.18} />
+      <AsciiBackground color="#000000" opacity={0.18} pointerRef={mouseRef} />
 
       {!isLoaded && (
         <div className="archive-intro-loader" aria-hidden="true">
