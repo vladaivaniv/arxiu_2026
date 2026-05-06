@@ -350,6 +350,16 @@ export default function WordMask({
       normalizedColumns,
       normalizedRows,
     );
+
+    // pre-compute random scatter targets for each interactive cell
+    cells.forEach((row) => {
+      row.forEach((cell) => {
+        if (cell.interactive) {
+          cell.scatterX = (Math.random() * 2 - 1) * 5;
+          cell.scatterY = (Math.random() * 2 - 1) * 5;
+        }
+      });
+    });
     const tonePalette = {
       ...DEFAULT_COLORS,
       ...colors,
@@ -361,6 +371,11 @@ export default function WordMask({
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frameId = 0;
+
+    // per-cell displacement grid — decays toward 0 each frame
+    let disp = Array.from({ length: normalizedRows }, () =>
+      Array.from({ length: normalizedColumns }, () => ({ ox: 0, oy: 0 }))
+    );
 
     const draw = (time = 0) => {
       const rect = canvas.getBoundingClientRect();
@@ -386,25 +401,42 @@ export default function WordMask({
       context.textBaseline = "middle";
 
       const pointer = pointerRef.current;
-      const prevX = pointer.x;
-      const prevY = pointer.y;
+      // velocity from raw mouse position (no smoothing lag)
+      const rawVx = pointer.targetX - (pointer.prevTargetX ?? pointer.targetX);
+      const rawVy = pointer.targetY - (pointer.prevTargetY ?? pointer.targetY);
+      pointer.prevTargetX = pointer.targetX;
+      pointer.prevTargetY = pointer.targetY;
       pointer.x += (pointer.targetX - pointer.x) * 0.18;
       pointer.y += (pointer.targetY - pointer.y) * 0.18;
-      // smooth velocity in cell units
-      const rawVx = (pointer.x - prevX);
-      const rawVy = (pointer.y - prevY);
-      pointer.vx += (rawVx - pointer.vx) * 0.22;
-      pointer.vy += (rawVy - pointer.vy) * 0.22;
       pointer.energy = pointer.active
-        ? Math.min(1, pointer.energy + 0.12)
-        : Math.max(0, pointer.energy - 0.08);
+        ? Math.min(1, pointer.energy + 0.06)
+        : Math.max(0, pointer.energy - 0.035);
 
-      const speed = Math.hypot(pointer.vx, pointer.vy);
-      const normVx = speed > 0.001 ? pointer.vx / speed : 0;
-      const normVy = speed > 0.001 ? pointer.vy / speed : 0;
-      const smearLen = Math.min(speed * 28, 38);
-      const hoverRadius = 18;
-      const SMEAR_STEPS = 5;
+      const speed = Math.hypot(rawVx, rawVy);
+      const wakeRadius = 4;
+
+      // convert raw mouse position to actual grid coordinates (accounts for offsetY)
+      const mousePixelY = (pointer.targetY / normalizedRows) * height;
+      const mouseGridY = (mousePixelY - offsetY) / cellHeight;
+      const mouseGridX = pointer.targetX;
+
+      // apply velocity push to cells near cursor when moving fast
+      if (speed > 0.15) {
+        for (let row = 0; row < normalizedRows; row += 1) {
+          for (let column = 0; column < normalizedColumns; column += 1) {
+            if (!cells[row][column].interactive) continue;
+            const dx = column + 0.5 - mouseGridX;
+            const dy = row + 0.5 - mouseGridY;
+            const dist = Math.hypot(dx * 0.95, dy * 1.1);
+            if (dist > wakeRadius) continue;
+            const falloff = Math.pow(1 - dist / wakeRadius, 2);
+            const push = falloff * speed * 8;
+            const d = Math.max(dist, 0.001);
+            disp[row][column].ox += (dx / d) * push;
+            disp[row][column].oy += (dy / d) * push;
+          }
+        }
+      }
 
       for (let row = 0; row < normalizedRows; row += 1) {
         for (let column = 0; column < normalizedColumns; column += 1) {
@@ -413,50 +445,28 @@ export default function WordMask({
             continue;
           }
 
-          const dx = column + 0.5 - pointer.x;
-          const dy = row + 0.5 - pointer.y;
-          const distance = Math.hypot(dx * 0.95, dy * 1.2);
-          const hoverStrength = cell.interactive
-            ? Math.max(0, 1 - distance / hoverRadius) * pointer.energy
-            : 0;
+          // decay displacement slowly — "tornen lents"
+          disp[row][column].ox *= 0.75;
+          disp[row][column].oy *= 0.75;
+
+          const baseX = (column + 0.5) * cellWidth;
+          const baseY = offsetY + (row + 0.5) * cellHeight;
+          const drawX = baseX + disp[row][column].ox * cellWidth;
+          const drawY = baseY + disp[row][column].oy * cellHeight;
+
           const flicker = noise(column + time * 0.002, row + time * 0.0015);
           const baseAlpha = cell.tone === "ghost"
             ? 0.45 + flicker * 0.7
             : 0.84 + flicker * 0.18;
 
-          const baseX = (column + 0.5) * cellWidth;
-          const baseY = offsetY + (row + 0.5) * cellHeight;
-
-          // push the character forward in velocity direction
-          const pushX = baseX + normVx * hoverStrength * smearLen * cellWidth;
-          const pushY = baseY + normVy * hoverStrength * smearLen * cellHeight;
-
-          const alpha = Math.max(
-            0.08,
-            baseAlpha * (cell.interactive ? 1 - hoverStrength * 0.55 : 1),
-          );
           const char = cell.char === "."
             ? "."
-            : hoverStrength > 0.04
-              ? animatedGlyph(column + 7, row + 3, time * 1.35, glyphs)
-              : animatedGlyph(column, row, time, glyphs);
+            : animatedGlyph(column, row, time, glyphs);
 
+          const alpha = Math.max(0.08, baseAlpha);
           context.fillStyle = toneColor(cell.tone, tonePalette);
-
-          // smear trail — ghost copies fading back along drag direction
-          if (hoverStrength > 0.05 && smearLen > 0.5) {
-            for (let s = 1; s <= SMEAR_STEPS; s += 1) {
-              const t = s / SMEAR_STEPS;
-              const ghostX = pushX - normVx * t * smearLen * cellWidth;
-              const ghostY = pushY - normVy * t * smearLen * cellHeight;
-              const ghostAlpha = hoverStrength * (1 - t) * 0.45;
-              context.globalAlpha = toneOpacity(cell.tone, ghostAlpha);
-              context.fillText(char, ghostX, ghostY);
-            }
-          }
-
-          context.globalAlpha = toneOpacity(cell.tone, alpha);
-          context.fillText(char, pushX, pushY);
+          context.globalAlpha = toneOpacity(cell.tone, Math.min(1, alpha));
+          context.fillText(char, drawX, drawY);
         }
       }
 

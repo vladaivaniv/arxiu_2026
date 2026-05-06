@@ -11,7 +11,7 @@ export default function HeroSection() {
 
       <WebcamAscii />
       <div className="word-mask">
-        <WordMask text="art" letterSpacing={0.2} textScale={2.18} />
+        <WordMask text="art" letterSpacing={0} textScale={2.18} />
       </div>
 
       <div className="copy copy-left">
