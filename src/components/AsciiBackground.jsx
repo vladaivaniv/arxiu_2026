@@ -2,7 +2,10 @@ import { useEffect, useRef } from "react";
 
 const GLYPHS = "ART4#%+=:*R/TX3ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()[]{}/\\|<>";
 const CELL_SIZE = 14;
-const FPS = 12;
+const FPS = 30;
+const TRAIL_LENGTH = 28;
+const HEAT_RADIUS = 60;
+const COOL_RATE = 0.018;
 
 function randomGlyph(seed) {
   return GLYPHS[Math.abs(seed) % GLYPHS.length];
@@ -22,6 +25,8 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
     let frameId = 0;
     let lastTime = 0;
     let grid = [];
+    // heat grid — each cell stores a 0..1 heat value
+    let heat = [];
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -41,9 +46,18 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
           speed: 0.5 + Math.random() * 1.5,
         }))
       );
+
+      heat = Array.from({ length: rows }, () => new Float32Array(cols));
     };
 
-    const HOVER_RADIUS = 80;
+    // circular buffer of recent cursor positions
+    const trail = Array.from({ length: TRAIL_LENGTH }, () => ({ x: -999, y: -999, t: 0 }));
+    let trailHead = 0;
+
+    const addTrailPoint = (x, y, t) => {
+      trail[trailHead] = { x, y, t };
+      trailHead = (trailHead + 1) % TRAIL_LENGTH;
+    };
 
     const draw = (time) => {
       const w = canvas.offsetWidth;
@@ -57,25 +71,50 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
 
       const cols = grid[0]?.length ?? 0;
       const rows = grid.length;
+
+      // add heat from cursor trail
       const mx = pointerRef?.current?.x ?? -999;
       const my = pointerRef?.current?.y ?? -999;
+      if (mx > 0) addTrailPoint(mx, my, time);
 
+      // update heat grid
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const cx = c * CELL_SIZE + CELL_SIZE / 2;
+          const cy = r * CELL_SIZE + CELL_SIZE / 2;
+
+          let maxHeat = 0;
+          for (let i = 0; i < TRAIL_LENGTH; i++) {
+            const p = trail[i];
+            if (p.x < 0) continue;
+            const age = (time - p.t) / 1000;
+            const decay = Math.max(0, 1 - age * 1.4);
+            const dist = Math.hypot(cx - p.x, cy - p.y);
+            const proximity = Math.max(0, 1 - dist / HEAT_RADIUS);
+            maxHeat = Math.max(maxHeat, proximity * decay);
+          }
+
+          // heat approaches maxHeat quickly, cools slowly
+          const current = heat[r][c];
+          heat[r][c] = maxHeat > current
+            ? maxHeat
+            : Math.max(0, current - COOL_RATE);
+        }
+      }
+
+      // draw cells
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const cell = grid[r][c];
-          const cx = c * CELL_SIZE + CELL_SIZE / 2;
-          const cy = r * CELL_SIZE + CELL_SIZE / 2;
-          const dist = Math.hypot(cx - mx, cy - my);
-          const hover = Math.max(0, 1 - dist / HOVER_RADIUS);
+          const h = heat[r][c];
 
           if (time >= cell.shuffleAt) {
-            const shuffleSpeed = 1 + hover * 12;
-            cell.char = randomGlyph(Math.floor(time * cell.speed * shuffleSpeed) + r * 97 + c * 31);
-            cell.shuffleAt = time + (hover > 0.1 ? 30 + Math.random() * 60 : 80 + Math.random() * 400);
+            cell.char = randomGlyph(Math.floor(time * cell.speed * (1 + h * 14)) + r * 97 + c * 31);
+            cell.shuffleAt = time + (h > 0.05 ? 20 + Math.random() * 50 : 80 + Math.random() * 400);
           }
 
-          ctx.globalAlpha = opacity + hover * (1 - opacity) * 0.9;
-          ctx.fillText(cell.char, cx, cy);
+          ctx.globalAlpha = opacity + h * 0.88;
+          ctx.fillText(cell.char, c * CELL_SIZE + CELL_SIZE / 2, r * CELL_SIZE + CELL_SIZE / 2);
         }
       }
 

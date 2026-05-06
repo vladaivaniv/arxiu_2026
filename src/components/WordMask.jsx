@@ -331,6 +331,8 @@ export default function WordMask({
     y: normalizedRows / 2,
     targetX: normalizedColumns / 2,
     targetY: normalizedRows / 2,
+    vx: 0,
+    vy: 0,
   });
 
   useEffect(() => {
@@ -384,12 +386,25 @@ export default function WordMask({
       context.textBaseline = "middle";
 
       const pointer = pointerRef.current;
-      pointer.x += (pointer.targetX - pointer.x) * 0.24;
-      pointer.y += (pointer.targetY - pointer.y) * 0.24;
+      const prevX = pointer.x;
+      const prevY = pointer.y;
+      pointer.x += (pointer.targetX - pointer.x) * 0.18;
+      pointer.y += (pointer.targetY - pointer.y) * 0.18;
+      // smooth velocity in cell units
+      const rawVx = (pointer.x - prevX);
+      const rawVy = (pointer.y - prevY);
+      pointer.vx += (rawVx - pointer.vx) * 0.22;
+      pointer.vy += (rawVy - pointer.vy) * 0.22;
       pointer.energy = pointer.active
         ? Math.min(1, pointer.energy + 0.12)
         : Math.max(0, pointer.energy - 0.08);
+
+      const speed = Math.hypot(pointer.vx, pointer.vy);
+      const normVx = speed > 0.001 ? pointer.vx / speed : 0;
+      const normVy = speed > 0.001 ? pointer.vy / speed : 0;
+      const smearLen = Math.min(speed * 28, 38);
       const hoverRadius = 18;
+      const SMEAR_STEPS = 5;
 
       for (let row = 0; row < normalizedRows; row += 1) {
         for (let column = 0; column < normalizedColumns; column += 1) {
@@ -408,14 +423,17 @@ export default function WordMask({
           const baseAlpha = cell.tone === "ghost"
             ? 0.45 + flicker * 0.7
             : 0.84 + flicker * 0.18;
-          const distortionNoise = noise(column * 1.7 + time * 0.003, row * 2.1 + 17);
-          const angle = noise(column * 0.73 + 5, row * 0.61 + 11) * Math.PI * 2;
-          const drift = hoverStrength * (12 + distortionNoise * 32);
-          const drawX = (column + 0.5) * cellWidth + Math.cos(angle) * drift;
-          const drawY = offsetY + (row + 0.5) * cellHeight + Math.sin(angle) * drift;
+
+          const baseX = (column + 0.5) * cellWidth;
+          const baseY = offsetY + (row + 0.5) * cellHeight;
+
+          // push the character forward in velocity direction
+          const pushX = baseX + normVx * hoverStrength * smearLen * cellWidth;
+          const pushY = baseY + normVy * hoverStrength * smearLen * cellHeight;
+
           const alpha = Math.max(
             0.08,
-            baseAlpha * (cell.interactive ? 1 - hoverStrength * 0.62 : 1),
+            baseAlpha * (cell.interactive ? 1 - hoverStrength * 0.55 : 1),
           );
           const char = cell.char === "."
             ? "."
@@ -424,8 +442,21 @@ export default function WordMask({
               : animatedGlyph(column, row, time, glyphs);
 
           context.fillStyle = toneColor(cell.tone, tonePalette);
+
+          // smear trail — ghost copies fading back along drag direction
+          if (hoverStrength > 0.05 && smearLen > 0.5) {
+            for (let s = 1; s <= SMEAR_STEPS; s += 1) {
+              const t = s / SMEAR_STEPS;
+              const ghostX = pushX - normVx * t * smearLen * cellWidth;
+              const ghostY = pushY - normVy * t * smearLen * cellHeight;
+              const ghostAlpha = hoverStrength * (1 - t) * 0.45;
+              context.globalAlpha = toneOpacity(cell.tone, ghostAlpha);
+              context.fillText(char, ghostX, ghostY);
+            }
+          }
+
           context.globalAlpha = toneOpacity(cell.tone, alpha);
-          context.fillText(char, drawX, drawY);
+          context.fillText(char, pushX, pushY);
         }
       }
 
@@ -468,6 +499,8 @@ export default function WordMask({
 
     const handlePointerLeave = () => {
       pointerRef.current.active = false;
+      pointerRef.current.vx = 0;
+      pointerRef.current.vy = 0;
     };
 
     canvas.addEventListener("pointermove", handlePointerMove);
