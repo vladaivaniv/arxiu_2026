@@ -104,8 +104,7 @@ export default function WebcamAscii() {
       }
 
       bufferCtx.setTransform(1, 0, 0, 1, 0, 0);
-      bufferCtx.fillStyle = "#000";
-      bufferCtx.fillRect(0, 0, w, h);
+      bufferCtx.clearRect(0, 0, w, h);
 
       const fontSize = CELL_SIZE * 0.92;
       bufferCtx.font = `${fontSize}px "Space Mono",monospace`;
@@ -223,11 +222,39 @@ export default function WebcamAscii() {
 
     observer.observe(canvas);
 
+    // Mouse parallax
+    let mouseTargetX = 0, mouseTargetY = 0;
+    let mouseSmoothX = 0, mouseSmoothY = 0;
+    let parallaxId = 0;
+
+    const section = canvas.closest(".hero-section") || canvas.parentElement;
+
+    const onMouseMove = (e) => {
+      const rect = section.getBoundingClientRect();
+      mouseTargetX = ((e.clientX - rect.left) / rect.width - 0.5) * 32;
+      mouseTargetY = ((e.clientY - rect.top) / rect.height - 0.5) * 22;
+    };
+    const onMouseLeave = () => { mouseTargetX = 0; mouseTargetY = 0; };
+
+    const tickParallax = () => {
+      parallaxId = requestAnimationFrame(tickParallax);
+      mouseSmoothX += (mouseTargetX - mouseSmoothX) * 0.06;
+      mouseSmoothY += (mouseTargetY - mouseSmoothY) * 0.06;
+      canvas.style.transform = `translate(${mouseSmoothX.toFixed(2)}px, ${mouseSmoothY.toFixed(2)}px)`;
+    };
+
+    section.addEventListener("mousemove", onMouseMove);
+    section.addEventListener("mouseleave", onMouseLeave);
+    parallaxId = requestAnimationFrame(tickParallax);
+
     return () => {
       isMounted = false;
       observer.disconnect();
       stopDrawLoop();
       stopCamera();
+      cancelAnimationFrame(parallaxId);
+      section.removeEventListener("mousemove", onMouseMove);
+      section.removeEventListener("mouseleave", onMouseLeave);
     };
   }, []);
 

@@ -3,7 +3,7 @@ import videoOne from "../../assets/video1.mov";
 export const workEntries = [
   {
     title: "KASY",
-    client: "MCDONALDS",
+    authors: ["AUTOR_01", "AUTOR_02"],
     year: "2025",
     category: "COMMERCIAL",
     program: "ART I CULTURA DIGITAL",
@@ -13,7 +13,7 @@ export const workEntries = [
   },
   {
     title: "POLAR ROOM",
-    client: "GENERALI",
+    authors: ["AUTOR_03"],
     year: "2025",
     category: "COMMERCIAL",
     program: "ART I CULTURA DIGITAL",
@@ -23,7 +23,7 @@ export const workEntries = [
   },
   {
     title: "INDEX 04",
-    client: "LAB 04",
+    authors: ["AUTOR_04", "AUTOR_05"],
     year: "2024",
     category: "INSTALLATION",
     program: "LABORATORI DE CREACIONS ARTISTIQUES",
@@ -33,7 +33,7 @@ export const workEntries = [
   },
   {
     title: "SIGNAL",
-    client: "ARXIU",
+    authors: ["AUTOR_06"],
     year: "2024",
     category: "EDITORIAL",
     program: "LABORATORI DE CREACIONS ARTISTIQUES",
@@ -47,3 +47,14 @@ export const WORK_FILTERS = [
   "ART I CULTURA DIGITAL",
   "LABORATORI DE CREACIONS ARTISTIQUES",
 ];
+
+export const PROGRAM_SEPARATORS = {
+  "ART I CULTURA DIGITAL": {
+    titleLines: ["PROJECTES", "TREPAT"],
+    subtitle: "Assignatura ART i Cultura Digital"
+  },
+  "LABORATORI DE CREACIONS ARTISTIQUES": {
+    titleLines: ["LABORATORI", "CREACIONS", "ARTÍSTIQUES"],
+    subtitle: "Assignatura Laboratori de Creacions Artístiques"
+  },
+};

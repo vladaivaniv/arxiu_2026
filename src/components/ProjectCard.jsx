@@ -2,11 +2,9 @@ import ScrollGlitchMedia from "./ScrollGlitchMedia.jsx";
 import ScrollTypeText from "./ScrollTypeText.jsx";
 import ShuffleText from "./ShuffleText.jsx";
 
-const ASCII_BARS = ["████░░░░░░", "██████░░░░", "███░░░░░░░", "█████████░", "███████░░░"];
-
 export default function ProjectCard({ work, index }) {
   const seqPadded = String(index + 1).padStart(3, "0");
-  const bar = ASCII_BARS[index % ASCII_BARS.length];
+  const progAcronym = work.program.split(" ").map(w => w[0]).join("");
 
   return (
     <article className="work-card horizontal-panel">
@@ -46,45 +44,37 @@ export default function ProjectCard({ work, index }) {
           />
         </div>
 
+        <div className="work-authors">
+          <span className="work-authors-label" aria-hidden="true">[ AUTORS ]</span>
+          <div className="work-authors-list">
+            {work.authors.map((author, i) => (
+              <ShuffleText
+                key={author}
+                as="span"
+                className="work-author-name"
+                text={`@${author}`}
+                delay={index * 90 + i * 100 + 200}
+                duration={580}
+                interval={4200 + i * 300}
+                triggerOnView
+                playOnce
+                threshold={0.3}
+              />
+            ))}
+          </div>
+        </div>
+
         <p className="work-description">
           <span className="work-desc-prefix" aria-hidden="true">/*</span>
           {" "}{work.description}{" "}
           <span className="work-desc-prefix" aria-hidden="true">*/</span>
         </p>
 
-        <div className="work-meta">
-          <ShuffleText
-            text={`:: ${work.client} / ${work.year}`}
-            as="p"
-            className="work-meta-text"
-            delay={index * 90}
-            duration={720}
-            triggerOnView
-            playOnce
-            threshold={0.35}
-          />
-          <ShuffleText
-            text={`:: ${work.category}`}
-            as="p"
-            className="work-meta-text"
-            delay={index * 90 + 80}
-            duration={720}
-            triggerOnView
-            playOnce
-            threshold={0.35}
-          />
-        </div>
-
-        <div className="work-ascii-bar" aria-hidden="true">
-          <span className="work-ascii-bar-fill">{bar}</span>
-          <span className="work-ascii-bar-label">{`${(index + 1) * 10 + 30}%`}</span>
-        </div>
-
         <div className="work-ascii-footer" aria-hidden="true">
           <ShuffleText
             as="span"
             className="work-ascii-footer-line"
-            text={`PROG.${work.program.split(" ").map(w => w[0]).join("")} / IDX_${seqPadded} / ${work.year}`}
+            text={`PROG.${progAcronym} / IDX_${seqPadded} / ${work.year}`}
             delay={index * 100 + 300}
             duration={600}
             interval={5000}
@@ -94,24 +84,11 @@ export default function ProjectCard({ work, index }) {
       </div>
 
       <div className="work-media-wrap">
-        <div className="work-media-ascii-top" aria-hidden="true">
-          <span>{`+--[ ${work.title} ]`}</span>
-          <span>{"--+"}</span>
-        </div>
         <ScrollGlitchMedia
           src={work.mediaSrc}
           objectPosition={work.objectPosition}
           title={work.title}
         />
-        <div className="work-media-ascii-bottom" aria-hidden="true">
-          <ShuffleText
-            as="span"
-            text={`>> SRC:${work.mediaSrc ? "LOADED" : "NULL"} / FORMAT:MOV / RES:HD`}
-            delay={index * 100 + 400}
-            duration={500}
-            interval={6000}
-          />
-        </div>
       </div>
 
     </article>

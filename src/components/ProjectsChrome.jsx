@@ -18,7 +18,7 @@ export default function ProjectsChrome({
         <ShuffleText
           as="h2"
           id="works-title"
-          text="PROJECTES"
+          text="[PROJECTES"
           className="works-title"
           delay={180}
           interval={4200}

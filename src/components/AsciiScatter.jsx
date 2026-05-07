@@ -16,8 +16,12 @@ function cornerPos() {
   return              { x: rand(78, 100),  y: rand(72, 100), size: 7 };
 }
 
-function makeChar() {
-  const pos = cornerPos();
+function fullPos() {
+  return { x: rand(2, 98), y: rand(2, 98), size: rand(7, 11) };
+}
+
+function makeChar(spread) {
+  const pos = spread ? fullPos() : cornerPos();
   return {
     glyph: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
     hx: pos.x, hy: pos.y,   // home position (%)
@@ -33,9 +37,9 @@ function makeChar() {
   };
 }
 
-export default function AsciiScatter() {
+export default function AsciiScatter({ fullSpread = false, count = COUNT, maxOpacity }) {
   const containerRef = useRef(null);
-  const charsRef = useRef(Array.from({ length: COUNT }, makeChar));
+  const charsRef = useRef(Array.from({ length: count }, () => makeChar(fullSpread)));
   const rafRef = useRef(null);
   const lastRef = useRef(0);
   const mouseRef = useRef({ x: -9999, y: -9999 });
@@ -126,6 +130,7 @@ export default function AsciiScatter() {
           ch.nextFlip = rand(600, 5000);
         }
 
+        if (maxOpacity !== undefined && ch.targetOpacity > maxOpacity) ch.targetOpacity = maxOpacity;
         ch.opacity += (ch.targetOpacity - ch.opacity) * ch.fadeSpeed;
         if (spans[i]) spans[i].style.opacity = ch.opacity.toFixed(3);
       });

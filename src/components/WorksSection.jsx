@@ -1,4 +1,5 @@
 import ProjectCard from "./ProjectCard.jsx";
+import SectionDivider from "./SectionDivider.jsx";
 
 function renderProjectPage(page, projectIndex) {
   if (page.type === "project") {
@@ -7,6 +8,16 @@ function renderProjectPage(page, projectIndex) {
         key={page.id}
         work={page.work}
         index={projectIndex}
+      />
+    );
+  }
+
+  if (page.type === "separator") {
+    return (
+      <SectionDivider
+        key={page.id}
+        titleLines={page.titleLines}
+        subtitle={page.subtitle}
       />
     );
   }

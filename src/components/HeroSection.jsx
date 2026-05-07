@@ -2,6 +2,7 @@ import ShuffleText from "./ShuffleText.jsx";
 import WebcamAscii from "./WebcamAscii.jsx";
 import WordMask from "./WordMask.jsx";
 import AsciiScatter from "./AsciiScatter.jsx";
+import AsciiArrow from "./AsciiArrow.jsx";
 
 export default function HeroSection() {
   return (
@@ -45,6 +46,7 @@ export default function HeroSection() {
             delay={1000}
             interval={2000}
           />
+          <AsciiArrow className="hero-scroll-arrow" />
         </div>
       </div>
     </section>

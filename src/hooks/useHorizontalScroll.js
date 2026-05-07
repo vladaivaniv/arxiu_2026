@@ -73,9 +73,26 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
             "--hero-project-transition",
             transitionProgress.toFixed(4),
           );
+
+          const dividers = Array.from(track.querySelectorAll(".section-divider"));
+          const isOnDivider = dividers.some((d) => {
+            const dAbsLeft = d.getBoundingClientRect().left + scrollX;
+            return Math.abs(scrollX - dAbsLeft) < viewport.clientWidth * 0.5;
+          });
+          viewport.classList.toggle("is-on-divider", isOnDivider);
         };
 
-        gsap.to(track, {
+        const getSnapPoints = () => {
+          const distance = getDistance();
+          if (!distance) return [0];
+          const panels = Array.from(track.querySelectorAll(".horizontal-panel"));
+          const points = panels.map((p) =>
+            Math.max(0, Math.min(1, p.offsetLeft / distance)),
+          );
+          return [...new Set([0, ...points, 1])].sort((a, b) => a - b);
+        };
+
+        const mainTween = gsap.to(track, {
           x: () => -getDistance(),
           ease: "none",
           overwrite: "auto",
@@ -83,12 +100,40 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
             trigger: shell,
             start: "top top",
             end: () => `+=${getDistance()}`,
-            scrub: 1,
+            scrub: 1.5,
+            snap: {
+              snapTo: getSnapPoints,
+              duration: { min: 1.0, max: 2.2 },
+              delay: 0.05,
+              ease: "power4.inOut",
+            },
             invalidateOnRefresh: true,
             onRefreshInit: applyShellHeight,
             onRefresh: (self) => updateProjectChromeVisibility(self.progress),
             onUpdate: (self) => updateProjectChromeVisibility(self.progress),
           },
+        });
+
+        // Transició suau entre pàgines: blur + fade + scale quan surten
+        const panels = track.querySelectorAll(".horizontal-panel");
+        panels.forEach((panel) => {
+          gsap.fromTo(
+            panel,
+            { filter: "blur(0px)", opacity: 1, scale: 1 },
+            {
+              filter: "blur(10px)",
+              opacity: 0,
+              scale: 0.96,
+              ease: "power2.in",
+              scrollTrigger: {
+                trigger: panel,
+                containerAnimation: mainTween,
+                start: "left left",
+                end: "right left",
+                scrub: true,
+              },
+            }
+          );
         });
       }, shell);
 

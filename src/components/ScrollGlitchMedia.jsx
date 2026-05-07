@@ -70,35 +70,52 @@ function drawCoverFrame(context, source, targetWidth, targetHeight, objectPositi
   context.drawImage(source, offsetX, offsetY, drawWidth, drawHeight);
 }
 
-const DOT_SIZE = 7;
+// density ramp: space=dark → @=bright
+const ASCII_RAMP = " `.-':,;^~=+<>!?|()[]iIlrft1{}vjsxJTYCLnuczXVUOZ0QkmwqpdbhaoS#$%&@".split("");
+const ASCII_CELL = 5;
 
-function renderHalftone(ctx, video, width, height) {
+const _asciiOff = document.createElement("canvas");
+const _asciiOffCtx = _asciiOff.getContext("2d", { willReadFrequently: true });
+
+function renderAsciiToCtx(ctx, video, width, height) {
   if (!video || video.readyState < 2) return;
 
-  const cols = Math.ceil(width / DOT_SIZE);
-  const rows = Math.ceil(height / DOT_SIZE);
+  const cols = Math.floor(width / ASCII_CELL);
+  const rows = Math.floor(height / (ASCII_CELL * 1.6));
 
-  const off = document.createElement("canvas");
-  off.width = cols;
-  off.height = rows;
-  const offCtx = off.getContext("2d");
-  offCtx.drawImage(video, 0, 0, cols, rows);
-  const { data } = offCtx.getImageData(0, 0, cols, rows);
+  if (_asciiOff.width !== cols) _asciiOff.width = cols;
+  if (_asciiOff.height !== rows) _asciiOff.height = rows;
+
+  _asciiOffCtx.filter = "contrast(2.0) brightness(1.0) grayscale(1)";
+  _asciiOffCtx.drawImage(video, 0, 0, cols, rows);
+  _asciiOffCtx.filter = "none";
+  const { data } = _asciiOffCtx.getImageData(0, 0, cols, rows);
 
   ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = "#050608";
   ctx.fillRect(0, 0, width, height);
-  ctx.fillStyle = "#ffffff";
+
+  ctx.font = `bold ${ASCII_CELL + 1}px "Space Mono", monospace`;
+  ctx.textAlign = "left";
+  ctx.textBaseline = "top";
+
+  const cellW = width / cols;
+  const cellH = height / rows;
+  const last = ASCII_RAMP.length - 1;
 
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < cols; col++) {
       const i = (row * cols + col) * 4;
-      const brightness = (data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114) / 255;
-      const radius = brightness * DOT_SIZE * 0.52;
-      if (radius < 0.4) continue;
-      ctx.beginPath();
-      ctx.arc(col * DOT_SIZE + DOT_SIZE / 2, row * DOT_SIZE + DOT_SIZE / 2, radius, 0, Math.PI * 2);
-      ctx.fill();
+      const raw = (data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114) / 255;
+      const b = Math.min(1, Math.max(0, (raw - 0.04) * 1.6));
+      if (b < 0.08) continue;
+      const char = ASCII_RAMP[Math.round(b * last)];
+      if (b > 0.97) {
+        ctx.fillStyle = `rgba(255,0,0,${(0.75 + b * 0.25).toFixed(2)})`;
+      } else {
+        ctx.fillStyle = `rgba(235,235,235,${(0.5 + b * 0.5).toFixed(2)})`;
+      }
+      ctx.fillText(char, col * cellW, row * cellH);
     }
   }
 }
@@ -138,22 +155,58 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     const canvasContext = canvas.getContext("2d");
     const pixelCanvas = document.createElement("canvas");
     const pixelContext = pixelCanvas.getContext("2d");
+
+    // Offscreen buffer for ASCII — composited with erase mask at 60fps
+    const asciiBuffer = document.createElement("canvas");
+    const asciiCtx = asciiBuffer.getContext("2d");
+
     let animationContext;
     let visibilityObserver;
     let isVisible = false;
 
-    if (!canvasContext || !pixelContext) {
+    if (!canvasContext || !pixelContext || !halftoneCtx || !asciiCtx) {
       return undefined;
     }
 
     canvasContext.imageSmoothingEnabled = false;
     pixelContext.imageSmoothingEnabled = false;
 
-    const ensurePlayback = () => {
-      if (!isVisible) {
-        return;
-      }
+    // ── Erase state ──────────────────────────────────────────────
+    let eraseTrail = [];
+    let isHovered = false;
+    let lastMX = 0;
+    let lastMY = 0;
+    let lastMoveTime = 0;
 
+    const onMouseMove = (e) => {
+      const rect = media.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const dist = Math.hypot(x - lastMX, y - lastMY);
+      if (dist > 10) {
+        lastMX = x;
+        lastMY = y;
+        lastMoveTime = performance.now();
+        eraseTrail.push({ x, y, r: 0, maxR: 140 + Math.random() * 60 });
+        if (eraseTrail.length > 50) eraseTrail.shift();
+      }
+    };
+
+    const onMouseEnter = () => {
+      isHovered = true;
+    };
+
+    const onMouseLeave = () => {
+      isHovered = false;
+    };
+
+    media.addEventListener("mousemove", onMouseMove);
+    media.addEventListener("mouseenter", onMouseEnter);
+    media.addEventListener("mouseleave", onMouseLeave);
+
+    // ── Pixel entrance loop ──────────────────────────────────────
+    const ensurePlayback = () => {
+      if (!isVisible) return;
       video.play().catch(() => {});
     };
 
@@ -210,7 +263,6 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         canvasContext.save();
         canvasContext.globalAlpha = gridAlpha;
         canvasContext.fillStyle = "rgba(255, 255, 255, 0.22)";
-
         const cellSize = Math.max(4, Math.round(pixelSize * 0.92));
         for (let column = 0; column < width; column += cellSize) {
           canvasContext.fillRect(column, 0, 1, height);
@@ -237,19 +289,70 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       }
     };
 
-    let halftoneThrottle = 0;
+    // ── ASCII + erase composite loop (60fps) ─────────────────────
+    let asciiThrottle = 0;
+
     const renderHalftoneFrame = (now) => {
       halftoneFrameRef.current = window.requestAnimationFrame(renderHalftoneFrame);
-      if (now - halftoneThrottle < 80) return; // ~12fps — dots don't need 60fps
-      halftoneThrottle = now;
+
       const rect = media.getBoundingClientRect();
       const w = Math.max(1, Math.round(rect.width));
       const h = Math.max(1, Math.round(rect.height));
+
       if (halftone.width !== w || halftone.height !== h) {
         halftone.width = w;
         halftone.height = h;
+        asciiBuffer.width = w;
+        asciiBuffer.height = h;
+        asciiThrottle = 0;
+      } else if (asciiBuffer.width !== w || asciiBuffer.height !== h) {
+        asciiBuffer.width = w;
+        asciiBuffer.height = h;
       }
-      renderHalftone(halftoneCtx, video, w, h);
+
+      // Redraw ASCII buffer at ~12fps
+      if (now - asciiThrottle >= 80) {
+        asciiThrottle = now;
+        renderAsciiToCtx(asciiCtx, video, w, h);
+      }
+
+      // Update erase trail radii
+      // Heal when mouse stops moving for 2.2s — works whether hovered or not
+      const timeSinceMove = now - lastMoveTime;
+      const mouseActive = isHovered && timeSinceMove < 1200;
+      const canHeal = timeSinceMove > 6000;
+
+      eraseTrail = eraseTrail.filter((pt) => {
+        if (mouseActive) {
+          pt.r = Math.min(pt.maxR, pt.r + 7);
+          return true;
+        }
+        if (canHeal) {
+          pt.r = Math.max(0, pt.r - 0.45);
+        }
+        return pt.r > 0;
+      });
+
+      // Composite: ASCII buffer → halftone, then punch erase holes
+      halftoneCtx.clearRect(0, 0, w, h);
+      halftoneCtx.drawImage(asciiBuffer, 0, 0);
+
+      if (eraseTrail.length > 0) {
+        halftoneCtx.save();
+        halftoneCtx.globalCompositeOperation = "destination-out";
+        for (const pt of eraseTrail) {
+          if (pt.r < 1) continue;
+          const grad = halftoneCtx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, pt.r);
+          grad.addColorStop(0, "rgba(0,0,0,1)");
+          grad.addColorStop(0.45, "rgba(0,0,0,0.95)");
+          grad.addColorStop(1, "rgba(0,0,0,0)");
+          halftoneCtx.fillStyle = grad;
+          halftoneCtx.beginPath();
+          halftoneCtx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2);
+          halftoneCtx.fill();
+        }
+        halftoneCtx.restore();
+      }
     };
 
     const startHalftoneLoop = () => {
@@ -265,6 +368,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       }
     };
 
+    // ── GSAP scroll animation ─────────────────────────────────────
     const setupAnimation = () => {
       animationContext?.revert();
       progressRef.current = mediaQuery.matches ? 1 : 0;
@@ -272,47 +376,26 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       animationContext = gsap.context(() => {
         if (mediaQuery.matches) {
           gsap.set(media, { clearProps: "all" });
-          gsap.set(video, {
-            clearProps: "all",
-            opacity: 1,
-            scale: 1,
-            filter: "none",
-          });
+          gsap.set(video, { clearProps: "all", opacity: 1, scale: 1, filter: "none" });
           gsap.set(canvas, { opacity: 0 });
           gsap.set([noise, scan, sliceTop, sliceMiddle, sliceBottom], { opacity: 0 });
           return;
         }
 
-        gsap.set(media, {
-          clipPath: "inset(12% 8% 10% 6%)",
-          y: 42,
-          opacity: 0.52,
-        });
+        gsap.set(media, { clipPath: "inset(0% 0% 0% 0%)", y: 0, opacity: 1 });
 
+        // Video visible from the start so erase holes reveal it
         gsap.set(video, {
-          opacity: 0.4,
-          scale: 1.05,
-          filter: "saturate(0.72) contrast(1.08) brightness(0.76) hue-rotate(-6deg)",
-        });
-
-        gsap.set(canvas, {
           opacity: 1,
+          scale: 1.02,
+          filter: "saturate(0.9) contrast(1.06) brightness(0.88) hue-rotate(0deg)",
         });
 
-        gsap.set(noise, {
-          opacity: 0.34,
-          backgroundPosition: "0px 0px, 10px 14px",
-        });
+        gsap.set(canvas, { opacity: 1 });
 
-        gsap.set(scan, {
-          opacity: 0.24,
-          yPercent: -6,
-        });
-
-        gsap.set([sliceTop, sliceMiddle, sliceBottom], {
-          opacity: 0,
-          xPercent: 0,
-        });
+        gsap.set(noise, { opacity: 0.34, backgroundPosition: "0px 0px, 10px 14px" });
+        gsap.set(scan, { opacity: 0.24, yPercent: -6 });
+        gsap.set([sliceTop, sliceMiddle, sliceBottom], { opacity: 0, xPercent: 0 });
 
         gsap.timeline({
           defaults: { ease: "none" },
@@ -327,118 +410,39 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
             },
           },
         })
-          .to(
-            media,
-            {
-              clipPath: "inset(0% 0% 0% 0%)",
-              y: 0,
-              opacity: 1,
-              duration: 1,
-            },
-            0,
-          )
-          .to(
-            video,
-            {
-              opacity: 1,
-              scale: 1.02,
-              filter: "saturate(0.9) contrast(1.06) brightness(0.88) hue-rotate(0deg)",
-              duration: 1,
-            },
-            0,
-          )
+          .to(media, { clipPath: "inset(0% 0% 0% 0%)", y: 0, opacity: 1, duration: 1 }, 0)
           .to(
             canvas,
-            {
-              opacity: 0,
-              duration: 0.18,
-            },
+            { opacity: 0, duration: 0.18 },
             0.82,
           )
           .to(
             noise,
-            {
-              opacity: 0.04,
-              backgroundPosition: "26px 18px, -6px 24px",
-              duration: 0.9,
-            },
+            { opacity: 0.04, backgroundPosition: "26px 18px, -6px 24px", duration: 0.9 },
             0.12,
           )
-          .to(
-            scan,
-            {
-              opacity: 0.03,
-              yPercent: 8,
-              duration: 0.86,
-            },
-            0.16,
-          )
+          .to(scan, { opacity: 0.03, yPercent: 8, duration: 0.86 }, 0.16)
           .fromTo(
             sliceTop,
-            {
-              opacity: 0,
-              xPercent: -6,
-            },
-            {
-              opacity: 0.34,
-              xPercent: 4,
-              duration: 0.12,
-            },
+            { opacity: 0, xPercent: -6 },
+            { opacity: 0.34, xPercent: 4, duration: 0.12 },
             0.18,
           )
-          .to(
-            sliceTop,
-            {
-              opacity: 0,
-              xPercent: -2,
-              duration: 0.1,
-            },
-            0.3,
-          )
+          .to(sliceTop, { opacity: 0, xPercent: -2, duration: 0.1 }, 0.3)
           .fromTo(
             sliceMiddle,
-            {
-              opacity: 0,
-              xPercent: 8,
-            },
-            {
-              opacity: 0.42,
-              xPercent: -5,
-              duration: 0.14,
-            },
+            { opacity: 0, xPercent: 8 },
+            { opacity: 0.42, xPercent: -5, duration: 0.14 },
             0.28,
           )
-          .to(
-            sliceMiddle,
-            {
-              opacity: 0,
-              xPercent: 3,
-              duration: 0.12,
-            },
-            0.42,
-          )
+          .to(sliceMiddle, { opacity: 0, xPercent: 3, duration: 0.12 }, 0.42)
           .fromTo(
             sliceBottom,
-            {
-              opacity: 0,
-              xPercent: -5,
-            },
-            {
-              opacity: 0.28,
-              xPercent: 6,
-              duration: 0.11,
-            },
+            { opacity: 0, xPercent: -5 },
+            { opacity: 0.28, xPercent: 6, duration: 0.11 },
             0.38,
           )
-          .to(
-            sliceBottom,
-            {
-              opacity: 0,
-              xPercent: -1,
-              duration: 0.1,
-            },
-            0.48,
-          );
+          .to(sliceBottom, { opacity: 0, xPercent: -1, duration: 0.1 }, 0.48);
       }, media);
 
       ScrollTrigger.refresh();
@@ -461,10 +465,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         stopRenderLoop();
         stopHalftoneLoop();
       },
-      {
-        threshold: 0.01,
-        rootMargin: "18% 0px",
-      },
+      { threshold: 0.01, rootMargin: "18% 0px" },
     );
 
     visibilityObserver.observe(media);
@@ -489,6 +490,9 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       video.pause();
       video.removeEventListener("loadeddata", handleLoadedData);
       mediaQuery.removeEventListener("change", handleMotionChange);
+      media.removeEventListener("mousemove", onMouseMove);
+      media.removeEventListener("mouseenter", onMouseEnter);
+      media.removeEventListener("mouseleave", onMouseLeave);
     };
   }, [objectPosition, src]);
 
@@ -510,16 +514,8 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       <div ref={noiseRef} className="work-glitch-noise" aria-hidden="true" />
       <div ref={scanRef} className="work-glitch-scan" aria-hidden="true" />
       <div ref={sliceTopRef} className="work-glitch-slice slice-top" aria-hidden="true" />
-      <div
-        ref={sliceMiddleRef}
-        className="work-glitch-slice slice-middle"
-        aria-hidden="true"
-      />
-      <div
-        ref={sliceBottomRef}
-        className="work-glitch-slice slice-bottom"
-        aria-hidden="true"
-      />
+      <div ref={sliceMiddleRef} className="work-glitch-slice slice-middle" aria-hidden="true" />
+      <div ref={sliceBottomRef} className="work-glitch-slice slice-bottom" aria-hidden="true" />
     </div>
   );
 }

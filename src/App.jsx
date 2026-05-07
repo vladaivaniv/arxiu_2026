@@ -1,11 +1,12 @@
 import { useMemo, useRef, useState } from "react";
-import { WORK_FILTERS, workEntries } from "./data/workEntries.js";
+import { WORK_FILTERS, PROGRAM_SEPARATORS, workEntries } from "./data/workEntries.js";
 import ArchiveIntroSection from "./components/ArchiveIntroSection.jsx";
 import HeroSection from "./components/HeroSection.jsx";
 import ProjectsChrome from "./components/ProjectsChrome.jsx";
 import WorksSection from "./components/WorksSection.jsx";
 import useHorizontalScroll from "./hooks/useHorizontalScroll.js";
 import useNoiseLayer from "./hooks/useNoiseLayer.js";
+import useLenis from "./hooks/useLenis.js";
 import PixelSectionTransition from "./components/PixelSectionTransition.jsx";
 import AsciiCursor from "./components/AsciiCursor.jsx";
 import SiteTrailLine from "./components/SiteTrailLine.jsx";
@@ -26,15 +27,27 @@ export default function App() {
     return workEntries.filter((work) => work.program === activeFilter);
   }, [activeFilter]);
 
-  const projectPages = useMemo(
-    () =>
-      visibleWorks.map((work) => ({
-        id: work.title,
-        type: "project",
-        work,
-      })),
-    [visibleWorks],
-  );
+  const projectPages = useMemo(() => {
+    const pages = [];
+    let lastProgram = null;
+
+    for (const work of visibleWorks) {
+      if (work.program !== lastProgram) {
+        const sep = PROGRAM_SEPARATORS[work.program];
+        if (sep) {
+          pages.push({
+            id: `separator-${work.program}`,
+            type: "separator",
+            ...sep,
+          });
+        }
+        lastProgram = work.program;
+      }
+      pages.push({ id: work.title, type: "project", work });
+    }
+
+    return pages;
+  }, [visibleWorks]);
 
   const handleFilterSelect = (filter) => {
     setActiveFilter((currentFilter) =>
@@ -43,6 +56,7 @@ export default function App() {
     setFiltersOpen(false);
   };
 
+  useLenis();
   useNoiseLayer(noiseRef);
   useHorizontalScroll({ shellRef, viewportRef, trackRef });
 

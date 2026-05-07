@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AsciiBackground from "./AsciiBackground.jsx";
 import ShuffleText from "./ShuffleText.jsx";
-import WordMask from "./WordMask.jsx";
+import TypeLine from "./TypeLine.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,15 +87,23 @@ export default function ArchiveIntroSection() {
         const clamped = Math.max(0, Math.min(1, localProgress));
         scrollProgressRef.current = clamped;
 
-        // entrada suau: els elements apareixen mentre la secció entra
+        // entrada suau: elements llisquen de dreta a esquerra
         const layout = layoutRef.current;
         if (!layout) return;
-        const enterProgress = Math.min(1, clamped / 0.35); // 0→1 en el primer 35%
-        const ease = enterProgress * enterProgress * (3 - 2 * enterProgress); // smoothstep
+
+        const smoothstep = (t) => t * t * (3 - 2 * t);
+
+        const ep = smoothstep(Math.min(1, clamped / 0.55));
         gsap.set(layout, {
-          opacity: ease,
-          x: (1 - ease) * 80,
+          opacity: ep,
+          x: (1 - ep) * 180,
         });
+
+        const footer = section.querySelector(".archive-intro-footer");
+        if (footer) {
+          const fp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.15) / 0.5)));
+          gsap.set(footer, { opacity: fp * 0.5, x: (1 - fp) * 140 });
+        }
       },
     });
 
@@ -136,16 +144,22 @@ export default function ArchiveIntroSection() {
 
       <div ref={layoutRef} className="archive-intro-layout" style={{ opacity: 0 }}>
         <div className="project-info-body archive-intro-copy">
-          {ARCHIVE_INTRO.body.map((line, index) => (
-            <ShuffleText
-              key={`archive-line-${index}`}
-              text={line}
-              delay={index * 100}
-              duration={200}
-              interval={200 + index * 180}
-              aria-label={line}
-            />
-          ))}
+          {ARCHIVE_INTRO.body.map((line, index) => {
+            const SPEED = 22;
+            const INITIAL = 200;
+            const delay = ARCHIVE_INTRO.body
+              .slice(0, index)
+              .reduce((acc, l) => acc + (l.length > 0 ? l.length * SPEED : 80), INITIAL);
+            return (
+              <TypeLine
+                key={`archive-line-${index}`}
+                text={line}
+                delay={delay}
+                speed={SPEED}
+                aria-label={line}
+              />
+            );
+          })}
         </div>
 
         <div className="archive-intro-stats" aria-label="Dades de l'arxiu">

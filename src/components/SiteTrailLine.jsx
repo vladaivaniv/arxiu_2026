@@ -26,6 +26,10 @@ function buildWorldPoints(totalW, H, seed) {
   for (let i = 0; i <= count; i++) {
     const t  = i / count;
     const wx = t * totalW;
+    if (i === 0) {
+      pts.push({ wx: 0, wy: H * 0.08 });
+      continue;
+    }
     // irregular: mix of slow waves + noise
     const base  = Math.sin(t * Math.PI * 3.7 + 0.4) * H * 0.28;
     const noise = (rand() - 0.5) * H * 0.18;
