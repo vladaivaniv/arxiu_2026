@@ -29,11 +29,17 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
         gsap.set(track, { x: 0, force3D: true });
 
         if (mediaQuery.matches) {
+          shell.style.height = "";
           return;
         }
 
         const getDistance = () =>
           Math.max(0, track.scrollWidth - viewport.clientWidth);
+
+        const applyShellHeight = () => {
+          shell.style.height = `${getDistance() + window.innerHeight}px`;
+        };
+        applyShellHeight();
 
         const updateProjectChromeVisibility = (scrollProgress) => {
           const distance = getDistance();
@@ -75,12 +81,11 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
           overwrite: "auto",
           scrollTrigger: {
             trigger: shell,
-            pin: viewport,
             start: "top top",
             end: () => `+=${getDistance()}`,
             scrub: 1,
-            anticipatePin: 1,
             invalidateOnRefresh: true,
+            onRefreshInit: applyShellHeight,
             onRefresh: (self) => updateProjectChromeVisibility(self.progress),
             onUpdate: (self) => updateProjectChromeVisibility(self.progress),
           },
@@ -121,6 +126,7 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
       window.cancelAnimationFrame(fontsReadyFrame);
       viewport.classList.remove("is-projects-active");
       viewport.style.removeProperty("--hero-project-transition");
+      shell.style.height = "";
       refreshScroll.kill();
       resizeObserver?.disconnect();
       mediaQuery.removeEventListener("change", handleMotionChange);
