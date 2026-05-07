@@ -1,17 +1,19 @@
 import { useEffect, useRef } from "react";
 
 const GLYPHS = "ART4#%+=:*R/TX3ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()[]{}/\\|<>";
-const CELL_SIZE = 14;
+const CELL_SIZE = 9;
 const FPS = 30;
 const TRAIL_LENGTH = 28;
-const HEAT_RADIUS = 60;
-const COOL_RATE = 0.018;
+const HEAT_RADIUS = 110;
+const COOL_RATE = 0.04;
+const COLOR_DEFAULT = "#FF0000";
+const COLOR_HOVER = "#000000";
 
 function randomGlyph(seed) {
   return GLYPHS[Math.abs(seed) % GLYPHS.length];
 }
 
-export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, pointerRef }) {
+export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, pointerRef, scrollProgressRef }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -44,6 +46,7 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
           char: randomGlyph(r * 97 + c * 31 + Math.floor(Math.random() * 1000)),
           shuffleAt: Math.random() * 1000,
           speed: 0.5 + Math.random() * 1.5,
+          ox: 0, oy: 0, // current offset (lerped)
         }))
       );
 
@@ -53,8 +56,16 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
     // circular buffer of recent cursor positions
     const trail = Array.from({ length: TRAIL_LENGTH }, () => ({ x: -999, y: -999, t: 0 }));
     let trailHead = 0;
+    let velX = 0;
+    let velY = 0;
 
     const addTrailPoint = (x, y, t) => {
+      const prev = trail[(trailHead - 1 + TRAIL_LENGTH) % TRAIL_LENGTH];
+      if (prev.x > 0 && t - prev.t > 0) {
+        const dt = Math.max(1, t - prev.t);
+        velX = velX * 0.6 + ((x - prev.x) / dt) * 0.4;
+        velY = velY * 0.6 + ((y - prev.y) / dt) * 0.4;
+      }
       trail[trailHead] = { x, y, t };
       trailHead = (trailHead + 1) % TRAIL_LENGTH;
     };
@@ -67,7 +78,6 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
       ctx.font = `700 ${CELL_SIZE - 2}px "Space Mono", monospace`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillStyle = color;
 
       const cols = grid[0]?.length ?? 0;
       const rows = grid.length;
@@ -88,9 +98,11 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
             const p = trail[i];
             if (p.x < 0) continue;
             const age = (time - p.t) / 1000;
-            const decay = Math.max(0, 1 - age * 1.4);
+            const decay = Math.max(0, 1 - age * 0.9);
             const dist = Math.hypot(cx - p.x, cy - p.y);
-            const proximity = Math.max(0, 1 - dist / HEAT_RADIUS);
+            const t = dist / HEAT_RADIUS;
+            // gaussian falloff — soft wide brush, strong centre
+            const proximity = Math.exp(-t * t * 2.5);
             maxHeat = Math.max(maxHeat, proximity * decay);
           }
 
@@ -103,6 +115,8 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
       }
 
       // draw cells
+      const progress = scrollProgressRef?.current ?? 0;
+
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const cell = grid[r][c];
@@ -113,8 +127,19 @@ export default function AsciiBackground({ color = "#ffffff", opacity = 0.12, poi
             cell.shuffleAt = time + (h > 0.05 ? 20 + Math.random() * 50 : 80 + Math.random() * 400);
           }
 
-          ctx.globalAlpha = opacity + h * 0.88;
-          ctx.fillText(cell.char, c * CELL_SIZE + CELL_SIZE / 2, r * CELL_SIZE + CELL_SIZE / 2);
+          const baseAlpha = opacity + h * 0.88;
+
+          const cellCX = c * CELL_SIZE + CELL_SIZE / 2;
+          const cellCY = r * CELL_SIZE + CELL_SIZE / 2;
+          const mx2 = pointerRef?.current?.x ?? -999;
+          const my2 = pointerRef?.current?.y ?? -999;
+
+          const drawX = cellCX;
+          const drawY = cellCY;
+
+          ctx.globalAlpha = baseAlpha;
+          ctx.fillStyle = COLOR_DEFAULT;
+          ctx.fillText(cell.char, drawX, drawY);
         }
       }
 

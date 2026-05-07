@@ -78,7 +78,7 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
             pin: viewport,
             start: "top top",
             end: () => `+=${getDistance()}`,
-            scrub: true,
+            scrub: 1,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onRefresh: (self) => updateProjectChromeVisibility(self.progress),

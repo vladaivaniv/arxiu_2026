@@ -29,14 +29,6 @@ function getBoundaryMetrics(boundaryElement) {
   const rect = boundaryElement.getBoundingClientRect();
   const viewportWidth = window.innerWidth;
 
-  /*
-    rect.left = posición exacta donde se tocan HeroSection y ArchiveIntroSection.
-
-    Cuando la línea está en el borde derecho de pantalla => progress 0.
-    Cuando la línea llega al centro => progress 0.5.
-    Cuando la línea sale por el borde izquierdo => progress 1.
-  */
-
   return {
     progress: clamp((viewportWidth - rect.left) / viewportWidth, 0, 1),
     x: rect.left,
@@ -88,19 +80,11 @@ export default function PixelSectionTransition() {
 
       ctx.clearRect(0, 0, width, height);
 
-      /*
-        Fuera de la zona de transición no dibujamos nada.
-        Así no tapa secciones cuando no hace falta.
-      */
       if (progress <= 0.01 || progress >= 0.99) return;
 
       const cols = Math.ceil(width / CELL_SIZE);
       const rows = Math.ceil(height / CELL_SIZE);
 
-      /*
-        Zona activa alrededor del punto donde se tocan las secciones.
-        Cuanto más avanza el scroll, más ancho y más agresivo es el glitch.
-      */
       const maxBandWidth = width * 0.75;
       const bandWidth = maxBandWidth * Math.sin(progress * Math.PI);
       const bandCenterX = clamp(boundaryX, 0, width);

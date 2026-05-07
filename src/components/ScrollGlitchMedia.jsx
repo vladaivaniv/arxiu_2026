@@ -70,10 +70,44 @@ function drawCoverFrame(context, source, targetWidth, targetHeight, objectPositi
   context.drawImage(source, offsetX, offsetY, drawWidth, drawHeight);
 }
 
+const DOT_SIZE = 7;
+
+function renderHalftone(ctx, video, width, height) {
+  if (!video || video.readyState < 2) return;
+
+  const cols = Math.ceil(width / DOT_SIZE);
+  const rows = Math.ceil(height / DOT_SIZE);
+
+  const off = document.createElement("canvas");
+  off.width = cols;
+  off.height = rows;
+  const offCtx = off.getContext("2d");
+  offCtx.drawImage(video, 0, 0, cols, rows);
+  const { data } = offCtx.getImageData(0, 0, cols, rows);
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = "#050608";
+  ctx.fillRect(0, 0, width, height);
+  ctx.fillStyle = "#ffffff";
+
+  for (let row = 0; row < rows; row++) {
+    for (let col = 0; col < cols; col++) {
+      const i = (row * cols + col) * 4;
+      const brightness = (data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114) / 255;
+      const radius = brightness * DOT_SIZE * 0.52;
+      if (radius < 0.4) continue;
+      ctx.beginPath();
+      ctx.arc(col * DOT_SIZE + DOT_SIZE / 2, row * DOT_SIZE + DOT_SIZE / 2, radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+}
+
 export default function ScrollGlitchMedia({ src, objectPosition, title }) {
   const mediaRef = useRef(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const halftoneRef = useRef(null);
   const noiseRef = useRef(null);
   const scanRef = useRef(null);
   const sliceTopRef = useRef(null);
@@ -81,20 +115,24 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
   const sliceBottomRef = useRef(null);
   const progressRef = useRef(0);
   const frameRef = useRef(0);
+  const halftoneFrameRef = useRef(0);
 
   useEffect(() => {
     const media = mediaRef.current;
     const video = videoRef.current;
     const canvas = canvasRef.current;
+    const halftone = halftoneRef.current;
     const noise = noiseRef.current;
     const scan = scanRef.current;
     const sliceTop = sliceTopRef.current;
     const sliceMiddle = sliceMiddleRef.current;
     const sliceBottom = sliceBottomRef.current;
 
-    if (!media || !video || !canvas || !noise || !scan || !sliceTop || !sliceMiddle || !sliceBottom) {
+    if (!media || !video || !canvas || !halftone || !noise || !scan || !sliceTop || !sliceMiddle || !sliceBottom) {
       return undefined;
     }
+
+    const halftoneCtx = halftone.getContext("2d");
 
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const canvasContext = canvas.getContext("2d");
@@ -196,6 +234,34 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       if (frameRef.current) {
         window.cancelAnimationFrame(frameRef.current);
         frameRef.current = 0;
+      }
+    };
+
+    let halftoneThrottle = 0;
+    const renderHalftoneFrame = (now) => {
+      halftoneFrameRef.current = window.requestAnimationFrame(renderHalftoneFrame);
+      if (now - halftoneThrottle < 80) return; // ~12fps — dots don't need 60fps
+      halftoneThrottle = now;
+      const rect = media.getBoundingClientRect();
+      const w = Math.max(1, Math.round(rect.width));
+      const h = Math.max(1, Math.round(rect.height));
+      if (halftone.width !== w || halftone.height !== h) {
+        halftone.width = w;
+        halftone.height = h;
+      }
+      renderHalftone(halftoneCtx, video, w, h);
+    };
+
+    const startHalftoneLoop = () => {
+      if (!halftoneFrameRef.current) {
+        halftoneFrameRef.current = window.requestAnimationFrame(renderHalftoneFrame);
+      }
+    };
+
+    const stopHalftoneLoop = () => {
+      if (halftoneFrameRef.current) {
+        window.cancelAnimationFrame(halftoneFrameRef.current);
+        halftoneFrameRef.current = 0;
       }
     };
 
@@ -387,11 +453,13 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         if (isVisible) {
           ensurePlayback();
           startRenderLoop();
+          startHalftoneLoop();
           return;
         }
 
         video.pause();
         stopRenderLoop();
+        stopHalftoneLoop();
       },
       {
         threshold: 0.01,
@@ -417,6 +485,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       animationContext?.revert();
       visibilityObserver?.disconnect();
       stopRenderLoop();
+      stopHalftoneLoop();
       video.pause();
       video.removeEventListener("loadeddata", handleLoadedData);
       mediaQuery.removeEventListener("change", handleMotionChange);
@@ -437,6 +506,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         style={{ objectPosition }}
       />
       <canvas ref={canvasRef} className="work-pixel-canvas" aria-hidden="true" />
+      <canvas ref={halftoneRef} className="work-halftone-canvas" aria-hidden="true" />
       <div ref={noiseRef} className="work-glitch-noise" aria-hidden="true" />
       <div ref={scanRef} className="work-glitch-scan" aria-hidden="true" />
       <div ref={sliceTopRef} className="work-glitch-slice slice-top" aria-hidden="true" />

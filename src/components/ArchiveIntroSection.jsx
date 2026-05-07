@@ -1,21 +1,34 @@
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AsciiBackground from "./AsciiBackground.jsx";
 import ShuffleText from "./ShuffleText.jsx";
 import WordMask from "./WordMask.jsx";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const ARCHIVE_INTRO = {
   title: "[2026]",
   body: [
-    "Aquest espai reuneix els projectes creats durant el curs a les assignatures d’Art i",
-    "Cultura Digital i Laboratori de Creacions Artístiques. Un espai per descobrir",
-    "processos creatius, peces digitals i mirades artístiques del curs.",
+    "Aquest espai reuneix els projectes",
+    "creats durant el curs d’Art i",
+    "Cultura Digital i Laboratori de",
+    "Creacions Artístiques.",
     "",
-    "Cada projecte inclou una breu explicació, materials visuals i informació sobre",
-    "l’autor o autora, mostrant diferents maneres d’explorar la creació digital.",
+    "Un espai per descobrir processos",
+    "creatius, peces digitals i mirades",
+    "artístiques del curs.",
+    "",
+    "Cada projecte inclou una breu",
+    "explicació, materials visuals i",
+    "informació sobre l’autor o autora,",
+    "mostrant diferents maneres",
+    "d’explorar la creació digital.",
   ],
   stats: [
     { label: "Projectes", value: "10" },
     { label: "Autors", value: "20" },
+    { label: "Curs", value: "2025-2026" },
   ],
 };
 
@@ -33,7 +46,9 @@ const ASCII_LOADER_LINES = [
 export default function ArchiveIntroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
   const sectionRef = useRef(null);
+  const layoutRef  = useRef(null);
   const mouseRef = useRef({ x: -999, y: -999 });
+  const scrollProgressRef = useRef(0);
 
   useEffect(() => {
     const markAsLoaded = () => setIsLoaded(true);
@@ -49,6 +64,44 @@ export default function ArchiveIntroSection() {
       window.removeEventListener("load", markAsLoaded);
     };
   }, []);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return undefined;
+
+    const track = section.closest(".horizontal-track");
+    if (!track) return undefined;
+
+    const trigger = ScrollTrigger.create({
+      trigger: track,
+      start: "top top",
+      end: () => `+=${Math.max(0, track.scrollWidth - window.innerWidth)}`,
+      scrub: true,
+      onUpdate: (self) => {
+        const totalDistance = track.scrollWidth - window.innerWidth;
+        if (totalDistance <= 0) return;
+        const scrollX = totalDistance * self.progress;
+        const sectionLeft = section.offsetLeft;
+        const sectionWidth = section.offsetWidth;
+        const localProgress = (scrollX - sectionLeft + window.innerWidth) / (sectionWidth + window.innerWidth);
+        const clamped = Math.max(0, Math.min(1, localProgress));
+        scrollProgressRef.current = clamped;
+
+        // entrada suau: els elements apareixen mentre la secció entra
+        const layout = layoutRef.current;
+        if (!layout) return;
+        const enterProgress = Math.min(1, clamped / 0.35); // 0→1 en el primer 35%
+        const ease = enterProgress * enterProgress * (3 - 2 * enterProgress); // smoothstep
+        gsap.set(layout, {
+          opacity: ease,
+          x: (1 - ease) * 80,
+        });
+      },
+    });
+
+    return () => trigger.kill();
+  }, []);
+
 
   const sectionStateClass = isLoaded ? "is-loaded" : "is-loading";
 
@@ -71,7 +124,7 @@ export default function ArchiveIntroSection() {
       onPointerLeave={handlePointerLeave}
     >
 
-      <AsciiBackground color="#000000" opacity={0.18} pointerRef={mouseRef} />
+      <AsciiBackground color="#FF0000" opacity={0.12} pointerRef={mouseRef} scrollProgressRef={scrollProgressRef} />
 
       {!isLoaded && (
         <div className="archive-intro-loader" aria-hidden="true">
@@ -81,7 +134,7 @@ export default function ArchiveIntroSection() {
         </div>
       )}
 
-      <div className="archive-intro-layout">
+      <div ref={layoutRef} className="archive-intro-layout" style={{ opacity: 0 }}>
         <div className="project-info-body archive-intro-copy">
           {ARCHIVE_INTRO.body.map((line, index) => (
             <ShuffleText

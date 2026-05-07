@@ -7,6 +7,8 @@ import WorksSection from "./components/WorksSection.jsx";
 import useHorizontalScroll from "./hooks/useHorizontalScroll.js";
 import useNoiseLayer from "./hooks/useNoiseLayer.js";
 import PixelSectionTransition from "./components/PixelSectionTransition.jsx";
+import AsciiCursor from "./components/AsciiCursor.jsx";
+import SiteTrailLine from "./components/SiteTrailLine.jsx";
 
 export default function App() {
   const shellRef = useRef(null);
@@ -46,6 +48,8 @@ export default function App() {
 
   return (
     <main ref={shellRef} className="landing-shell">
+      <AsciiCursor />
+      <SiteTrailLine />
       <div ref={viewportRef} className="horizontal-viewport">
         <div ref={noiseRef} className="noise-layer" aria-hidden="true" />
         <div className="scanline-layer" aria-hidden="true" />
@@ -61,9 +65,7 @@ export default function App() {
 
         <div ref={trackRef} className="horizontal-track">
           <HeroSection />
-          <PixelSectionTransition />
           <ArchiveIntroSection />
-          <PixelSectionTransition />
           <WorksSection pages={projectPages} projectCount={visibleWorks.length} />
         </div>
       </div>
