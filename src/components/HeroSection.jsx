@@ -10,7 +10,7 @@ export default function HeroSection() {
     <section className="hero-section horizontal-panel">
       <AsciiScatter />
       <div className="hero-logo" aria-hidden="true">
-        <img src="/logo-ddtec-blanc.png" alt="" className="hero-logo-image" />
+        <img src="./logo-ddtec-blanc.png" alt="" className="hero-logo-image" />
       </div>
 
       <WebcamAscii />
