@@ -303,7 +303,6 @@ body::before {
   text-align: center;
   z-index: 9;
   color: #FF0000;
-  opacity: 0;
   font-size: clamp(2.5rem, 8vw, 8rem);
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -707,7 +706,11 @@ body::before {
   padding: clamp(1.5rem, 5vw, 4rem);
   display: grid;
   place-items: center;
-  background: var(--accent);
+  background: #000;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 4px 4px;
 }
 
 .work-card {
@@ -1571,12 +1574,24 @@ body::before {
   justify-content: flex-end;
   align-items: flex-start;
   padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 4vw, 3.5rem);
-  background: #000;
+  background: #2d0000;
   overflow: hidden;
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.18) 1px, transparent 1px);
   background-size: 4px 4px;
+}
+
+.section-divider-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('/vista_generica_museu.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  filter: grayscale(1);
+  mix-blend-mode: luminosity;
+  z-index: 0;
 }
 
 .section-divider-bg {

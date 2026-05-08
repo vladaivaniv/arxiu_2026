@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 
 const GLYPHS = "ART4#%+=:*R/TX3ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()[]{}/\\|<>";
-const CELL_SIZE = 9;
+const CELL_SIZE = 10;
 const FPS = 30;
 const TRAIL_LENGTH = 28;
-const HEAT_RADIUS = 110;
+const HEAT_RADIUS = 55;
 const COOL_RATE = 0.04;
 const COLOR_DEFAULT = "#FF0000";
 const COLOR_HOVER = "#000000";

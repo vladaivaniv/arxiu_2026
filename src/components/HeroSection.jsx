@@ -1,4 +1,5 @@
 import ShuffleText from "./ShuffleText.jsx";
+import TypeLine from "./TypeLine.jsx";
 import WebcamAscii from "./WebcamAscii.jsx";
 import WordMask from "./WordMask.jsx";
 import AsciiScatter from "./AsciiScatter.jsx";
@@ -18,8 +19,8 @@ export default function HeroSection() {
       </div>
 
       <div className="copy copy-left">
-        <ShuffleText text="COL·LECCIÓ DE" delay={200} interval={2600} />
-        <ShuffleText text="PROJECTES ARTISTICS" delay={500} interval={3000} />
+        <TypeLine text="COL·LECCIÓ DE" delay={1200} speed={8} />
+        <TypeLine text="PROJECTES ARTISTICS" delay={1600} speed={8} />
       </div>
 
       <div className="copy copy-right">
@@ -32,20 +33,8 @@ export default function HeroSection() {
             interval={3600}
             color="#fff"
           />
-          <ShuffleText
-            as="span"
-            className="hero-scroll-copy"
-            text="Per descobrir"
-            delay={1000}
-            interval={4000}
-          />
-          <ShuffleText
-            as="span"
-            className="hero-scroll-copy"
-            text="el que hem creat"
-            delay={1000}
-            interval={2000}
-          />
+          <TypeLine as="span" className="hero-scroll-copy" text="Per descobrir" delay={2000} speed={8} />
+          <TypeLine as="span" className="hero-scroll-copy" text="el que hem creat" delay={2400} speed={8} />
           <AsciiArrow className="hero-scroll-arrow" />
         </div>
       </div>

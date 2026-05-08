@@ -1,8 +1,9 @@
 import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function useHorizontalScroll({ shellRef, viewportRef, trackRef }) {
   useLayoutEffect(() => {
@@ -100,12 +101,18 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
             trigger: shell,
             start: "top top",
             end: () => `+=${getDistance()}`,
-            scrub: 1.5,
+            scrub: 2,
             snap: {
               snapTo: getSnapPoints,
-              duration: { min: 1.0, max: 2.2 },
+              duration: { min: 0.8, max: 1.6 },
               delay: 0.05,
-              ease: "power4.inOut",
+              ease: "power3.inOut",
+              onComplete: () => {
+                const lenis = window.__lenis;
+                if (!lenis) return;
+                lenis.stop();
+                setTimeout(() => lenis.start(), 900);
+              },
             },
             invalidateOnRefresh: true,
             onRefreshInit: applyShellHeight,
@@ -119,11 +126,10 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
         panels.forEach((panel) => {
           gsap.fromTo(
             panel,
-            { filter: "blur(0px)", opacity: 1, scale: 1 },
+            { filter: "blur(0px)", scale: 1 },
             {
-              filter: "blur(10px)",
-              opacity: 0,
-              scale: 0.96,
+              filter: "blur(8px)",
+              scale: 0.97,
               ease: "power2.in",
               scrollTrigger: {
                 trigger: panel,
@@ -159,8 +165,40 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
       });
     };
 
+    let velocity = 0;
+    const keysDown = new Set();
+    let rafKey = 0;
+
+    const tickKey = () => {
+      const right = keysDown.has("ArrowRight");
+      const left  = keysDown.has("ArrowLeft");
+      const target = right ? 22 : left ? -22 : 0;
+      velocity += (target - velocity) * 0.12;
+      if (Math.abs(velocity) > 0.01) {
+        window.scrollBy(0, velocity);
+        rafKey = requestAnimationFrame(tickKey);
+      } else {
+        velocity = 0;
+        rafKey = 0;
+      }
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        keysDown.add(e.key);
+        if (!rafKey) rafKey = requestAnimationFrame(tickKey);
+      }
+    };
+
+    const handleKeyUp = (e) => {
+      keysDown.delete(e.key);
+    };
+
     mediaQuery.addEventListener("change", handleMotionChange);
     window.addEventListener("load", handleLoad);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
 
     if (document.fonts?.ready) {
       document.fonts.ready.then(handleFontsReady).catch(() => {});
@@ -176,6 +214,9 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
       resizeObserver?.disconnect();
       mediaQuery.removeEventListener("change", handleMotionChange);
       window.removeEventListener("load", handleLoad);
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+      cancelAnimationFrame(rafKey);
     };
   }, [shellRef, viewportRef, trackRef]);
 }

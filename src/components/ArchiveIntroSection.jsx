@@ -45,6 +45,7 @@ const ASCII_LOADER_LINES = [
 
 export default function ArchiveIntroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [typingActive, setTypingActive] = useState(false);
   const sectionRef = useRef(null);
   const layoutRef  = useRef(null);
   const mouseRef = useRef({ x: -999, y: -999 });
@@ -94,6 +95,8 @@ export default function ArchiveIntroSection() {
         const smoothstep = (t) => t * t * (3 - 2 * t);
 
         const ep = smoothstep(Math.min(1, clamped / 0.55));
+
+        if (ep > 0.1) setTypingActive(true);
         gsap.set(layout, {
           opacity: ep,
           x: (1 - ep) * 180,
@@ -102,7 +105,7 @@ export default function ArchiveIntroSection() {
         const footer = section.querySelector(".archive-intro-footer");
         if (footer) {
           const fp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.15) / 0.5)));
-          gsap.set(footer, { opacity: fp * 0.5, x: (1 - fp) * 140 });
+          gsap.set(footer, { opacity: fp * 0.55, x: (1 - fp) * 140 });
         }
       },
     });
@@ -145,8 +148,8 @@ export default function ArchiveIntroSection() {
       <div ref={layoutRef} className="archive-intro-layout" style={{ opacity: 0 }}>
         <div className="project-info-body archive-intro-copy">
           {ARCHIVE_INTRO.body.map((line, index) => {
-            const SPEED = 22;
-            const INITIAL = 200;
+            const SPEED = 8;
+            const INITIAL = 80;
             const delay = ARCHIVE_INTRO.body
               .slice(0, index)
               .reduce((acc, l) => acc + (l.length > 0 ? l.length * SPEED : 80), INITIAL);
@@ -156,6 +159,7 @@ export default function ArchiveIntroSection() {
                 text={line}
                 delay={delay}
                 speed={SPEED}
+                trigger={typingActive}
                 aria-label={line}
               />
             );
@@ -165,11 +169,11 @@ export default function ArchiveIntroSection() {
         <div className="archive-intro-stats" aria-label="Dades de l'arxiu">
           {ARCHIVE_INTRO.stats.map((stat, index) => (
             <div key={stat.label} className="archive-intro-stat">
-              <ShuffleText
+              <TypeLine
                 text={`${stat.label}: ${stat.value}`}
-                delay={index * 180}
-                duration={780}
-                interval={1000 + index * 220}
+                delay={3000 + index * 220}
+                speed={8}
+                trigger={typingActive}
                 aria-label={`${stat.label}: ${stat.value}`}
               />
             </div>

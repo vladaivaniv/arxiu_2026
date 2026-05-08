@@ -8,12 +8,13 @@ gsap.registerPlugin(ScrollTrigger);
 export default function useLenis() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 9.0,
+      duration: 2.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 0.35,
+      wheelMultiplier: 0.5,
     });
 
+    window.__lenis = lenis;
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add((time) => {

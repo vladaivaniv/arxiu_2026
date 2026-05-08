@@ -57,7 +57,7 @@ export default function AsciiScatter({ fullSpread = false, count = COUNT, maxOpa
     const onLeave = () => { mouseRef.current = { x: -9999, y: -9999 }; };
 
     // attach to parent section so we get mouse even when over other elements
-    const section = container.closest(".hero-section") || container;
+    const section = container.closest(".hero-section, .section-divider, .horizontal-panel") || container;
     section.addEventListener("pointermove", onMove);
     section.addEventListener("pointerleave", onLeave);
 

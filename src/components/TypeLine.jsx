@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function TypeLine({ text, delay = 0, speed = 28, as: Tag = "p", className }) {
+export default function TypeLine({ text, delay = 0, speed = 28, as: Tag = "p", className, trigger = true }) {
   const [revealed, setRevealed] = useState(0);
 
   useEffect(() => {
-    if (!text) return;
+    if (!text || !trigger) return;
     setRevealed(0);
     let interval;
     const timeout = setTimeout(() => {
@@ -16,7 +16,7 @@ export default function TypeLine({ text, delay = 0, speed = 28, as: Tag = "p", c
       }, speed);
     }, delay);
     return () => { clearTimeout(timeout); clearInterval(interval); };
-  }, [text, delay, speed]);
+  }, [text, delay, speed, trigger]);
 
   return (
     <Tag className={className}>
