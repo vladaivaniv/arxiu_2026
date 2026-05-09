@@ -37,7 +37,7 @@ function makeChar(spread) {
   };
 }
 
-export default function AsciiScatter({ fullSpread = false, count = COUNT, maxOpacity }) {
+export default function AsciiScatter({ fullSpread = false, count = COUNT, maxOpacity, active = true }) {
   const containerRef = useRef(null);
   const charsRef = useRef(Array.from({ length: count }, () => makeChar(fullSpread)));
   const rafRef = useRef(null);
@@ -49,6 +49,13 @@ export default function AsciiScatter({ fullSpread = false, count = COUNT, maxOpa
     if (!container) return;
 
     const spans = Array.from(container.querySelectorAll("span"));
+    if (!active) {
+      spans.forEach((span) => {
+        span.style.opacity = "0";
+        span.style.transform = "translate(0px, 0px)";
+      });
+      return undefined;
+    }
 
     const onMove = (e) => {
       const rect = container.getBoundingClientRect();
@@ -142,7 +149,7 @@ export default function AsciiScatter({ fullSpread = false, count = COUNT, maxOpa
       section.removeEventListener("pointermove", onMove);
       section.removeEventListener("pointerleave", onLeave);
     };
-  }, []);
+  }, [active]);
 
   return (
     <div

@@ -2299,6 +2299,17 @@ body::before {
   background-size: 4px 4px;
 }
 
+.section-divider-surface {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+  will-change: transform, filter, opacity;
+}
+
 .section-divider-photo {
   position: absolute;
   inset: 0;
@@ -2322,7 +2333,8 @@ body::before {
   flex-direction: column;
   gap: clamp(0.6rem, 1.5vh, 1.2rem);
   width: 100%;
-  visibility: hidden;
+  opacity: 0;
+  will-change: transform, filter, opacity;
 }
 
 .section-divider-titles {
@@ -2362,6 +2374,11 @@ body::before {
   background-size: 300% 2px;
   opacity: 0.7;
   animation: divider-line-ascii 8000ms steps(60) infinite;
+  animation-play-state: paused;
+}
+
+.section-divider-line.is-motion-ready {
+  animation-play-state: running;
 }
 
 @keyframes divider-line-ascii {
@@ -2377,7 +2394,8 @@ body::before {
   padding-top: clamp(0.6rem, 1.4vh, 1rem);
   overflow: hidden;
   width: 100%;
-  visibility: hidden;
+  opacity: 0;
+  will-change: transform, filter, opacity;
 }
 
 .section-divider-subtitle {
@@ -2399,6 +2417,8 @@ body::before {
   font-size: 0.62rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  opacity: 0;
+  will-change: transform, filter, opacity;
 }
 
 .section-divider-corner--br {

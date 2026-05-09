@@ -18,12 +18,15 @@ const BATCH = 3;
 
 function rand(a, b) { return a + Math.random() * (b - a); }
 
-export default function FloatingTitles() {
+export default function FloatingTitles({ active = true }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    container.querySelectorAll("span").forEach((el) => el.remove());
+    if (!active) return undefined;
 
     let running = true;
     const intervals = [];
@@ -87,7 +90,7 @@ export default function FloatingTitles() {
       intervals.forEach(clearInterval);
       container.querySelectorAll("span").forEach(el => el.remove());
     };
-  }, []);
+  }, [active]);
 
   return (
     <div

@@ -10,9 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SectionDivider({ titleLines, subtitle }) {
   const sectionRef = useRef(null);
-  const innerRef = useRef(null);
+  const surfaceRef = useRef(null);
+  const layoutRef = useRef(null);
   const subtitleRef = useRef(null);
+  const cornerRef = useRef(null);
   const [typingActive, setTypingActive] = useState(false);
+  const [motionReady, setMotionReady] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -21,9 +24,36 @@ export default function SectionDivider({ titleLines, subtitle }) {
     const track = section.closest(".horizontal-track");
     if (!track) return;
 
-    // autoAlpha sets both opacity AND visibility:hidden atomically — no flash possible
-    gsap.set(innerRef.current, { autoAlpha: 0, x: 160 });
-    gsap.set(subtitleRef.current, { autoAlpha: 0, x: 120 });
+    const surface = surfaceRef.current;
+    const layout = layoutRef.current;
+    const subtitleNode = subtitleRef.current;
+    const corner = cornerRef.current;
+
+    gsap.set(surface, {
+      opacity: 0,
+      scale: 0.94,
+      filter: "blur(16px)",
+      x: 0,
+      y: 0,
+    });
+    gsap.set(layout, {
+      opacity: 0,
+      filter: "blur(12px)",
+      x: 0,
+      y: 0,
+    });
+    gsap.set(subtitleNode, {
+      opacity: 0,
+      filter: "blur(8px)",
+      x: 0,
+      y: 0,
+    });
+    gsap.set(corner, {
+      opacity: 0,
+      filter: "blur(6px)",
+      x: 0,
+      y: 0,
+    });
 
     const smoothstep = (t) => t * t * (3 - 2 * t);
 
@@ -41,21 +71,60 @@ export default function SectionDivider({ titleLines, subtitle }) {
         const localProgress = (scrollX - sectionLeft + window.innerWidth) / (sectionWidth + window.innerWidth);
         const clamped = Math.max(0, Math.min(1, localProgress));
 
-        // Només apareix quan la secció ja és completament dins el viewport
-        const ep = smoothstep(Math.min(1, Math.max(0, (clamped - 0.5) / 0.22)));
-        const inner = innerRef.current;
-        if (inner) {
-          gsap.set(inner, { autoAlpha: ep, x: (1 - ep) * 200 });
+        const ep = smoothstep(Math.min(1, Math.max(0, (clamped - 0.08) / 0.62)));
+        const surfaceBlur = (1 - ep) * 16;
+        const surfaceScale = 0.94 + ep * 0.06;
+
+        if (surface) {
+          gsap.set(surface, {
+            opacity: ep,
+            scale: surfaceScale,
+            filter: `blur(${surfaceBlur.toFixed(2)}px)`,
+            x: 0,
+            y: 0,
+          });
         }
 
-        const sub = subtitleRef.current;
-        if (sub) {
-          const sp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.58) / 0.22)));
-          gsap.set(sub, { autoAlpha: sp, x: (1 - sp) * 150 });
+        const blurPx = (1 - ep) * 12;
+
+        if (layout) {
+          gsap.set(layout, {
+            opacity: ep,
+            filter: `blur(${blurPx.toFixed(2)}px)`,
+            x: 0,
+            y: 0,
+          });
         }
 
-        if (clamped > 0.62) setTypingActive(true);
-        else setTypingActive(false);
+        if (subtitleNode) {
+          const sp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.2) / 0.46)));
+          const subtitleBlur = (1 - sp) * 8;
+          gsap.set(subtitleNode, {
+            opacity: sp,
+            filter: `blur(${subtitleBlur.toFixed(2)}px)`,
+            x: 0,
+            y: 0,
+          });
+        }
+
+        if (corner) {
+          const cp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.24) / 0.42)));
+          const cornerBlur = (1 - cp) * 6;
+          gsap.set(corner, {
+            opacity: cp * 0.7,
+            filter: `blur(${cornerBlur.toFixed(2)}px)`,
+            x: 0,
+            y: 0,
+          });
+        }
+
+        if (ep > 0.98) {
+          setMotionReady(true);
+          setTypingActive(true);
+        } else {
+          setMotionReady(false);
+          setTypingActive(false);
+        }
       },
     });
 
@@ -65,43 +134,53 @@ export default function SectionDivider({ titleLines, subtitle }) {
   return (
     <>
       <div ref={sectionRef} className="section-divider horizontal-panel">
-      <div className="section-divider-photo" aria-hidden="true" />
-      <AsciiScatter fullSpread count={25} maxOpacity={0.18} />
-      <div className="section-divider-bg" aria-hidden="true" />
-      <FloatingTitles />
+        <div ref={surfaceRef} className="section-divider-surface">
+          <div className="section-divider-photo" aria-hidden="true" />
+          <AsciiScatter fullSpread count={25} maxOpacity={0.18} active={motionReady} />
+          <div className="section-divider-bg" aria-hidden="true" />
+          <FloatingTitles active={motionReady} />
 
-      <div className="section-divider-inner" ref={innerRef}>
-        <div className="section-divider-titles">
-          {titleLines.map((line, i) => (
-            <ShuffleText
-              key={line}
-              as="h2"
-              className={`section-divider-title${i === 0 ? " is-first" : ""}`}
-              text={line}
-              delay={i * 160}
-              duration={820}
-              interval={4800 + i * 600}
+          <div className="section-divider-inner" ref={layoutRef}>
+            <div className="section-divider-titles">
+              {titleLines.map((line, i) => (
+                <ShuffleText
+                  key={line}
+                  as="h2"
+                  className={`section-divider-title${i === 0 ? " is-first" : ""}`}
+                  text={line}
+                  delay={i * 160}
+                  duration={820}
+                  interval={4800 + i * 600}
+                  trigger={motionReady}
+                />
+              ))}
+            </div>
+
+            <div
+              className={`section-divider-line${motionReady ? " is-motion-ready" : ""}`}
+              aria-hidden="true"
             />
-          ))}
+          </div>
+
+          <div ref={subtitleRef} className="section-divider-subtitle-wrap">
+            <TypeLine
+              as="p"
+              className="section-divider-subtitle"
+              text={subtitle}
+              delay={300}
+              speed={8}
+              trigger={typingActive}
+            />
+          </div>
+
+          <div
+            ref={cornerRef}
+            className="section-divider-corner section-divider-corner--br"
+            aria-hidden="true"
+          >
+            <span>2025–2026</span>
+          </div>
         </div>
-
-        <div className="section-divider-line" aria-hidden="true" />
-      </div>
-
-      <div ref={subtitleRef} className="section-divider-subtitle-wrap">
-        <TypeLine
-          as="p"
-          className="section-divider-subtitle"
-          text={subtitle}
-          delay={300}
-          speed={8}
-          trigger={typingActive}
-        />
-      </div>
-
-      <div className="section-divider-corner section-divider-corner--br" aria-hidden="true">
-        <span>2025–2026</span>
-      </div> 
 
       </div>
     </>
