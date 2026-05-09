@@ -8,6 +8,46 @@ import FloatingTitles from "./FloatingTitles.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const INITIAL_SURFACE_SCALE = 0.94;
+const INITIAL_SURFACE_BLUR = 16;
+const INITIAL_LAYOUT_BLUR = 12;
+const INITIAL_SUBTITLE_BLUR = 8;
+const INITIAL_CORNER_BLUR = 6;
+const MOTION_READY_THRESHOLD = 0.795;
+const SURFACE_REVEAL_WINDOW = 1.2;
+const SUBTITLE_REVEAL_OFFSET = 0.24;
+const SUBTITLE_REVEAL_WINDOW = 0.7;
+const CORNER_REVEAL_OFFSET = 0.3;
+const CORNER_REVEAL_WINDOW = 0.68;
+
+function clamp01(value) {
+  return Math.max(0, Math.min(1, value));
+}
+
+function smoothstep(value) {
+  const t = clamp01(value);
+  return t * t * (3 - 2 * t);
+}
+
+function setBlurReveal(node, {
+  progress,
+  blur,
+  opacity = progress,
+  scale = 1,
+  x = 0,
+  y = 0,
+}) {
+  if (!node) return;
+
+  gsap.set(node, {
+    opacity,
+    scale,
+    filter: `blur(${((1 - progress) * blur).toFixed(2)}px)`,
+    x,
+    y,
+  });
+}
+
 export default function SectionDivider({ titleLines, subtitle }) {
   const sectionRef = useRef(null);
   const surfaceRef = useRef(null);
@@ -29,33 +69,33 @@ export default function SectionDivider({ titleLines, subtitle }) {
     const subtitleNode = subtitleRef.current;
     const corner = cornerRef.current;
 
+    // Estat inicial: la pantalla existeix des del primer frame, però entra tapada
+    // amb blur i una escala lleugerament reduïda.
     gsap.set(surface, {
       opacity: 0,
-      scale: 0.94,
-      filter: "blur(16px)",
+      scale: INITIAL_SURFACE_SCALE,
+      filter: `blur(${INITIAL_SURFACE_BLUR}px)`,
       x: 0,
       y: 0,
     });
     gsap.set(layout, {
       opacity: 0,
-      filter: "blur(12px)",
+      filter: `blur(${INITIAL_LAYOUT_BLUR}px)`,
       x: 0,
       y: 0,
     });
     gsap.set(subtitleNode, {
       opacity: 0,
-      filter: "blur(8px)",
+      filter: `blur(${INITIAL_SUBTITLE_BLUR}px)`,
       x: 0,
       y: 0,
     });
     gsap.set(corner, {
       opacity: 0,
-      filter: "blur(6px)",
+      filter: `blur(${INITIAL_CORNER_BLUR}px)`,
       x: 0,
       y: 0,
     });
-
-    const smoothstep = (t) => t * t * (3 - 2 * t);
 
     const trigger = ScrollTrigger.create({
       trigger: track,
@@ -65,62 +105,56 @@ export default function SectionDivider({ titleLines, subtitle }) {
       onUpdate: (self) => {
         const totalDistance = track.scrollWidth - window.innerWidth;
         if (totalDistance <= 0) return;
+
         const scrollX = totalDistance * self.progress;
         const sectionLeft = section.offsetLeft;
         const viewportWidth = window.innerWidth;
-        const revealProgress = (scrollX - (sectionLeft - viewportWidth)) / viewportWidth;
-        const clamped = Math.max(0, Math.min(1, revealProgress));
+        // Progrés local del divider:
+        // 0 = tot just comença a entrar per la dreta
+        // 1 = el panell ja s'ha alineat completament al viewport
+        const localProgress = clamp01(
+          (scrollX - (sectionLeft - viewportWidth)) / viewportWidth,
+        );
 
-        // En un panell separat de 100vw, volem que l'entrada estigui completada
-        // quan la pàgina ja està alineada al viewport.
-        const ep = smoothstep(clamped);
-        const surfaceBlur = (1 - ep) * 16;
-        const surfaceScale = 0.94 + ep * 0.06;
+        const surfaceProgress = smoothstep(localProgress / SURFACE_REVEAL_WINDOW);
+        const surfaceScale = INITIAL_SURFACE_SCALE + surfaceProgress * 0.06;
+        setBlurReveal(surface, {
+          progress: surfaceProgress,
+          blur: INITIAL_SURFACE_BLUR,
+          scale: surfaceScale,
+          x: (1 - surfaceProgress) * 140,
+        });
 
-        if (surface) {
-          gsap.set(surface, {
-            opacity: ep,
-            scale: surfaceScale,
-            filter: `blur(${surfaceBlur.toFixed(2)}px)`,
-            x: 0,
-            y: 0,
-          });
-        }
+        setBlurReveal(layout, {
+          progress: surfaceProgress,
+          blur: INITIAL_LAYOUT_BLUR,
+          x: (1 - surfaceProgress) * 220,
+          y: (1 - surfaceProgress) * 36,
+        });
 
-        const blurPx = (1 - ep) * 12;
+        const subtitleProgress = smoothstep(
+          (localProgress - SUBTITLE_REVEAL_OFFSET) / SUBTITLE_REVEAL_WINDOW,
+        );
+        setBlurReveal(subtitleNode, {
+          progress: subtitleProgress,
+          blur: INITIAL_SUBTITLE_BLUR,
+          x: (1 - subtitleProgress) * 160,
+          y: (1 - subtitleProgress) * 12,
+        });
 
-        if (layout) {
-          gsap.set(layout, {
-            opacity: ep,
-            filter: `blur(${blurPx.toFixed(2)}px)`,
-            x: 0,
-            y: 0,
-          });
-        }
+        const cornerProgress = smoothstep(
+          (localProgress - CORNER_REVEAL_OFFSET) / CORNER_REVEAL_WINDOW,
+        );
+        setBlurReveal(corner, {
+          progress: cornerProgress,
+          blur: INITIAL_CORNER_BLUR,
+          opacity: cornerProgress * 0.7,
+          x: (1 - cornerProgress) * 72,
+          y: (1 - cornerProgress) * 44,
+        });
 
-        if (subtitleNode) {
-          const sp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.18) / 0.52)));
-          const subtitleBlur = (1 - sp) * 8;
-          gsap.set(subtitleNode, {
-            opacity: sp,
-            filter: `blur(${subtitleBlur.toFixed(2)}px)`,
-            x: 0,
-            y: 0,
-          });
-        }
-
-        if (corner) {
-          const cp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.22) / 0.5)));
-          const cornerBlur = (1 - cp) * 6;
-          gsap.set(corner, {
-            opacity: cp * 0.7,
-            filter: `blur(${cornerBlur.toFixed(2)}px)`,
-            x: 0,
-            y: 0,
-          });
-        }
-
-        if (clamped >= 0.795) {
+        // El moviment intern queda bloquejat fins que la pantalla ja és prou present.
+        if (localProgress >= MOTION_READY_THRESHOLD) {
           setMotionReady(true);
           setTypingActive(true);
         } else {
@@ -153,6 +187,8 @@ export default function SectionDivider({ titleLines, subtitle }) {
                 duration={820}
                 interval={4800 + i * 600}
                 trigger={motionReady}
+                // El títol es veu des del primer moment, i el blur global de la
+                // pantalla és qui el "vela" fins que l'entrada es resol.
                 initialTextVisible
               />
             ))}
