@@ -17,7 +17,6 @@ export default function App() {
   const trackRef = useRef(null);
   const noiseRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState(null);
-  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const visibleWorks = useMemo(() => {
     if (!activeFilter) {
@@ -50,10 +49,7 @@ export default function App() {
   }, [visibleWorks]);
 
   const handleFilterSelect = (filter) => {
-    setActiveFilter((currentFilter) =>
-      currentFilter === filter ? null : filter,
-    );
-    setFiltersOpen(false);
+    setActiveFilter(filter);
   };
 
   useLenis();
@@ -71,9 +67,7 @@ export default function App() {
         <ProjectsChrome
           activeFilter={activeFilter}
           filters={WORK_FILTERS}
-          filtersOpen={filtersOpen}
           onFilterSelect={handleFilterSelect}
-          onToggleFilters={() => setFiltersOpen((current) => !current)}
           projectCount={visibleWorks.length}
         />
 

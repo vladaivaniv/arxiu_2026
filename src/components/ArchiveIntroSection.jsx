@@ -88,7 +88,8 @@ export default function ArchiveIntroSection() {
         const clamped = Math.max(0, Math.min(1, localProgress));
         scrollProgressRef.current = clamped;
 
-        // entrada suau: elements llisquen de dreta a esquerra
+        // entrada per escala + desenfocament — distint del slide horitzontal de SectionDivider
+        // (no usa y/x per evitar el retall de overflow:hidden del contenidor)
         const layout = layoutRef.current;
         if (!layout) return;
 
@@ -97,15 +98,27 @@ export default function ArchiveIntroSection() {
         const ep = smoothstep(Math.min(1, clamped / 0.55));
 
         if (ep > 0.1) setTypingActive(true);
+
+        const blurPx = (1 - ep) * 12;
+        const sc = 0.94 + ep * 0.06;
         gsap.set(layout, {
           opacity: ep,
-          x: (1 - ep) * 180,
+          scale: sc,
+          filter: `blur(${blurPx.toFixed(2)}px)`,
+          x: 0,
+          y: 0,
         });
 
         const footer = section.querySelector(".archive-intro-footer");
         if (footer) {
           const fp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.15) / 0.5)));
-          gsap.set(footer, { opacity: fp * 0.55, x: (1 - fp) * 140 });
+          const fBlur = (1 - fp) * 8;
+          gsap.set(footer, {
+            opacity: fp * 0.55,
+            filter: `blur(${fBlur.toFixed(2)}px)`,
+            x: 0,
+            y: 0,
+          });
         }
       },
     });

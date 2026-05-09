@@ -1,11 +1,20 @@
 import { useEffect, useRef } from "react";
 
 const TITLES = [
-  "KASY", "POLAR ROOM", "INDEX 04", "SIGNAL",
-  "FORMA_01", "ARXIU", "SENYAL", "MATÈRIA", "ESPAI_02", "CODI_X"
+  "End of Shift",
+  "Blastur",
+  "Quan Ningú Mira",
+  "El masclisme sempre guanya",
+  "Model de poder mitjançant el diàleg mecànic",
+  "Privilegiados",
+  "Panòptic digital",
+  "Measured Self",
+  "Allò que projectem",
+  "Or de ferralla",
 ];
 
-const SPEED = 40; // ms per char
+const SPEED = 38;
+const BATCH = 3;
 
 function rand(a, b) { return a + Math.random() * (b - a); }
 
@@ -16,21 +25,22 @@ export default function FloatingTitles() {
     const container = containerRef.current;
     if (!container) return;
 
-    const instances = [];
     let running = true;
+    const intervals = [];
 
-    const spawnOne = () => {
+    const spawnOne = (delayOffset = 0) => {
       if (!running) return;
 
       const title = TITLES[Math.floor(Math.random() * TITLES.length)];
       const el = document.createElement("span");
       el.style.cssText = `
         position: absolute;
-        left: ${rand(4, 82)}%;
-        top: ${rand(8, 78)}%;
+        left: ${rand(4, 78)}%;
+        top: ${rand(8, 76)}%;
         font-family: 'Space Mono', monospace;
-        font-size: ${rand(8, 13)}px;
+        font-size: ${rand(9, 14)}px;
         letter-spacing: 0.2em;
+        text-transform: uppercase;
         color: #ffffff;
         opacity: 0;
         pointer-events: none;
@@ -40,44 +50,42 @@ export default function FloatingTitles() {
       `;
       container.appendChild(el);
 
-      // type out
       let i = 0;
       let displayed = "";
-      const typeInterval = setInterval(() => {
-        if (i < title.length) {
-          displayed += title[i++];
-          el.textContent = displayed + "_";
-          el.style.opacity = "0.6";
-        } else {
-          el.textContent = displayed;
-          clearInterval(typeInterval);
-
-          // hold then fade out
-          setTimeout(() => {
-            el.style.opacity = "0";
+      const t = setTimeout(() => {
+        const iv = setInterval(() => {
+          if (i < title.length) {
+            displayed += title[i++];
+            el.textContent = displayed + "_";
+            el.style.opacity = "0.55";
+          } else {
+            el.textContent = displayed;
+            clearInterval(iv);
             setTimeout(() => {
-              el.remove();
-            }, 500);
-          }, rand(800, 2200));
-        }
-      }, SPEED);
-
-      instances.push({ el, interval: typeInterval });
-
-      // schedule next spawn
-      setTimeout(spawnOne, rand(1800, 3500));
+              el.style.opacity = "0";
+              setTimeout(() => el.remove(), 500);
+            }, rand(1200, 3000));
+          }
+        }, SPEED);
+        intervals.push(iv);
+      }, delayOffset);
+      intervals.push(t);
     };
 
-    // start with two
-    setTimeout(spawnOne, rand(0, 400));
-    setTimeout(spawnOne, rand(400, 900));
+    const spawnBatch = () => {
+      if (!running) return;
+      for (let i = 0; i < BATCH; i++) {
+        spawnOne(i * rand(200, 500));
+      }
+      setTimeout(spawnBatch, rand(3500, 5500));
+    };
+
+    spawnBatch();
 
     return () => {
       running = false;
-      instances.forEach(({ el, interval }) => {
-        clearInterval(interval);
-        el.remove();
-      });
+      intervals.forEach(clearInterval);
+      container.querySelectorAll("span").forEach(el => el.remove());
     };
   }, []);
 

@@ -1,96 +1,153 @@
+import { useState, useEffect, useRef } from "react";
 import ScrollGlitchMedia from "./ScrollGlitchMedia.jsx";
-import ScrollTypeText from "./ScrollTypeText.jsx";
 import ShuffleText from "./ShuffleText.jsx";
+import ScrollTypeText from "./ScrollTypeText.jsx";
 
-export default function ProjectCard({ work, index }) {
+const LINE_CHARS = ["─", "─", "─", "╌", "·", "─"];
+const LINE_LEN = 90;
+
+function AsciiLine() {
+  const [line, setLine] = useState("─".repeat(LINE_LEN));
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    const tick = () => {
+      setLine(Array.from({ length: LINE_LEN }, () =>
+        LINE_CHARS[Math.floor(Math.random() * LINE_CHARS.length)]
+      ).join(""));
+      timerRef.current = setTimeout(tick, 600 + Math.random() * 400);
+    };
+    timerRef.current = setTimeout(tick, 600);
+    return () => clearTimeout(timerRef.current);
+  }, []);
+
+  return <div className="wc-rule-ascii" aria-hidden="true">{line}</div>;
+}
+
+function ViewfinderOverlay({ current, total }) {
+  return (
+    <div className="vf-overlay" aria-hidden="true">
+      <span className="vf-corner vf-tl" />
+      <span className="vf-corner vf-tr" />
+      <span className="vf-corner vf-br" />
+      <span className="vf-num" style={{ top: "12%", left: "3%" }}>00</span>
+      <span className="vf-num" style={{ top: "12%", right: "3%" }}>00</span>
+      <span className="vf-num" style={{ bottom: "12%", left: "3%" }}>33</span>
+      <span className="vf-num" style={{ bottom: "12%", right: "3%" }}>100</span>
+      <span className="vf-counter">
+        {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+      </span>
+    </div>
+  );
+}
+
+function GalleryStrip({ photos, mediaSrc, totalPhotos, active, onSelect }) {
+  const items = photos.length > 0
+    ? photos
+    : Array.from({ length: totalPhotos }).map(() => null);
+
+  return (
+    <div className="wc-gallery-strip">
+      {items.map((src, i) => (
+        <button
+          key={i}
+          type="button"
+          className={`wc-gallery-thumb${active === i ? " is-active" : ""}`}
+          onClick={() => onSelect(i)}
+          aria-label={`foto ${i + 1}`}
+        >
+          {src
+            ? <img src={src} alt={`foto ${i + 1}`} />
+            : <video src={mediaSrc} muted playsInline preload="metadata" />
+          }
+        </button>
+      ))}
+    </div>
+  );
+}
+
+export default function ProjectCard({ work, index, total }) {
   const seqPadded = String(index + 1).padStart(3, "0");
-  const progAcronym = work.program.split(" ").map(w => w[0]).join("");
+  const photos = work.photos ?? [];
+  const totalSlides = photos.length > 0 ? photos.length : 6;
+  const [activeThumb, setActiveThumb] = useState(0);
 
   return (
     <article className="work-card horizontal-panel">
-      <div className="work-copy">
 
-        <div className="work-terminal-header">
-          <ShuffleText
-            as="span"
-            className="work-terminal-id"
-            text={`// PROJECT_${seqPadded}`}
-            delay={index * 90}
-            duration={520}
-            triggerOnView
-            playOnce
-            threshold={0.3}
-          />
-          <ShuffleText
-            as="span"
-            className="work-terminal-status"
-            text="[ ONLINE ]"
-            delay={index * 90 + 160}
-            duration={420}
-            triggerOnView
-            playOnce
-            threshold={0.3}
-          />
-        </div>
+      {/* ── body ── */}
+      <div className="wc-body">
 
-        <div className="work-title-block">
-          <span className="work-title-prompt" aria-hidden="true">&gt;&gt;</span>
-          <ScrollTypeText
-            as="h3"
-            text={work.title}
-            className="work-title-text"
-            delay={index * 120 + 120}
-            speed={34}
-          />
-        </div>
+        {/* LEFT */}
+        <div className="wc-left">
 
-        <div className="work-authors">
-          <span className="work-authors-label" aria-hidden="true">[ AUTORS ]</span>
-          <div className="work-authors-list">
-            {work.authors.map((author, i) => (
-              <ShuffleText
-                key={author}
-                as="span"
-                className="work-author-name"
-                text={`@${author}`}
-                delay={index * 90 + i * 100 + 200}
-                duration={580}
-                interval={4200 + i * 300}
-                triggerOnView
-                playOnce
-                threshold={0.3}
-              />
-            ))}
+          <div className="wc-index-line">
+            <span className="wc-index-marker">▸</span>
+            <ShuffleText as="span" className="wc-index-text"
+              text={`PROJECTE_${seqPadded}`}
+              delay={index * 90} duration={520} triggerOnView playOnce threshold={0.2}
+            />
           </div>
+
+          <div className="wc-title-block">
+            <ShuffleText as="h3" text={work.title} className="wc-title"
+              delay={index * 120 + 80} duration={920} interval={1800}
+              triggerOnView playOnce={false} threshold={0.2}
+            />
+          </div>
+
+          <AsciiLine />
+
+          <div className="wc-authors-block">
+            <ShuffleText as="span" className="wc-authors-label"
+              text="> AUTORS"
+              delay={index * 60 + 300} duration={400} triggerOnView playOnce threshold={0.2}
+            />
+            <div className="wc-authors-list">
+              {(work.authors ?? []).map((a, i) => (
+                <ShuffleText key={a} as="span" className="wc-author-name"
+                  text={a}
+                  delay={index * 60 + 380 + i * 60} duration={600} interval={2800}
+                  triggerOnView playOnce={false} threshold={0.2}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="wc-authors-block">
+            <ShuffleText as="span" className="wc-authors-label"
+              text="> DESCRIPCIÓ"
+              delay={index * 60 + 500} duration={400} triggerOnView playOnce threshold={0.2}
+            />
+            <ScrollTypeText as="p" text={work.description} className="wc-desc"
+              delay={index * 120 + 300} speed={18} threshold={0.1}
+            />
+          </div>
+
+
         </div>
 
-        <p className="work-description">
-          <span className="work-desc-prefix" aria-hidden="true">/*</span>
-          {" "}{work.description}{" "}
-          <span className="work-desc-prefix" aria-hidden="true">*/</span>
-        </p>
+        {/* RIGHT */}
+        <div className="wc-right">
+          <div className="wc-media-frame">
+            <ScrollGlitchMedia
+              src={work.mediaSrc}
+              objectPosition={work.objectPosition}
+              title={work.title}
+            />
+            <ViewfinderOverlay current={activeThumb} total={totalSlides} />
+          </div>
 
-        <div className="work-ascii-footer" aria-hidden="true">
-          <ShuffleText
-            as="span"
-            className="work-ascii-footer-line"
-            text={`PROG.${progAcronym} / IDX_${seqPadded} / ${work.year}`}
-            delay={index * 100 + 300}
-            duration={600}
-            interval={5000}
+          <GalleryStrip
+            photos={photos}
+            mediaSrc={work.mediaSrc}
+            totalPhotos={6}
+            active={activeThumb}
+            onSelect={setActiveThumb}
           />
         </div>
 
       </div>
-
-      <div className="work-media-wrap">
-        <ScrollGlitchMedia
-          src={work.mediaSrc}
-          objectPosition={work.objectPosition}
-          title={work.title}
-        />
-      </div>
-
     </article>
   );
 }

@@ -5,13 +5,13 @@ import ShuffleText from "./ShuffleText.jsx";
 import TypeLine from "./TypeLine.jsx";
 import AsciiScatter from "./AsciiScatter.jsx";
 import FloatingTitles from "./FloatingTitles.jsx";
-import CursorTitles from "./CursorTitles.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SectionDivider({ titleLines, subtitle }) {
   const sectionRef = useRef(null);
-  const titlesRef = useRef(null);
+  const innerRef = useRef(null);
+  const subtitleRef = useRef(null);
   const [typingActive, setTypingActive] = useState(false);
 
   useEffect(() => {
@@ -20,6 +20,12 @@ export default function SectionDivider({ titleLines, subtitle }) {
 
     const track = section.closest(".horizontal-track");
     if (!track) return;
+
+    // autoAlpha sets both opacity AND visibility:hidden atomically — no flash possible
+    gsap.set(innerRef.current, { autoAlpha: 0, x: 160 });
+    gsap.set(subtitleRef.current, { autoAlpha: 0, x: 120 });
+
+    const smoothstep = (t) => t * t * (3 - 2 * t);
 
     const trigger = ScrollTrigger.create({
       trigger: track,
@@ -35,11 +41,21 @@ export default function SectionDivider({ titleLines, subtitle }) {
         const localProgress = (scrollX - sectionLeft + window.innerWidth) / (sectionWidth + window.innerWidth);
         const clamped = Math.max(0, Math.min(1, localProgress));
 
-        const smoothstep = (t) => t * t * (3 - 2 * t);
-        const ep = smoothstep(Math.min(1, clamped / 0.55));
-        if (clamped > 0.48 && clamped < 0.85) setTypingActive(true);
-        else if (clamped <= 0.48) setTypingActive(false);
+        // Només apareix quan la secció ja és completament dins el viewport
+        const ep = smoothstep(Math.min(1, Math.max(0, (clamped - 0.5) / 0.22)));
+        const inner = innerRef.current;
+        if (inner) {
+          gsap.set(inner, { autoAlpha: ep, x: (1 - ep) * 200 });
+        }
 
+        const sub = subtitleRef.current;
+        if (sub) {
+          const sp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.58) / 0.22)));
+          gsap.set(sub, { autoAlpha: sp, x: (1 - sp) * 150 });
+        }
+
+        if (clamped > 0.62) setTypingActive(true);
+        else setTypingActive(false);
       },
     });
 
@@ -47,15 +63,15 @@ export default function SectionDivider({ titleLines, subtitle }) {
   }, []);
 
   return (
-    <div ref={sectionRef} className="section-divider horizontal-panel">
+    <>
+      <div ref={sectionRef} className="section-divider horizontal-panel">
       <div className="section-divider-photo" aria-hidden="true" />
       <AsciiScatter fullSpread count={25} maxOpacity={0.18} />
       <div className="section-divider-bg" aria-hidden="true" />
       <FloatingTitles />
 
-      <div className="section-divider-inner">
-
-        <div ref={titlesRef} className="section-divider-titles" style={{ opacity: typingActive ? 1 : 0, transition: 'opacity 0.8s ease' }}>
+      <div className="section-divider-inner" ref={innerRef}>
+        <div className="section-divider-titles">
           {titleLines.map((line, i) => (
             <ShuffleText
               key={line}
@@ -70,22 +86,24 @@ export default function SectionDivider({ titleLines, subtitle }) {
         </div>
 
         <div className="section-divider-line" aria-hidden="true" />
+      </div>
 
-        <div className="section-divider-subtitle-wrap">
-          <TypeLine
-            as="p"
-            className="section-divider-subtitle"
-            text={subtitle}
-            delay={300}
-            speed={8}
-            trigger={typingActive}
-          />
-        </div>
+      <div ref={subtitleRef} className="section-divider-subtitle-wrap">
+        <TypeLine
+          as="p"
+          className="section-divider-subtitle"
+          text={subtitle}
+          delay={300}
+          speed={8}
+          trigger={typingActive}
+        />
       </div>
 
       <div className="section-divider-corner section-divider-corner--br" aria-hidden="true">
         <span>2025–2026</span>
+      </div> 
+
       </div>
-    </div>
+    </>
   );
 }

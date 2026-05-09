@@ -1,13 +1,14 @@
 import ProjectCard from "./ProjectCard.jsx";
 import SectionDivider from "./SectionDivider.jsx";
 
-function renderProjectPage(page, projectIndex) {
+function renderProjectPage(page, projectIndex, projectCount) {
   if (page.type === "project") {
     return (
       <ProjectCard
         key={page.id}
         work={page.work}
         index={projectIndex}
+        total={projectCount}
       />
     );
   }
@@ -35,12 +36,8 @@ export default function WorksSection({ pages, projectCount }) {
           <div className="works-list">
             {pages.map((page) => {
               const currentProjectIndex = projectIndex;
-
-              if (page.type === "project") {
-                projectIndex += 1;
-              }
-
-              return renderProjectPage(page, currentProjectIndex);
+              if (page.type === "project") projectIndex += 1;
+              return renderProjectPage(page, currentProjectIndex, projectCount);
             })}
 
             {projectCount === 0 ? (
