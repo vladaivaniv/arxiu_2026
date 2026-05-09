@@ -1,43 +1,25 @@
 import ProjectCard from "./ProjectCard.jsx";
-import SectionDivider from "./SectionDivider.jsx";
 
-function renderProjectPage(page, projectIndex, projectCount) {
-  if (page.type === "project") {
-    return (
-      <ProjectCard
-        key={page.id}
-        work={page.work}
-        index={projectIndex}
-        total={projectCount}
-      />
-    );
-  }
-
-  if (page.type === "separator") {
-    return (
-      <SectionDivider
-        key={page.id}
-        titleLines={page.titleLines}
-        subtitle={page.subtitle}
-      />
-    );
-  }
-
-  return null;
-}
-
-export default function WorksSection({ pages, projectCount }) {
-  let projectIndex = 0;
+export default function WorksSection({ works, projectCount, startIndex = 0 }) {
+  let projectIndex = startIndex;
 
   return (
     <section className="works-section horizontal-panel" aria-labelledby="works-title">
       <div className="works-pin">
         <div className="works-shell">
           <div className="works-list">
-            {pages.map((page) => {
+            {works.map((work) => {
               const currentProjectIndex = projectIndex;
-              if (page.type === "project") projectIndex += 1;
-              return renderProjectPage(page, currentProjectIndex, projectCount);
+              projectIndex += 1;
+
+              return (
+                <ProjectCard
+                  key={work.title}
+                  work={work}
+                  index={currentProjectIndex}
+                  total={projectCount}
+                />
+              );
             })}
 
             {projectCount === 0 ? (

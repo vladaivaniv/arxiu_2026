@@ -1,8 +1,9 @@
-import { useMemo, useRef, useState } from "react";
+import { Fragment, useMemo, useRef, useState } from "react";
 import { WORK_FILTERS, PROGRAM_SEPARATORS, workEntries } from "./data/workEntries.js";
 import ArchiveIntroSection from "./components/ArchiveIntroSection.jsx";
 import HeroSection from "./components/HeroSection.jsx";
 import ProjectsChrome from "./components/ProjectsChrome.jsx";
+import SectionDivider from "./components/SectionDivider.jsx";
 import WorksSection from "./components/WorksSection.jsx";
 import useHorizontalScroll from "./hooks/useHorizontalScroll.js";
 import useNoiseLayer from "./hooks/useNoiseLayer.js";
@@ -26,26 +27,26 @@ export default function App() {
     return workEntries.filter((work) => work.program === activeFilter);
   }, [activeFilter]);
 
-  const projectPages = useMemo(() => {
-    const pages = [];
-    let lastProgram = null;
+  const projectGroups = useMemo(() => {
+    const groups = [];
+    let runningIndex = 0;
 
-    for (const work of visibleWorks) {
-      if (work.program !== lastProgram) {
-        const sep = PROGRAM_SEPARATORS[work.program];
-        if (sep) {
-          pages.push({
-            id: `separator-${work.program}`,
-            type: "separator",
-            ...sep,
-          });
-        }
-        lastProgram = work.program;
-      }
-      pages.push({ id: work.title, type: "project", work });
+    for (const [program, separator] of Object.entries(PROGRAM_SEPARATORS)) {
+      const works = visibleWorks.filter((work) => work.program === program);
+      if (!works.length) continue;
+
+      groups.push({
+        id: `group-${program}`,
+        program,
+        separator,
+        works,
+        startIndex: runningIndex,
+      });
+
+      runningIndex += works.length;
     }
 
-    return pages;
+    return groups;
   }, [visibleWorks]);
 
   const handleFilterSelect = (filter) => {
@@ -74,7 +75,23 @@ export default function App() {
         <div ref={trackRef} className="horizontal-track">
           <HeroSection />
           <ArchiveIntroSection />
-          <WorksSection pages={projectPages} projectCount={visibleWorks.length} />
+          {projectGroups.length === 0 ? (
+            <WorksSection works={[]} projectCount={0} startIndex={0} />
+          ) : (
+            projectGroups.map((group) => (
+              <Fragment key={group.id}>
+                <SectionDivider
+                  titleLines={group.separator.titleLines}
+                  subtitle={group.separator.subtitle}
+                />
+                <WorksSection
+                  works={group.works}
+                  projectCount={visibleWorks.length}
+                  startIndex={group.startIndex}
+                />
+              </Fragment>
+            ))
+          )}
         </div>
       </div>
     </main>

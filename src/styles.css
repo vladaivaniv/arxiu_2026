@@ -2285,7 +2285,6 @@ body::before {
   flex: 0 0 100vw;
   width: 100vw;
   height: 100vh;
-  margin-top: calc(-1 * clamp(8rem, 18vh, 11rem));
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

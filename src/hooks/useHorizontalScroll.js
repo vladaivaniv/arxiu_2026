@@ -44,31 +44,29 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
 
         const updateProjectChromeVisibility = (scrollProgress) => {
           const distance = getDistance();
-          const worksSection = track.querySelector(".works-section");
+          const worksSections = Array.from(track.querySelectorAll(".works-section"));
 
-          if (!distance || !worksSection) {
+          if (!distance || !worksSections.length) {
             viewport.classList.remove("is-projects-active");
             viewport.style.setProperty("--hero-project-transition", "0");
             return;
           }
 
           const scrollX = distance * scrollProgress;
-          const start = worksSection.offsetLeft - 2;
-          const end =
-            worksSection.offsetLeft + worksSection.scrollWidth - viewport.clientWidth + 2;
+          const activeWorksSection = worksSections.find((worksSection) => {
+            const start = worksSection.offsetLeft - 2;
+            const end =
+              worksSection.offsetLeft + worksSection.scrollWidth - viewport.clientWidth + 2;
+            return scrollX >= start && scrollX <= end;
+          });
 
-          viewport.classList.toggle(
-            "is-projects-active",
-            scrollX >= start && scrollX <= end,
-          );
+          viewport.classList.toggle("is-projects-active", Boolean(activeWorksSection));
 
-          const transitionStart = worksSection.offsetLeft - viewport.clientWidth;
-          const transitionEnd = worksSection.offsetLeft;
+          const transitionTarget = activeWorksSection ?? worksSections[0];
+          const transitionStart = transitionTarget.offsetLeft - viewport.clientWidth;
+          const transitionEnd = transitionTarget.offsetLeft;
           const transitionRange = Math.max(1, transitionEnd - transitionStart);
-          const transitionProgress = Math.min(
-            1,
-            Math.max(0, (scrollX - transitionStart) / transitionRange),
-          );
+          const transitionProgress = Math.min(1, Math.max(0, (scrollX - transitionStart) / transitionRange));
 
           viewport.style.setProperty(
             "--hero-project-transition",

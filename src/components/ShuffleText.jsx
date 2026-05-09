@@ -38,17 +38,24 @@ export default function ShuffleText({
   playOnce = false,
   threshold = 0.35,
   trigger,
+  initialTextVisible = true,
   ...props
 }) {
   const elementRef = useRef(null);
   const startedRef = useRef(false);
   const externalTrigger = trigger !== undefined;
-  const [displayText, setDisplayText] = useState((triggerOnView || externalTrigger) ? "" : text);
+  const getInitialText = () => {
+    if (triggerOnView) return "";
+    if (externalTrigger) return initialTextVisible ? text : "";
+    return text;
+  };
+  const [displayText, setDisplayText] = useState(getInitialText);
 
   useEffect(() => {
-    if (externalTrigger && !trigger) return;
     startedRef.current = false;
-    setDisplayText((triggerOnView || externalTrigger) ? "" : text);
+    setDisplayText(getInitialText());
+
+    if (externalTrigger && !trigger) return undefined;
 
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let timeoutId = 0;
@@ -144,7 +151,7 @@ export default function ShuffleText({
       window.cancelAnimationFrame(frameId);
       mediaQuery.removeEventListener("change", handleMotionChange);
     };
-  }, [delay, duration, interval, playOnce, text, threshold, triggerOnView, trigger, externalTrigger]);
+  }, [delay, duration, interval, playOnce, text, threshold, triggerOnView, trigger, externalTrigger, initialTextVisible]);
 
   return createElement(
     as,

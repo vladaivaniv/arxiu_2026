@@ -1,0 +1,328 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - generic:
+      - generic:
+        - heading "[ PROJECTES ]" [level=2]
+      - generic:
+        - button "FILTRE":
+          - generic: FILTRE
+          - generic: ▼
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic:
+          - generic: /
+          - generic: I
+          - generic: "!"
+          - generic: A
+          - generic: ░
+          - generic: "5"
+          - generic: "1"
+          - generic: +
+          - generic: "?"
+          - generic: ▓
+          - generic: +
+          - generic: X
+          - generic: "!"
+          - generic: "]"
+          - generic: T
+          - generic: ▄
+          - generic: "4"
+          - generic: A
+          - generic: "7"
+          - generic: .
+          - generic: S
+          - generic: ▀
+          - generic: "1"
+          - generic: X
+          - generic: "#"
+          - generic: "4"
+          - generic: █
+          - generic: "#"
+          - generic: ·
+          - generic: ","
+          - generic: \
+          - generic: ▓
+          - generic: █
+          - generic: S
+          - generic: "["
+          - generic: ▀
+          - generic: █
+          - generic: "9"
+          - generic: X
+          - generic: "!"
+          - generic: "]"
+          - generic: "*"
+          - generic: "3"
+          - generic: "1"
+          - generic: ":"
+          - generic: ▒
+          - generic: "-"
+          - generic: /
+          - generic: A
+          - generic: ░
+          - generic: "-"
+          - generic: █
+          - generic: "3"
+          - generic: =
+          - generic: ▀
+          - generic: "-"
+          - generic: ░
+          - generic: =
+          - generic: "}"
+          - generic: +
+          - generic: "9"
+          - generic: +
+          - generic: ▄
+          - generic: "9"
+          - generic: █
+          - generic: "%"
+          - generic: "?"
+          - generic: T
+          - generic: T
+          - generic: "-"
+          - generic: "3"
+          - generic: "]"
+          - generic: \
+          - generic: T
+          - generic: ·
+          - generic: ·
+          - generic: \
+          - generic: ░
+          - generic: R
+          - generic: \
+          - generic: "0"
+          - generic: ▓
+          - generic: "0"
+          - generic: "}"
+          - generic: "*"
+          - generic: "7"
+          - generic: ":"
+          - generic: "8"
+          - generic: ▓
+          - generic: ▄
+          - generic: "-"
+          - generic: "-"
+          - generic: "{"
+          - generic: I
+          - generic: "5"
+          - generic: "|"
+          - generic: .
+          - generic: ":"
+          - generic: S
+          - generic: "?"
+        - generic [ref=e10]:
+          - paragraph [ref=e11]: _
+          - paragraph [ref=e12]: _
+        - generic [ref=e14]:
+          - generic [ref=e15]: "[SCROLL]"
+          - generic [ref=e16]: _
+          - generic [ref=e17]: _
+          - generic [ref=e18]: "[> ]"
+      - article [ref=e19]:
+        - generic:
+          - generic: 01000001 01010010 01010100 00101111 01000011 01010101 01001100 01010100
+          - generic: LOAD::ARXIU_DIGITAL //// PROJECTES_VISUALS //// AUDIOVISUAL
+          - generic: ████░░░░░░ ████░░░░░░ ████░░░░░░ ████░░░░░░ ████░░░░░░
+          - generic: A+C+D / LAB_CREACIONS / MATERIAL / AUTORS / INDEX / 000000
+          - generic: 00110000 00110001 00110010 00110011 00110100 00110101
+          - generic: ///// UN_ESPAI_DIGITAL ///// REUNINT_PROJECTES /////
+          - generic: ░░██░░██░░██░░██░░██░░██░░██░░██░░██░░██░░██░░██░░██
+          - generic: BUFFERING_CONTEXT BUFFERING_CONTEXT BUFFERING_CONTEXT
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - paragraph [ref=e22]: _
+            - paragraph [ref=e23]: _
+            - paragraph [ref=e24]: _
+            - paragraph [ref=e25]: _
+            - paragraph [ref=e26]
+            - paragraph [ref=e27]: _
+            - paragraph [ref=e28]: _
+            - paragraph [ref=e29]: _
+            - paragraph [ref=e30]
+            - paragraph [ref=e31]: _
+            - paragraph [ref=e32]: _
+            - paragraph [ref=e33]: _
+            - paragraph [ref=e34]: _
+            - paragraph [ref=e35]: _
+          - generic "Dades de l'arxiu" [ref=e36]:
+            - paragraph [ref=e38]:
+              - text: ">"
+              - generic [ref=e39]: _
+            - paragraph [ref=e41]:
+              - text: ">"
+              - generic [ref=e42]: _
+            - paragraph [ref=e44]:
+              - text: ">"
+              - generic [ref=e45]: _
+        - paragraph [ref=e47]: "[ ARXIU_2026 ]"
+      - generic [ref=e49]:
+        - generic:
+          - generic: "8"
+          - generic: "{"
+          - generic: I
+          - generic: "1"
+          - generic: "*"
+          - generic: A
+          - generic: "!"
+          - generic: "{"
+          - generic: "*"
+          - generic: I
+          - generic: "*"
+          - generic: "6"
+          - generic: /
+          - generic: R
+          - generic: "3"
+          - generic: "|"
+          - generic: S
+          - generic: I
+          - generic: "2"
+          - generic: "6"
+          - generic: ▄
+          - generic: "*"
+          - generic: "|"
+          - generic: ":"
+          - generic: T
+        - generic [ref=e51]:
+          - generic:
+            - heading [level=2]
+            - heading [level=2]
+        - paragraph [ref=e53]: _
+        - generic [ref=e54]: 2025–2026
+      - region "[ PROJECTES ]" [ref=e55]:
+        - generic [ref=e58]:
+          - article [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e61]:
+                - generic [ref=e63]: ▸
+                - generic:
+                  - heading [level=3]
+                - generic [ref=e64]: ──────────────────────────────────────────────────────────────────────────────────────────
+                - generic [ref=e67]:
+                  - paragraph
+              - generic [ref=e68]:
+                - generic [ref=e69]:
+                  - generic "END OF SHIFT" [ref=e71]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                    - generic: 01 / 06
+                - generic [ref=e72]:
+                  - button "foto 1" [ref=e73]
+                  - button "foto 2" [ref=e74]
+                  - button "foto 3" [ref=e75]
+                  - button "foto 4" [ref=e76]
+                  - button "foto 5" [ref=e77]
+                  - button "foto 6" [ref=e78]
+          - article [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e83]: ▸
+                - generic:
+                  - heading [level=3]
+                - generic [ref=e84]: ──────────────────────────────────────────────────────────────────────────────────────────
+                - generic [ref=e86]:
+                  - paragraph
+              - generic [ref=e87]:
+                - generic [ref=e88]:
+                  - generic "POLAR ROOM" [ref=e90]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                    - generic: 01 / 06
+                - generic [ref=e91]:
+                  - button "foto 1" [ref=e92]
+                  - button "foto 2" [ref=e93]
+                  - button "foto 3" [ref=e94]
+                  - button "foto 4" [ref=e95]
+                  - button "foto 5" [ref=e96]
+                  - button "foto 6" [ref=e97]
+      - generic [ref=e99]:
+        - generic:
+          - generic: ▄
+          - generic: █
+          - generic: "8"
+          - generic: ░
+          - generic: "!"
+          - generic: "5"
+          - generic: "7"
+          - generic: I
+          - generic: I
+          - generic: "*"
+          - generic: "%"
+          - generic: "1"
+          - generic: "1"
+          - generic: "-"
+          - generic: "5"
+          - generic: "%"
+          - generic: "9"
+          - generic: "9"
+          - generic: "|"
+          - generic: "7"
+          - generic: +
+          - generic: =
+          - generic: "#"
+          - generic: ":"
+          - generic: ▒
+        - generic [ref=e101]:
+          - generic:
+            - heading [level=2]
+            - heading [level=2]
+            - heading [level=2]
+        - paragraph [ref=e103]: _
+        - generic [ref=e104]: 2025–2026
+      - region "[ PROJECTES ]" [ref=e105]:
+        - generic [ref=e108]:
+          - article [ref=e109]:
+            - generic [ref=e110]:
+              - generic [ref=e111]:
+                - generic [ref=e113]: ▸
+                - generic:
+                  - heading [level=3]
+                - generic [ref=e114]: ──────────────────────────────────────────────────────────────────────────────────────────
+                - generic [ref=e117]:
+                  - paragraph
+              - generic [ref=e118]:
+                - generic [ref=e119]:
+                  - generic "INDEX 04" [ref=e121]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                    - generic: 01 / 06
+                - generic [ref=e122]:
+                  - button "foto 1" [ref=e123]
+                  - button "foto 2" [ref=e124]
+                  - button "foto 3" [ref=e125]
+                  - button "foto 4" [ref=e126]
+                  - button "foto 5" [ref=e127]
+                  - button "foto 6" [ref=e128]
+          - article [ref=e129]:
+            - generic [ref=e130]:
+              - generic [ref=e131]:
+                - generic [ref=e133]: ▸
+                - generic:
+                  - heading [level=3]
+                - generic [ref=e134]: ──────────────────────────────────────────────────────────────────────────────────────────
+                - generic [ref=e136]:
+                  - paragraph
+              - generic [ref=e137]:
+                - generic [ref=e138]:
+                  - generic "SIGNAL" [ref=e140]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                    - generic: 01 / 06
+                - generic [ref=e141]:
+                  - button "foto 1" [ref=e142]
+                  - button "foto 2" [ref=e143]
+                  - button "foto 3" [ref=e144]
+                  - button "foto 4" [ref=e145]
+                  - button "foto 5" [ref=e146]
+                  - button "foto 6" [ref=e147]
