@@ -501,7 +501,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         loop
         muted
         playsInline
-        preload="metadata"
+        preload="none"
         aria-label={title}
         style={{ objectPosition }}
       />

@@ -76,8 +76,8 @@ function GalleryStrip({ photos, mediaSrc, totalPhotos, active, onSelect }) {
           aria-label={`foto ${i + 1}`}
         >
           {src
-            ? <img src={src} alt={`foto ${i + 1}`} />
-            : <video src={mediaSrc} muted playsInline preload="metadata" />
+            ? <img src={src} alt={`foto ${i + 1}`} loading="lazy" decoding="async" />
+            : <video src={mediaSrc} muted playsInline preload="none" />
           }
         </button>
       ))}

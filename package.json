@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "optimize:assets": "node scripts/optimize-assets.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

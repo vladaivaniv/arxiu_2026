@@ -1,5 +1,5 @@
 const assetModules = import.meta.glob(
-  "../../assets/**/*.{jpg,jpeg,JPG,JPEG,png,PNG,webp,WEBP,mov,MOV,mp4,MP4}",
+  "../../assets/**/optimized/*.{jpg,jpeg,JPG,JPEG,png,PNG,webp,WEBP,mov,MOV,mp4,MP4}",
   {
     eager: true,
     import: "default",
@@ -12,6 +12,7 @@ const assetSorter = new Intl.Collator("ca", {
 });
 
 const VIDEO_EXTENSIONS = new Set(["mov", "mp4", "webm", "ogg"]);
+const OPTIMIZED_FOLDER_NAME = "optimized";
 
 function normalizeAssetKey(value) {
   return value
@@ -29,7 +30,17 @@ function getAssetExtension(path) {
 
 function getAssetFolderKey(path) {
   const segments = path.split("/");
-  return normalizeAssetKey(segments[segments.length - 2] ?? "");
+  const parentFolder = segments[segments.length - 2] ?? "";
+  const projectFolder = parentFolder === OPTIMIZED_FOLDER_NAME
+    ? segments[segments.length - 3]
+    : parentFolder;
+
+  return normalizeAssetKey(projectFolder ?? "");
+}
+
+function isOptimizedAsset(path) {
+  const segments = path.split("/");
+  return segments[segments.length - 2] === OPTIMIZED_FOLDER_NAME;
 }
 
 const groupedProjectAssets = Object.entries(assetModules).reduce((acc, [path, src]) => {
@@ -41,25 +52,52 @@ const groupedProjectAssets = Object.entries(assetModules).reduce((acc, [path, sr
   }
 
   if (!acc[folderKey]) {
-    acc[folderKey] = { photos: [], videos: [] };
+    acc[folderKey] = {
+      photos: [],
+      videos: [],
+      optimizedPhotos: [],
+      optimizedVideos: [],
+    };
   }
 
+  const isOptimized = isOptimizedAsset(path);
+
   if (VIDEO_EXTENSIONS.has(extension)) {
-    acc[folderKey].videos.push({ path, src });
+    const target = isOptimized ? acc[folderKey].optimizedVideos : acc[folderKey].videos;
+    target.push({ path, src });
   } else {
-    acc[folderKey].photos.push({ path, src });
+    const target = isOptimized ? acc[folderKey].optimizedPhotos : acc[folderKey].photos;
+    target.push({ path, src });
   }
 
   return acc;
 }, {});
 
 Object.values(groupedProjectAssets).forEach((entry) => {
-  entry.photos.sort((a, b) => assetSorter.compare(a.path, b.path));
-  entry.videos.sort((a, b) => assetSorter.compare(a.path, b.path));
+  [
+    entry.photos,
+    entry.videos,
+    entry.optimizedPhotos,
+    entry.optimizedVideos,
+  ].forEach((assets) => {
+    assets.sort((a, b) => assetSorter.compare(a.path, b.path));
+  });
 });
 
+function getPreferredPhotos(projectAssets) {
+  return projectAssets.optimizedPhotos.length > 0
+    ? projectAssets.optimizedPhotos
+    : projectAssets.photos;
+}
+
+function getPreferredVideos(projectAssets) {
+  return projectAssets.optimizedVideos.length > 0
+    ? projectAssets.optimizedVideos
+    : projectAssets.videos;
+}
+
 const FALLBACK_MEDIA_SRC = Object.values(groupedProjectAssets)
-  .flatMap((entry) => entry.videos)
+  .flatMap(getPreferredVideos)
   .map((entry) => entry.src)[0] ?? null;
 
 function getProjectMedia(assetKey) {
@@ -73,8 +111,8 @@ function getProjectMedia(assetKey) {
   }
 
   return {
-    mediaSrc: projectAssets.videos[0]?.src ?? FALLBACK_MEDIA_SRC,
-    photos: projectAssets.photos.map((entry) => entry.src),
+    mediaSrc: getPreferredVideos(projectAssets)[0]?.src ?? FALLBACK_MEDIA_SRC,
+    photos: getPreferredPhotos(projectAssets).map((entry) => entry.src),
   };
 }
 

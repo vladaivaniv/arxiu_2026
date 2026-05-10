@@ -147,7 +147,7 @@ export default function PixelVideoParallax({
             loop
             muted
             playsInline
-            preload="auto"
+            preload="none"
           />
           <div className="video-overlay" aria-hidden="true" />
           <div className="video-meta">
