@@ -13,8 +13,8 @@ const TITLES = [
   "Or de ferralla",
 ];
 
-const SPEED = 38;
-const BATCH = 3;
+const SPEED = 55;
+const BATCH = 4;
 
 function rand(a, b) { return a + Math.random() * (b - a); }
 
@@ -49,7 +49,7 @@ export default function FloatingTitles({ active = true }) {
         pointer-events: none;
         white-space: nowrap;
         z-index: 3;
-        transition: opacity 0.4s ease;
+        transition: opacity 0.2s ease;
       `;
       container.appendChild(el);
 
@@ -66,8 +66,8 @@ export default function FloatingTitles({ active = true }) {
             clearInterval(iv);
             setTimeout(() => {
               el.style.opacity = "0";
-              setTimeout(() => el.remove(), 500);
-            }, rand(1200, 3000));
+              setTimeout(() => el.remove(), 250);
+            }, rand(400, 900));
           }
         }, SPEED);
         intervals.push(iv);
@@ -78,9 +78,9 @@ export default function FloatingTitles({ active = true }) {
     const spawnBatch = () => {
       if (!running) return;
       for (let i = 0; i < BATCH; i++) {
-        spawnOne(i * rand(200, 500));
+        spawnOne(i * rand(80, 200));
       }
-      setTimeout(spawnBatch, rand(3500, 5500));
+      setTimeout(spawnBatch, rand(1200, 2200));
     };
 
     spawnBatch();

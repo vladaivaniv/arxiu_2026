@@ -1,10 +1,30 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollGlitchMedia from "./ScrollGlitchMedia.jsx";
 import ShuffleText from "./ShuffleText.jsx";
 import ScrollTypeText from "./ScrollTypeText.jsx";
+import CardGlyphBg from "./CardGlyphBg.jsx";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const LINE_CHARS = ["─", "─", "─", "╌", "·", "─"];
 const LINE_LEN = 90;
+const COLUMN_REVEAL_WINDOW = 1.18;
+const INDEX_REVEAL_OFFSET = 0.04;
+const INDEX_REVEAL_WINDOW = 0.82;
+const TITLE_REVEAL_OFFSET = 0.08;
+const TITLE_REVEAL_WINDOW = 0.9;
+const RULE_REVEAL_OFFSET = 0.12;
+const RULE_REVEAL_WINDOW = 0.86;
+const AUTHORS_REVEAL_OFFSET = 0.18;
+const AUTHORS_REVEAL_WINDOW = 0.88;
+const DESCRIPTION_REVEAL_OFFSET = 0.24;
+const DESCRIPTION_REVEAL_WINDOW = 0.9;
+const MEDIA_REVEAL_OFFSET = 0.1;
+const MEDIA_REVEAL_WINDOW = 0.96;
+const GALLERY_REVEAL_OFFSET = 0.18;
+const GALLERY_REVEAL_WINDOW = 0.92;
 
 function AsciiLine() {
   const [line, setLine] = useState("─".repeat(LINE_LEN));
@@ -34,9 +54,6 @@ function ViewfinderOverlay({ current, total }) {
       <span className="vf-num" style={{ top: "12%", right: "3%" }}>00</span>
       <span className="vf-num" style={{ bottom: "12%", left: "3%" }}>33</span>
       <span className="vf-num" style={{ bottom: "12%", right: "3%" }}>100</span>
-      <span className="vf-counter">
-        {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-      </span>
     </div>
   );
 }
@@ -67,21 +84,193 @@ function GalleryStrip({ photos, mediaSrc, totalPhotos, active, onSelect }) {
 }
 
 export default function ProjectCard({ work, index, total }) {
+  const cardRef = useRef(null);
+  const textColumnRef = useRef(null);
+  const mediaColumnRef = useRef(null);
+  const mediaFrameRef = useRef(null);
+  const galleryRef = useRef(null);
+  const indexLineRef = useRef(null);
+  const titleBlockRef = useRef(null);
+  const ruleRef = useRef(null);
+  const authorsBlockRef = useRef(null);
+  const descriptionBlockRef = useRef(null);
   const seqPadded = String(index + 1).padStart(3, "0");
   const photos = work.photos ?? [];
   const totalSlides = photos.length > 0 ? photos.length : 6;
   const [activeThumb, setActiveThumb] = useState(0);
 
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return undefined;
+
+    const track = card.closest(".horizontal-track");
+    if (!track) return undefined;
+
+    const clamp01 = (value) => Math.max(0, Math.min(1, value));
+    const smoothstep = (value) => {
+      const t = clamp01(value);
+      return t * t * (3 - 2 * t);
+    };
+
+    const setTextReveal = (node, {
+      progress,
+      blur = 0,
+      x = 0,
+      y = 0,
+      opacity = progress,
+    }) => {
+      if (!node) return;
+
+      gsap.set(node, {
+        opacity,
+        filter: blur > 0 ? `blur(${((1 - progress) * blur).toFixed(2)}px)` : "none",
+        x,
+        y,
+      });
+    };
+
+    const textColumn = textColumnRef.current;
+    const mediaColumn = mediaColumnRef.current;
+    const mediaFrame = mediaFrameRef.current;
+    const gallery = galleryRef.current;
+    const indexLine = indexLineRef.current;
+    const titleBlock = titleBlockRef.current;
+    const rule = ruleRef.current;
+    const authorsBlock = authorsBlockRef.current;
+    const descriptionBlock = descriptionBlockRef.current;
+
+    [
+      textColumn,
+      mediaColumn,
+      mediaFrame,
+      gallery,
+      indexLine,
+      titleBlock,
+      rule,
+      authorsBlock,
+      descriptionBlock,
+    ].forEach((node) => {
+      if (!node) return;
+      gsap.set(node, { opacity: 0, x: 0, y: 0, filter: "blur(0px)" });
+    });
+
+    const trigger = ScrollTrigger.create({
+      trigger: track,
+      start: "top top",
+      end: () => `+=${Math.max(0, track.scrollWidth - window.innerWidth)}`,
+      scrub: true,
+      onUpdate: (self) => {
+        const totalDistance = track.scrollWidth - window.innerWidth;
+        if (totalDistance <= 0) return;
+
+        const scrollX = totalDistance * self.progress;
+        const cardLeft = card.offsetLeft;
+        const viewportWidth = window.innerWidth;
+        const localProgress = clamp01(
+          (scrollX - (cardLeft - viewportWidth * 0.85)) / (viewportWidth * 0.85),
+        );
+
+        const columnProgress = smoothstep(localProgress / COLUMN_REVEAL_WINDOW);
+        setTextReveal(textColumn, {
+          progress: columnProgress,
+          blur: 0,
+          x: (1 - columnProgress) * 220,
+        });
+
+        const mediaColumnProgress = smoothstep(
+          (localProgress - MEDIA_REVEAL_OFFSET) / MEDIA_REVEAL_WINDOW,
+        );
+        setTextReveal(mediaColumn, {
+          progress: mediaColumnProgress,
+          blur: 0,
+          x: (1 - mediaColumnProgress) * 160,
+        });
+
+        const mediaFrameProgress = smoothstep(
+          (localProgress - MEDIA_REVEAL_OFFSET) / MEDIA_REVEAL_WINDOW,
+        );
+        setTextReveal(mediaFrame, {
+          progress: mediaFrameProgress,
+          blur: 0,
+          x: (1 - mediaFrameProgress) * 220,
+          y: (1 - mediaFrameProgress) * 24,
+        });
+
+        const galleryProgress = smoothstep(
+          (localProgress - GALLERY_REVEAL_OFFSET) / GALLERY_REVEAL_WINDOW,
+        );
+        setTextReveal(gallery, {
+          progress: galleryProgress,
+          blur: 0,
+          x: (1 - galleryProgress) * 180,
+          y: (1 - galleryProgress) * 18,
+        });
+
+        const indexProgress = smoothstep(
+          (localProgress - INDEX_REVEAL_OFFSET) / INDEX_REVEAL_WINDOW,
+        );
+        setTextReveal(indexLine, {
+          progress: indexProgress,
+          blur: 0,
+          x: (1 - indexProgress) * 180,
+        });
+
+        const titleProgress = smoothstep(
+          (localProgress - TITLE_REVEAL_OFFSET) / TITLE_REVEAL_WINDOW,
+        );
+        setTextReveal(titleBlock, {
+          progress: titleProgress,
+          blur: 0,
+          x: (1 - titleProgress) * 360,
+          y: (1 - titleProgress) * 40,
+        });
+
+        const ruleProgress = smoothstep(
+          (localProgress - RULE_REVEAL_OFFSET) / RULE_REVEAL_WINDOW,
+        );
+        setTextReveal(rule, {
+          progress: ruleProgress,
+          blur: 0,
+          x: (1 - ruleProgress) * 160,
+        });
+
+        const authorsProgress = smoothstep(
+          (localProgress - AUTHORS_REVEAL_OFFSET) / AUTHORS_REVEAL_WINDOW,
+        );
+        setTextReveal(authorsBlock, {
+          progress: authorsProgress,
+          blur: 0,
+          x: (1 - authorsProgress) * 220,
+          y: (1 - authorsProgress) * 20,
+        });
+
+        const descriptionProgress = smoothstep(
+          (localProgress - DESCRIPTION_REVEAL_OFFSET) / DESCRIPTION_REVEAL_WINDOW,
+        );
+        setTextReveal(descriptionBlock, {
+          progress: descriptionProgress,
+          blur: 0,
+          x: 0,
+          y: 0,
+        });
+      },
+    });
+
+    return () => trigger.kill();
+  }, []);
+
   return (
-    <article className="work-card horizontal-panel">
+    <article ref={cardRef} className="work-card horizontal-panel">
+
+      <CardGlyphBg />
 
       {/* ── body ── */}
       <div className="wc-body">
 
         {/* LEFT */}
-        <div className="wc-left">
+        <div ref={textColumnRef} className="wc-left">
 
-          <div className="wc-index-line">
+          <div ref={indexLineRef} className="wc-index-line">
             <span className="wc-index-marker">▸</span>
             <ShuffleText as="span" className="wc-index-text"
               text={`PROJECTE_${seqPadded}`}
@@ -89,16 +278,19 @@ export default function ProjectCard({ work, index, total }) {
             />
           </div>
 
-          <div className="wc-title-block">
+          <div ref={titleBlockRef} className="wc-title-block">
             <ShuffleText as="h3" text={work.title} className="wc-title"
               delay={index * 120 + 80} duration={920} interval={1800}
               triggerOnView playOnce={false} threshold={0.2}
+              initialTextVisible
             />
           </div>
 
-          <AsciiLine />
+          <div ref={ruleRef}>
+            <AsciiLine />
+          </div>
 
-          <div className="wc-authors-block">
+          <div ref={authorsBlockRef} className="wc-authors-block">
             <ShuffleText as="span" className="wc-authors-label"
               text="> AUTORS"
               delay={index * 60 + 300} duration={400} triggerOnView playOnce threshold={0.2}
@@ -114,7 +306,7 @@ export default function ProjectCard({ work, index, total }) {
             </div>
           </div>
 
-          <div className="wc-authors-block">
+          <div ref={descriptionBlockRef} className="wc-authors-block">
             <ShuffleText as="span" className="wc-authors-label"
               text="> DESCRIPCIÓ"
               delay={index * 60 + 500} duration={400} triggerOnView playOnce threshold={0.2}
@@ -128,8 +320,8 @@ export default function ProjectCard({ work, index, total }) {
         </div>
 
         {/* RIGHT */}
-        <div className="wc-right">
-          <div className="wc-media-frame">
+        <div ref={mediaColumnRef} className="wc-right">
+          <div ref={mediaFrameRef} className="wc-media-frame">
             <ScrollGlitchMedia
               src={work.mediaSrc}
               objectPosition={work.objectPosition}
@@ -138,13 +330,15 @@ export default function ProjectCard({ work, index, total }) {
             <ViewfinderOverlay current={activeThumb} total={totalSlides} />
           </div>
 
-          <GalleryStrip
-            photos={photos}
-            mediaSrc={work.mediaSrc}
-            totalPhotos={6}
-            active={activeThumb}
-            onSelect={setActiveThumb}
-          />
+          <div ref={galleryRef}>
+            <GalleryStrip
+              photos={photos}
+              mediaSrc={work.mediaSrc}
+              totalPhotos={6}
+              active={activeThumb}
+              onSelect={setActiveThumb}
+            />
+          </div>
         </div>
 
       </div>

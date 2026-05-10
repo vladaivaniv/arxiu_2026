@@ -170,30 +170,52 @@ A [`src/components/SectionDivider.jsx`](/Users/satus/Desktop/VLADA/paralax/src/c
 
 Aquesta `surface` ocupa tot el viewport del divider i és la que rep el desenfocament global d'entrada. D'aquesta manera, la pantalla sencera de `PROJECTES TREPAT` queda visualment "tapada" fins que realment entra bé en escena.
 
-El càlcul principal és aquest:
+La versió actual està organitzada amb constants i helpers perquè sigui més llegible:
 
 ```js
-const ep = smoothstep(Math.min(1, Math.max(0, (clamped - 0.08) / 0.62)));
-const surfaceBlur = (1 - ep) * 16;
-const surfaceScale = 0.94 + ep * 0.06;
+const INITIAL_SURFACE_BLUR = 16;
+const INITIAL_LAYOUT_BLUR = 12;
+const MOTION_READY_THRESHOLD = 0.795;
+
+function clamp01(value) { ... }
+function smoothstep(value) { ... }
+function setBlurReveal(node, config) { ... }
 ```
 
-I s'aplica així:
+El càlcul principal del progrés és aquest:
 
 ```js
-gsap.set(surface, {
-  opacity: ep,
+const localProgress = clamp01(
+  (scrollX - (sectionLeft - viewportWidth)) / viewportWidth,
+);
+```
+
+### Què representa `localProgress` aquí
+
+- `0` = el divider tot just comença a entrar per la dreta
+- `1` = el panell ja està alineat al viewport
+
+Sobre aquest progrés es construeix el reveal visual de cada capa.
+
+La capa principal del divider s'aplica així:
+
+```js
+const surfaceProgress = smoothstep(localProgress / SURFACE_REVEAL_WINDOW);
+const surfaceScale = INITIAL_SURFACE_SCALE + surfaceProgress * 0.06;
+
+setBlurReveal(surface, {
+  progress: surfaceProgress,
+  blur: INITIAL_SURFACE_BLUR,
   scale: surfaceScale,
-  filter: `blur(${surfaceBlur.toFixed(2)}px)`,
-  x: 0,
-  y: 0,
+  x: (1 - surfaceProgress) * 140,
 });
 ```
 
 ### Lectura visual
 
 - al principi, tota la pàgina entra amb `opacity: 0`, `scale: 0.94` i `blur: 16px`
-- quan el progrés puja, la pàgina recupera nitidesa
+- a més del blur, la superfície entra amb desplaçament lateral
+- quan el progrés puja, la pàgina recupera nitidesa i torna a la seva posició real
 - només quan `ep` s'acosta a `1`, la pantalla es veu completament clara
 
 Això fa que el pas `Arxiu 2026 -> Projectes Trepat` tingui la mateixa lògica d'entrada progressiva que la secció anterior, però aplicada a nivell de pàgina completa.
@@ -269,7 +291,120 @@ I la línia CSS queda pausada fins que la classe de desbloqueig apareix:
 }
 ```
 
-## 11. Per què aquesta separació és important
+## 11. El divider també desplaça els textos durant la transició
+
+Ara `PROJECTES TREPAT` no només entra amb blur, sinó també amb desplaçaments visibles sobre els blocs de text.
+
+Exemples actuals:
+
+```js
+setBlurReveal(layout, {
+  progress: surfaceProgress,
+  blur: INITIAL_LAYOUT_BLUR,
+  x: (1 - surfaceProgress) * 220,
+  y: (1 - surfaceProgress) * 36,
+});
+```
+
+```js
+setBlurReveal(subtitleNode, {
+  progress: subtitleProgress,
+  blur: INITIAL_SUBTITLE_BLUR,
+  x: (1 - subtitleProgress) * 160,
+  y: (1 - subtitleProgress) * 12,
+});
+```
+
+```js
+setBlurReveal(corner, {
+  progress: cornerProgress,
+  blur: INITIAL_CORNER_BLUR,
+  opacity: cornerProgress * 0.7,
+  x: (1 - cornerProgress) * 72,
+  y: (1 - cornerProgress) * 44,
+});
+```
+
+Això fa que el divider tingui una entrada molt més marcada: la pàgina no només apareix, sinó que "llisca" cap a lloc mentre es neteja el blur.
+
+## 12. Efecte equivalent sobre els textos dels projectes
+
+A [`src/components/ProjectCard.jsx`](/Users/satus/Desktop/VLADA/paralax/src/components/ProjectCard.jsx:1) s'ha aplicat una lògica semblant als textos de cada projecte.
+
+La idea és:
+
+- cada `work-card` calcula el seu progrés local dins del track horitzontal
+- la columna de text esquerra no apareix de cop
+- els blocs textuals entren amb `blur + opacity + x/y`
+
+L'estructura es controla amb refs separades:
+
+```js
+const textColumnRef = useRef(null);
+const indexLineRef = useRef(null);
+const titleBlockRef = useRef(null);
+const ruleRef = useRef(null);
+const authorsBlockRef = useRef(null);
+const descriptionBlockRef = useRef(null);
+```
+
+I després cada part rep el seu propi reveal:
+
+```js
+const titleProgress = smoothstep((localProgress - 0.1) / 0.82);
+setTextReveal(titleBlock, {
+  progress: titleProgress,
+  blur: 10,
+  x: (1 - titleProgress) * 220,
+  y: (1 - titleProgress) * 28,
+});
+```
+
+```js
+const descriptionProgress = smoothstep((localProgress - 0.26) / 0.82);
+setTextReveal(descriptionBlock, {
+  progress: descriptionProgress,
+  blur: 9,
+  x: (1 - descriptionProgress) * 180,
+  y: (1 - descriptionProgress) * 20,
+});
+```
+
+També s'aplica a la banda dreta:
+
+```js
+const mediaFrameProgress = smoothstep(
+  (localProgress - MEDIA_REVEAL_OFFSET) / MEDIA_REVEAL_WINDOW,
+);
+setTextReveal(mediaFrame, {
+  progress: mediaFrameProgress,
+  blur: 12,
+  x: (1 - mediaFrameProgress) * 220,
+  y: (1 - mediaFrameProgress) * 24,
+});
+```
+
+```js
+const galleryProgress = smoothstep(
+  (localProgress - GALLERY_REVEAL_OFFSET) / GALLERY_REVEAL_WINDOW,
+);
+setTextReveal(gallery, {
+  progress: galleryProgress,
+  blur: 8,
+  x: (1 - galleryProgress) * 180,
+  y: (1 - galleryProgress) * 18,
+});
+```
+
+### Què aporta visualment
+
+- la columna esquerra entra com una unitat
+- el títol té més recorregut i més presència
+- la descripció arriba una mica més tard, fent la lectura més escalonada
+- la columna de media i la galeria també llisquen mentre apareixen
+- la pàgina sencera es construeix mentre entra, en lloc de mostrar-se de cop
+
+## 13. Per què aquesta separació és important
 
 Sense aquest control, els textos i ornaments en moviment podien començar a animar-se mentre la pantalla encara estava entrant i desenfocant-se.
 
@@ -281,16 +416,18 @@ El problema visual era aquest:
 
 Amb el nou sistema, primer es resol la presència completa de la pàgina i només després arrenca la capa de moviment.
 
-## 12. Resum curt del mecanisme
+## 14. Resum curt del mecanisme
 
 - `useHorizontalScroll` crea el desplaçament horitzontal general del lloc.
 - Cada secció calcula el seu progrés local amb `scrollX`, `offsetLeft` i `offsetWidth`.
 - `ArchiveIntroSection` transforma aquest progrés en `opacity`, `scale` i `filter: blur(...)`.
 - `SectionDivider` fa el mateix sobre una capa de pàgina completa (`section-divider-surface`).
+- `SectionDivider` també afegeix desplaçaments en `x/y` als seus textos.
+- `ProjectCard` aplica la mateixa idea als textos dels projectes.
 - Els elements amb moviment intern no s'activen fins que `motionReady === true`.
 - Com que la `hero` està abans dins del track, el blur d'`ArchiveIntroSection` no comença a resoldre's fins que el scroll ja ha avançat més enllà de la primera pantalla.
 
-## 13. Si es vol fer encara més estricte
+## 15. Si es vol fer encara més estricte
 
 Si es volgués que `ArchiveIntroSection` no comencés absolutament cap efecte fins que la `HeroSection` hagués desaparegut del tot, es podria introduir un llindar extra abans de calcular `ep`, per exemple:
 

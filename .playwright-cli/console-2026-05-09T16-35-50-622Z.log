@@ -1,2 +1,104 @@
 [     332ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/favicon.ico:0
 [     426ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[ 4784501ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[ 4784887ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[88883668ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s BLASTUR 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433434242:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[88950466ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s BLASTUR 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433501034:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[88950466ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s QUAN NINGÚ MIRA 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433501034:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[88978701ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s BLASTUR 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433529270:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[88978701ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s QUAN NINGÚ MIRA 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433529270:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[88999280ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s BLASTUR 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433549848:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[88999280ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s QUAN NINGÚ MIRA 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433549848:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[89030586ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s BLASTUR 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433581156:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[89030586ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s QUAN NINGÚ MIRA 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433581156:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[89049078ms] [ERROR] Warning: Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.%s QUAN NINGÚ MIRA 
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778433076553:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778433599629:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520

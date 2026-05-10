@@ -10,10 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 const ARCHIVE_INTRO = {
   title: "[2026]",
   body: [
-    "Aquest espai reuneix els projectes",
-    "creats durant el curs d’Art i",
-    "Cultura Digital i Laboratori de",
-    "Creacions Artístiques.",
+    "Aquest espai reuneix els",
+    "projectes creats durant el curs",
+    "d’Art i Cultura Digital i",
+    "Laboratori de Creacions Artístiques.",
     "",
     "Un espai per descobrir processos",
     "creatius, peces digitals i mirades",
@@ -95,7 +95,7 @@ export default function ArchiveIntroSection() {
 
         const smoothstep = (t) => t * t * (3 - 2 * t);
 
-        const ep = smoothstep(Math.min(1, clamped / 0.55));
+        const ep = smoothstep(Math.min(1, clamped / 0.2));
 
         if (ep > 0.1) setTypingActive(true);
 
@@ -112,10 +112,9 @@ export default function ArchiveIntroSection() {
         const footer = section.querySelector(".archive-intro-footer");
         if (footer) {
           const fp = smoothstep(Math.min(1, Math.max(0, (clamped - 0.15) / 0.5)));
-          const fBlur = (1 - fp) * 8;
           gsap.set(footer, {
-            opacity: fp * 0.55,
-            filter: `blur(${fBlur.toFixed(2)}px)`,
+            opacity: fp * 0.60,
+            filter: "blur(0px)",
             x: 0,
             y: 0,
           });
@@ -174,6 +173,7 @@ export default function ArchiveIntroSection() {
                 speed={SPEED}
                 trigger={typingActive}
                 aria-label={line}
+                style={undefined}
               />
             );
           })}

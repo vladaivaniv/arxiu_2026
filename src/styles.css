@@ -31,6 +31,21 @@ body {
   font-family: "Space Mono", monospace;
 }
 
+.landing-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(
+    circle 320px at var(--mx, 50%) var(--my, 50%),
+    rgba(180, 0, 0, 0.04) 0%,
+    rgba(80, 0, 0, 0.02) 40%,
+    transparent 70%
+  );
+  transition: background 0.08s linear;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -634,8 +649,8 @@ body::before {
 
 .works-filter-toggle {
   background: transparent;
-  border: 1px solid rgba(255,0,0,0.22);
-  color: rgba(245,245,245,0.45);
+  border: 1px solid #FF0000;
+  color: #FF0000;
   font-family: "Space Mono", monospace;
   font-size: clamp(0.52rem, 0.64vw, 0.64rem);
   letter-spacing: 0.24em;
@@ -924,7 +939,7 @@ body::before {
 /* ─── wc-body ─────────────────────────────────────── */
 .wc-body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
   flex: 1;
   min-height: 0;
   overflow: hidden;
@@ -939,6 +954,7 @@ body::before {
   padding: clamp(2rem, 5vh, 4rem) clamp(2rem, 4vw, 4rem);
   overflow-y: auto;
   scrollbar-width: none;
+  will-change: transform, filter, opacity;
 }
 .wc-left::-webkit-scrollbar { display: none; }
 
@@ -947,6 +963,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  will-change: transform, filter, opacity;
 }
 
 .wc-index-marker {
@@ -964,7 +981,10 @@ body::before {
 }
 
 /* title */
-.wc-title-block { overflow: hidden; }
+.wc-title-block {
+  overflow: hidden;
+  will-change: transform, filter, opacity;
+}
 
 .wc-title {
   margin: 0;
@@ -982,11 +1002,12 @@ body::before {
 
 /* rule */
 .wc-rule-ascii {
-  color: rgba(255,0,0,0.45);
+  color: #FF0000;
   font-family: "Space Mono", monospace;
   font-size: 0.65rem;
   letter-spacing: 0.05em;
   min-height: 1em;
+  will-change: transform, filter, opacity;
 }
 
 /* authors */
@@ -994,14 +1015,20 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  padding-left: 0;
+  margin-left: 0;
+  will-change: transform, filter, opacity;
 }
 
 .wc-authors-label {
-  color: rgba(255,0,0,0.6);
+  display: block;
+  color: #FF0000;
   font-family: "Space Mono", monospace;
   font-size: clamp(0.52rem, 0.64vw, 0.64rem);
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .wc-authors-list {
@@ -1022,6 +1049,7 @@ body::before {
 /* description */
 .wc-desc {
   margin: 0;
+  padding-left: 0;
   color: rgba(245,245,245,0.85);
   font-family: "Space Mono", monospace;
   font-size: clamp(0.75rem, 1.1vw, 1.05rem);
@@ -1072,6 +1100,7 @@ body::before {
   min-height: 0;
   overflow: hidden;
   padding: clamp(1rem, 2vh, 2rem) clamp(1.5rem, 3vw, 3rem) clamp(1rem, 2vh, 2rem) 0;
+  will-change: transform, filter, opacity;
 }
 
 
@@ -1093,6 +1122,7 @@ body::before {
   position: relative;
   min-height: 0;
   overflow: hidden;
+  will-change: transform, filter, opacity;
 }
 
 .wc-media-frame .work-media {
@@ -1107,6 +1137,7 @@ body::before {
   gap: 3px;
   padding: 4px;
   background: transparent;
+  will-change: transform, filter, opacity;
 }
 
 .wc-gallery-thumb {

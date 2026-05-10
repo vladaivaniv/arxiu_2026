@@ -14,7 +14,7 @@ const INITIAL_LAYOUT_BLUR = 12;
 const INITIAL_SUBTITLE_BLUR = 8;
 const INITIAL_CORNER_BLUR = 6;
 const MOTION_READY_THRESHOLD = 0.795;
-const SURFACE_REVEAL_WINDOW = 1.2;
+const DEFAULT_BLUR_END_PROGRESS = 0.7;
 const SUBTITLE_REVEAL_OFFSET = 0.24;
 const SUBTITLE_REVEAL_WINDOW = 0.7;
 const CORNER_REVEAL_OFFSET = 0.3;
@@ -27,6 +27,18 @@ function clamp01(value) {
 function smoothstep(value) {
   const t = clamp01(value);
   return t * t * (3 - 2 * t);
+}
+
+function normalizeBlurEndProgress(value) {
+  if (typeof value !== "number" || Number.isNaN(value)) {
+    return DEFAULT_BLUR_END_PROGRESS;
+  }
+
+  if (value > 1) {
+    return clamp01(value / 100);
+  }
+
+  return clamp01(value);
 }
 
 function setBlurReveal(node, {
@@ -48,7 +60,11 @@ function setBlurReveal(node, {
   });
 }
 
-export default function SectionDivider({ titleLines, subtitle }) {
+export default function SectionDivider({
+  titleLines,
+  subtitle,
+  blurEndPercent = DEFAULT_BLUR_END_PROGRESS * 100,
+}) {
   const sectionRef = useRef(null);
   const surfaceRef = useRef(null);
   const layoutRef = useRef(null);
@@ -56,6 +72,7 @@ export default function SectionDivider({ titleLines, subtitle }) {
   const cornerRef = useRef(null);
   const [typingActive, setTypingActive] = useState(false);
   const [motionReady, setMotionReady] = useState(false);
+  const blurEndProgress = normalizeBlurEndProgress(blurEndPercent);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -116,7 +133,7 @@ export default function SectionDivider({ titleLines, subtitle }) {
           (scrollX - (sectionLeft - viewportWidth)) / viewportWidth,
         );
 
-        const surfaceProgress = smoothstep(localProgress / SURFACE_REVEAL_WINDOW);
+        const surfaceProgress = smoothstep(localProgress / blurEndProgress);
         const surfaceScale = INITIAL_SURFACE_SCALE + surfaceProgress * 0.06;
         setBlurReveal(surface, {
           progress: surfaceProgress,
@@ -165,7 +182,7 @@ export default function SectionDivider({ titleLines, subtitle }) {
     });
 
     return () => trigger.kill();
-  }, []);
+  }, [blurEndProgress]);
 
   return (
     <div ref={sectionRef} className="section-divider horizontal-panel">

@@ -1,4 +1,4 @@
-import { Fragment, useMemo, useRef, useState } from "react";
+import { Fragment, useMemo, useRef, useState, useEffect } from "react";
 import { WORK_FILTERS, PROGRAM_SEPARATORS, workEntries } from "./data/workEntries.js";
 import ArchiveIntroSection from "./components/ArchiveIntroSection.jsx";
 import HeroSection from "./components/HeroSection.jsx";
@@ -52,6 +52,17 @@ export default function App() {
   const handleFilterSelect = (filter) => {
     setActiveFilter(filter);
   };
+
+  useEffect(() => {
+    const el = shellRef.current;
+    if (!el) return;
+    const onMove = (e) => {
+      el.style.setProperty("--mx", `${e.clientX}px`);
+      el.style.setProperty("--my", `${e.clientY}px`);
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
 
   useLenis();
   useNoiseLayer(noiseRef);

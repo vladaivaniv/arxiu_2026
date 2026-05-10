@@ -3,7 +3,7 @@ import ShuffleText from "./ShuffleText.jsx";
 
 const FILTER_LABELS = {
   "ART I CULTURA DIGITAL": "ART I CULTURA DIGITAL",
-  "LABORATORI DE CREACIONS ARTISTIQUES": "LABORATORI DE CREACIONS",
+  "LABORATORI DE CREACIONS ARTISTIQUES": "Laboratori de Creacions Artístiques",
 };
 
 export default function ProjectsChrome({
@@ -28,7 +28,7 @@ export default function ProjectsChrome({
           id="works-title"
           text="[ PROJECTES ]"
           className="works-title"
-          delay={180}
+          delay={30}
           interval={4200}
           duration={920}
         />

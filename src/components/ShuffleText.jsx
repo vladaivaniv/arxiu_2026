@@ -38,14 +38,14 @@ export default function ShuffleText({
   playOnce = false,
   threshold = 0.35,
   trigger,
-  initialTextVisible = true,
+  initialTextVisible = false,
   ...props
 }) {
   const elementRef = useRef(null);
   const startedRef = useRef(false);
   const externalTrigger = trigger !== undefined;
   const getInitialText = () => {
-    if (triggerOnView) return "";
+    if (triggerOnView) return initialTextVisible ? text : "";
     if (externalTrigger) return initialTextVisible ? text : "";
     return text;
   };

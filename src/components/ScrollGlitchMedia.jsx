@@ -72,7 +72,7 @@ function drawCoverFrame(context, source, targetWidth, targetHeight, objectPositi
 
 // density ramp: space=dark → @=bright
 const ASCII_RAMP = " `.-':,;^~=+<>!?|()[]iIlrft1{}vjsxJTYCLnuczXVUOZ0QkmwqpdbhaoS#$%&@".split("");
-const ASCII_CELL = 5;
+const ASCII_CELL = 4;
 
 const _asciiOff = document.createElement("canvas");
 const _asciiOffCtx = _asciiOff.getContext("2d", { willReadFrequently: true });
@@ -110,10 +110,10 @@ function renderAsciiToCtx(ctx, video, width, height) {
       const b = Math.min(1, Math.max(0, (raw - 0.04) * 1.6));
       if (b < 0.08) continue;
       const char = ASCII_RAMP[Math.round(b * last)];
-      if (b > 0.97) {
-        ctx.fillStyle = `rgba(255,0,0,${(0.75 + b * 0.25).toFixed(2)})`;
+      if (b > 0.99) {
+        ctx.fillStyle = `rgba(255,0,0,1.00)`;
       } else {
-        ctx.fillStyle = `rgba(235,235,235,${(0.5 + b * 0.5).toFixed(2)})`;
+        ctx.fillStyle = `rgba(255,255,255,${(0.7 + b * 0.3).toFixed(2)})`;
       }
       ctx.fillText(char, col * cellW, row * cellH);
     }
@@ -187,8 +187,8 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         lastMX = x;
         lastMY = y;
         lastMoveTime = performance.now();
-        eraseTrail.push({ x, y, r: 0, maxR: 140 + Math.random() * 60 });
-        if (eraseTrail.length > 50) eraseTrail.shift();
+        eraseTrail.push({ x, y, r: 0, maxR: 220 + Math.random() * 100 });
+        if (eraseTrail.length > 80) eraseTrail.shift();
       }
     };
 
@@ -240,12 +240,8 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         return;
       }
 
-      const easedProgress = mediaQuery.matches
-        ? 1
-        : easeOutCubic(clamp(progressRef.current, 0, 1));
-      const pixelSize = mediaQuery.matches
-        ? 1
-        : Math.max(1, Math.round(interpolate(48, 2, easedProgress)));
+      const easedProgress = 1;
+      const pixelSize = 1;
       const pixelWidth = Math.max(1, Math.round(width / pixelSize));
       const pixelHeight = Math.max(1, Math.round(height / pixelSize));
 
@@ -319,8 +315,8 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       // Update erase trail radii
       // Heal when mouse stops moving for 2.2s — works whether hovered or not
       const timeSinceMove = now - lastMoveTime;
-      const mouseActive = isHovered && timeSinceMove < 1200;
-      const canHeal = timeSinceMove > 6000;
+      const mouseActive = isHovered && timeSinceMove < 4000;
+      const canHeal = timeSinceMove > 5000;
 
       eraseTrail = eraseTrail.filter((pt) => {
         if (mouseActive) {
@@ -328,7 +324,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
           return true;
         }
         if (canHeal) {
-          pt.r = Math.max(0, pt.r - 0.45);
+          pt.r = Math.max(0, pt.r - 0.9);
         }
         return pt.r > 0;
       });
@@ -371,7 +367,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     // ── GSAP scroll animation ─────────────────────────────────────
     const setupAnimation = () => {
       animationContext?.revert();
-      progressRef.current = mediaQuery.matches ? 1 : 0;
+      progressRef.current = 1;
 
       animationContext = gsap.context(() => {
         if (mediaQuery.matches) {
