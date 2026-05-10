@@ -33,6 +33,20 @@ function stripPagesFallback() {
 
 export default defineConfig({
   base: "./",
+  assetsInclude: [
+    "**/*.MOV",
+    "**/*.mov",
+    "**/*.MP4",
+    "**/*.mp4",
+    "**/*.JPG",
+    "**/*.jpg",
+    "**/*.JPEG",
+    "**/*.jpeg",
+    "**/*.PNG",
+    "**/*.png",
+    "**/*.WEBP",
+    "**/*.webp",
+  ],
   plugins: [react(), stripPagesFallback()],
   build: {
     rollupOptions: {

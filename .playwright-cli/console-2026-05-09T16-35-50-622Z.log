@@ -102,3 +102,578 @@
     at div
     at main
     at App (http://127.0.0.1:5173/src/App.jsx?t=1778433599629:33:20) @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:520
+[95444350ms] ReferenceError: onMove is not defined
+    at http://127.0.0.1:5173/src/components/SaltFall.jsx?t=1778439976533:90:47
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[95444343ms] [ERROR] The above error occurred in the <SaltFall> component:
+
+    at SaltFall (http://127.0.0.1:5173/src/components/SaltFall.jsx?t=1778439994891:21:21)
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778439691179:147:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778438029429:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778439571738:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[95444353ms] InvalidStateError: Failed to execute 'drawImage' on 'CanvasRenderingContext2D': The image argument is a canvas element with a width or height of 0.
+    at draw (http://127.0.0.1:5173/src/components/WebcamAscii.jsx:135:11)
+[95444461ms] ReferenceError: onMove is not defined
+    at http://127.0.0.1:5173/src/components/SaltFall.jsx?t=1778439976533:90:47
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[98505085ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778443055606:0
+[98505114ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99050721ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778443601302:0
+[99050732ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99055722ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778443606305:0
+[99055730ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99416152ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778443966735:0
+[99416160ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99466681ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444017242:0
+[99466700ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99576253ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444126842:0
+[99576261ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99580481ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444131081:0
+[99580488ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99672107ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444222665:0
+[99672118ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99674439ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444225021:0
+[99674446ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99737562ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444288139:0
+[99737571ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99739876ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444290470:0
+[99739877ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99790214ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444340791:0
+[99790214ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99791925ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444342522:0
+[99791941ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99821704ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444372259:0
+[99821717ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99866352ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444416932:0
+[99866361ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99868724ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444419312:0
+[99868732ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99925580ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444476173:0
+[99925580ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99927508ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444478112:0
+[99927508ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[99965465ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444516014:0
+[99965466ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100001930ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444552518:0
+[100001930ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100004062ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444554671:0
+[100004062ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100078411ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444629002:0
+[100078411ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100154306ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444704911:0
+[100154306ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100163163ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444713765:0
+[100163164ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100170360ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444720976:0
+[100170360ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100172613ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444723216:0
+[100172613ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100324495ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444875086:0
+[100324497ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100350048ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444900647:0
+[100350048ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100352206ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444902820:0
+[100352207ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100368268ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444918877:0
+[100368268ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100373038ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444923634:0
+[100373039ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100377975ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444928591:0
+[100377975ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100380263ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444930869:0
+[100380264ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100384428ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444935044:0
+[100384428ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100387956ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444938569:0
+[100387956ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100392226ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444942842:0
+[100392226ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100395383ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444945984:0
+[100395383ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100399779ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444950396:0
+[100399779ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100402154ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444952770:0
+[100402154ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100408516ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444959122:0
+[100408516ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100410418ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444961029:0
+[100410418ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100413626ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444964242:0
+[100413626ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100418720ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778444969337:0
+[100418721ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100909266ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778445459860:0
+[100909266ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100910625ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778445461229:0
+[100910625ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100915719ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778445466332:0
+[100915719ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100920058ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778445470657:0
+[100920058ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[100922258ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/src/data/workEntries.js?t=1778445472871:0
+[100922258ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[101205966ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9198.MOV?import:0
+[101205975ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[101209275ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV?import:0
+[101213246ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV?import:0
+[101218763ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9178.MOV?import:0
+[101218888ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9179.MOV?import:0
+[101218996ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/14453f84-49b6-4e08-bee1-c5d096f44038.jpg?import:0
+[101219102ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9185.MOV?import:0
+[101219247ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/1f387064-cfd2-4660-9209-88958e6d1648.jpg?import:0
+[101219317ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/4239fa82-3323-45cf-8d27-df36c372ab5e.jpg?import:0
+[101219317ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/7082eadd-5d68-42a4-bb73-85fde7a64c39.jpg?import:0
+[101219317ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/923dd841-4a29-4b24-b972-e38ace16193f.jpg?import:0
+[101219338ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV?import:0
+[101219411ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV?import:0
+[101219411ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9197.MOV?import:0
+[101219425ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/f864b810-5e2b-4f68-991f-0f608b2e4bb8.jpg?import:0
+[101219496ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/1971b28f-5b57-4ba9-8133-3a16aed46ebd.jpg?import:0
+[101219496ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/545b868b-1906-4489-8900-f6f49eb3d976.jpg?import:0
+[101219496ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/8a6fb620-5e8c-4d41-8bb7-d2bc39e2b197.jpg?import:0
+[101219573ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV?import:0
+[101219573ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9189.MOV?import:0
+[101219573ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9190.MOV?import:0
+[101219656ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/002e90e5-0b30-42c4-a637-1d2e123b9b4d.jpg?import:0
+[101219656ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/159dfd88-c9ff-4b45-a5bd-5264b2b7963e.jpg?import:0
+[101219670ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/586c03e8-44aa-40eb-9624-fd99f578b7ab.jpg?import:0
+[101219742ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/6829ed53-9f74-401f-8002-df51fe199545.jpg?import:0
+[101219742ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV?import:0
+[101219742ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9166.MOV?import:0
+[101219822ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9167.MOV?import:0
+[101219822ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9199.MOV?import:0
+[101219822ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Privilegiados%20/ad92e081-d19e-48c1-bc87-4d08b62a6741.jpg?import:0
+[101220030ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/318c4afe-33c1-4ace-83a2-49bc35b8291f.jpg?import:0
+[101220030ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV?import:0
+[101220047ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9182.MOV?import:0
+[101220120ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[101220120ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV?import:0
+[101220120ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV?import:0
+[101220120ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9186.MOV?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/c1b921b4-4c7f-4510-b21d-8d65a2da30b1.jpg?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://127.0.0.1:5173/assets/end%20of%20shift/0cde8a69-db79-40d5-bce3-47c40dc28b09.jpg?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/6c3df663-a3d2-45cb-b21a-2407674b5611.jpg?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/85863d34-7e79-4ab5-9e66-fcd9f28376b1.jpg?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/IMG_1225.JPG?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/IMG_1235.JPG?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/IMG_1242.JPG?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/a2118a32-5717-41ca-b265-e2003e5dde73.jpg?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/c794eb95-6e43-4e2b-9909-c6a647c0b91e.jpg?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9187.MOV?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/c179c42a-675e-4a7b-b631-af62714c4831.jpg?import:0
+[101220121ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9183.MOV?import:0
+[101220130ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101221154ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101222160ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101223189ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101224215ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101225250ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101226286ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101227319ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101228357ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101229368ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101230390ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101232981ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[101239500ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101239502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101239529ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101239817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101240175ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101240175ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101240175ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101240175ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101240175ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101240175ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101240176ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101240176ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101240176ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101240176ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101240549ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101240591ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101240591ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101240591ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101240592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101240592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101240592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101240592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101240592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101240592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101240592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101241060ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101241060ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101241060ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101241060ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101241060ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101241066ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101241066ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101241066ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101241066ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101241066ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101241571ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101241571ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101241571ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101241571ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101241571ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101241571ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101241571ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101241572ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101241572ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101241572ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101241572ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101242142ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101242594ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101242746ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101242746ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101242746ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101242747ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101242747ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101242747ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101242759ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101242759ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101242759ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101242759ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101243414ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101243414ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101243414ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101243414ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101243414ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101243414ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101243415ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101243427ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101243427ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101243427ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101243604ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101244131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101244131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101244131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101244131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101244131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101244131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101244131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101244131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101244132ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101244132ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101244614ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101244895ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101244895ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101244895ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101244895ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101244896ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101244896ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101244896ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101244896ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101244896ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101244896ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101245643ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101245714ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101245715ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101245715ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101245715ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101245715ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101245715ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101245716ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101245716ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101245716ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101245716ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101246582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101246582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101246582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101246582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101246583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101246583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101246583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101246583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101246583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101246583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101246663ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101247510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101247681ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101248468ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101248468ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101248468ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101248468ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101248468ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101248475ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101248475ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101248475ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101248475ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101248475ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101248701ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101249494ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101249494ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101249494ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101249494ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101249494ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101249500ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101249500ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101249500ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101249500ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101249500ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101249728ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101250556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101250733ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101251661ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101251667ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101251741ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101252760ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101252823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101252823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101252823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101252823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101252823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101252823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101252823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101252823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101252824ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101252824ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101253765ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101254035ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101254036ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101254036ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101254036ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101254036ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101254036ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101254037ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101254037ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101254037ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101254037ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101254786ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101255309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101255788ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101256621ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101256621ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101256621ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101256622ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101256622ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101256622ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101256622ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101256628ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101256628ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101256628ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101256789ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101257806ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101257978ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101257978ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101257978ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101257978ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101257978ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101257979ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101257979ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101258008ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101258009ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101258009ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101258831ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101259410ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101259410ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101259410ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101259410ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101259410ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101259410ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101259410ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101259419ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101259419ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101259419ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101259845ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101260860ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101260885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101260885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101260885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101260885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101260885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101260885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101260885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101260892ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101260892ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101260892ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101261885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101262417ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101262902ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101263913ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101263978ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101263985ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101264921ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101265588ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101265589ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101265589ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101265589ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101265589ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101265589ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101265589ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101265590ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101265601ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101265601ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101265930ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101266939ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101267252ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101267252ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101267252ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101267253ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101267253ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101267253ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101267253ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101267254ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101267254ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101267254ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101267969ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101268954ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101268954ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101268954ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101268954ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101268954ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101268980ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101268980ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101268980ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101268980ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101268980ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101268980ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101269990ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101270710ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/end%20of%20shift/video1.mov:0
+[101270713ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Or%20de%20ferralla%20/IMG_9175.MOV:0
+[101270713ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Blastur/IMG_9168.MOV:0
+[101270713ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Quan%20Ningu%CC%81%20Mira%20/IMG_9180.MOV:0
+[101270713ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Model%20de%20poder%20mitjanc%CC%A7ant%20el%20dia%CC%80leg%20meca%CC%80nic%20/IMG_9177.MOV:0
+[101270761ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/El%20masclisme%20sempre%20guanya%20/IMG_9188.MOV:0
+[101270761ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Pano%CC%80ptic%20digital%20/IMG_9172.MOV:0
+[101270761ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Measured%20Self%20/IMG_9184.MOV:0
+[101270761ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Privilegiados%20/IMG_9165.MOV:0
+[101270762ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/assets/Allo%CC%80%20que%20projectem%20/IMG_9171.MOV:0
+[101271019ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101272029ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101273051ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101274062ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101275084ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101276105ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101277113ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101278128ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101279131ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101280153ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101281178ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101282199ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101283211ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101284213ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101285231ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101286260ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101287286ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101288296ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101289306ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101290321ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101291356ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101292363ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101293383ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101294401ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101295424ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101296438ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[101297790ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550

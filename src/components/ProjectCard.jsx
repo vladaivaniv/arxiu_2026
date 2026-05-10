@@ -5,6 +5,8 @@ import ScrollGlitchMedia from "./ScrollGlitchMedia.jsx";
 import ShuffleText from "./ShuffleText.jsx";
 import ScrollTypeText from "./ScrollTypeText.jsx";
 import CardGlyphBg from "./CardGlyphBg.jsx";
+import SaltFall from "./SaltFall.jsx";
+import SeaWaves from "./SeaWaves.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -263,6 +265,9 @@ export default function ProjectCard({ work, index, total }) {
     <article ref={cardRef} className="work-card horizontal-panel">
 
       <CardGlyphBg />
+
+      {index === 0 ? <SaltFall /> : null}
+      {index === 1 ? <SeaWaves /> : null}
 
       {/* ── body ── */}
       <div className="wc-body">

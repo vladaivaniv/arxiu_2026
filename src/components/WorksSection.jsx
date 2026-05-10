@@ -4,7 +4,7 @@ export default function WorksSection({ works, projectCount, startIndex = 0 }) {
   let projectIndex = startIndex;
 
   return (
-    <section className="works-section horizontal-panel" aria-labelledby="works-title">
+    <section className="works-section" aria-labelledby="works-title">
       <div className="works-pin">
         <div className="works-shell">
           <div className="works-list">
