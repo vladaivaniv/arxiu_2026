@@ -1,0 +1,448 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - generic:
+      - generic:
+        - heading "[ PROJECTES ]" [level=2]
+      - generic:
+        - button "FILTRE":
+          - generic: FILTRE
+          - generic: ▼
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic:
+          - generic: █
+          - generic: .
+          - generic: =
+          - generic: S
+          - generic: ▒
+          - generic: ░
+          - generic: "]"
+          - generic: ","
+          - generic: "0"
+          - generic: "6"
+          - generic: █
+          - generic: "9"
+          - generic: +
+          - generic: "8"
+          - generic: "-"
+          - generic: "|"
+          - generic: "%"
+          - generic: "9"
+          - generic: I
+          - generic: ":"
+          - generic: ","
+          - generic: S
+          - generic: "?"
+          - generic: "}"
+          - generic: ":"
+          - generic: "-"
+          - generic: .
+          - generic: "#"
+          - generic: I
+          - generic: "?"
+          - generic: "!"
+          - generic: "}"
+          - generic: "0"
+          - generic: "!"
+          - generic: "7"
+          - generic: /
+          - generic: "6"
+          - generic: █
+          - generic: "0"
+          - generic: ░
+          - generic: +
+          - generic: ;
+          - generic: I
+          - generic: "}"
+          - generic: \
+          - generic: "0"
+          - generic: "}"
+          - generic: "?"
+          - generic: "%"
+          - generic: ░
+          - generic: =
+          - generic: "3"
+          - generic: T
+          - generic: ▀
+          - generic: "?"
+          - generic: "4"
+          - generic: ;
+          - generic: "#"
+          - generic: "6"
+          - generic: "*"
+          - generic: "]"
+          - generic: +
+          - generic: .
+          - generic: /
+          - generic: "%"
+          - generic: R
+          - generic: "5"
+          - generic: "["
+          - generic: "#"
+          - generic: ":"
+          - generic: "?"
+          - generic: A
+          - generic: ;
+          - generic: "?"
+          - generic: /
+          - generic: "2"
+          - generic: "#"
+          - generic: █
+          - generic: "?"
+          - generic: "|"
+          - generic: ▀
+          - generic: ":"
+          - generic: "4"
+          - generic: "{"
+          - generic: A
+          - generic: "]"
+          - generic: "%"
+          - generic: "["
+          - generic: ":"
+          - generic: █
+          - generic: "}"
+          - generic: "2"
+          - generic: "}"
+          - generic: ","
+          - generic: "["
+          - generic: ▄
+          - generic: "9"
+          - generic: "1"
+          - generic: ·
+          - generic: "0"
+        - generic:
+          - img
+        - generic [ref=e10]:
+          - paragraph [ref=e11]: _
+          - paragraph [ref=e12]: _
+        - generic [ref=e14]:
+          - generic [ref=e15]: "[SCROLL]"
+          - generic [ref=e16]: _
+          - generic [ref=e17]: _
+          - generic [ref=e18]: "[> ]"
+      - article [ref=e19]:
+        - generic:
+          - generic: 01000001 01010010 01010100 00101111 01000011 01010101 01001100 01010100
+          - generic: LOAD::ARXIU_DIGITAL //// PROJECTES_VISUALS //// AUDIOVISUAL
+          - generic: ████░░░░░░ ████░░░░░░ ████░░░░░░ ████░░░░░░ ████░░░░░░
+          - generic: A+C+D / LAB_CREACIONS / MATERIAL / AUTORS / INDEX / 000000
+          - generic: 00110000 00110001 00110010 00110011 00110100 00110101
+          - generic: ///// UN_ESPAI_DIGITAL ///// REUNINT_PROJECTES /////
+          - generic: ░░██░░██░░██░░██░░██░░██░░██░░██░░██░░██░░██░░██░░██
+          - generic: BUFFERING_CONTEXT BUFFERING_CONTEXT BUFFERING_CONTEXT
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - paragraph [ref=e22]: _
+            - paragraph [ref=e23]: _
+            - paragraph [ref=e24]: _
+            - paragraph [ref=e25]: _
+            - paragraph [ref=e26]
+            - paragraph [ref=e27]: _
+            - paragraph [ref=e28]: _
+            - paragraph [ref=e29]: _
+            - paragraph [ref=e30]
+            - paragraph [ref=e31]: _
+            - paragraph [ref=e32]: _
+            - paragraph [ref=e33]: _
+            - paragraph [ref=e34]: _
+            - paragraph [ref=e35]: _
+          - generic "Dades de l'arxiu" [ref=e36]:
+            - paragraph [ref=e38]:
+              - text: ">"
+              - generic [ref=e39]: _
+            - paragraph [ref=e41]:
+              - text: ">"
+              - generic [ref=e42]: _
+            - paragraph [ref=e44]:
+              - text: ">"
+              - generic [ref=e45]: _
+        - paragraph [ref=e47]: "[ ARXIU_2026 ]"
+      - generic [ref=e49]:
+        - generic:
+          - generic: +
+          - generic: "4"
+          - generic: ▒
+          - generic: "4"
+          - generic: ░
+          - generic: ","
+          - generic: R
+          - generic: .
+          - generic: ▓
+          - generic: "]"
+          - generic: "-"
+          - generic: "8"
+          - generic: "?"
+          - generic: ":"
+          - generic: .
+          - generic: ","
+          - generic: "5"
+          - generic: X
+          - generic: ":"
+          - generic: A
+          - generic: "3"
+          - generic: "0"
+          - generic: "3"
+          - generic: ░
+          - generic: ░
+        - generic [ref=e52]:
+          - heading "PROJECTES" [level=2] [ref=e53]
+          - heading "TREPAT" [level=2] [ref=e54]
+        - paragraph [ref=e56]: _
+        - generic [ref=e57]: 2025–2026
+      - region "[ PROJECTES ]" [ref=e58]:
+        - generic [ref=e61]:
+          - article [ref=e62]:
+            - generic [ref=e63]:
+              - generic [ref=e64]:
+                - generic [ref=e66]: ▸
+                - heading "END OF SHIFT" [level=3] [ref=e68]
+                - generic [ref=e70]: ───────────────────────────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e74]: Una instal·lació que explora la substitució progressiva del treball humà per sistemes automatitzats. A través d'un procés lent i repetitiu, el material cau sobre una estructura tecnològica, mostrant com la presència humana es redueix mentre la tecnologia ocupa el seu lloc.
+              - generic [ref=e75]:
+                - generic [ref=e76]:
+                  - generic "END OF SHIFT" [ref=e78]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e80]:
+                  - button "video 1" [ref=e81]
+                  - button "foto 2" [ref=e82]:
+                    - img "foto 2"
+                  - button "foto 3" [ref=e83]:
+                    - img "foto 3"
+                  - button "foto 4" [ref=e84]:
+                    - img "foto 4"
+                  - button "foto 5" [ref=e85]:
+                    - img "foto 5"
+                  - button "foto 6" [ref=e86]:
+                    - img "foto 6"
+                  - button "foto 7" [ref=e87]:
+                    - img "foto 7"
+          - article [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - generic [ref=e92]: ▸
+                - heading "BLASTUR" [level=3] [ref=e94]
+                - generic [ref=e96]: ───────────────────────────────────────────────────────
+                - paragraph [ref=e100]: Instal·lació immersiva audiovisual que transforma el moviment del mar en una metàfora del cicle capitalista repetitiu i de la falsa llibertat digital. A través d'un flux visual que evoluciona de la calma a la tensió, l'obra crea una experiència sensorial que confronta l'espectador amb l'esgotament, la repetició i la pressió constant dels sistemes contemporanis. La peça combina animació 3D, so espacial i interacció amb sensors per convertir el visitant en part activa del sistema.
+              - generic [ref=e101]:
+                - generic [ref=e102]:
+                  - generic "BLASTUR" [ref=e104]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e106]:
+                  - button "video 1" [ref=e107]
+                  - button "foto 2" [ref=e108]:
+                    - img "foto 2"
+                  - button "foto 3" [ref=e109]:
+                    - img "foto 3"
+                  - button "foto 4" [ref=e110]:
+                    - img "foto 4"
+          - article [ref=e111]:
+            - generic [ref=e112]:
+              - generic [ref=e113]:
+                - generic [ref=e115]: ▸
+                - heading "QUAN NINGÚ MIRA" [level=3] [ref=e117]
+                - generic [ref=e119]: ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e123]: Instal·lació interactiva que reflexiona sobre el boicot i la resistència col·lectiva dins del context industrial. A través d'una capsa aparentment anònima, el públic activa un sistema ocult que revela vídeos, so i missatges vinculats a lluites laborals, invisibilització i acció compartida. L'obra transforma un gest mínim en una metàfora sobre el poder de l'acció col·lectiva.
+              - generic [ref=e124]:
+                - generic [ref=e125]:
+                  - generic "QUAN NINGÚ MIRA" [ref=e127]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e129]:
+                  - button "video 1" [ref=e130]
+                  - button "video 2" [ref=e131]
+                  - button "video 3" [ref=e132]
+                  - button "foto 4" [ref=e133]:
+                    - img "foto 4"
+                  - button "foto 5" [ref=e134]:
+                    - img "foto 5"
+                  - button "foto 6" [ref=e135]:
+                    - img "foto 6"
+                  - button "foto 7" [ref=e136]:
+                    - img "foto 7"
+          - article [ref=e137]:
+            - generic [ref=e138]:
+              - generic [ref=e139]:
+                - generic [ref=e141]: ▸
+                - heading "EL MASCLISME SEMPRE GUANYA" [level=3] [ref=e143]
+                - generic [ref=e145]: ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e149]: "Instal·lació interactiva que denuncia la culpabilització de les víctimes en casos de violència masclista. A través d'una ruleta LED programada amb Arduino, l'obra simula un joc aparentment aleatori que sempre acaba en el mateix resultat: responsabilitzar la víctima. Una metàfora directa d'un sistema social manipulat des del principi."
+              - generic [ref=e150]:
+                - generic [ref=e151]:
+                  - generic "EL MASCLISME SEMPRE GUANYA" [ref=e153]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e155]:
+                  - button "video 1" [ref=e156]
+                  - button "video 2" [ref=e157]
+                  - button "foto 3" [ref=e158]:
+                    - img "foto 3"
+                  - button "foto 4" [ref=e159]:
+                    - img "foto 4"
+          - article [ref=e160]:
+            - generic [ref=e161]:
+              - generic [ref=e162]:
+                - generic [ref=e164]: ▸
+                - heading "MODEL DE PODER MITJANÇANT EL DIÀLEG MECÀNIC" [level=3] [ref=e166]
+                - generic [ref=e168]: ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e172]: Instal·lació interactiva per a dues persones que reprodueix una relació de poder entre director i treballador. A través d'un sistema de botons, instruccions i tasques repetitives, l'obra converteix el joc en una experiència crítica sobre jerarquia, obediència, pressió laboral i desigualtat dins l'entorn industrial.
+              - generic [ref=e173]:
+                - generic [ref=e174]:
+                  - generic "MODEL DE PODER MITJANÇANT EL DIÀLEG MECÀNIC" [ref=e176]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e178]:
+                  - button "video 1" [ref=e179]
+                  - button "video 2" [ref=e180]
+                  - button "foto 3" [ref=e181]:
+                    - img "foto 3"
+                  - button "foto 4" [ref=e182]:
+                    - img "foto 4"
+                  - button "foto 5" [ref=e183]:
+                    - img "foto 5"
+          - article [ref=e184]:
+            - generic [ref=e185]:
+              - generic [ref=e186]:
+                - generic [ref=e188]: ▸
+                - heading "ALLÒ QUE PROJECTEM" [level=3] [ref=e190]
+                - generic [ref=e192]: ───────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e196]: Instal·lació de video mapping sobre dos maniquins que reflexiona sobre els rols de gènere dins el context industrial de la Fàbrica Trepat. A través de la llum, la intel·ligència artificial i el cos, l'obra transforma paraules associades a homes i dones en atmosferes visuals que mostren poder, invisibilització i memòria.
+              - generic [ref=e197]:
+                - generic [ref=e198]:
+                  - generic "ALLÒ QUE PROJECTEM" [ref=e200]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e202]:
+                  - button "video 1" [ref=e203]
+                  - button "foto 2" [ref=e204]:
+                    - img "foto 2"
+                  - button "foto 3" [ref=e205]:
+                    - img "foto 3"
+                  - button "foto 4" [ref=e206]:
+                    - img "foto 4"
+                  - button "foto 5" [ref=e207]:
+                    - img "foto 5"
+          - article [ref=e208]:
+            - generic [ref=e209]:
+              - generic [ref=e210]:
+                - generic [ref=e212]: ▸
+                - heading "OR DE FERRALLA" [level=3] [ref=e214]
+                - generic [ref=e216]: ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e219]: Projecte expositiu que transforma ferralla, òxid i memòria industrial en joieria contemporània mitjançant processos d'intel·ligència artificial. L'obra explora el valor simbòlic dels materials obsolets i la relació entre tecnologia, procés i absència dins l'espai industrial del Museu Trepat.
+              - generic [ref=e220]:
+                - generic [ref=e221]:
+                  - generic "OR DE FERRALLA" [ref=e223]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e225]:
+                  - button "video 1" [ref=e226]
+                  - button "foto 2" [ref=e227]:
+                    - img "foto 2"
+                  - button "foto 3" [ref=e228]:
+                    - img "foto 3"
+                  - button "foto 4" [ref=e229]:
+                    - img "foto 4"
+                  - button "foto 5" [ref=e230]:
+                    - img "foto 5"
+                  - button "foto 6" [ref=e231]:
+                    - img "foto 6"
+          - article [ref=e232]:
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - generic [ref=e236]: ▸
+                - heading "PANÒPTIC DIGITAL" [level=3] [ref=e238]
+                - generic [ref=e240]: ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e244]: Instal·lació immersiva que explora la vigilància laboral i la transformació del control físic de les fàbriques en la vigilància digital contemporània. Mitjançant una estructura metàl·lica en forma de panòptic, pantalles mòbils i visuals reactius generats en temps real, l'obra crea una tensió constant entre observador i observat, convertint l'espectador en part activa del sistema de control.
+              - generic [ref=e245]:
+                - generic [ref=e246]:
+                  - generic "PANÒPTIC DIGITAL" [ref=e248]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e250]:
+                  - button "video 1" [ref=e251]
+                  - button "video 2" [ref=e252]
+                  - button "video 3" [ref=e253]
+                  - button "foto 4" [ref=e254]:
+                    - img "foto 4"
+                  - button "foto 5" [ref=e255]:
+                    - img "foto 5"
+                  - button "foto 6" [ref=e256]:
+                    - img "foto 6"
+          - article [ref=e257]:
+            - generic [ref=e258]:
+              - generic [ref=e259]:
+                - generic [ref=e261]: ▸
+                - heading "PRIVILEGIADOS" [level=3] [ref=e263]
+                - generic [ref=e265]: ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e269]: Instal·lació interactiva que reflexiona sobre l'explotació infantil i els privilegis socials. Mitjançant figures impreses en 3D, informació oculta i àudio interactiu, l'obra transforma l'espectador en part activa de l'experiència i fa visible una realitat sovint ignorada. La peça convida a qüestionar la indiferència social davant aquesta problemàtica i explora com normalitzem formes d'explotació invisibilitzades dins la societat contemporània.
+              - generic [ref=e270]:
+                - generic [ref=e271]:
+                  - generic "PRIVILEGIADOS" [ref=e273]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e275]:
+                  - button "video 1" [ref=e276]
+                  - button "video 2" [ref=e277]
+                  - button "video 3" [ref=e278]
+                  - button "video 4" [ref=e279]
+                  - button "foto 5" [ref=e280]:
+                    - img "foto 5"
+                  - button "foto 6" [ref=e281]:
+                    - img "foto 6"
+                  - button "foto 7" [ref=e282]:
+                    - img "foto 7"
+                  - button "foto 8" [ref=e283]:
+                    - img "foto 8"
+                  - button "foto 9" [ref=e284]:
+                    - img "foto 9"
+          - article [ref=e285]:
+            - generic [ref=e286]:
+              - generic [ref=e287]:
+                - generic [ref=e289]: ▸
+                - heading "MEASURED SELF" [level=3] [ref=e291]
+                - generic [ref=e293]: ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                - paragraph [ref=e297]: Instal·lació interactiva que reflexiona sobre l'extractivisme de dades i la vigilància digital contemporània. Mitjançant una webcam, TouchDesigner i projecció en temps real, l'obra captura els moviments de l'espectador i els transforma en visualitzacions que evidencien com el cos, els gestos i la presència es converteixen en informació extraïble dins l'entorn digital.
+              - generic [ref=e298]:
+                - generic [ref=e299]:
+                  - generic "MEASURED SELF" [ref=e301]
+                  - generic:
+                    - generic: "00"
+                    - generic: "00"
+                    - generic: "33"
+                    - generic: "100"
+                - generic [ref=e303]:
+                  - button "video 1" [ref=e304]
+                  - button "video 2" [ref=e305]
+                  - button "video 3" [ref=e306]
+                  - button "foto 4" [ref=e307]:
+                    - img "foto 4"
+                  - button "foto 5" [ref=e308]:
+                    - img "foto 5"

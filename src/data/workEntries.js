@@ -1,5 +1,5 @@
 const assetModules = import.meta.glob(
-  "../../assets/**/optimized/*.{jpg,jpeg,JPG,JPEG,png,PNG,webp,WEBP,mov,MOV,mp4,MP4}",
+  "../../assets/**/optimized/*.{jpg,jpeg,JPG,JPEG,png,PNG,webp,WEBP,mp4,MP4,webm,WEBM,ogg,OGG}",
   {
     eager: true,
     import: "default",
@@ -11,7 +11,8 @@ const assetSorter = new Intl.Collator("ca", {
   sensitivity: "base",
 });
 
-const VIDEO_EXTENSIONS = new Set(["mov", "mp4", "webm", "ogg"]);
+// Keep the web gallery on broadly browser-safe formats.
+const VIDEO_EXTENSIONS = new Set(["mp4", "webm", "ogg"]);
 const OPTIMIZED_FOLDER_NAME = "optimized";
 
 function normalizeAssetKey(value) {

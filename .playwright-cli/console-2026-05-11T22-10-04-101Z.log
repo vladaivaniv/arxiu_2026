@@ -1,0 +1,2 @@
+[     377ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4174/favicon.ico:0
+[     635ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:4174/practica_laboratori_de_creacions_artistiques_vlada/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
