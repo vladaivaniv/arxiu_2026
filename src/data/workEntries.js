@@ -127,6 +127,13 @@ function getPreferredPosters(projectAssets) {
     : projectAssets.posters;
 }
 
+function sortMediaItemsWithVideosFirst(items = []) {
+  const videos = items.filter((item) => item?.type === "video");
+  const images = items.filter((item) => item?.type !== "video");
+
+  return [...videos, ...images];
+}
+
 const FALLBACK_MEDIA_SRC = Object.values(groupedProjectAssets)
   .flatMap(getPreferredVideos)
   .map((entry) => entry.src)[0] ?? null;
@@ -166,12 +173,13 @@ function getProjectMedia(assetKey, excludedPathFragments = []) {
       path: entry.path,
     })),
   ];
+  const sortedMediaItems = sortMediaItemsWithVideosFirst(mediaItems);
 
   return {
     mediaSrc,
     photos: photos.map((entry) => entry.src),
-    mediaItems: mediaItems.length > 0
-      ? mediaItems
+    mediaItems: sortedMediaItems.length > 0
+      ? sortedMediaItems
       : FALLBACK_MEDIA_ITEMS,
   };
 }
@@ -186,14 +194,15 @@ function prioritizeMediaItem(mediaData, pathFragment) {
   if (prioritizedIndex <= 0) return mediaData;
 
   const prioritizedItem = mediaData.mediaItems[prioritizedIndex];
-  const mediaItems = [
+  const mediaItems = sortMediaItemsWithVideosFirst([
     prioritizedItem,
     ...mediaData.mediaItems.filter((_, index) => index !== prioritizedIndex),
-  ];
+  ]);
+  const firstVideo = mediaItems.find((item) => item.type === "video");
 
   return {
     ...mediaData,
-    mediaSrc: prioritizedItem.type === "video" ? prioritizedItem.src : mediaData.mediaSrc,
+    mediaSrc: firstVideo?.src ?? mediaData.mediaSrc,
     mediaItems,
   };
 }
