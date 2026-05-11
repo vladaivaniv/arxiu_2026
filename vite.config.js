@@ -33,7 +33,7 @@ function stripPagesFallback() {
 
 export default defineConfig({
   site: "https://vladaivaniv.github.io",
-  base: "/practica_laboratori_de_creacions_artistiques_vlada",
+  base: "/practica_laboratori_de_creacions_artistiques_vlada/",
   assetsInclude: [
     "**/*.MOV",
     "**/*.mov",
@@ -50,6 +50,7 @@ export default defineConfig({
   ],
   plugins: [react(), stripPagesFallback()],
   build: {
+    outDir: "dist",
     rollupOptions: {
       output: {
         entryFileNames: "assets/index.js",
