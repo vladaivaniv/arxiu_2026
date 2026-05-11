@@ -2416,7 +2416,7 @@ body::before {
 .section-divider-photo {
   position: absolute;
   inset: 0;
-  background-image: url('/practica_laboratori_de_creacions_artistiques_vlada/assets/vista_generica_museu.jpg');
+  background-image: var(--divider-photo);
   background-size: cover;
   background-position: center;
   opacity: 0.1;
