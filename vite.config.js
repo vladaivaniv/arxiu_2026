@@ -33,7 +33,7 @@ function stripPagesFallback() {
 
 export default defineConfig({
   site: "https://vladaivaniv.github.io",
-  base: "/",
+  base: "/practica_laboratori_de_creacions_artistiques_vlada",
   assetsInclude: [
     "**/*.MOV",
     "**/*.mov",

@@ -8475,3 +8475,13 @@ Visit https://reactjs.org/link/error-boundaries to learn more about error bounda
 [189104852ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/practica_laboratori_de_creacions_artistiques_vlada/@vite/client:559
 [189104858ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/practica_laboratori_de_creacions_artistiques_vlada/:0
 [189106168ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[189342382ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[189342383ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[189343704ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/practica_laboratori_de_creacions_artistiques_vlada/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[189343732ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/assets/logo-ddtec-blanc.png:0
+[189343732ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/assets/vista_generica_museu.jpg:0
+[189344447ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/practica_laboratori_de_creacions_artistiques_vlada/@vite/client:559
+[189344448ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/practica_laboratori_de_creacions_artistiques_vlada/:0
+[189345684ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/practica_laboratori_de_creacions_artistiques_vlada/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[189345709ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/assets/vista_generica_museu.jpg:0
+[189345709ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/assets/logo-ddtec-blanc.png:0
