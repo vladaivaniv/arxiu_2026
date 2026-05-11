@@ -400,6 +400,7 @@ export default function ProjectCard({ work, index, total }) {
               <ScrollGlitchMedia
                 key={selectedItem?.src ?? work.mediaSrc}
                 src={selectedItem?.src ?? work.mediaSrc}
+                poster={selectedItem?.posterSrc ?? undefined}
                 objectPosition={work.objectPosition}
                 title={work.title}
                 startTime={selectedItem?.startTime ?? 0}

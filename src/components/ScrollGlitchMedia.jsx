@@ -137,6 +137,7 @@ function renderAsciiToCtx(ctx, video, width, height) {
 
 export default function ScrollGlitchMedia({
   src,
+  poster,
   objectPosition,
   title,
   startTime = 0,
@@ -603,6 +604,7 @@ export default function ScrollGlitchMedia({
         ref={videoRef}
         className="work-preview"
         src={src}
+        poster={poster ?? undefined}
         loop={playbackStart <= 0}
         muted
         playsInline
