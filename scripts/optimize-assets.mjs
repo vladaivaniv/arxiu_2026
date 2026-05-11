@@ -22,6 +22,7 @@ const DEFAULT_OPTIONS = {
   videoCrf: 26,
   videoFps: 24,
   maxVideoSize: 1280,
+  videoPosterAt: 0.5,
 };
 
 function printHelp() {
@@ -43,6 +44,7 @@ Options:
   --video-crf=<0-51>        Qualitat H.264; mes alt = menys pes. Default: 26
   --video-fps=<fps>         FPS dels videos optimitzats. Default: 24
   --max-video-size=<px>     Mida maxima del costat llarg dels videos. Default: 1280
+  --video-poster-at=<sec>   Segon des d'on extreure la miniatura. Default: 0.5
 `);
 }
 
@@ -92,6 +94,8 @@ function parseArgs(argv) {
       options.videoFps = parseNumber(value, options.videoFps);
     } else if (name === "--max-video-size") {
       options.maxVideoSize = parseNumber(value, options.maxVideoSize);
+    } else if (name === "--video-poster-at") {
+      options.videoPosterAt = Number.parseFloat(value) || options.videoPosterAt;
     } else {
       throw new Error(`Opcio desconeguda: ${name}`);
     }
@@ -147,6 +151,11 @@ function buildScaleFilter(maxSize) {
     `scale=w=if(gt(iw\\,ih)\\,min(${maxSize}\\,iw)\\,-2):h=if(gt(iw\\,ih)\\,-2\\,min(${maxSize}\\,ih))`,
     "setsar=1",
   ].join(",");
+}
+
+function getVideoPosterPath(videoOutputPath) {
+  const parsed = path.parse(videoOutputPath);
+  return path.join(parsed.dir, `${parsed.name}.poster.jpg`);
 }
 
 async function walkMediaFiles(dir) {
@@ -290,6 +299,28 @@ function videoArgs(inputPath, outputPath, options) {
   ];
 }
 
+function videoPosterArgs(inputPath, outputPath, options) {
+  return [
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-ss",
+    String(options.videoPosterAt),
+    "-i",
+    inputPath,
+    "-frames:v",
+    "1",
+    "-vf",
+    buildScaleFilter(Math.min(options.maxVideoSize, 1200)),
+    "-c:v",
+    "mjpeg",
+    "-q:v",
+    "3",
+    outputPath,
+  ];
+}
+
 async function fileSize(filePath) {
   try {
     const stats = await stat(filePath);
@@ -319,27 +350,40 @@ async function optimizeFile(inputPath, projectDir, options) {
     optimizedDir,
     getOutputName(inputPath, projectDir, outputExtension),
   );
+  const posterPath = isVideo ? getVideoPosterPath(outputPath) : null;
 
-  if (await shouldSkipOutput(inputPath, outputPath, options.force)) {
-    return { status: "skipped", inputPath, outputPath };
+  const shouldSkipMainOutput = await shouldSkipOutput(inputPath, outputPath, options.force);
+  const shouldSkipPosterOutput = posterPath
+    ? await shouldSkipOutput(inputPath, posterPath, options.force)
+    : true;
+
+  if (shouldSkipMainOutput && shouldSkipPosterOutput) {
+    return { status: "skipped", inputPath, outputPath, posterPath };
   }
 
   if (options.dryRun) {
-    return { status: "planned", inputPath, outputPath };
+    return { status: "planned", inputPath, outputPath, posterPath };
   }
 
   await mkdir(optimizedDir, { recursive: true });
 
-  const args = isVideo
-    ? videoArgs(inputPath, outputPath, options)
-    : imageArgs(inputPath, outputPath, options);
+  if (!shouldSkipMainOutput) {
+    const args = isVideo
+      ? videoArgs(inputPath, outputPath, options)
+      : imageArgs(inputPath, outputPath, options);
 
-  await runFfmpeg(args);
+    await runFfmpeg(args);
+  }
+
+  if (isVideo && posterPath && !shouldSkipPosterOutput) {
+    await runFfmpeg(videoPosterArgs(inputPath, posterPath, options));
+  }
 
   return {
     status: "optimized",
     inputPath,
     outputPath,
+    posterPath,
     inputSize: await fileSize(inputPath),
     outputSize: await fileSize(outputPath),
   };
@@ -391,14 +435,17 @@ async function main() {
   for (const result of optimized) {
     const from = path.relative(options.assetsDir, result.inputPath);
     const to = path.relative(options.assetsDir, result.outputPath);
+    const poster = result.posterPath
+      ? ` + ${path.relative(options.assetsDir, result.posterPath)}`
+      : "";
     console.log(
-      `OK ${from} -> ${to} (${formatBytes(result.inputSize)} -> ${formatBytes(result.outputSize)})`,
+      `OK ${from} -> ${to}${poster} (${formatBytes(result.inputSize)} -> ${formatBytes(result.outputSize)})`,
     );
   }
 
   for (const result of planned) {
     console.log(
-      `DRY ${path.relative(options.assetsDir, result.inputPath)} -> ${path.relative(options.assetsDir, result.outputPath)}`,
+      `DRY ${path.relative(options.assetsDir, result.inputPath)} -> ${path.relative(options.assetsDir, result.outputPath)}${result.posterPath ? ` + ${path.relative(options.assetsDir, result.posterPath)}` : ""}`,
     );
   }
 

@@ -83,10 +83,18 @@ function GalleryStrip({ items, totalPhotos, active, onSelect }) {
           onClick={() => onSelect(i)}
           aria-label={`${item?.type === "video" ? "video" : "foto"} ${i + 1}`}
         >
+          {item?.type === "video" && item.posterSrc ? (
+            <img
+              src={item.posterSrc}
+              alt={`video ${i + 1}`}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : null}
           {item?.type === "image" ? (
             <img src={item.src} alt={`foto ${i + 1}`} loading="lazy" decoding="async" />
           ) : null}
-          {item?.type === "video" ? (
+          {item?.type === "video" && !item.posterSrc ? (
             <>
               <video src={item.src} muted playsInline preload="metadata" />
             </>

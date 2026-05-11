@@ -14,6 +14,7 @@ const assetSorter = new Intl.Collator("ca", {
 // Keep the web gallery on broadly browser-safe formats.
 const VIDEO_EXTENSIONS = new Set(["mp4", "webm", "ogg"]);
 const OPTIMIZED_FOLDER_NAME = "optimized";
+const VIDEO_POSTER_SUFFIX = ".poster";
 
 function normalizeAssetKey(value) {
   return value
@@ -44,6 +45,22 @@ function isOptimizedAsset(path) {
   return segments[segments.length - 2] === OPTIMIZED_FOLDER_NAME;
 }
 
+function getAssetBaseName(path) {
+  const parsedPath = path.split("/").pop() ?? "";
+  const parts = parsedPath.split(".");
+
+  if (parts.length <= 1) {
+    return parsedPath;
+  }
+
+  parts.pop();
+  return parts.join(".");
+}
+
+function isGeneratedVideoPoster(path) {
+  return getAssetBaseName(path).endsWith(VIDEO_POSTER_SUFFIX);
+}
+
 const groupedProjectAssets = Object.entries(assetModules).reduce((acc, [path, src]) => {
   const folderKey = getAssetFolderKey(path);
   const extension = getAssetExtension(path);
@@ -58,17 +75,24 @@ const groupedProjectAssets = Object.entries(assetModules).reduce((acc, [path, sr
       videos: [],
       optimizedPhotos: [],
       optimizedVideos: [],
+      posters: new Map(),
+      optimizedPosters: new Map(),
     };
   }
 
   const isOptimized = isOptimizedAsset(path);
+  const isPoster = isGeneratedVideoPoster(path);
+  const baseName = getAssetBaseName(path);
 
   if (VIDEO_EXTENSIONS.has(extension)) {
     const target = isOptimized ? acc[folderKey].optimizedVideos : acc[folderKey].videos;
-    target.push({ path, src });
+    target.push({ path, src, baseName });
+  } else if (isPoster) {
+    const target = isOptimized ? acc[folderKey].optimizedPosters : acc[folderKey].posters;
+    target.set(baseName.replace(/\.poster$/i, ""), { path, src });
   } else {
     const target = isOptimized ? acc[folderKey].optimizedPhotos : acc[folderKey].photos;
-    target.push({ path, src });
+    target.push({ path, src, baseName });
   }
 
   return acc;
@@ -97,6 +121,12 @@ function getPreferredVideos(projectAssets) {
     : projectAssets.videos;
 }
 
+function getPreferredPosters(projectAssets) {
+  return projectAssets.optimizedPosters.size > 0
+    ? projectAssets.optimizedPosters
+    : projectAssets.posters;
+}
+
 const FALLBACK_MEDIA_SRC = Object.values(groupedProjectAssets)
   .flatMap(getPreferredVideos)
   .map((entry) => entry.src)[0] ?? null;
@@ -119,6 +149,7 @@ function getProjectMedia(assetKey, excludedPathFragments = []) {
   const shouldExclude = (entry) =>
     excludedPathFragments.some((fragment) => entry.path.includes(fragment));
 
+  const posters = getPreferredPosters(projectAssets);
   const videos = getPreferredVideos(projectAssets).filter((entry) => !shouldExclude(entry));
   const photos = getPreferredPhotos(projectAssets).filter((entry) => !shouldExclude(entry));
   const mediaSrc = videos[0]?.src ?? FALLBACK_MEDIA_SRC;
@@ -127,6 +158,7 @@ function getProjectMedia(assetKey, excludedPathFragments = []) {
       type: "video",
       src: entry.src,
       path: entry.path,
+      posterSrc: posters.get(entry.baseName)?.src ?? null,
     })),
     ...photos.map((entry) => ({
       type: "image",
@@ -148,7 +180,7 @@ function prioritizeMediaItem(mediaData, pathFragment) {
   if (!pathFragment || !mediaData?.mediaItems?.length) return mediaData;
 
   const prioritizedIndex = mediaData.mediaItems.findIndex((item) =>
-    item.src?.includes(pathFragment),
+    item.src?.includes(pathFragment) || item.path?.includes(pathFragment),
   );
 
   if (prioritizedIndex <= 0) return mediaData;
