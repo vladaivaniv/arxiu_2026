@@ -179,6 +179,20 @@ async function walkMediaFiles(dir) {
   return files;
 }
 
+async function walkOptimizedVideoFiles(projectDir) {
+  const optimizedDir = path.join(projectDir, OPTIMIZED_DIR_NAME);
+
+  try {
+    const entries = await readdir(optimizedDir, { withFileTypes: true });
+
+    return entries
+      .filter((entry) => entry.isFile() && VIDEO_EXTENSIONS.has(getExtension(entry.name)))
+      .map((entry) => path.join(optimizedDir, entry.name));
+  } catch {
+    return [];
+  }
+}
+
 async function getProjectDirs(assetsDir) {
   const entries = await readdir(assetsDir, { withFileTypes: true });
 
@@ -389,6 +403,29 @@ async function optimizeFile(inputPath, projectDir, options) {
   };
 }
 
+async function ensurePosterForOptimizedVideo(videoPath, options) {
+  const posterPath = getVideoPosterPath(videoPath);
+
+  if (await shouldSkipOutput(videoPath, posterPath, options.force)) {
+    return { status: "skipped", inputPath: videoPath, outputPath: posterPath, posterOnly: true };
+  }
+
+  if (options.dryRun) {
+    return { status: "planned", inputPath: videoPath, outputPath: posterPath, posterOnly: true };
+  }
+
+  await runFfmpeg(videoPosterArgs(videoPath, posterPath, options));
+
+  return {
+    status: "optimized",
+    inputPath: videoPath,
+    outputPath: posterPath,
+    posterOnly: true,
+    inputSize: await fileSize(videoPath),
+    outputSize: await fileSize(posterPath),
+  };
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
 
@@ -423,6 +460,14 @@ async function main() {
       process.stdout.write(`> ${relativeInput}\n`);
       results.push(await optimizeFile(inputPath, projectDir, options));
     }
+
+    const optimizedVideos = await walkOptimizedVideoFiles(projectDir);
+
+    for (const optimizedVideoPath of optimizedVideos) {
+      const relativeInput = path.relative(options.assetsDir, optimizedVideoPath);
+      process.stdout.write(`> ${relativeInput} [poster]\n`);
+      results.push(await ensurePosterForOptimizedVideo(optimizedVideoPath, options));
+    }
   }
 
   const optimized = results.filter((result) => result.status === "optimized");
@@ -435,7 +480,9 @@ async function main() {
   for (const result of optimized) {
     const from = path.relative(options.assetsDir, result.inputPath);
     const to = path.relative(options.assetsDir, result.outputPath);
-    const poster = result.posterPath
+    const poster = result.posterOnly
+      ? ""
+      : result.posterPath
       ? ` + ${path.relative(options.assetsDir, result.posterPath)}`
       : "";
     console.log(
