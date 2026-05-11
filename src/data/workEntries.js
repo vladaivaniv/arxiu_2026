@@ -246,7 +246,7 @@ export const workEntries = [
     program: "ART I CULTURA DIGITAL",
     description: "Instal·lació interactiva per a dues persones que reprodueix una relació de poder entre director i treballador. A través d'un sistema de botons, instruccions i tasques repetitives, l'obra converteix el joc en una experiència crítica sobre jerarquia, obediència, pressió laboral i desigualtat dins l'entorn industrial.",
     ...prioritizeMediaItems(
-      getProjectMedia("MODEL DE PODER MITJANÇANT EL DIÀLEG MECÀNIC", ["IMG_9177.MOV", "IMG_9177"]),
+      getProjectMedia("MODEL DE PODER MITJANÇANT EL DIÀLEG MECÀNIC", ["1.optimized.mp4"]),
       ["89b694ed-a0fa-45c7-9951-e651e89ffc61.jpg", "d429e19d-51e5-441d-aa3b-6e77e6891504.jpg"],
     ),
     objectPosition: "50% 55%",
