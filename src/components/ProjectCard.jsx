@@ -7,6 +7,12 @@ import ScrollTypeText from "./ScrollTypeText.jsx";
 import CardGlyphBg from "./CardGlyphBg.jsx";
 import SaltFall from "./SaltFall.jsx";
 import SeaWaves from "./SeaWaves.jsx";
+import DartThrow from "./DartThrow.jsx";
+import QuadratsTouch from "./QuadratsTouch.jsx";
+import EmotionLight from "./EmotionLight.jsx";
+import Panoptic from "./Panoptic.jsx";
+import ToySoldiers from "./ToySoldiers.jsx";
+import DataExtract from "./DataExtract.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,27 +66,50 @@ function ViewfinderOverlay({ current, total }) {
   );
 }
 
-function GalleryStrip({ photos, mediaSrc, totalPhotos, active, onSelect }) {
-  const items = photos.length > 0
-    ? photos
+function GalleryStrip({ items, totalPhotos, active, onSelect }) {
+  const galleryItems = items.length > 0
+    ? items
     : Array.from({ length: totalPhotos }).map(() => null);
 
   return (
     <div className="wc-gallery-strip">
-      {items.map((src, i) => (
+      {galleryItems.map((item, i) => (
         <button
           key={i}
           type="button"
           className={`wc-gallery-thumb${active === i ? " is-active" : ""}`}
           onClick={() => onSelect(i)}
-          aria-label={`foto ${i + 1}`}
+          aria-label={`${item?.type === "video" ? "video" : "foto"} ${i + 1}`}
         >
-          {src
-            ? <img src={src} alt={`foto ${i + 1}`} loading="lazy" decoding="async" />
-            : <video src={mediaSrc} muted playsInline preload="none" />
-          }
+          {item?.type === "image" ? (
+            <img src={item.src} alt={`foto ${i + 1}`} loading="lazy" decoding="async" />
+          ) : null}
+          {item?.type === "video" ? (
+            <>
+              <video src={item.src} muted playsInline preload="none" />
+              <span className="wc-gallery-type">VIDEO</span>
+            </>
+          ) : null}
+          {!item ? <span className="wc-gallery-placeholder" aria-hidden="true" /> : null}
         </button>
       ))}
+    </div>
+  );
+}
+
+function LargePhotoMedia({ src, title, objectPosition }) {
+  return (
+    <div className="work-media work-photo-media">
+      <img
+        key={src}
+        className="work-preview work-photo-preview"
+        src={src}
+        alt={title}
+        decoding="async"
+        style={{ objectPosition }}
+      />
+      <div className="work-glitch-noise is-photo-layer" aria-hidden="true" />
+      <div className="work-glitch-scan is-photo-layer" aria-hidden="true" />
     </div>
   );
 }
@@ -97,9 +126,16 @@ export default function ProjectCard({ work, index, total }) {
   const authorsBlockRef = useRef(null);
   const descriptionBlockRef = useRef(null);
   const seqPadded = String(index + 1).padStart(3, "0");
-  const photos = work.photos ?? [];
-  const totalSlides = photos.length > 0 ? photos.length : 6;
+  const mediaItems = work.mediaItems ?? [];
+  const totalSlides = mediaItems.length > 0 ? mediaItems.length : 6;
   const [activeThumb, setActiveThumb] = useState(0);
+  const selectedItem = mediaItems[activeThumb] ?? (
+    work.mediaSrc ? { type: "video", src: work.mediaSrc } : null
+  );
+
+  useEffect(() => {
+    setActiveThumb(0);
+  }, [work.title]);
 
   useEffect(() => {
     const card = cardRef.current;
@@ -268,6 +304,12 @@ export default function ProjectCard({ work, index, total }) {
 
       {index === 0 ? <SaltFall /> : null}
       {index === 1 ? <SeaWaves /> : null}
+      {index === 3 ? <DartThrow /> : null}
+      {index === 4 ? <QuadratsTouch /> : null}
+      {index === 5 ? <EmotionLight /> : null}
+      {index === 7 ? <Panoptic /> : null}
+      {index === 8 ? <ToySoldiers /> : null}
+      {index === 9 ? <DataExtract /> : null}
 
       {/* ── body ── */}
       <div className="wc-body">
@@ -316,9 +358,7 @@ export default function ProjectCard({ work, index, total }) {
               text="> DESCRIPCIÓ"
               delay={index * 60 + 500} duration={400} triggerOnView playOnce threshold={0.2}
             />
-            <ScrollTypeText as="p" text={work.description} className="wc-desc"
-              delay={index * 120 + 300} speed={18} threshold={0.1}
-            />
+            <p className="wc-desc">{work.description}</p>
           </div>
 
 
@@ -327,19 +367,26 @@ export default function ProjectCard({ work, index, total }) {
         {/* RIGHT */}
         <div ref={mediaColumnRef} className="wc-right">
           <div ref={mediaFrameRef} className="wc-media-frame">
-            <ScrollGlitchMedia
-              src={work.mediaSrc}
-              objectPosition={work.objectPosition}
-              title={work.title}
-            />
+            {selectedItem?.type === "image" ? (
+              <LargePhotoMedia
+                src={selectedItem.src}
+                objectPosition={work.objectPosition}
+                title={work.title}
+              />
+            ) : (
+              <ScrollGlitchMedia
+                src={selectedItem?.src ?? work.mediaSrc}
+                objectPosition={work.objectPosition}
+                title={work.title}
+              />
+            )}
             <ViewfinderOverlay current={activeThumb} total={totalSlides} />
           </div>
 
           <div ref={galleryRef}>
             <GalleryStrip
-              photos={photos}
-              mediaSrc={work.mediaSrc}
-              totalPhotos={6}
+              items={mediaItems}
+              totalPhotos={totalSlides}
               active={activeThumb}
               onSelect={setActiveThumb}
             />

@@ -100,6 +100,10 @@ const FALLBACK_MEDIA_SRC = Object.values(groupedProjectAssets)
   .flatMap(getPreferredVideos)
   .map((entry) => entry.src)[0] ?? null;
 
+const FALLBACK_MEDIA_ITEMS = FALLBACK_MEDIA_SRC
+  ? [{ type: "video", src: FALLBACK_MEDIA_SRC }]
+  : [];
+
 function getProjectMedia(assetKey) {
   const projectAssets = groupedProjectAssets[normalizeAssetKey(assetKey)];
 
@@ -107,12 +111,24 @@ function getProjectMedia(assetKey) {
     return {
       mediaSrc: FALLBACK_MEDIA_SRC,
       photos: [],
+      mediaItems: FALLBACK_MEDIA_ITEMS,
     };
   }
 
+  const videos = getPreferredVideos(projectAssets);
+  const photos = getPreferredPhotos(projectAssets);
+  const mediaSrc = videos[0]?.src ?? FALLBACK_MEDIA_SRC;
+  const mediaItems = [
+    ...videos.map((entry) => ({ type: "video", src: entry.src })),
+    ...photos.map((entry) => ({ type: "image", src: entry.src })),
+  ];
+
   return {
-    mediaSrc: getPreferredVideos(projectAssets)[0]?.src ?? FALLBACK_MEDIA_SRC,
-    photos: getPreferredPhotos(projectAssets).map((entry) => entry.src),
+    mediaSrc,
+    photos: photos.map((entry) => entry.src),
+    mediaItems: mediaItems.length > 0
+      ? mediaItems
+      : FALLBACK_MEDIA_ITEMS,
   };
 }
 

@@ -677,3 +677,615 @@ Visit https://reactjs.org/link/error-boundaries to learn more about error bounda
 [101295424ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
 [101296438ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
 [101297790ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[103060641ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[103060847ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[103171192ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[103171353ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[133842458ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842460ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842461ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842532ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478393014:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778447434256:204:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[133842534ms] InvalidStateError: Failed to execute 'drawImage' on 'CanvasRenderingContext2D': The image argument is a canvas element with a width or height of 0.
+    at draw (http://127.0.0.1:5173/src/components/WebcamAscii.jsx:135:11)
+[133842629ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778478387501:396:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[134107202ms] ReferenceError: onMove is not defined
+    at http://127.0.0.1:5173/src/components/DartThrow.jsx?t=1778478651332:135:49
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[134107208ms] [ERROR] The above error occurred in the <DartThrow> component:
+
+    at DartThrow (http://127.0.0.1:5173/src/components/DartThrow.jsx?t=1778478657745:21:21)
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778478538580:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[134107214ms] ReferenceError: onMove is not defined
+    at http://127.0.0.1:5173/src/components/DartThrow.jsx?t=1778478657745:141:49
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[134107219ms] [ERROR] The above error occurred in the <DartThrow> component:
+
+    at DartThrow (http://127.0.0.1:5173/src/components/DartThrow.jsx?t=1778478657745:21:21)
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778478538580:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[134107219ms] ReferenceError: onMove is not defined
+    at http://127.0.0.1:5173/src/components/DartThrow.jsx?t=1778478657745:141:49
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[134107219ms] ReferenceError: onMove is not defined
+    at http://127.0.0.1:5173/src/components/DartThrow.jsx?t=1778478651332:135:49
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[134224692ms] ReferenceError: spawnDart is not defined
+    at tick (http://127.0.0.1:5173/src/components/DartThrow.jsx?t=1778478774972:150:9)
+[134875591ms] ReferenceError: EmotionLight is not defined
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778479426144:393:42)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[134875594ms] ReferenceError: EmotionLight is not defined
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778479426144:393:42)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[134875602ms] [ERROR] The above error occurred in the <ProjectCard> component:
+
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778479426144:206:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778447434256:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778447434256:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[134875632ms] ReferenceError: EmotionLight is not defined
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778479426144:393:42)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19753:22)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+    at renderRootSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19116:15)
+    at recoverFromConcurrentError (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18736:28)
+    at performSyncWorkOnRoot (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18879:28)
+[134889277ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/src/components/EmotionLight.jsx?t=1778479439883:0
+[134889277ms] [ERROR] [hmr] Failed to reload /src/components/EmotionLight.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
