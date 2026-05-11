@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 
 const PALETTE = [
-  [255, 60, 60],
-  [255, 30, 30],
-  [220, 0, 0],
-  [255, 90, 70],
-  [255, 40, 80],
+  [255, 220, 60],
+  [255, 200, 30],
+  [255, 235, 100],
+  [240, 180, 0],
+  [255, 215, 70],
 ];
 
 const lerpColor = (now) => {
@@ -120,8 +120,8 @@ export default function EmotionLight() {
       const lifecycle = 1;
 
       const breathe = 0.5 + 0.5 * Math.sin(t * 0.7);
-      const len = 16 + 5 * breathe;
-      const wid = 6 + 2 * breathe;
+      const len = 52 + 14 * breathe;
+      const wid = 20 + 6 * breathe;
       const [cr, cg, cb] = lerpColor(now);
 
       ctx.globalCompositeOperation = "lighter";
@@ -141,7 +141,7 @@ export default function EmotionLight() {
 
       const coreAlpha = 0.9 * lifecycle;
       const core = ctx.createRadialGradient(0, 0, 0, 0, 0, wid * 0.8);
-      core.addColorStop(0, `rgba(255, 220, 220, ${coreAlpha.toFixed(3)})`);
+      core.addColorStop(0, `rgba(255, 250, 200, ${coreAlpha.toFixed(3)})`);
       core.addColorStop(0.5, `rgba(${cr},${cg},${cb},${(coreAlpha * 0.55).toFixed(3)})`);
       core.addColorStop(1, `rgba(${cr},${cg},${cb},0)`);
       ctx.fillStyle = core;

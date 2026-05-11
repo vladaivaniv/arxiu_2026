@@ -2286,3 +2286,1404 @@ Visit https://reactjs.org/link/error-boundaries to learn more about error bounda
 [151723527ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
 [151724544ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
 [151725551ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151893723ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151894741ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151895749ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151896763ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151897784ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151898788ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151899805ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151900824ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151901837ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151902844ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151903857ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151904867ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151905873ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151906882ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151907888ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151908899ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151909921ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151910924ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151911933ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151912951ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151913959ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151914969ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151915988ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151916992ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151918017ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151919024ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151920030ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151921031ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151922042ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151923049ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151924057ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151925066ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151926083ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151927099ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151928105ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151929107ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151930130ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151931149ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151932166ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151933180ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151934205ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151935211ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151936230ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151937245ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151938268ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151939293ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151940299ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151941312ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151942331ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151943333ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151944340ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151945363ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151946374ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151947383ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151948402ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151949421ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151950426ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151951446ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151952462ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151953479ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151954484ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151955526ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151956529ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151957551ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151958582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151959593ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151960602ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151961628ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151962639ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151963664ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151964675ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151965700ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151966716ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151967733ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151968756ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151969758ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151970775ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151971802ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151972825ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151973842ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151974845ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151975867ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151976893ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151977912ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151978920ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151979949ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151980953ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151981958ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151982965ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151983993ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151985006ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151986029ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151987039ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151988063ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151989064ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151990075ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151991097ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151992113ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151993138ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151994146ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151995160ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151996171ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151997178ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151998197ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[151999210ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152000215ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152001227ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152002244ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152003254ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152004264ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152005269ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152006278ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152007304ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152008320ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152009330ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152010346ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152011360ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152012377ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152013379ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152014397ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152015412ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152016434ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152017450ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152018451ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152019476ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152020481ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152021482ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152022505ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152023516ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152024523ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152025548ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152026556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152027579ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152028585ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152029590ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152030592ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152031618ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152032623ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152033632ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152034642ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152035650ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152036657ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152037659ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152038672ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152039683ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152040690ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152041705ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152042721ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152043723ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152044738ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152045754ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152046783ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152047795ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152048807ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152049815ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152050823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152051853ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152052866ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152053882ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152054907ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152055920ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152056949ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152057954ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152058961ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152059990ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152060996ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152062005ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152063032ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152064042ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152065052ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152066057ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152067068ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152068084ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152069095ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152070118ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152071137ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152072153ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152073162ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152074173ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152075178ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152076189ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152077204ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152078212ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152079222ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152080244ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152081252ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152082253ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152083275ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152084287ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152085297ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152086310ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152087316ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152088330ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152089353ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152090371ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152091382ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152092399ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152093407ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152094421ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152095429ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152096438ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152097455ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152098459ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152099476ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152100480ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152101485ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152102505ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152103512ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152104530ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152105553ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152106559ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152107576ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152108598ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152109607ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152110645ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152111664ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152112671ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152113678ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152114696ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152115719ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152116722ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152117726ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152118735ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152119762ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152120769ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152121785ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152122794ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152123797ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152124817ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152125834ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152126840ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152127842ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152128870ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152129885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152130898ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152131923ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152132933ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152133935ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152134943ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152135958ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152136986ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152138002ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152139009ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152140027ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152141032ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152142033ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152143051ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152144068ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152145094ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152146110ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152147136ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152148140ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152149141ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152150148ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152151167ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152152168ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152153176ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152154192ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152155199ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152156209ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152157228ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152158235ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152159241ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152160243ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152161258ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152162269ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152163285ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152164292ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152165299ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152166309ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152167331ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152168351ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152169378ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152170386ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152171392ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152172421ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152173433ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152174460ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152175467ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152176474ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152177484ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152178486ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152179500ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152180505ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152181523ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152182528ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152183556ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152184561ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152185580ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152186607ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152187612ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152188631ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152189649ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152190655ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152191661ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152192683ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152193699ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152194702ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152195724ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152196729ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152197741ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152198766ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152199772ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152200798ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152201804ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152202823ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152203840ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152204853ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152205859ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152206877ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152207895ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[152209325ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[152218060ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[152218206ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[156167003ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167004ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167078ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167082ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167085ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167088ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167091ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167094ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167097ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167100ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167103ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167106ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167109ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167111ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167114ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167117ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167120ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167123ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167123ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167124ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167124ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167124ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167124ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167124ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx:210:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[156167124ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500717582:424:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountInsideDeletedTreeOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18283:17)
+    at commitPassiveUnmountEffectsInsideOfDeletedTree_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18245:13)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18181:19)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19328:17
+[156167125ms] ReferenceError: asciiFadeTrigger is not defined
+    at http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778500709862:423:7
+    at safelyCallDestroy (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16748:13)
+    at commitHookEffectListUnmount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16875:19)
+    at commitPassiveUnmountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18232:17)
+    at commitPassiveUnmountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18213:15)
+    at commitPassiveUnmountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18204:15)
+    at commitPassiveUnmountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18169:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19489:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[158060880ms] ReferenceError: QuadratsTouch is not defined
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778502611419:393:42)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[158060884ms] ReferenceError: QuadratsTouch is not defined
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778502611419:393:42)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[158060889ms] [ERROR] The above error occurred in the <ProjectCard> component:
+
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778502611419:211:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778499362141:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[158060948ms] ReferenceError: QuadratsTouch is not defined
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778502611419:393:42)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19753:22)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+    at renderRootSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19116:15)
+    at recoverFromConcurrentError (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18736:28)
+    at performSyncWorkOnRoot (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18879:28)
+[158092505ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/src/components/QuadratsTouch.jsx?t=1778502643112:0
+[158092505ms] [ERROR] [hmr] Failed to reload /src/components/QuadratsTouch.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[160129060ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[160129225ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[172765860ms] ReferenceError: button is not defined
+    at resize (http://127.0.0.1:5173/src/components/PowerDialog.jsx?t=1778517316425:60:7)
+    at http://127.0.0.1:5173/src/components/PowerDialog.jsx?t=1778517316425:62:5
+    at commitHookEffectListMount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16915:34)
+    at commitPassiveMountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18156:19)
+    at commitPassiveMountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18129:17)
+    at commitPassiveMountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18119:15)
+    at commitPassiveMountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18109:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19490:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[172765866ms] [ERROR] The above error occurred in the <PowerDialog> component:
+
+    at PowerDialog (http://127.0.0.1:5173/src/components/PowerDialog.jsx?t=1778517316425:21:21)
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778502795531:211:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778502795531:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778502795531:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[172766025ms] ReferenceError: button is not defined
+    at resize (http://127.0.0.1:5173/src/components/PowerDialog.jsx?t=1778517316425:60:7)
+    at http://127.0.0.1:5173/src/components/PowerDialog.jsx?t=1778517316425:62:5
+    at commitHookEffectListMount (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:16915:34)
+    at commitPassiveMountOnFiber (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18156:19)
+    at commitPassiveMountEffects_complete (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18129:17)
+    at commitPassiveMountEffects_begin (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18119:15)
+    at commitPassiveMountEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18109:11)
+    at flushPassiveEffectsImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19490:11)
+    at flushPassiveEffects (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19447:22)
+    at commitRootImpl (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19416:13)
+[172786934ms] ReferenceError: appearedAt is not defined
+    at tick (http://127.0.0.1:5173/src/components/PowerDialog.jsx?t=1778517337365:104:27)
+[172795432ms] ReferenceError: appearedAt is not defined
+    at tick (http://127.0.0.1:5173/src/components/PowerDialog.jsx?t=1778517345970:107:27)
+[173134581ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[173134582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173135584ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173136607ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173137617ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173138619ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173139651ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173140670ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173141687ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173142705ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173143725ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173144740ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173145749ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173146767ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173147786ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173148810ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173149815ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173150836ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173151854ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173152860ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173153862ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173154877ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173155885ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173156899ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173157907ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173158915ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173159922ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173160930ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173161931ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173162943ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173163955ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173164972ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173165994ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173167005ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173168013ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173169024ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173170030ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173171039ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173172065ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173173072ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0

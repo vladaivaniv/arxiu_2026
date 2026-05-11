@@ -870,11 +870,12 @@ body::before {
 .salt-fall-canvas,
 .sea-waves-canvas,
 .dart-throw-canvas,
-.quadrats-touch-canvas,
+.power-dialog-canvas,
 .emotion-light-canvas,
 .panoptic-canvas,
 .toy-soldiers-canvas,
-.data-extract-canvas {
+.data-extract-canvas,
+.scrap-gold-canvas {
   position: absolute;
   inset: 0;
   width: 100%;

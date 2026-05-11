@@ -8,11 +8,12 @@ import CardGlyphBg from "./CardGlyphBg.jsx";
 import SaltFall from "./SaltFall.jsx";
 import SeaWaves from "./SeaWaves.jsx";
 import DartThrow from "./DartThrow.jsx";
-import QuadratsTouch from "./QuadratsTouch.jsx";
+import PowerDialog from "./PowerDialog.jsx";
 import EmotionLight from "./EmotionLight.jsx";
 import Panoptic from "./Panoptic.jsx";
 import ToySoldiers from "./ToySoldiers.jsx";
 import DataExtract from "./DataExtract.jsx";
+import ScrapGold from "./ScrapGold.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -305,8 +306,9 @@ export default function ProjectCard({ work, index, total }) {
       {index === 0 ? <SaltFall /> : null}
       {index === 1 ? <SeaWaves /> : null}
       {index === 3 ? <DartThrow /> : null}
-      {index === 4 ? <QuadratsTouch /> : null}
+      {index === 4 ? <PowerDialog /> : null}
       {index === 5 ? <EmotionLight /> : null}
+      {index === 6 ? <ScrapGold /> : null}
       {index === 7 ? <Panoptic /> : null}
       {index === 8 ? <ToySoldiers /> : null}
       {index === 9 ? <DataExtract /> : null}

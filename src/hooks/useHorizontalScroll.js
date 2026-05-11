@@ -99,12 +99,12 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
             trigger: shell,
             start: "top top",
             end: () => `+=${getDistance()}`,
-            scrub: 2,
+            scrub: 3.2,
             snap: {
               snapTo: getSnapPoints,
-              duration: { min: 0.8, max: 1.6 },
-              delay: 0.05,
-              ease: "power3.inOut",
+              duration: { min: 1.2, max: 2.4 },
+              delay: 0.12,
+              ease: "power4.inOut",
               onComplete: () => {
                 const lenis = window.__lenis;
                 if (!lenis) return;

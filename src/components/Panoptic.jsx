@@ -95,9 +95,9 @@ export default function Panoptic() {
 
     const drawEye = (eyeW, eyeH, lidOpen, pupilOffsetX, pupilOffsetY, alpha = 1) => {
       drawAlmond(eyeW, eyeH * lidOpen);
-      ctx.fillStyle = `rgba(20, 0, 0, ${(0.55 * alpha).toFixed(3)})`;
+      ctx.fillStyle = `rgba(0, 12, 30, ${(0.55 * alpha).toFixed(3)})`;
       ctx.fill();
-      ctx.strokeStyle = `rgba(255, 0, 0, ${(0.9 * alpha).toFixed(3)})`;
+      ctx.strokeStyle = `rgba(80, 170, 255, ${(0.9 * alpha).toFixed(3)})`;
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -108,9 +108,9 @@ export default function Panoptic() {
 
         const irisR = eyeH * 0.88;
         const irisGrad = ctx.createRadialGradient(pupilOffsetX, pupilOffsetY, irisR * 0.2, pupilOffsetX, pupilOffsetY, irisR);
-        irisGrad.addColorStop(0, `rgba(255, 80, 70, ${(0.85 * alpha).toFixed(3)})`);
-        irisGrad.addColorStop(0.55, `rgba(170, 0, 0, ${(0.75 * alpha).toFixed(3)})`);
-        irisGrad.addColorStop(1, `rgba(60, 0, 0, ${(0.85 * alpha).toFixed(3)})`);
+        irisGrad.addColorStop(0, `rgba(120, 200, 255, ${(0.85 * alpha).toFixed(3)})`);
+        irisGrad.addColorStop(0.55, `rgba(30, 120, 220, ${(0.75 * alpha).toFixed(3)})`);
+        irisGrad.addColorStop(1, `rgba(0, 30, 90, ${(0.85 * alpha).toFixed(3)})`);
         ctx.fillStyle = irisGrad;
         ctx.beginPath();
         ctx.arc(pupilOffsetX, pupilOffsetY, irisR, 0, Math.PI * 2);
@@ -122,7 +122,7 @@ export default function Panoptic() {
         ctx.arc(pupilOffsetX, pupilOffsetY, pupilR, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = `rgba(255, 245, 240, ${(0.85 * alpha).toFixed(3)})`;
+        ctx.fillStyle = `rgba(230, 245, 255, ${(0.85 * alpha).toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(pupilOffsetX - pupilR * 0.35, pupilOffsetY - pupilR * 0.4, pupilR * 0.3, 0, Math.PI * 2);
         ctx.fill();

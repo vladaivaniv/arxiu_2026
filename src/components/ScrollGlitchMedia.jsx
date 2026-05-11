@@ -446,6 +446,37 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
 
     setupAnimation();
 
+    // ── Fade temporal del halftone ASCII quan la card entra a viewport ──
+    let asciiFadeRaf = 0;
+    let asciiFadeStart = 0;
+    const ASCII_HOLD_MS = 1400;
+    const ASCII_FADE_MS = 4500;
+    const runAsciiFade = (now) => {
+      if (!asciiFadeStart) asciiFadeStart = now;
+      const elapsed = now - asciiFadeStart;
+      let alpha;
+      if (elapsed < ASCII_HOLD_MS) alpha = 1;
+      else {
+        const t = (elapsed - ASCII_HOLD_MS) / ASCII_FADE_MS;
+        if (t >= 1) {
+          halftone.style.opacity = "0";
+          asciiFadeRaf = 0;
+          return;
+        }
+        const e = t * t * (3 - 2 * t);
+        alpha = 1 - e;
+      }
+      halftone.style.opacity = alpha.toFixed(3);
+      asciiFadeRaf = window.requestAnimationFrame(runAsciiFade);
+    };
+
+    halftone.style.opacity = "1";
+
+    const startAsciiFadeOnce = () => {
+      if (asciiFadeStart || asciiFadeRaf) return;
+      asciiFadeRaf = window.requestAnimationFrame(runAsciiFade);
+    };
+
     visibilityObserver = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
@@ -454,6 +485,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
           ensurePlayback();
           startRenderLoop();
           startHalftoneLoop();
+          startAsciiFadeOnce();
           return;
         }
 
@@ -479,6 +511,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     mediaQuery.addEventListener("change", handleMotionChange);
 
     return () => {
+      if (asciiFadeRaf) window.cancelAnimationFrame(asciiFadeRaf);
       animationContext?.revert();
       visibilityObserver?.disconnect();
       stopRenderLoop();

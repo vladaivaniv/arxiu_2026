@@ -6,6 +6,24 @@ const TAGS = [
   "BIO", "META", "SCAN", "TICK", "FRAME", "TRACE",
 ];
 
+const LABELS = [
+  "Presència activa",
+  "Estat físic aparent",
+  "Activitat corporal",
+  "Moviment",
+  "Densitat cap.",
+  "Cos detectat",
+  "Identitat pendent",
+  "Gest registrat",
+  "Mirada activa",
+  "Postura",
+  "Freqüència",
+  "Vector trajectòria",
+];
+
+const BRACKET_W = 26;
+const BRACKET_H = 22;
+
 const randomBinary = (len) => {
   let s = "";
   for (let i = 0; i < len; i += 1) s += Math.random() < 0.5 ? "0" : "1";
@@ -45,6 +63,8 @@ export default function DataExtract() {
 
     const particles = [];
     const gridDots = [];
+    const brackets = [];
+    let lastBracket = 0;
 
     const buildGrid = () => {
       gridDots.length = 0;
@@ -108,92 +128,62 @@ export default function DataExtract() {
       if (particles.length > 80) particles.shift();
     };
 
+    const spawnBracket = () => {
+      brackets.push({
+        x: Math.random() * (width - BRACKET_W * 4) + BRACKET_W * 2,
+        y: Math.random() * (height - BRACKET_H * 3) + BRACKET_H * 1.5,
+        w: BRACKET_W * (1 + Math.random() * 0.6),
+        h: BRACKET_H * (1 + Math.random() * 0.4),
+        label: LABELS[Math.floor(Math.random() * LABELS.length)],
+        born: performance.now(),
+        ttl: 1800 + Math.random() * 1400,
+      });
+      if (brackets.length > 16) brackets.shift();
+    };
+
+    const drawBracket = (b, now) => {
+      const age = now - b.born;
+      const t = age / b.ttl;
+      if (t >= 1) return false;
+      let alpha;
+      if (t < 0.12) alpha = t / 0.12;
+      else if (t > 0.78) alpha = (1 - t) / 0.22;
+      else alpha = 1;
+      alpha *= 0.7;
+
+      const x = b.x;
+      const y = b.y;
+      const w = b.w;
+      const h = b.h;
+      const corner = 5;
+      ctx.strokeStyle = `rgba(255, 220, 0, ${alpha.toFixed(3)})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, y + corner); ctx.lineTo(x, y); ctx.lineTo(x + corner, y);
+      ctx.moveTo(x + w - corner, y); ctx.lineTo(x + w, y); ctx.lineTo(x + w, y + corner);
+      ctx.moveTo(x + w, y + h - corner); ctx.lineTo(x + w, y + h); ctx.lineTo(x + w - corner, y + h);
+      ctx.moveTo(x + corner, y + h); ctx.lineTo(x, y + h); ctx.lineTo(x, y + h - corner);
+      ctx.stroke();
+
+      ctx.font = '9px "Space Mono", monospace';
+      ctx.fillStyle = `rgba(255, 220, 0, ${alpha.toFixed(3)})`;
+      ctx.fillText(b.label, x + w + 4, y + h - 2);
+      return true;
+    };
+
     const tick = (now) => {
       const dt = Math.min(48, now - prev);
       prev = now;
       ctx.clearRect(0, 0, width, height);
 
-      // ── graella de mesura subtil ──
-      ctx.fillStyle = "rgba(255, 0, 0, 0.12)";
-      for (const g of gridDots) {
-        const distSq = (g.x - mx) ** 2 + (g.y - my) ** 2;
-        const near = distSq < 110 * 110 && active;
-        const pulse = near ? 1 : 0.4;
-        const r = (Math.sin(now * 0.001 + g.phase) * 0.3 + 0.7) * pulse;
-        ctx.fillRect(g.x - 0.5, g.y - 0.5, 1, 1);
-        if (near) {
-          ctx.fillStyle = `rgba(255, 0, 0, ${(0.55 * r).toFixed(3)})`;
-          ctx.fillRect(g.x - 1, g.y - 1, 2, 2);
-          ctx.fillStyle = "rgba(255, 0, 0, 0.12)";
-        }
+      // ── marcs de detecció amb etiquetes ──
+      if (now - lastBracket > 220) {
+        spawnBracket();
+        lastBracket = now;
       }
-
-      // ── emissió de partícules quan el cursor està actiu ──
-      if (active) {
-        const movedDist = Math.hypot(mx - lastMx, my - lastMy);
-        if (now - lastEmit > 80 || movedDist > 14) {
-          spawnParticle();
-          if (movedDist > 14 && Math.random() < 0.4) spawnParticle();
-          lastEmit = now;
-          lastMx = mx;
-          lastMy = my;
-        }
-
-        // ── retícula central ──
-        const ringR = 22;
-        ctx.strokeStyle = "rgba(255, 0, 0, 0.5)";
-        ctx.lineWidth = 0.8;
-        ctx.beginPath();
-        ctx.arc(mx, my, ringR, 0, Math.PI * 2);
-        ctx.stroke();
-
-        ctx.strokeStyle = "rgba(255, 0, 0, 0.35)";
-        ctx.beginPath();
-        ctx.moveTo(mx - ringR - 6, my);
-        ctx.lineTo(mx - ringR, my);
-        ctx.moveTo(mx + ringR, my);
-        ctx.lineTo(mx + ringR + 6, my);
-        ctx.moveTo(mx, my - ringR - 6);
-        ctx.lineTo(mx, my - ringR);
-        ctx.moveTo(mx, my + ringR);
-        ctx.lineTo(mx, my + ringR + 6);
-        ctx.stroke();
-
-        // coords compactes
-        ctx.font = '8px "Space Mono", monospace';
-        ctx.fillStyle = "rgba(255, 0, 0, 0.7)";
-        ctx.fillText(
-          `${Math.round(mx).toString().padStart(4, "0")}.${Math.round(my).toString().padStart(4, "0")}`,
-          mx + ringR + 4,
-          my - ringR - 4,
-        );
-      }
-
-      // ── partícules de dades surten i s'esvaeixen ──
-      for (let i = particles.length - 1; i >= 0; i -= 1) {
-        const p = particles[i];
-        p.life += dt;
-        if (p.life >= p.ttl) {
-          particles.splice(i, 1);
-          continue;
-        }
-        const t = p.life / p.ttl;
-        p.x += p.vx * (dt / 16);
-        p.y += p.vy * (dt / 16);
-        p.vy -= 0.005 * dt / 16; // pujada lleugera (dades s'escapen amunt)
-
-        const alpha = (1 - t) * 0.9;
-        ctx.fillStyle = `rgba(255, 0, 0, ${alpha.toFixed(3)})`;
-        if (p.size === "small") {
-          ctx.fillRect(p.x - 0.7, p.y - 0.7, 1.4, 1.4);
-          ctx.font = '7px "Space Mono", monospace';
-          ctx.fillStyle = `rgba(255, 0, 0, ${(alpha * 0.65).toFixed(3)})`;
-          ctx.fillText(p.value, p.x + 4, p.y + 2);
-        } else {
-          ctx.font = '8px "Space Mono", monospace';
-          ctx.fillStyle = `rgba(255, 0, 0, ${alpha.toFixed(3)})`;
-          ctx.fillText(`${p.tag}:${p.value}`, p.x, p.y);
-        }
+      for (let i = brackets.length - 1; i >= 0; i -= 1) {
+        const alive = drawBracket(brackets[i], now);
+        if (!alive) brackets.splice(i, 1);
       }
 
       raf = requestAnimationFrame(tick);
