@@ -32,3 +32,8 @@
 [ 2454430ms] [ERROR] Refused to get unsafe header "X-Sorry-Redirect" @ https://www.google.com/search?q=paralax&rlz=1C5AJCO_enES1213ES1213&oq=paralax&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDM0MzhqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&source=chrome.ob&sei=uS8Cav3vAtSE9u8P4YbRoAM:22
 [ 2457349ms] [ERROR] Refused to get unsafe header "X-Sg-Cs" @ https://www.google.com/search?q=paralax&rlz=1C5AJCO_enES1213ES1213&oq=paralax&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDM0MzhqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&source=chrome.ob&sei=uS8Cav3vAtSE9u8P4YbRoAM:22
 [ 2457349ms] [ERROR] Refused to get unsafe header "X-Sorry-Redirect" @ https://www.google.com/search?q=paralax&rlz=1C5AJCO_enES1213ES1213&oq=paralax&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDM0MzhqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&source=chrome.ob&sei=uS8Cav3vAtSE9u8P4YbRoAM:22
+[ 7703809ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://vladaivaniv.github.io/practica_laboratori_de_creacions_artistiques_vlada/assets/index.css:0
+[ 7703812ms] Error: Unable to preload CSS for /practica_laboratori_de_creacions_artistiques_vlada/assets/index.css
+    at HTMLLinkElement.<anonymous> (https://vladaivaniv.github.io/practica_laboratori_de_creacions_artistiques_vlada/dist/assets/index.js:2:1479)
+[ 7703811ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://vladaivaniv.github.io/practica_laboratori_de_creacions_artistiques_vlada/assets/main-Cx6tof9H.js:0
+[ 7703900ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://vladaivaniv.github.io/favicon.ico:0

@@ -2416,7 +2416,7 @@ body::before {
 .section-divider-photo {
   position: absolute;
   inset: 0;
-  background-image: url('/vista_generica_museu.jpg');
+  background-image: url('assets/vista_generica_museu.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.1;
