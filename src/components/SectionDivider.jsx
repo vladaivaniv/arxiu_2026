@@ -5,6 +5,7 @@ import ShuffleText from "./ShuffleText.jsx";
 import TypeLine from "./TypeLine.jsx";
 import AsciiScatter from "./AsciiScatter.jsx";
 import FloatingTitles from "./FloatingTitles.jsx";
+import VistaGenericaMuseu from "../../assets/vista_generica_museu.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -188,7 +189,15 @@ export default function SectionDivider({
   return (
     <div ref={sectionRef} className="section-divider horizontal-panel">
       <div ref={surfaceRef} className="section-divider-surface">
-        {showPhoto ? <div className="section-divider-photo" aria-hidden="true" /> : null}
+        {showPhoto ? (
+            <div
+              className="section-divider-photo"
+              aria-hidden="true"
+              style={{
+                "--divider-photo": VistaGenericaMuseu.src ? `url(${VistaGenericaMuseu.src})` : `url(${VistaGenericaMuseu})`,
+              }}
+            />
+          ) : null}
         <AsciiScatter fullSpread count={25} maxOpacity={0.18} active={motionReady} />
         <div className="section-divider-bg" aria-hidden="true" />
         <FloatingTitles active={motionReady} />
