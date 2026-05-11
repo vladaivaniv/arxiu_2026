@@ -94,6 +94,7 @@ export default function App() {
                 <SectionDivider
                   titleLines={group.separator.titleLines}
                   subtitle={group.separator.subtitle}
+                  showPhoto={group.program !== "LABORATORI DE CREACIONS ARTISTIQUES"}
                 />
                 <WorksSection
                   works={group.works}

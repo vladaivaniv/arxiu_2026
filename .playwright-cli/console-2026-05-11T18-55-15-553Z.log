@@ -1,0 +1,17 @@
+[     209ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5176/favicon.ico:0
+[     704ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5176/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[  587627ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5176/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[  787168ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5176/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[  898702ms] [ERROR] ReferenceError: mediaItems is not defined
+    at prioritizeMediaItems (http://127.0.0.1:5176/src/data/workEntries.js?t=1778526614195:161:9)
+    at http://127.0.0.1:5176/src/data/workEntries.js?t=1778526614195:210:8 @ http://127.0.0.1:5176/@vite/client:173
+[  898703ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5176/@vite/client:175
+[  906105ms] [ERROR] ReferenceError: mediaItems is not defined
+    at prioritizeMediaItems (http://127.0.0.1:5176/src/data/workEntries.js?t=1778526621627:161:9)
+    at http://127.0.0.1:5176/src/data/workEntries.js?t=1778526621627:210:8 @ http://127.0.0.1:5176/@vite/client:173
+[  906105ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5176/@vite/client:175
+[  907647ms] [ERROR] ReferenceError: mediaItems is not defined
+    at prioritizeMediaItems (http://127.0.0.1:5176/src/data/workEntries.js?t=1778526623165:161:9)
+    at http://127.0.0.1:5176/src/data/workEntries.js?t=1778526623165:210:8 @ http://127.0.0.1:5176/@vite/client:173
+[  907647ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5176/@vite/client:175
+[  925871ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5176/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550

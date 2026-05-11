@@ -18,7 +18,7 @@ export default function PowerDialog() {
     const startedAt = performance.now();
     let totalPresses = 0;
     const BUTTON_COUNT = 4;
-    const BUTTON_R = 12;
+    const BUTTON_R = 9;
 
     const buttons = Array.from({ length: BUTTON_COUNT }).map(() => ({
       x: 0,

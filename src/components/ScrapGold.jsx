@@ -32,7 +32,7 @@ export default function ScrapGold() {
 
     const buildFragments = () => {
       fragments.length = 0;
-      const count = 72;
+      const count = 58;
       for (let i = 0; i < count; i += 1) {
         fragments.push({
           x: Math.random() * width,

@@ -14,11 +14,12 @@ import Panoptic from "./Panoptic.jsx";
 import ToySoldiers from "./ToySoldiers.jsx";
 import DataExtract from "./DataExtract.jsx";
 import ScrapGold from "./ScrapGold.jsx";
+import HiddenSignals from "./HiddenSignals.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const LINE_CHARS = ["─", "─", "─", "╌", "·", "─"];
-const LINE_LEN = 90;
+const DEFAULT_LINE_LEN = 110;
 const COLUMN_REVEAL_WINDOW = 1.18;
 const INDEX_REVEAL_OFFSET = 0.04;
 const INDEX_REVEAL_WINDOW = 0.82;
@@ -35,20 +36,20 @@ const MEDIA_REVEAL_WINDOW = 0.96;
 const GALLERY_REVEAL_OFFSET = 0.18;
 const GALLERY_REVEAL_WINDOW = 0.92;
 
-function AsciiLine() {
-  const [line, setLine] = useState("─".repeat(LINE_LEN));
+function AsciiLine({ length = DEFAULT_LINE_LEN }) {
+  const [line, setLine] = useState("─".repeat(length));
   const timerRef = useRef(null);
 
   useEffect(() => {
     const tick = () => {
-      setLine(Array.from({ length: LINE_LEN }, () =>
+      setLine(Array.from({ length }, () =>
         LINE_CHARS[Math.floor(Math.random() * LINE_CHARS.length)]
       ).join(""));
       timerRef.current = setTimeout(tick, 600 + Math.random() * 400);
     };
     timerRef.current = setTimeout(tick, 600);
     return () => clearTimeout(timerRef.current);
-  }, []);
+  }, [length]);
 
   return <div className="wc-rule-ascii" aria-hidden="true">{line}</div>;
 }
@@ -87,8 +88,7 @@ function GalleryStrip({ items, totalPhotos, active, onSelect }) {
           ) : null}
           {item?.type === "video" ? (
             <>
-              <video src={item.src} muted playsInline preload="none" />
-              <span className="wc-gallery-type">VIDEO</span>
+              <video src={item.src} muted playsInline preload="metadata" />
             </>
           ) : null}
           {!item ? <span className="wc-gallery-placeholder" aria-hidden="true" /> : null}
@@ -130,13 +130,26 @@ export default function ProjectCard({ work, index, total }) {
   const mediaItems = work.mediaItems ?? [];
   const totalSlides = mediaItems.length > 0 ? mediaItems.length : 6;
   const [activeThumb, setActiveThumb] = useState(0);
+  const [hasUserSelectedMedia, setHasUserSelectedMedia] = useState(false);
   const selectedItem = mediaItems[activeThumb] ?? (
     work.mediaSrc ? { type: "video", src: work.mediaSrc } : null
   );
+  let ruleLength = DEFAULT_LINE_LEN;
+  if (work.title === "BLASTUR") ruleLength = 55;
+  if (work.title === "END OF SHIFT") ruleLength = 95;
+  if (work.title === "ALLÒ QUE PROJECTEM") ruleLength = 75;
+  if (work.title === "QUAN NINGÚ MIRA") ruleLength = DEFAULT_LINE_LEN + 5;
+  if (work.title === "PANÒPTIC DIGITAL") ruleLength = DEFAULT_LINE_LEN + 6;
 
   useEffect(() => {
     setActiveThumb(0);
+    setHasUserSelectedMedia(false);
   }, [work.title]);
+
+  const handleSelectThumb = (index) => {
+    setHasUserSelectedMedia(true);
+    setActiveThumb(index);
+  };
 
   useEffect(() => {
     const card = cardRef.current;
@@ -202,11 +215,10 @@ export default function ProjectCard({ work, index, total }) {
         const totalDistance = track.scrollWidth - window.innerWidth;
         if (totalDistance <= 0) return;
 
-        const scrollX = totalDistance * self.progress;
-        const cardLeft = card.offsetLeft;
         const viewportWidth = window.innerWidth;
+        const cardViewportLeft = card.getBoundingClientRect().left;
         const localProgress = clamp01(
-          (scrollX - (cardLeft - viewportWidth * 0.85)) / (viewportWidth * 0.85),
+          (viewportWidth - cardViewportLeft) / (viewportWidth * 0.78),
         );
 
         const columnProgress = smoothstep(localProgress / COLUMN_REVEAL_WINDOW);
@@ -222,7 +234,7 @@ export default function ProjectCard({ work, index, total }) {
         setTextReveal(mediaColumn, {
           progress: mediaColumnProgress,
           blur: 0,
-          x: (1 - mediaColumnProgress) * 160,
+          x: (1 - mediaColumnProgress) * 180,
         });
 
         const mediaFrameProgress = smoothstep(
@@ -232,7 +244,7 @@ export default function ProjectCard({ work, index, total }) {
           progress: mediaFrameProgress,
           blur: 0,
           x: (1 - mediaFrameProgress) * 220,
-          y: (1 - mediaFrameProgress) * 24,
+          y: (1 - mediaFrameProgress) * 16,
         });
 
         const galleryProgress = smoothstep(
@@ -241,8 +253,8 @@ export default function ProjectCard({ work, index, total }) {
         setTextReveal(gallery, {
           progress: galleryProgress,
           blur: 0,
-          x: (1 - galleryProgress) * 180,
-          y: (1 - galleryProgress) * 18,
+          x: (1 - galleryProgress) * 170,
+          y: (1 - galleryProgress) * 12,
         });
 
         const indexProgress = smoothstep(
@@ -260,8 +272,8 @@ export default function ProjectCard({ work, index, total }) {
         setTextReveal(titleBlock, {
           progress: titleProgress,
           blur: 0,
-          x: (1 - titleProgress) * 360,
-          y: (1 - titleProgress) * 40,
+          x: (1 - titleProgress) * 280,
+          y: (1 - titleProgress) * 18,
         });
 
         const ruleProgress = smoothstep(
@@ -270,7 +282,7 @@ export default function ProjectCard({ work, index, total }) {
         setTextReveal(rule, {
           progress: ruleProgress,
           blur: 0,
-          x: (1 - ruleProgress) * 160,
+          x: (1 - ruleProgress) * 180,
         });
 
         const authorsProgress = smoothstep(
@@ -279,8 +291,8 @@ export default function ProjectCard({ work, index, total }) {
         setTextReveal(authorsBlock, {
           progress: authorsProgress,
           blur: 0,
-          x: (1 - authorsProgress) * 220,
-          y: (1 - authorsProgress) * 20,
+          x: (1 - authorsProgress) * 210,
+          y: (1 - authorsProgress) * 12,
         });
 
         const descriptionProgress = smoothstep(
@@ -289,8 +301,8 @@ export default function ProjectCard({ work, index, total }) {
         setTextReveal(descriptionBlock, {
           progress: descriptionProgress,
           blur: 0,
-          x: 0,
-          y: 0,
+          x: (1 - descriptionProgress) * 220,
+          y: (1 - descriptionProgress) * 8,
         });
       },
     });
@@ -318,6 +330,7 @@ export default function ProjectCard({ work, index, total }) {
 
         {/* LEFT */}
         <div ref={textColumnRef} className="wc-left">
+          {work.title === "QUAN NINGÚ MIRA" ? <HiddenSignals /> : null}
 
           <div ref={indexLineRef} className="wc-index-line">
             <span className="wc-index-marker">▸</span>
@@ -329,14 +342,14 @@ export default function ProjectCard({ work, index, total }) {
 
           <div ref={titleBlockRef} className="wc-title-block">
             <ShuffleText as="h3" text={work.title} className="wc-title"
-              delay={index * 120 + 80} duration={920} interval={1800}
+              delay={index * 80 + 20} duration={620} interval={1800}
               triggerOnView playOnce={false} threshold={0.2}
               initialTextVisible
             />
           </div>
 
           <div ref={ruleRef}>
-            <AsciiLine />
+            <AsciiLine length={ruleLength} />
           </div>
 
           <div ref={authorsBlockRef} className="wc-authors-block">
@@ -377,9 +390,12 @@ export default function ProjectCard({ work, index, total }) {
               />
             ) : (
               <ScrollGlitchMedia
+                key={selectedItem?.src ?? work.mediaSrc}
                 src={selectedItem?.src ?? work.mediaSrc}
                 objectPosition={work.objectPosition}
                 title={work.title}
+                startTime={selectedItem?.startTime ?? 0}
+                skipIntro={hasUserSelectedMedia}
               />
             )}
             <ViewfinderOverlay current={activeThumb} total={totalSlides} />
@@ -390,7 +406,7 @@ export default function ProjectCard({ work, index, total }) {
               items={mediaItems}
               totalPhotos={totalSlides}
               active={activeThumb}
-              onSelect={setActiveThumb}
+              onSelect={handleSelectThumb}
             />
           </div>
         </div>

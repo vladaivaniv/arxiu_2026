@@ -52,6 +52,21 @@ function parseObjectPosition(objectPosition = "50% 50%") {
   };
 }
 
+function isElementVisibleInViewport(element) {
+  if (!element) return false;
+
+  const rect = element.getBoundingClientRect();
+
+  return (
+    rect.width > 0 &&
+    rect.height > 0 &&
+    rect.bottom > 0 &&
+    rect.right > 0 &&
+    rect.top < window.innerHeight &&
+    rect.left < window.innerWidth
+  );
+}
+
 function drawCoverFrame(context, source, targetWidth, targetHeight, objectPosition) {
   const sourceWidth = source.videoWidth || 0;
   const sourceHeight = source.videoHeight || 0;
@@ -120,7 +135,14 @@ function renderAsciiToCtx(ctx, video, width, height) {
   }
 }
 
-export default function ScrollGlitchMedia({ src, objectPosition, title }) {
+export default function ScrollGlitchMedia({
+  src,
+  objectPosition,
+  title,
+  startTime = 0,
+  skipIntro = false,
+}) {
+  const playbackStart = Math.max(0, startTime);
   const mediaRef = useRef(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -163,6 +185,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     let animationContext;
     let visibilityObserver;
     let isVisible = false;
+    let hasAppliedStartOffset = false;
 
     if (!canvasContext || !pixelContext || !halftoneCtx || !asciiCtx) {
       return undefined;
@@ -204,9 +227,23 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     media.addEventListener("mouseenter", onMouseEnter);
     media.addEventListener("mouseleave", onMouseLeave);
 
+    const applyPlaybackStart = () => {
+      if (!playbackStart || !Number.isFinite(video.duration) || video.duration <= playbackStart) {
+        return;
+      }
+
+      if (hasAppliedStartOffset && video.currentTime >= playbackStart - 0.1) {
+        return;
+      }
+
+      video.currentTime = playbackStart;
+      hasAppliedStartOffset = true;
+    };
+
     // ── Pixel entrance loop ──────────────────────────────────────
     const ensurePlayback = () => {
       if (!isVisible) return;
+      applyPlaybackStart();
       video.play().catch(() => {});
     };
 
@@ -273,6 +310,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     };
 
     const startRenderLoop = () => {
+      if (skipIntro) return;
       if (!frameRef.current) {
         frameRef.current = window.requestAnimationFrame(renderPixelFrame);
       }
@@ -352,6 +390,7 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     };
 
     const startHalftoneLoop = () => {
+      if (skipIntro) return;
       if (!halftoneFrameRef.current) {
         halftoneFrameRef.current = window.requestAnimationFrame(renderHalftoneFrame);
       }
@@ -373,6 +412,18 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         if (mediaQuery.matches) {
           gsap.set(media, { clearProps: "all" });
           gsap.set(video, { clearProps: "all", opacity: 1, scale: 1, filter: "none" });
+          gsap.set(canvas, { opacity: 0 });
+          gsap.set([noise, scan, sliceTop, sliceMiddle, sliceBottom], { opacity: 0 });
+          return;
+        }
+
+        if (skipIntro) {
+          gsap.set(media, { clipPath: "inset(0% 0% 0% 0%)", y: 0, opacity: 1 });
+          gsap.set(video, {
+            opacity: 1,
+            scale: 1.02,
+            filter: "saturate(0.9) contrast(1.06) brightness(0.88) hue-rotate(0deg)",
+          });
           gsap.set(canvas, { opacity: 0 });
           gsap.set([noise, scan, sliceTop, sliceMiddle, sliceBottom], { opacity: 0 });
           return;
@@ -449,8 +500,8 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     // ── Fade temporal del halftone ASCII quan la card entra a viewport ──
     let asciiFadeRaf = 0;
     let asciiFadeStart = 0;
-    const ASCII_HOLD_MS = 1400;
-    const ASCII_FADE_MS = 4500;
+    const ASCII_HOLD_MS = 1000;
+    const ASCII_FADE_MS = 3000;
     const runAsciiFade = (now) => {
       if (!asciiFadeStart) asciiFadeStart = now;
       const elapsed = now - asciiFadeStart;
@@ -470,37 +521,54 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       asciiFadeRaf = window.requestAnimationFrame(runAsciiFade);
     };
 
-    halftone.style.opacity = "1";
+    halftone.style.opacity = skipIntro ? "0" : "1";
 
     const startAsciiFadeOnce = () => {
+      if (skipIntro) return;
       if (asciiFadeStart || asciiFadeRaf) return;
       asciiFadeRaf = window.requestAnimationFrame(runAsciiFade);
     };
 
+    const setVisibility = (nextVisible) => {
+      isVisible = nextVisible;
+
+      if (isVisible) {
+        ensurePlayback();
+        startRenderLoop();
+        startHalftoneLoop();
+        startAsciiFadeOnce();
+        return;
+      }
+
+      video.pause();
+      stopRenderLoop();
+      stopHalftoneLoop();
+    };
+
     visibilityObserver = new IntersectionObserver(
       ([entry]) => {
-        isVisible = entry.isIntersecting;
-
-        if (isVisible) {
-          ensurePlayback();
-          startRenderLoop();
-          startHalftoneLoop();
-          startAsciiFadeOnce();
-          return;
-        }
-
-        video.pause();
-        stopRenderLoop();
-        stopHalftoneLoop();
+        setVisibility(entry.isIntersecting);
       },
-      { threshold: 0.01, rootMargin: "18% 0px" },
+      { threshold: 0.01, rootMargin: "45% 0px" },
     );
 
     visibilityObserver.observe(media);
+    setVisibility(isElementVisibleInViewport(media));
 
     const handleLoadedData = () => {
       ensurePlayback();
-      ScrollTrigger.refresh();
+    };
+
+    const handleLoadedMetadata = () => {
+      applyPlaybackStart();
+    };
+
+    const handleEnded = () => {
+      if (!playbackStart) return;
+      video.currentTime = playbackStart;
+      if (isVisible) {
+        video.play().catch(() => {});
+      }
     };
 
     const handleMotionChange = () => {
@@ -508,6 +576,8 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
     };
 
     video.addEventListener("loadeddata", handleLoadedData);
+    video.addEventListener("loadedmetadata", handleLoadedMetadata);
+    video.addEventListener("ended", handleEnded);
     mediaQuery.addEventListener("change", handleMotionChange);
 
     return () => {
@@ -518,12 +588,14 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
       stopHalftoneLoop();
       video.pause();
       video.removeEventListener("loadeddata", handleLoadedData);
+      video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      video.removeEventListener("ended", handleEnded);
       mediaQuery.removeEventListener("change", handleMotionChange);
       media.removeEventListener("mousemove", onMouseMove);
       media.removeEventListener("mouseenter", onMouseEnter);
       media.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, [objectPosition, src]);
+  }, [objectPosition, skipIntro, src, startTime]);
 
   return (
     <div ref={mediaRef} className="work-media">
@@ -531,10 +603,10 @@ export default function ScrollGlitchMedia({ src, objectPosition, title }) {
         ref={videoRef}
         className="work-preview"
         src={src}
-        loop
+        loop={playbackStart <= 0}
         muted
         playsInline
-        preload="none"
+        preload="metadata"
         aria-label={title}
         style={{ objectPosition }}
       />

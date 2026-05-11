@@ -105,7 +105,7 @@ export default function PixelVideoParallax({
       },
       {
         threshold: 0.01,
-        rootMargin: "18% 0px",
+        rootMargin: "45% 0px",
       },
     );
 
@@ -113,7 +113,6 @@ export default function PixelVideoParallax({
 
     const handleLoadedData = () => {
       ensurePlayback();
-      ScrollTrigger.refresh();
     };
 
     const handleMotionChange = () => {
@@ -147,7 +146,7 @@ export default function PixelVideoParallax({
             loop
             muted
             playsInline
-            preload="none"
+            preload="metadata"
           />
           <div className="video-overlay" aria-hidden="true" />
           <div className="video-meta">

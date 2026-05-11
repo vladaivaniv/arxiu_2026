@@ -968,11 +968,15 @@ body::before {
 
 /* ─── wc-left ─────────────────────────────────────── */
 .wc-left {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: clamp(1.2rem, 2.5vh, 2.2rem);
-  padding: clamp(2rem, 5vh, 4rem) clamp(2rem, 4vw, 4rem);
+  padding:
+    clamp(0.9rem, 2.2vh, 1.9rem)
+    clamp(2rem, 4vw, 4rem)
+    clamp(5.2rem, 10.5vh, 7.8rem);
   overflow-y: auto;
   scrollbar-width: none;
   will-change: transform, filter, opacity;

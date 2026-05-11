@@ -3687,3 +3687,591 @@ Visit https://reactjs.org/link/error-boundaries to learn more about error bounda
 [173171039ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
 [173172065ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
 [173173072ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173174092ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173175099ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173176117ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173177135ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173178155ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173179164ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173180184ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173181191ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173182203ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173183223ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173184231ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173185237ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173186251ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173187255ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173188258ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173189266ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173190294ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173191300ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173192332ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173193355ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173194382ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173195413ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173196443ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173197452ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173198483ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173199486ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173200492ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173201502ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173202534ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173203540ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173204565ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173205569ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173206600ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173207607ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173208619ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173209635ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173210643ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173211653ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173212675ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173213707ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173214725ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173215759ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173216778ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173217787ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173218803ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173219812ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173220830ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173221846ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173222869ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173223879ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173224902ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173225906ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173226930ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173227947ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173228956ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173229980ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173231002ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173232005ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173233012ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173234022ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173235039ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173236055ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173237064ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173238075ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173239086ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173240101ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173241119ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173242126ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173243143ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173244152ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173245156ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173246162ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173247172ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173248180ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173249191ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173250199ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173251220ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173252229ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173253233ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173254241ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173255264ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173256272ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173257277ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173258279ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173259295ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173260315ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173261336ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173262338ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173263348ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173264368ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173265379ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173266381ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173267389ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173268398ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173269404ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173270412ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173271421ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173272430ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173273433ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173274439ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173275445ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173276455ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173277463ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173278470ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173279490ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173280496ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173281498ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173282519ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173283530ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173284538ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[173285898ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[175520679ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/src/components/HiddenSignals.jsx?t=1778520071296:0
+[175520679ms] [ERROR] [hmr] Failed to reload /src/components/HiddenSignals.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[175825351ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/src/components/HiddenSignals.jsx?t=1778520375958:0
+[175825352ms] [ERROR] [hmr] Failed to reload /src/components/HiddenSignals.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[176055886ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/src/components/HiddenSignals.jsx?t=1778520606490:0
+[176055887ms] [ERROR] [hmr] Failed to reload /src/components/HiddenSignals.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[176212392ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:5173/src/components/HiddenSignals.jsx?t=1778520763007:0
+[176212392ms] [ERROR] [hmr] Failed to reload /src/components/HiddenSignals.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[178446088ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446089ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446089ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446090ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446090ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446090ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446090ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446090ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446090ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446090ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446092ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446092ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446092ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446092ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446093ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446093ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446093ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446093ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446093ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446093ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3674:22)
+    at Object.invokeGuardedCallbackDev (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3699:24)
+    at invokeGuardedCallback (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:3733:39)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19765:15)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+[178446097ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446097ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446097ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446098ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446098ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446098ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446098ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446098ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446098ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446098ms] [ERROR] The above error occurred in the <ScrollGlitchMedia> component:
+
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:112:45)
+    at div
+    at div
+    at div
+    at article
+    at ProjectCard (http://127.0.0.1:5173/src/components/ProjectCard.jsx?t=1778522955984:205:39)
+    at div
+    at div
+    at div
+    at section
+    at WorksSection (http://127.0.0.1:5173/src/components/WorksSection.jsx?t=1778522955984:18:40)
+    at div
+    at div
+    at main
+    at App (http://127.0.0.1:5173/src/App.jsx?t=1778522967775:33:20)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries. @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14031
+[178446209ms] ReferenceError: playbackStart is not defined
+    at ScrollGlitchMedia (http://127.0.0.1:5173/src/components/ScrollGlitchMedia.jsx?t=1778522996590:471:15)
+    at renderWithHooks (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:11548:26)
+    at updateFunctionComponent (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:14582:28)
+    at beginWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:15924:22)
+    at beginWork$1 (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19753:22)
+    at performUnitOfWork (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19198:20)
+    at workLoopSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19137:13)
+    at renderRootSync (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:19116:15)
+    at recoverFromConcurrentError (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18736:28)
+    at performSyncWorkOnRoot (http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:18879:28)
+[182063684ms] [ERROR] ReferenceError: mediaItems is not defined
+    at prioritizeMediaItems (http://127.0.0.1:5173/src/data/workEntries.js?t=1778526614195:161:9)
+    at http://127.0.0.1:5173/src/data/workEntries.js?t=1778526614195:210:8 @ http://127.0.0.1:5173/@vite/client:173
+[182063684ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182071051ms] [ERROR] ReferenceError: mediaItems is not defined
+    at prioritizeMediaItems (http://127.0.0.1:5173/src/data/workEntries.js?t=1778526621627:161:9)
+    at http://127.0.0.1:5173/src/data/workEntries.js?t=1778526621627:210:8 @ http://127.0.0.1:5173/@vite/client:173
+[182071051ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182072584ms] [ERROR] ReferenceError: mediaItems is not defined
+    at prioritizeMediaItems (http://127.0.0.1:5173/src/data/workEntries.js?t=1778526623165:161:9)
+    at http://127.0.0.1:5173/src/data/workEntries.js?t=1778526623165:210:8 @ http://127.0.0.1:5173/@vite/client:173
+[182072584ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182118406ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[182118415ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[182119420ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[182120431ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[182122056ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550
+[182475349ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182475349ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182487350ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182487350ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182513743ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182513743ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182526899ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182526899ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182528249ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182528249ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182589747ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182589748ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182591038ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182591038ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182617796ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182617796ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182620004ms] [ERROR] SyntaxError: Identifier 'prioritizeMediaItems' has already been declared @ http://127.0.0.1:5173/@vite/client:173
+[182620004ms] [ERROR] [hmr] Failed to reload /src/App.jsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:5173/@vite/client:175
+[182765106ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:5173/@vite/client:559
+[182765112ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5173/:0
+[182766572ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:5173/node_modules/.vite/deps/chunk-36CNJZTX.js?v=8d7e9880:21550

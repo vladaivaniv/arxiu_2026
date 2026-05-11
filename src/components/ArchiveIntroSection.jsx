@@ -27,7 +27,7 @@ const ARCHIVE_INTRO = {
   ],
   stats: [
     { label: "Projectes", value: "10" },
-    { label: "Autors", value: "20" },
+    { label: "Autors", value: "19" },
     { label: "Curs", value: "2025-2026" },
   ],
 };
@@ -48,6 +48,8 @@ export default function ArchiveIntroSection() {
   const [typingActive, setTypingActive] = useState(false);
   const sectionRef = useRef(null);
   const layoutRef  = useRef(null);
+  const copyRef = useRef(null);
+  const statsRef = useRef(null);
   const mouseRef = useRef({ x: -999, y: -999 });
   const scrollProgressRef = useRef(0);
 
@@ -81,33 +83,50 @@ export default function ArchiveIntroSection() {
       onUpdate: (self) => {
         const totalDistance = track.scrollWidth - window.innerWidth;
         if (totalDistance <= 0) return;
-        const scrollX = totalDistance * self.progress;
-        const sectionLeft = section.offsetLeft;
-        const sectionWidth = section.offsetWidth;
-        const localProgress = (scrollX - sectionLeft + window.innerWidth) / (sectionWidth + window.innerWidth);
+        const rect = section.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const localProgress = (viewportWidth - rect.left) / (viewportWidth * 0.92);
         const clamped = Math.max(0, Math.min(1, localProgress));
         scrollProgressRef.current = clamped;
 
-        // entrada per escala + desenfocament — distint del slide horitzontal de SectionDivider
-        // (no usa y/x per evitar el retall de overflow:hidden del contenidor)
         const layout = layoutRef.current;
         if (!layout) return;
+        const copy = copyRef.current;
+        const stats = statsRef.current;
 
         const smoothstep = (t) => t * t * (3 - 2 * t);
 
-        const ep = smoothstep(Math.min(1, clamped / 0.2));
+        const ep = smoothstep(Math.min(1, Math.max(0, (clamped - 0.06) / 0.32)));
+        const copyProgress = smoothstep(Math.min(1, Math.max(0, (clamped - 0.14) / 0.34)));
+        const statsProgress = smoothstep(Math.min(1, Math.max(0, (clamped - 0.24) / 0.3)));
 
         if (ep > 0.1) setTypingActive(true);
 
-        const blurPx = (1 - ep) * 12;
-        const sc = 0.94 + ep * 0.06;
         gsap.set(layout, {
           opacity: ep,
-          scale: sc,
-          filter: `blur(${blurPx.toFixed(2)}px)`,
+          scale: 1,
+          filter: "blur(0px)",
           x: 0,
           y: 0,
         });
+
+        if (copy) {
+          gsap.set(copy, {
+            opacity: copyProgress,
+            x: (1 - copyProgress) * 220,
+            y: 0,
+            filter: "blur(0px)",
+          });
+        }
+
+        if (stats) {
+          gsap.set(stats, {
+            opacity: statsProgress,
+            x: (1 - statsProgress) * 280,
+            y: 0,
+            filter: "blur(0px)",
+          });
+        }
 
         const footer = section.querySelector(".archive-intro-footer");
         if (footer) {
@@ -158,7 +177,7 @@ export default function ArchiveIntroSection() {
       )}
 
       <div ref={layoutRef} className="archive-intro-layout" style={{ opacity: 0 }}>
-        <div className="project-info-body archive-intro-copy">
+        <div ref={copyRef} className="project-info-body archive-intro-copy" style={{ opacity: 0 }}>
           {ARCHIVE_INTRO.body.map((line, index) => {
             const SPEED = 8;
             const INITIAL = 80;
@@ -179,7 +198,7 @@ export default function ArchiveIntroSection() {
           })}
         </div>
 
-        <div className="archive-intro-stats" aria-label="Dades de l'arxiu">
+        <div ref={statsRef} className="archive-intro-stats" aria-label="Dades de l'arxiu" style={{ opacity: 0 }}>
           {ARCHIVE_INTRO.stats.map((stat, index) => (
             <div key={stat.label} className="archive-intro-stat">
               <TypeLine

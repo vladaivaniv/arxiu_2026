@@ -104,7 +104,7 @@ const FALLBACK_MEDIA_ITEMS = FALLBACK_MEDIA_SRC
   ? [{ type: "video", src: FALLBACK_MEDIA_SRC }]
   : [];
 
-function getProjectMedia(assetKey) {
+function getProjectMedia(assetKey, excludedPathFragments = []) {
   const projectAssets = groupedProjectAssets[normalizeAssetKey(assetKey)];
 
   if (!projectAssets) {
@@ -115,12 +115,23 @@ function getProjectMedia(assetKey) {
     };
   }
 
-  const videos = getPreferredVideos(projectAssets);
-  const photos = getPreferredPhotos(projectAssets);
+  const shouldExclude = (entry) =>
+    excludedPathFragments.some((fragment) => entry.path.includes(fragment));
+
+  const videos = getPreferredVideos(projectAssets).filter((entry) => !shouldExclude(entry));
+  const photos = getPreferredPhotos(projectAssets).filter((entry) => !shouldExclude(entry));
   const mediaSrc = videos[0]?.src ?? FALLBACK_MEDIA_SRC;
   const mediaItems = [
-    ...videos.map((entry) => ({ type: "video", src: entry.src })),
-    ...photos.map((entry) => ({ type: "image", src: entry.src })),
+    ...videos.map((entry) => ({
+      type: "video",
+      src: entry.src,
+      path: entry.path,
+    })),
+    ...photos.map((entry) => ({
+      type: "image",
+      src: entry.src,
+      path: entry.path,
+    })),
   ];
 
   return {
@@ -130,6 +141,37 @@ function getProjectMedia(assetKey) {
       ? mediaItems
       : FALLBACK_MEDIA_ITEMS,
   };
+}
+
+function prioritizeMediaItem(mediaData, pathFragment) {
+  if (!pathFragment || !mediaData?.mediaItems?.length) return mediaData;
+
+  const prioritizedIndex = mediaData.mediaItems.findIndex((item) =>
+    item.src?.includes(pathFragment),
+  );
+
+  if (prioritizedIndex <= 0) return mediaData;
+
+  const prioritizedItem = mediaData.mediaItems[prioritizedIndex];
+  const mediaItems = [
+    prioritizedItem,
+    ...mediaData.mediaItems.filter((_, index) => index !== prioritizedIndex),
+  ];
+
+  return {
+    ...mediaData,
+    mediaSrc: prioritizedItem.type === "video" ? prioritizedItem.src : mediaData.mediaSrc,
+    mediaItems,
+  };
+}
+
+function prioritizeMediaItems(mediaData, pathFragments = []) {
+  if (!pathFragments.length || !mediaData?.mediaItems?.length) return mediaData;
+
+  return pathFragments.reduce(
+    (acc, fragment) => prioritizeMediaItem(acc, fragment),
+    mediaData,
+  );
 }
 
 export const workEntries = [
@@ -144,7 +186,7 @@ export const workEntries = [
     category: "COMMERCIAL",
     program: "ART I CULTURA DIGITAL",
     description: "Una instal·lació que explora la substitució progressiva del treball humà per sistemes automatitzats. A través d'un procés lent i repetitiu, el material cau sobre una estructura tecnològica, mostrant com la presència humana es redueix mentre la tecnologia ocupa el seu lloc.",
-    ...getProjectMedia("END OF SHIFT"),
+    ...getProjectMedia("END OF SHIFT", ["IMG_1242.optimized.jpg", "IMG_1242", "c794eb95-6e43-4e2b-9909-c6a647c0b91e.optimized"]),
     objectPosition: "50% 42%",
   },
   {
@@ -172,7 +214,10 @@ export const workEntries = [
     category: "COMMERCIAL",
     program: "ART I CULTURA DIGITAL",
     description: "Instal·lació interactiva que reflexiona sobre el boicot i la resistència col·lectiva dins del context industrial. A través d'una capsa aparentment anònima, el públic activa un sistema ocult que revela vídeos, so i missatges vinculats a lluites laborals, invisibilització i acció compartida. L'obra transforma un gest mínim en una metàfora sobre el poder de l'acció col·lectiva.",
-    ...getProjectMedia("QUAN NINGÚ MIRA"),
+    ...prioritizeMediaItems(
+      getProjectMedia("QUAN NINGÚ MIRA", ["IMG_9187.optimized.mp4", "IMG_9180.optimized.mp4", "IMG_9177"]),
+      ["f613669b-fadf-4902-927b-2668887fd34c.jpg", "Video.MOV"],
+    ),
     objectPosition: "50% 50%",
   },
   {
@@ -200,7 +245,10 @@ export const workEntries = [
     category: "COMMERCIAL",
     program: "ART I CULTURA DIGITAL",
     description: "Instal·lació interactiva per a dues persones que reprodueix una relació de poder entre director i treballador. A través d'un sistema de botons, instruccions i tasques repetitives, l'obra converteix el joc en una experiència crítica sobre jerarquia, obediència, pressió laboral i desigualtat dins l'entorn industrial.",
-    ...getProjectMedia("MODEL DE PODER MITJANÇANT EL DIÀLEG MECÀNIC"),
+    ...prioritizeMediaItems(
+      getProjectMedia("MODEL DE PODER MITJANÇANT EL DIÀLEG MECÀNIC", ["IMG_9177.MOV", "IMG_9177"]),
+      ["89b694ed-a0fa-45c7-9951-e651e89ffc61.jpg", "d429e19d-51e5-441d-aa3b-6e77e6891504.jpg"],
+    ),
     objectPosition: "50% 55%",
   },
   {
@@ -228,7 +276,7 @@ export const workEntries = [
     category: "COMMERCIAL",
     program: "ART I CULTURA DIGITAL",
     description: "Projecte expositiu que transforma ferralla, òxid i memòria industrial en joieria contemporània mitjançant processos d'intel·ligència artificial. L'obra explora el valor simbòlic dels materials obsolets i la relació entre tecnologia, procés i absència dins l'espai industrial del Museu Trepat.",
-    ...getProjectMedia("OR DE FERRALLA"),
+    ...getProjectMedia("OR DE FERRALLA", ["IMG_9197.optimized.mp4", "IMG_9197", "7082eadd-5d68-42a4-bb73-85fde7a64c39.optimized"]),
     objectPosition: "50% 45%",
   },
   {
@@ -273,95 +321,15 @@ export const workEntries = [
     ...getProjectMedia("MEASURED SELF"),
     objectPosition: "50% 50%",
   },
-  {
-    title: "INDEX 04",
-    authors: ["AUTOR_04", "AUTOR_05"],
-    year: "2025",
-    tipus: "INSTAL·LACIÓ",
-    duracio: "03:00",
-    format: "LOOP / HD",
-    tags: ["ARXIU", "SENYAL", "GRÀFIC"],
-    category: "INSTALLATION",
-    program: "LABORATORI DE CREACIONS ARTISTIQUES",
-    description: "Instal·lació que explora indexació, arxiu i senyal mitjançant un llenguatge gràfic de baixa resolució que tradueix memòria en estructura visual.",
-    mediaSrc: FALLBACK_MEDIA_SRC,
-    objectPosition: "50% 60%",
-    photos: [],
-  },
-  {
-    title: "SIGNAL",
-    authors: ["AUTOR_06"],
-    year: "2025",
-    tipus: "EDITORIAL AUDIOVISUAL",
-    duracio: "01:48",
-    format: "1920x1080 / MP4",
-    tags: ["MEMÒRIA", "DADES", "GEST"],
-    category: "EDITORIAL",
-    program: "LABORATORI DE CREACIONS ARTISTIQUES",
-    description: "Sistema editorial audiovisual que tradueix memòria, dades i gest gràfic en una superfície en tensió on el so i la imatge construeixen un relat fragmentat.",
-    mediaSrc: FALLBACK_MEDIA_SRC,
-    objectPosition: "50% 48%",
-    photos: [],
-  },
-  {
-    title: "MESURA DEL JO",
-    authors: ["AUTOR_11"],
-    year: "2025",
-    tipus: "PEÇA GENERATIVA",
-    duracio: "02:30",
-    format: "GENERATIU / HD",
-    tags: ["IDENTITAT", "DADES", "AUTORETRAT"],
-    category: "INSTALLATION",
-    program: "LABORATORI DE CREACIONS ARTISTIQUES",
-    description: "Autoretrat generat a partir de dades personals recollides durant un mes. Cada paràmetre —son, moviment, temperatura— es converteix en línia, color i textura dins d'una composició en constant mutació.",
-    mediaSrc: FALLBACK_MEDIA_SRC,
-    objectPosition: "50% 50%",
-    photos: [],
-  },
-  {
-    title: "PANÒPTIC",
-    authors: ["AUTOR_12", "AUTOR_13"],
-    year: "2025",
-    tipus: "VÍDEO-INSTAL·LACIÓ",
-    duracio: "05:10",
-    format: "LOOP / 4K",
-    tags: ["VIGILÀNCIA", "ESPAI", "PODER"],
-    category: "INSTALLATION",
-    program: "LABORATORI DE CREACIONS ARTISTIQUES",
-    description: "Vídeo-instal·lació inspirada en l'arquitectura panòptica de Bentham. Les càmeres es vigilen entre elles en un bucle infinit que posa en qüestió qui observa i qui és observat.",
-    mediaSrc: FALLBACK_MEDIA_SRC,
-    objectPosition: "50% 40%",
-    photos: [],
-  },
-  {
-    title: "OR DE FERRALLA",
-    authors: ["AUTOR_14"],
-    year: "2025",
-    tipus: "ESCULTURA SONORA",
-    duracio: "",
-    format: "INSTAL·LACIÓ",
-    tags: ["MATERIAL", "SO", "RESIDUS"],
-    category: "INSTALLATION",
-    program: "LABORATORI DE CREACIONS ARTISTIQUES",
-    description: "Escultura sonora construïda amb materials de rebuig industrial. Els objectes descartats generen freqüències que transformen l'espai en un paisatge sonor on la bellesa emergeix del que és considerat inútil.",
-    mediaSrc: FALLBACK_MEDIA_SRC,
-    objectPosition: "50% 58%",
-    photos: [],
-  },
 ];
 
 export const WORK_FILTERS = [
   "ART I CULTURA DIGITAL",
-  "LABORATORI DE CREACIONS ARTISTIQUES",
 ];
 
 export const PROGRAM_SEPARATORS = {
   "ART I CULTURA DIGITAL": {
     titleLines: ["PROJECTES", "TREPAT"],
     subtitle: "Assignatura ART i Cultura Digital"
-  },
-  "LABORATORI DE CREACIONS ARTISTIQUES": {
-    titleLines: ["LABORATORI", "CREACIONS", "ARTÍSTIQUES"],
-    subtitle: "Assignatura Laboratori de Creacions Artístiques"
   },
 };

@@ -120,8 +120,8 @@ export default function EmotionLight() {
       const lifecycle = 1;
 
       const breathe = 0.5 + 0.5 * Math.sin(t * 0.7);
-      const len = 52 + 14 * breathe;
-      const wid = 20 + 6 * breathe;
+      const len = 38 + 10 * breathe;
+      const wid = 14 + 4 * breathe;
       const [cr, cg, cb] = lerpColor(now);
 
       ctx.globalCompositeOperation = "lighter";

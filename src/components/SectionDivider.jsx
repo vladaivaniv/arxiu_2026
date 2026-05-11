@@ -63,6 +63,7 @@ function setBlurReveal(node, {
 export default function SectionDivider({
   titleLines,
   subtitle,
+  showPhoto = true,
   blurEndPercent = DEFAULT_BLUR_END_PROGRESS * 100,
 }) {
   const sectionRef = useRef(null);
@@ -187,7 +188,7 @@ export default function SectionDivider({
   return (
     <div ref={sectionRef} className="section-divider horizontal-panel">
       <div ref={surfaceRef} className="section-divider-surface">
-        <div className="section-divider-photo" aria-hidden="true" />
+        {showPhoto ? <div className="section-divider-photo" aria-hidden="true" /> : null}
         <AsciiScatter fullSpread count={25} maxOpacity={0.18} active={motionReady} />
         <div className="section-divider-bg" aria-hidden="true" />
         <FloatingTitles active={motionReady} />
