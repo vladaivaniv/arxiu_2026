@@ -4,13 +4,18 @@ import WebcamAscii from "./WebcamAscii.jsx";
 import WordMask from "./WordMask.jsx";
 import AsciiScatter from "./AsciiScatter.jsx";
 import AsciiArrow from "./AsciiArrow.jsx";
+import logoDdtec from "../../assets/logo-ddtec-blanc.png";
 
 export default function HeroSection() {
   return (
     <section className="hero-section horizontal-panel">
       <AsciiScatter />
       <div className="hero-logo" aria-hidden="true">
-        <img src="./assets/logo-ddtec-blanc.png" alt="" className="hero-logo-image" />
+      <img
+        src={logoDdtec.src ?? logoDdtec}
+        alt="DDTEC"
+        className="hero-logo-image"
+      />
       </div>
 
       <WebcamAscii />
