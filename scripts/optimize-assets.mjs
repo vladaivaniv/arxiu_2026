@@ -17,11 +17,11 @@ const DEFAULT_OPTIONS = {
   force: false,
   dryRun: false,
   keepAudio: false,
-  imageQuality: 78,
-  maxImageSize: 1600,
-  videoCrf: 26,
-  videoFps: 24,
-  maxVideoSize: 1280,
+  imageQuality: 72,
+  maxImageSize: 1400,
+  videoCrf: 29,
+  videoFps: 20,
+  maxVideoSize: 960,
   videoPosterAt: 0.5,
 };
 

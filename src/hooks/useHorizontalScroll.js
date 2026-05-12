@@ -81,16 +81,6 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
           viewport.classList.toggle("is-on-divider", isOnDivider);
         };
 
-        const getSnapPoints = () => {
-          const distance = getDistance();
-          if (!distance) return [0];
-          const panels = Array.from(track.querySelectorAll(".horizontal-panel"));
-          const points = panels.map((p) =>
-            Math.max(0, Math.min(1, p.offsetLeft / distance)),
-          );
-          return [...new Set([0, ...points, 1])].sort((a, b) => a - b);
-        };
-
         const mainTween = gsap.to(track, {
           x: () => -getDistance(),
           ease: "none",
@@ -99,19 +89,7 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
             trigger: shell,
             start: "top top",
             end: () => `+=${getDistance()}`,
-            scrub: 3.2,
-            snap: {
-              snapTo: getSnapPoints,
-              duration: { min: 1.2, max: 2.4 },
-              delay: 0.12,
-              ease: "power4.inOut",
-              onComplete: () => {
-                const lenis = window.__lenis;
-                if (!lenis) return;
-                lenis.stop();
-                setTimeout(() => lenis.start(), 900);
-              },
-            },
+            scrub: 0.45,
             invalidateOnRefresh: true,
             onRefreshInit: applyShellHeight,
             onRefresh: (self) => updateProjectChromeVisibility(self.progress),
@@ -119,16 +97,22 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
           },
         });
 
-        // Transició suau entre pàgines: blur + fade + scale quan surten
+        // Transicio suau entre pagines: mantenim blur, pero en subcapes
+        // mes petites en comptes del panell sencer per evitar tirons.
         const panels = track.querySelectorAll(".horizontal-panel");
         panels.forEach((panel) => {
+          const blurTargets = panel.querySelectorAll(
+            ".wc-left, .wc-media-frame, .wc-gallery-strip",
+          );
+          const targets = blurTargets.length ? blurTargets : [panel];
+
           gsap.fromTo(
-            panel,
-            { filter: "blur(0px)", scale: 1 },
+            targets,
+            { filter: "blur(0px)", opacity: 1 },
             {
-              filter: "blur(8px)",
-              scale: 0.97,
-              ease: "power2.in",
+              filter: "blur(2px)",
+              opacity: 0.96,
+              ease: "none",
               scrollTrigger: {
                 trigger: panel,
                 containerAnimation: mainTween,

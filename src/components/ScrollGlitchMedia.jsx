@@ -88,6 +88,8 @@ function drawCoverFrame(context, source, targetWidth, targetHeight, objectPositi
 // density ramp: space=dark → @=bright
 const ASCII_RAMP = " `.-':,;^~=+<>!?|()[]iIlrft1{}vjsxJTYCLnuczXVUOZ0QkmwqpdbhaoS#$%&@".split("");
 const ASCII_CELL = 4;
+const PIXEL_CANVAS_DPR_LIMIT = 1;
+const HALFTONE_FRAME_INTERVAL = 1000 / 30;
 
 const _asciiOff = document.createElement("canvas");
 const _asciiOffCtx = _asciiOff.getContext("2d", { willReadFrequently: true });
@@ -146,6 +148,7 @@ export default function ScrollGlitchMedia({
   const playbackStart = Math.max(0, startTime);
   const mediaRef = useRef(null);
   const videoRef = useRef(null);
+  const posterRef = useRef(null);
   const canvasRef = useRef(null);
   const halftoneRef = useRef(null);
   const noiseRef = useRef(null);
@@ -160,6 +163,7 @@ export default function ScrollGlitchMedia({
   useEffect(() => {
     const media = mediaRef.current;
     const video = videoRef.current;
+    const posterImage = posterRef.current;
     const canvas = canvasRef.current;
     const halftone = halftoneRef.current;
     const noise = noiseRef.current;
@@ -187,6 +191,7 @@ export default function ScrollGlitchMedia({
     let visibilityObserver;
     let isVisible = false;
     let hasAppliedStartOffset = false;
+    let lastHalftoneFrame = 0;
 
     if (!canvasContext || !pixelContext || !halftoneCtx || !asciiCtx) {
       return undefined;
@@ -212,7 +217,7 @@ export default function ScrollGlitchMedia({
         lastMY = y;
         lastMoveTime = performance.now();
         eraseTrail.push({ x, y, r: 0, maxR: 220 + Math.random() * 100 });
-        if (eraseTrail.length > 80) eraseTrail.shift();
+        if (eraseTrail.length > 36) eraseTrail.shift();
       }
     };
 
@@ -241,6 +246,16 @@ export default function ScrollGlitchMedia({
       hasAppliedStartOffset = true;
     };
 
+    const showPoster = () => {
+      if (!posterImage) return;
+      posterImage.style.opacity = poster ? "1" : "0";
+    };
+
+    const hidePoster = () => {
+      if (!posterImage) return;
+      posterImage.style.opacity = "0";
+    };
+
     // ── Pixel entrance loop ──────────────────────────────────────
     const ensurePlayback = () => {
       if (!isVisible) return;
@@ -254,10 +269,15 @@ export default function ScrollGlitchMedia({
         return;
       }
 
+      if (progressRef.current >= 0.82) {
+        frameRef.current = 0;
+        return;
+      }
+
       const rect = media.getBoundingClientRect();
       const width = Math.max(1, Math.round(rect.width));
       const height = Math.max(1, Math.round(rect.height));
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = Math.min(window.devicePixelRatio || 1, PIXEL_CANVAS_DPR_LIMIT);
 
       if (
         canvas.width !== Math.round(width * dpr) ||
@@ -329,6 +349,11 @@ export default function ScrollGlitchMedia({
 
     const renderHalftoneFrame = (now) => {
       halftoneFrameRef.current = window.requestAnimationFrame(renderHalftoneFrame);
+
+      if (now - lastHalftoneFrame < HALFTONE_FRAME_INTERVAL) {
+        return;
+      }
+      lastHalftoneFrame = now;
 
       const rect = media.getBoundingClientRect();
       const w = Math.max(1, Math.round(rect.width));
@@ -455,6 +480,12 @@ export default function ScrollGlitchMedia({
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               progressRef.current = self.progress;
+
+              if (self.progress < 0.82) {
+                startRenderLoop();
+              } else {
+                stopRenderLoop();
+              }
             },
           },
         })
@@ -550,18 +581,30 @@ export default function ScrollGlitchMedia({
       ([entry]) => {
         setVisibility(entry.isIntersecting);
       },
-      { threshold: 0.01, rootMargin: "45% 0px" },
+      { threshold: 0.01, rootMargin: "20% 0px" },
     );
 
     visibilityObserver.observe(media);
     setVisibility(isElementVisibleInViewport(media));
 
+    const handleLoadedMetadata = () => {
+      applyPlaybackStart();
+    };
+
     const handleLoadedData = () => {
       ensurePlayback();
     };
 
-    const handleLoadedMetadata = () => {
-      applyPlaybackStart();
+    const handleCanPlay = () => {
+      ensurePlayback();
+    };
+
+    const handlePlaying = () => {
+      hidePoster();
+    };
+
+    const handleError = () => {
+      showPoster();
     };
 
     const handleEnded = () => {
@@ -576,10 +619,18 @@ export default function ScrollGlitchMedia({
       setupAnimation();
     };
 
-    video.addEventListener("loadeddata", handleLoadedData);
     video.addEventListener("loadedmetadata", handleLoadedMetadata);
+    video.addEventListener("loadeddata", handleLoadedData);
+    video.addEventListener("canplay", handleCanPlay);
+    video.addEventListener("playing", handlePlaying);
     video.addEventListener("ended", handleEnded);
+    video.addEventListener("error", handleError);
     mediaQuery.addEventListener("change", handleMotionChange);
+
+    showPoster();
+    if (skipIntro) {
+      video.load();
+    }
 
     return () => {
       if (asciiFadeRaf) window.cancelAnimationFrame(asciiFadeRaf);
@@ -588,9 +639,12 @@ export default function ScrollGlitchMedia({
       stopRenderLoop();
       stopHalftoneLoop();
       video.pause();
-      video.removeEventListener("loadeddata", handleLoadedData);
       video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      video.removeEventListener("loadeddata", handleLoadedData);
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("playing", handlePlaying);
       video.removeEventListener("ended", handleEnded);
+      video.removeEventListener("error", handleError);
       mediaQuery.removeEventListener("change", handleMotionChange);
       media.removeEventListener("mousemove", onMouseMove);
       media.removeEventListener("mouseenter", onMouseEnter);
@@ -600,6 +654,16 @@ export default function ScrollGlitchMedia({
 
   return (
     <div ref={mediaRef} className="work-media">
+      {poster ? (
+        <img
+          ref={posterRef}
+          className="work-loading-poster"
+          src={poster}
+          alt=""
+          aria-hidden="true"
+          decoding="async"
+        />
+      ) : null}
       <video
         ref={videoRef}
         className="work-preview"
@@ -608,7 +672,7 @@ export default function ScrollGlitchMedia({
         loop={playbackStart <= 0}
         muted
         playsInline
-        preload="metadata"
+        preload={skipIntro ? "auto" : "none"}
         aria-label={title}
         style={{ objectPosition }}
       />

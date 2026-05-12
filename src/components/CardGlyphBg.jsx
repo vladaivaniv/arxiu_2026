@@ -47,12 +47,12 @@ export default function CardGlyphBg() {
 
     const spawnBatch = () => {
       if (!running) return;
-      const count = Math.floor(rand(8, 16));
+      const count = Math.floor(rand(3, 6));
       for (let i = 0; i < count; i++) {
-        const t = setTimeout(spawnAmbient, i * rand(40, 120));
+        const t = setTimeout(spawnAmbient, i * rand(60, 150));
         timers.push(t);
       }
-      const t = setTimeout(spawnBatch, rand(300, 700));
+      const t = setTimeout(spawnBatch, rand(700, 1300));
       timers.push(t);
     };
 
@@ -61,7 +61,7 @@ export default function CardGlyphBg() {
     // ── efecte ratolí ──────────────────────────────────
     const spawnAtMouse = (x, y) => {
       if (!running) return;
-      const count = Math.floor(rand(1, 3));
+      const count = 1;
       for (let i = 0; i < count; i++) {
         const el = document.createElement("span");
         el.textContent = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
@@ -97,7 +97,7 @@ export default function CardGlyphBg() {
     let lastMove = 0;
     const onMouseMove = (e) => {
       const now = performance.now();
-      if (now - lastMove < 60) return;
+      if (now - lastMove < 120) return;
       lastMove = now;
       const rect = container.getBoundingClientRect();
       spawnAtMouse(e.clientX - rect.left, e.clientY - rect.top);

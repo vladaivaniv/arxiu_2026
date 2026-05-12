@@ -37,21 +37,30 @@ const GALLERY_REVEAL_OFFSET = 0.18;
 const GALLERY_REVEAL_WINDOW = 0.92;
 
 function AsciiLine({ length = DEFAULT_LINE_LEN }) {
-  const [line, setLine] = useState("─".repeat(length));
+  const lineRef = useRef(null);
   const timerRef = useRef(null);
 
   useEffect(() => {
+    const element = lineRef.current;
+    if (!element) {
+      return undefined;
+    }
+
+    element.textContent = "─".repeat(length);
+
     const tick = () => {
-      setLine(Array.from({ length }, () =>
+      element.textContent = Array.from({ length }, () =>
         LINE_CHARS[Math.floor(Math.random() * LINE_CHARS.length)]
-      ).join(""));
+      ).join("");
       timerRef.current = setTimeout(tick, 600 + Math.random() * 400);
     };
+
     timerRef.current = setTimeout(tick, 600);
+
     return () => clearTimeout(timerRef.current);
   }, [length]);
 
-  return <div className="wc-rule-ascii" aria-hidden="true">{line}</div>;
+  return <div ref={lineRef} className="wc-rule-ascii" aria-hidden="true" />;
 }
 
 function ViewfinderOverlay({ current, total }) {
@@ -95,9 +104,9 @@ function GalleryStrip({ items, totalPhotos, active, onSelect }) {
             <img src={item.src} alt={`foto ${i + 1}`} loading="lazy" decoding="async" />
           ) : null}
           {item?.type === "video" && !item.posterSrc ? (
-            <>
-              <video src={item.src} muted playsInline preload="metadata" />
-            </>
+            <span className="wc-gallery-fallback" aria-hidden="true">
+              VIDEO
+            </span>
           ) : null}
           {!item ? <span className="wc-gallery-placeholder" aria-hidden="true" /> : null}
         </button>
@@ -123,8 +132,32 @@ function LargePhotoMedia({ src, title, objectPosition }) {
   );
 }
 
+function StaticMediaPreview({ src, title, objectPosition, label = "PREVIEW" }) {
+  return (
+    <div className="work-media work-photo-media">
+      {src ? (
+        <img
+          className="work-preview work-photo-preview"
+          src={src}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          style={{ objectPosition }}
+        />
+      ) : (
+        <div className="work-preview work-static-placeholder" aria-hidden="true">
+          <span>{label}</span>
+        </div>
+      )}
+      <div className="work-glitch-noise is-photo-layer" aria-hidden="true" />
+      <div className="work-glitch-scan is-photo-layer" aria-hidden="true" />
+    </div>
+  );
+}
+
 export default function ProjectCard({ work, index, total }) {
   const cardRef = useRef(null);
+  const isNearViewportRef = useRef(index < 2);
   const textColumnRef = useRef(null);
   const mediaColumnRef = useRef(null);
   const mediaFrameRef = useRef(null);
@@ -139,9 +172,12 @@ export default function ProjectCard({ work, index, total }) {
   const totalSlides = mediaItems.length > 0 ? mediaItems.length : 6;
   const [activeThumb, setActiveThumb] = useState(0);
   const [hasUserSelectedMedia, setHasUserSelectedMedia] = useState(false);
+  const [isNearViewport, setIsNearViewport] = useState(index < 2);
   const selectedItem = mediaItems[activeThumb] ?? (
     work.mediaSrc ? { type: "video", src: work.mediaSrc } : null
   );
+  const fallbackPreviewSrc = selectedItem?.posterSrc ?? work.photos?.[0] ?? null;
+  const shouldRenderHeavyMedia = isNearViewport;
   let ruleLength = DEFAULT_LINE_LEN;
   if (work.title === "BLASTUR") ruleLength = 55;
   if (work.title === "END OF SHIFT") ruleLength = 95;
@@ -153,6 +189,26 @@ export default function ProjectCard({ work, index, total }) {
     setActiveThumb(0);
     setHasUserSelectedMedia(false);
   }, [work.title]);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isNearViewportRef.current = entry.isIntersecting;
+        setIsNearViewport(entry.isIntersecting);
+      },
+      {
+        threshold: 0.01,
+        rootMargin: "35% 0px",
+      },
+    );
+
+    observer.observe(card);
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleSelectThumb = (index) => {
     setHasUserSelectedMedia(true);
@@ -220,6 +276,10 @@ export default function ProjectCard({ work, index, total }) {
       end: () => `+=${Math.max(0, track.scrollWidth - window.innerWidth)}`,
       scrub: true,
       onUpdate: (self) => {
+        if (!isNearViewportRef.current) {
+          return;
+        }
+
         const totalDistance = track.scrollWidth - window.innerWidth;
         if (totalDistance <= 0) return;
 
@@ -321,24 +381,24 @@ export default function ProjectCard({ work, index, total }) {
   return (
     <article ref={cardRef} className="work-card horizontal-panel">
 
-      <CardGlyphBg />
+      {shouldRenderHeavyMedia ? <CardGlyphBg /> : null}
 
-      {index === 0 ? <SaltFall /> : null}
-      {index === 1 ? <SeaWaves /> : null}
-      {index === 3 ? <DartThrow /> : null}
-      {index === 4 ? <PowerDialog /> : null}
-      {index === 5 ? <EmotionLight /> : null}
-      {index === 6 ? <ScrapGold /> : null}
-      {index === 7 ? <Panoptic /> : null}
-      {index === 8 ? <ToySoldiers /> : null}
-      {index === 9 ? <DataExtract /> : null}
+      {shouldRenderHeavyMedia && index === 0 ? <SaltFall /> : null}
+      {shouldRenderHeavyMedia && index === 1 ? <SeaWaves /> : null}
+      {shouldRenderHeavyMedia && index === 3 ? <DartThrow /> : null}
+      {shouldRenderHeavyMedia && index === 4 ? <PowerDialog /> : null}
+      {shouldRenderHeavyMedia && index === 5 ? <EmotionLight /> : null}
+      {shouldRenderHeavyMedia && index === 6 ? <ScrapGold /> : null}
+      {shouldRenderHeavyMedia && index === 7 ? <Panoptic /> : null}
+      {shouldRenderHeavyMedia && index === 8 ? <ToySoldiers /> : null}
+      {shouldRenderHeavyMedia && index === 9 ? <DataExtract /> : null}
 
       {/* ── body ── */}
       <div className="wc-body">
 
         {/* LEFT */}
         <div ref={textColumnRef} className="wc-left">
-          {work.title === "QUAN NINGÚ MIRA" ? <HiddenSignals /> : null}
+          {shouldRenderHeavyMedia && work.title === "QUAN NINGÚ MIRA" ? <HiddenSignals /> : null}
 
           <div ref={indexLineRef} className="wc-index-line">
             <span className="wc-index-marker">▸</span>
@@ -351,7 +411,7 @@ export default function ProjectCard({ work, index, total }) {
           <div ref={titleBlockRef} className="wc-title-block">
             <ShuffleText as="h3" text={work.title} className="wc-title"
               delay={index * 80 + 20} duration={620} interval={1800}
-              triggerOnView playOnce={false} threshold={0.2}
+              triggerOnView playOnce threshold={0.2}
               initialTextVisible
             />
           </div>
@@ -370,7 +430,7 @@ export default function ProjectCard({ work, index, total }) {
                 <ShuffleText key={a} as="span" className="wc-author-name"
                   text={a}
                   delay={index * 60 + 380 + i * 60} duration={600} interval={2800}
-                  triggerOnView playOnce={false} threshold={0.2}
+                  triggerOnView playOnce threshold={0.2}
                 />
               ))}
             </div>
@@ -396,11 +456,18 @@ export default function ProjectCard({ work, index, total }) {
                 objectPosition={work.objectPosition}
                 title={work.title}
               />
+            ) : !shouldRenderHeavyMedia ? (
+              <StaticMediaPreview
+                src={fallbackPreviewSrc}
+                objectPosition={work.objectPosition}
+                title={work.title}
+                label="VIDEO"
+              />
             ) : (
               <ScrollGlitchMedia
                 key={selectedItem?.src ?? work.mediaSrc}
                 src={selectedItem?.src ?? work.mediaSrc}
-                poster={selectedItem?.posterSrc ?? undefined}
+                poster={selectedItem?.posterSrc ?? fallbackPreviewSrc ?? undefined}
                 objectPosition={work.objectPosition}
                 title={work.title}
                 startTime={selectedItem?.startTime ?? 0}
