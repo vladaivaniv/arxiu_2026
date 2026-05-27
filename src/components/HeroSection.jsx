@@ -18,7 +18,7 @@ export default function HeroSection() {
       />
       </div>
 
-      <WebcamAscii />
+      <WebcamAscii color="255,0,0" className="is-hero-cam" />
       <div className="word-mask hero-word-mask">
         <WordMask text="art" letterSpacing={0} textScale={2.18} colors={{ bright: "#FF0000", solid: "#FF0000", ghost: "#FF0000" }} />
       </div>
@@ -27,6 +27,8 @@ export default function HeroSection() {
         <TypeLine text="COL·LECCIÓ DE" delay={1200} speed={8} />
         <TypeLine text="PROJECTES ARTISTICS" delay={1600} speed={8} />
       </div>
+
+      <div className="hero-credit" aria-label="created by Vlada Ivaniv">by vlada ivaniv</div>
 
       <div className="copy copy-right">
         <div className="hero-scroll-callout">

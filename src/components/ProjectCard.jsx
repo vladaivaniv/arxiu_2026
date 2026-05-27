@@ -15,6 +15,11 @@ import ToySoldiers from "./ToySoldiers.jsx";
 import DataExtract from "./DataExtract.jsx";
 import ScrapGold from "./ScrapGold.jsx";
 import HiddenSignals from "./HiddenSignals.jsx";
+import WaterTouch from "./WaterTouch.jsx";
+import DroughtCracks from "./DroughtCracks.jsx";
+import TimeRings from "./TimeRings.jsx";
+import BacteriaColonies from "./BacteriaColonies.jsx";
+import BarkSound from "./BarkSound.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,7 +94,7 @@ function GalleryStrip({ items, totalPhotos, active, onSelect }) {
           key={i}
           type="button"
           className={`wc-gallery-thumb${active === i ? " is-active" : ""}`}
-          onClick={() => onSelect(i)}
+          onClick={(e) => { e.stopPropagation(); onSelect(i); }}
           aria-label={`${item?.type === "video" ? "video" : "foto"} ${i + 1}`}
         >
           {item?.type === "video" && item.posterSrc ? (
@@ -184,6 +189,9 @@ export default function ProjectCard({ work, index, total }) {
   if (work.title === "ALLÒ QUE PROJECTEM") ruleLength = 75;
   if (work.title === "QUAN NINGÚ MIRA") ruleLength = DEFAULT_LINE_LEN + 5;
   if (work.title === "PANÒPTIC DIGITAL") ruleLength = DEFAULT_LINE_LEN + 6;
+  if (work.title === "TACTE HUMÀ") ruleLength = 80;
+  if (work.title === "COLÒNIES DIGITALS") ruleLength = 65;
+  if (work.title === "MORUS ALBA") ruleLength = 80;
 
   useEffect(() => {
     setActiveThumb(0);
@@ -254,7 +262,7 @@ export default function ProjectCard({ work, index, total }) {
     const rule = ruleRef.current;
     const authorsBlock = authorsBlockRef.current;
     const descriptionBlock = descriptionBlockRef.current;
-
+   
     [
       textColumn,
       mediaColumn,
@@ -269,6 +277,7 @@ export default function ProjectCard({ work, index, total }) {
       if (!node) return;
       gsap.set(node, { opacity: 0, x: 0, y: 0, filter: "blur(0px)" });
     });
+     
 
     const trigger = ScrollTrigger.create({
       trigger: track,
@@ -359,7 +368,7 @@ export default function ProjectCard({ work, index, total }) {
         setTextReveal(authorsBlock, {
           progress: authorsProgress,
           blur: 0,
-          x: (1 - authorsProgress) * 210,
+          x: 0,
           y: (1 - authorsProgress) * 12,
         });
 
@@ -369,7 +378,7 @@ export default function ProjectCard({ work, index, total }) {
         setTextReveal(descriptionBlock, {
           progress: descriptionProgress,
           blur: 0,
-          x: (1 - descriptionProgress) * 220,
+          x: 0,
           y: (1 - descriptionProgress) * 8,
         });
       },
@@ -379,7 +388,7 @@ export default function ProjectCard({ work, index, total }) {
   }, []);
 
   return (
-    <article ref={cardRef} className="work-card horizontal-panel">
+    <article ref={cardRef} className="work-card horizontal-panel" data-work-title={work.title}>
 
       {shouldRenderHeavyMedia ? <CardGlyphBg /> : null}
 
@@ -392,6 +401,11 @@ export default function ProjectCard({ work, index, total }) {
       {shouldRenderHeavyMedia && index === 7 ? <Panoptic /> : null}
       {shouldRenderHeavyMedia && index === 8 ? <ToySoldiers /> : null}
       {shouldRenderHeavyMedia && index === 9 ? <DataExtract /> : null}
+      {shouldRenderHeavyMedia && work.title === "TACTE HUMÀ" ? <WaterTouch /> : null}
+      {shouldRenderHeavyMedia && work.title === "RAIGS DE SEQUERA" ? <DroughtCracks /> : null}
+      {shouldRenderHeavyMedia && work.title === "TEMPS INSCRIT" ? <TimeRings /> : null}
+      {shouldRenderHeavyMedia && work.title === "COLÒNIES DIGITALS" ? <BacteriaColonies /> : null}
+      {shouldRenderHeavyMedia && work.title === "MORUS ALBA" ? <BarkSound /> : null}
 
       {/* ── body ── */}
       <div className="wc-body">
@@ -465,13 +479,12 @@ export default function ProjectCard({ work, index, total }) {
               />
             ) : (
               <ScrollGlitchMedia
-                key={selectedItem?.src ?? work.mediaSrc}
                 src={selectedItem?.src ?? work.mediaSrc}
                 poster={selectedItem?.posterSrc ?? fallbackPreviewSrc ?? undefined}
                 objectPosition={work.objectPosition}
                 title={work.title}
                 startTime={selectedItem?.startTime ?? 0}
-                skipIntro={hasUserSelectedMedia}
+                skipIntro={hasUserSelectedMedia} 
               />
             )}
             <ViewfinderOverlay current={activeThumb} total={totalSlides} />

@@ -109,8 +109,8 @@ function renderAsciiToCtx(ctx, video, width, height) {
   const { data } = _asciiOffCtx.getImageData(0, 0, cols, rows);
 
   ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = "#050608";
-  ctx.fillRect(0, 0, width, height);
+  // No solid background fill — keep transparent so the video shows through
+  // by default. Only the ASCII glyphs themselves are painted on top.
 
   ctx.font = `bold ${ASCII_CELL + 1}px "Space Mono", monospace`;
   ctx.textAlign = "left";
@@ -430,102 +430,248 @@ export default function ScrollGlitchMedia({
     };
 
     // ── GSAP scroll animation ─────────────────────────────────────
-    const setupAnimation = () => {
-      animationContext?.revert();
-      progressRef.current = 1;
+const setupAnimation = () => {
+  animationContext?.revert();
+  animationContext = null;
 
-      animationContext = gsap.context(() => {
-        if (mediaQuery.matches) {
-          gsap.set(media, { clearProps: "all" });
-          gsap.set(video, { clearProps: "all", opacity: 1, scale: 1, filter: "none" });
-          gsap.set(canvas, { opacity: 0 });
-          gsap.set([noise, scan, sliceTop, sliceMiddle, sliceBottom], { opacity: 0 });
-          return;
-        }
+  gsap.killTweensOf([
+    media,
+    video,
+    canvas,
+    halftone,
+    noise,
+    scan,
+    sliceTop,
+    sliceMiddle,
+    sliceBottom,
+  ]);
 
-        if (skipIntro) {
-          gsap.set(media, { clipPath: "inset(0% 0% 0% 0%)", y: 0, opacity: 1 });
-          gsap.set(video, {
-            opacity: 1,
-            scale: 1.02,
-            filter: "saturate(0.9) contrast(1.06) brightness(0.88) hue-rotate(0deg)",
-          });
-          gsap.set(canvas, { opacity: 0 });
-          gsap.set([noise, scan, sliceTop, sliceMiddle, sliceBottom], { opacity: 0 });
-          return;
-        }
+  progressRef.current = skipIntro ? 1 : 0;
 
-        gsap.set(media, { clipPath: "inset(0% 0% 0% 0%)", y: 0, opacity: 1 });
+  if (mediaQuery.matches) {
+    gsap.set(media, {
+      clearProps: "clipPath,y,opacity,visibility",
+      opacity: 1,
+      visibility: "visible",
+    });
 
-        // Video visible from the start so erase holes reveal it
-        gsap.set(video, {
+    gsap.set(video, {
+      clearProps: "opacity,scale,filter,visibility",
+      opacity: 1,
+      visibility: "visible",
+      scale: 1,
+      filter: "none",
+    });
+
+    gsap.set(canvas, { opacity: 0 });
+    gsap.set(halftone, { opacity: 0 });
+    gsap.set([noise, scan, sliceTop, sliceMiddle, sliceBottom], { opacity: 0 });
+
+    return;
+  }
+
+  if (skipIntro) {
+    gsap.set(media, {
+      clipPath: "inset(0% 0% 0% 0%)",
+      y: 0,
+      opacity: 1,
+      visibility: "visible",
+    });
+
+    gsap.set(video, {
+      opacity: 1,
+      visibility: "visible",
+      scale: 1.02,
+      filter: "saturate(0.9) contrast(1.06) brightness(0.88) hue-rotate(0deg)",
+    });
+
+    gsap.set(canvas, {
+      opacity: 0,
+      visibility: "hidden",
+    });
+
+    gsap.set(halftone, {
+      opacity: 0,
+      visibility: "hidden",
+    });
+
+    gsap.set([noise, scan, sliceTop, sliceMiddle, sliceBottom], {
+      opacity: 0,
+      visibility: "hidden",
+    });
+
+    return;
+  }
+
+  animationContext = gsap.context(() => {
+    gsap.set(media, {
+      clipPath: "inset(0% 0% 0% 0%)",
+      y: 0,
+      opacity: 1,
+      visibility: "visible",
+    });
+
+    gsap.set(video, {
+      opacity: 1,
+      visibility: "visible",
+      scale: 1.02,
+      filter: "saturate(0.9) contrast(1.06) brightness(0.88) hue-rotate(0deg)",
+    });
+
+    gsap.set(canvas, {
+      opacity: 1,
+      visibility: "visible",
+    });
+
+    gsap.set(halftone, {
+      visibility: "visible",
+    });
+
+    gsap.set(noise, {
+      opacity: 0.34,
+      visibility: "visible",
+      backgroundPosition: "0px 0px, 10px 14px",
+    });
+
+    gsap.set(scan, {
+      opacity: 0.24,
+      visibility: "visible",
+      yPercent: -6,
+    });
+
+    gsap.set([sliceTop, sliceMiddle, sliceBottom], {
+      opacity: 0,
+      visibility: "visible",
+      xPercent: 0,
+    });
+
+    gsap.timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: {
+        trigger: media,
+        start: "top 92%",
+        end: "top 28%",
+        scrub: 0.42,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          progressRef.current = self.progress;
+
+          if (self.progress < 0.82) {
+            startRenderLoop();
+          } else {
+            stopRenderLoop();
+          }
+        },
+      },
+    })
+      .to(
+        media,
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          y: 0,
           opacity: 1,
-          scale: 1.02,
-          filter: "saturate(0.9) contrast(1.06) brightness(0.88) hue-rotate(0deg)",
-        });
+          duration: 1,
+        },
+        0,
+      )
+      .to(
+        canvas,
+        {
+          opacity: 0,
+          duration: 0.18,
+        },
+        0.82,
+      )
+      .to(
+        noise,
+        {
+          opacity: 0.04,
+          backgroundPosition: "26px 18px, -6px 24px",
+          duration: 0.9,
+        },
+        0.12,
+      )
+      .to(
+        scan,
+        {
+          opacity: 0.03,
+          yPercent: 8,
+          duration: 0.86,
+        },
+        0.16,
+      )
+      .fromTo(
+        sliceTop,
+        {
+          opacity: 0,
+          xPercent: -6,
+        },
+        {
+          opacity: 0.34,
+          xPercent: 4,
+          duration: 0.12,
+        },
+        0.18,
+      )
+      .to(
+        sliceTop,
+        {
+          opacity: 0,
+          xPercent: -2,
+          duration: 0.1,
+        },
+        0.3,
+      )
+      .fromTo(
+        sliceMiddle,
+        {
+          opacity: 0,
+          xPercent: 8,
+        },
+        {
+          opacity: 0.42,
+          xPercent: -5,
+          duration: 0.14,
+        },
+        0.28,
+      )
+      .to(
+        sliceMiddle,
+        {
+          opacity: 0,
+          xPercent: 3,
+          duration: 0.12,
+        },
+        0.42,
+      )
+      .fromTo(
+        sliceBottom,
+        {
+          opacity: 0,
+          xPercent: -5,
+        },
+        {
+          opacity: 0.28,
+          xPercent: 6,
+          duration: 0.11,
+        },
+        0.38,
+      )
+      .to(
+        sliceBottom,
+        {
+          opacity: 0,
+          xPercent: -1,
+          duration: 0.1,
+        },
+        0.48,
+      );
+  }, media);
 
-        gsap.set(canvas, { opacity: 1 });
-
-        gsap.set(noise, { opacity: 0.34, backgroundPosition: "0px 0px, 10px 14px" });
-        gsap.set(scan, { opacity: 0.24, yPercent: -6 });
-        gsap.set([sliceTop, sliceMiddle, sliceBottom], { opacity: 0, xPercent: 0 });
-
-        gsap.timeline({
-          defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger: media,
-            start: "top 92%",
-            end: "top 28%",
-            scrub: 0.42,
-            invalidateOnRefresh: true,
-            onUpdate: (self) => {
-              progressRef.current = self.progress;
-
-              if (self.progress < 0.82) {
-                startRenderLoop();
-              } else {
-                stopRenderLoop();
-              }
-            },
-          },
-        })
-          .to(media, { clipPath: "inset(0% 0% 0% 0%)", y: 0, opacity: 1, duration: 1 }, 0)
-          .to(
-            canvas,
-            { opacity: 0, duration: 0.18 },
-            0.82,
-          )
-          .to(
-            noise,
-            { opacity: 0.04, backgroundPosition: "26px 18px, -6px 24px", duration: 0.9 },
-            0.12,
-          )
-          .to(scan, { opacity: 0.03, yPercent: 8, duration: 0.86 }, 0.16)
-          .fromTo(
-            sliceTop,
-            { opacity: 0, xPercent: -6 },
-            { opacity: 0.34, xPercent: 4, duration: 0.12 },
-            0.18,
-          )
-          .to(sliceTop, { opacity: 0, xPercent: -2, duration: 0.1 }, 0.3)
-          .fromTo(
-            sliceMiddle,
-            { opacity: 0, xPercent: 8 },
-            { opacity: 0.42, xPercent: -5, duration: 0.14 },
-            0.28,
-          )
-          .to(sliceMiddle, { opacity: 0, xPercent: 3, duration: 0.12 }, 0.42)
-          .fromTo(
-            sliceBottom,
-            { opacity: 0, xPercent: -5 },
-            { opacity: 0.28, xPercent: 6, duration: 0.11 },
-            0.38,
-          )
-          .to(sliceBottom, { opacity: 0, xPercent: -1, duration: 0.1 }, 0.48);
-      }, media);
-
-      ScrollTrigger.refresh();
-    };
+  window.requestAnimationFrame(() => {
+    ScrollTrigger.refresh();
+  });
+};
 
     setupAnimation();
 
@@ -672,9 +818,12 @@ export default function ScrollGlitchMedia({
         loop={playbackStart <= 0}
         muted
         playsInline
+        disablePictureInPicture
+        disableRemotePlayback
+        controlsList="nodownload nofullscreen noremoteplayback"
         preload={skipIntro ? "auto" : "none"}
         aria-label={title}
-        style={{ objectPosition }}
+        style={{ objectPosition, pointerEvents: "none" }}
       />
       <canvas ref={canvasRef} className="work-pixel-canvas" aria-hidden="true" />
       <canvas ref={halftoneRef} className="work-halftone-canvas" aria-hidden="true" />
@@ -686,3 +835,5 @@ export default function ScrollGlitchMedia({
     </div>
   );
 }
+
+

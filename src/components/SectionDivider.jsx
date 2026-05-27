@@ -6,6 +6,12 @@ import TypeLine from "./TypeLine.jsx";
 import AsciiScatter from "./AsciiScatter.jsx";
 import FloatingTitles from "./FloatingTitles.jsx";
 import VistaGenericaMuseu from "../../assets/vista_generica_museu.jpg";
+import LaboratoriPhoto from "../../assets/7344779794_cc6dcd5319_b.jpg";
+
+const PROGRAM_PHOTOS = {
+  "ART I CULTURA DIGITAL": VistaGenericaMuseu,
+  "LABORATORI DE CREACIONS ARTISTIQUES": LaboratoriPhoto,
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,6 +72,9 @@ export default function SectionDivider({
   subtitle,
   showPhoto = true,
   blurEndPercent = DEFAULT_BLUR_END_PROGRESS * 100,
+  program,
+  stats,
+  floatingTitles,
 }) {
   const sectionRef = useRef(null);
   const surfaceRef = useRef(null);
@@ -187,20 +196,22 @@ export default function SectionDivider({
   }, [blurEndProgress]);
 
   return (
-    <div ref={sectionRef} className="section-divider horizontal-panel">
+    <div ref={sectionRef} className="section-divider horizontal-panel" data-program={program}>
       <div ref={surfaceRef} className="section-divider-surface">
-        {showPhoto ? (
+        {showPhoto ? (() => {
+          const photo = PROGRAM_PHOTOS[program] ?? VistaGenericaMuseu;
+          const photoUrl = photo.src ? photo.src : photo;
+          return (
             <div
               className="section-divider-photo"
               aria-hidden="true"
-              style={{
-                "--divider-photo": VistaGenericaMuseu.src ? `url(${VistaGenericaMuseu.src})` : `url(${VistaGenericaMuseu})`,
-              }}
+              style={{ "--divider-photo": `url(${photoUrl})` }}
             />
-          ) : null}
+          );
+        })() : null}
         <AsciiScatter fullSpread count={25} maxOpacity={0.18} active={motionReady} />
         <div className="section-divider-bg" aria-hidden="true" />
-        <FloatingTitles active={motionReady} />
+        <FloatingTitles active={motionReady} titles={floatingTitles} />
 
         <div className="section-divider-inner" ref={layoutRef}>
           <div className="section-divider-titles">
@@ -245,6 +256,18 @@ export default function SectionDivider({
         >
           <span>2025–2026</span>
         </div>
+
+        {stats && stats.length > 0 && (
+          <div className="section-divider-stats" aria-hidden="true">
+            {stats.map((stat) => (
+              <div key={stat.label} className="section-divider-stat">
+                <span className="section-divider-stat-marker">&gt;</span>
+                <span className="section-divider-stat-label">{stat.label}:</span>
+                <span className="section-divider-stat-value">{stat.value}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
     </div>

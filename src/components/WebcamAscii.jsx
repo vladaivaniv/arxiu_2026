@@ -4,15 +4,15 @@ const GLYPHS = "ARTIST       ".split("");
 const CELL_SIZE = 9;
 const TARGET_FPS = 18;
 const FRAME_INTERVAL = 1000 / TARGET_FPS;
-const MIN_ALPHA = 0.06;
-const MAX_ALPHA = 0.55;
+const MIN_ALPHA = 0.18;
+const MAX_ALPHA = 0.95;
 
 function noise(x, y) {
   const v = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
   return v - Math.floor(v);
 }
 
-export default function WebcamAscii() {
+export default function WebcamAscii({ color = "245,245,245", className = "" } = {}) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -141,7 +141,7 @@ export default function WebcamAscii() {
             ? MIN_ALPHA + normalized * (MAX_ALPHA - MIN_ALPHA) + flicker * (0.04 + normalized * 0.08)
             : MIN_ALPHA + flicker * 0.06;
 
-          bufferCtx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`;
+          bufferCtx.fillStyle = `rgba(${color},${alpha.toFixed(3)})`;
           bufferCtx.fillText(char, col * cellW + cellW * 0.5, y);
         }
       }
@@ -261,7 +261,7 @@ export default function WebcamAscii() {
   return (
     <canvas
       ref={canvasRef}
-      className="webcam-ascii-canvas"
+      className={`webcam-ascii-canvas ${className}`.trim()}
       aria-hidden="true"
     />
   );

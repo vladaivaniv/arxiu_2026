@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AsciiBackground from "./AsciiBackground.jsx";
@@ -50,8 +51,53 @@ export default function ArchiveIntroSection() {
   const layoutRef  = useRef(null);
   const copyRef = useRef(null);
   const statsRef = useRef(null);
+  const hintRef = useRef(null);
   const mouseRef = useRef({ x: -999, y: -999 });
   const scrollProgressRef = useRef(0);
+
+  useEffect(() => {
+    const hint = hintRef.current;
+    if (!hint || !typingActive) return undefined;
+
+    let raf = 0;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+    let hovering = false;
+
+    const onMove = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    const onEnter = () => { hovering = true; };
+    const onLeave = () => { hovering = false; };
+
+    const tick = () => {
+      if (!hovering) {
+        const targetX = mouseX + 90;
+        const targetY = mouseY - 40;
+        currentX += (targetX - currentX) * 0.08;
+        currentY += (targetY - currentY) * 0.08;
+        hint.style.left = `${currentX}px`;
+        hint.style.top = `${currentY}px`;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    window.addEventListener("mousemove", onMove);
+    hint.addEventListener("mouseenter", onEnter);
+    hint.addEventListener("mouseleave", onLeave);
+    raf = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", onMove);
+      hint.removeEventListener("mouseenter", onEnter);
+      hint.removeEventListener("mouseleave", onLeave);
+    };
+  }, [typingActive]);
 
   useEffect(() => {
     const markAsLoaded = () => setIsLoaded(true);
@@ -100,7 +146,9 @@ export default function ArchiveIntroSection() {
         const copyProgress = smoothstep(Math.min(1, Math.max(0, (clamped - 0.14) / 0.34)));
         const statsProgress = smoothstep(Math.min(1, Math.max(0, (clamped - 0.24) / 0.3)));
 
-        if (ep > 0.1) setTypingActive(true);
+        const isInView = rect.right > 0 && rect.left < viewportWidth;
+        if (isInView && ep > 0.1) setTypingActive(true);
+        else if (!isInView || ep < 0.02) setTypingActive(false);
 
         gsap.set(layout, {
           opacity: ep,
@@ -198,19 +246,16 @@ export default function ArchiveIntroSection() {
           })}
         </div>
 
-        <div ref={statsRef} className="archive-intro-stats" aria-label="Dades de l'arxiu" style={{ opacity: 0 }}>
-          {ARCHIVE_INTRO.stats.map((stat, index) => (
-            <div key={stat.label} className="archive-intro-stat">
-              <TypeLine
-                text={`${stat.label}: ${stat.value}`}
-                delay={3000 + index * 220}
-                speed={8}
-                trigger={typingActive}
-                aria-label={`${stat.label}: ${stat.value}`}
-              />
-            </div>
-          ))}
-        </div>
+        <div ref={statsRef} className="archive-intro-stats" aria-label="Indicacions d'ús" style={{ opacity: 0 }} />
+        {typeof document !== "undefined" && createPortal(
+          <div ref={hintRef} className={`archive-intro-hint${typingActive ? " is-visible" : ""}`}>
+            <p className="archive-intro-hint-text">
+              <span className="archive-intro-hint-line"><span className="archive-intro-hint-prefix" aria-hidden="true">//</span> Mou el cursor sobre cada projecte</span>
+              <span className="archive-intro-hint-line">per activar la seva interacció.</span>
+            </p>
+          </div>,
+          document.body,
+        )}
 
       </div>
 

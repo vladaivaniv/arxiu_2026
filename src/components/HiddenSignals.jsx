@@ -61,12 +61,12 @@ export default function HiddenSignals() {
       masks.push({
         x: coords.x,
         y: coords.y,
-        w: 56 + Math.random() * 28,
-        h: 16 + Math.random() * 12,
+        w: 32 + Math.random() * 18,
+        h: 8 + Math.random() * 6,
         rotation: (Math.random() - 0.5) * 0.18,
         life: 1,
       });
-      if (masks.length > 22) masks.shift();
+      if (masks.length > 8) masks.shift();
     };
 
     const onLeave = () => {
@@ -81,7 +81,7 @@ export default function HiddenSignals() {
 
       for (let i = masks.length - 1; i >= 0; i -= 1) {
         const mask = masks[i];
-        mask.life -= pointer.inside ? 0.012 : 0.02;
+        mask.life -= pointer.inside ? 0.04 : 0.06;
 
         if (mask.life <= 0) {
           masks.splice(i, 1);
@@ -92,19 +92,19 @@ export default function HiddenSignals() {
         ctx.save();
         ctx.translate(mask.x, mask.y);
         ctx.rotate(mask.rotation);
-        ctx.fillStyle = `rgba(5,6,8,${(0.9 * alpha).toFixed(3)})`;
+        ctx.fillStyle = `rgba(5,6,8,${(0.45 * alpha).toFixed(3)})`;
         ctx.fillRect(-mask.w / 2, -mask.h / 2, mask.w, mask.h);
         ctx.restore();
       }
 
       if (pointer.inside) {
-        const grad = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 40);
-        grad.addColorStop(0, "rgba(5,6,8,0.98)");
-        grad.addColorStop(0.72, "rgba(5,6,8,0.48)");
+        const grad = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 28);
+        grad.addColorStop(0, "rgba(5,6,8,0.4)");
+        grad.addColorStop(0.7, "rgba(5,6,8,0.18)");
         grad.addColorStop(1, "rgba(5,6,8,0)");
         ctx.fillStyle = grad;
         ctx.beginPath();
-        ctx.arc(pointer.x, pointer.y, 40, 0, Math.PI * 2);
+        ctx.arc(pointer.x, pointer.y, 28, 0, Math.PI * 2);
         ctx.fill();
       }
 

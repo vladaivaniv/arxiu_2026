@@ -2,8 +2,8 @@ import { useState } from "react";
 import ShuffleText from "./ShuffleText.jsx";
 
 const FILTER_LABELS = {
-  "ART I CULTURA DIGITAL": "ART I CULTURA DIGITAL",
-  "LABORATORI DE CREACIONS ARTISTIQUES": "Laboratori de Creacions Artístiques",
+  "ART I CULTURA DIGITAL": "PROJECTES TREPAT",
+  "LABORATORI DE CREACIONS ARTISTIQUES": "PROJECTES D'ART DIGITAL",
 };
 
 export default function ProjectsChrome({
@@ -11,11 +11,34 @@ export default function ProjectsChrome({
   filters,
   onFilterSelect,
   projectCount,
+  works = [],
 }) {
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(null);
 
-  const handleSelect = (filter) => {
-    onFilterSelect(filter);
+  const scrollToTrackTarget = (el) => {
+    const track = document.querySelector(".horizontal-track");
+    if (!el || !track) return;
+    const elRect = el.getBoundingClientRect();
+    const trackRect = track.getBoundingClientRect();
+    const targetY = Math.max(0, elRect.left - trackRect.left);
+    const lenis = window.__lenis;
+    if (lenis && typeof lenis.scrollTo === "function") {
+      lenis.scrollTo(targetY, { duration: 1.4 });
+    } else {
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    }
+  };
+
+  const handleSelectGroup = (filter) => {
+    const el = document.querySelector(`.section-divider[data-program="${CSS.escape(filter)}"]`);
+    scrollToTrackTarget(el);
+    setOpen(false);
+  };
+
+  const handleSelectProject = (title) => {
+    const el = document.querySelector(`[data-work-title="${CSS.escape(title)}"]`);
+    scrollToTrackTarget(el);
     setOpen(false);
   };
 
@@ -46,16 +69,46 @@ export default function ProjectsChrome({
 
         {open && (
           <div className="works-filter-dropdown">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                className={`works-filter-option${filter === activeFilter ? " is-active" : ""}`}
-                onClick={() => handleSelect(filter)}
-              >
-                {FILTER_LABELS[filter] ?? filter}
-              </button>
-            ))}
+            {filters.map((filter) => {
+              const projectsInGroup = works.filter((w) => w.program === filter);
+              const isExpanded = expanded === filter;
+              return (
+                <div key={filter} className="works-filter-group">
+                  <div className="works-filter-group-row">
+                    <button
+                      type="button"
+                      className={`works-filter-option${filter === activeFilter ? " is-active" : ""}`}
+                      onClick={() => handleSelectGroup(filter)}
+                    >
+                      {FILTER_LABELS[filter] ?? filter}
+                    </button>
+                    <button
+                      type="button"
+                      className="works-filter-expand"
+                      onClick={() => setExpanded(isExpanded ? null : filter)}
+                      aria-label="Mostra projectes"
+                    >
+                      {isExpanded ? "−" : "+"}
+                    </button>
+                  </div>
+                  {isExpanded && (
+                    <ul className="works-filter-projects">
+                      {projectsInGroup.map((w) => (
+                        <li key={w.title}>
+                          <button
+                            type="button"
+                            className="works-filter-project"
+                            onClick={() => handleSelectProject(w.title)}
+                          >
+                            {w.title}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>

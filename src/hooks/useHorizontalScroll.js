@@ -45,6 +45,7 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
         const updateProjectChromeVisibility = (scrollProgress) => {
           const distance = getDistance();
           const worksSections = Array.from(track.querySelectorAll(".works-section"));
+          const archiveIntro = track.querySelector(".archive-intro-section");
 
           if (!distance || !worksSections.length) {
             viewport.classList.remove("is-projects-active");
@@ -60,7 +61,18 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
             return scrollX >= start && scrollX <= end;
           });
 
-          viewport.classList.toggle("is-projects-active", Boolean(activeWorksSection));
+          const inArchiveIntro =
+            archiveIntro &&
+            Math.abs(scrollX - archiveIntro.offsetLeft) < viewport.clientWidth * 0.55;
+
+          viewport.classList.toggle(
+            "is-projects-active",
+            Boolean(activeWorksSection) || Boolean(inArchiveIntro),
+          );
+          viewport.classList.toggle(
+            "is-archive-intro",
+            Boolean(inArchiveIntro) && !activeWorksSection,
+          );
 
           const transitionTarget = activeWorksSection ?? worksSections[0];
           const transitionStart = transitionTarget.offsetLeft - viewport.clientWidth;
@@ -76,7 +88,8 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
           const dividers = Array.from(track.querySelectorAll(".section-divider"));
           const isOnDivider = dividers.some((d) => {
             const dAbsLeft = d.getBoundingClientRect().left + scrollX;
-            return Math.abs(scrollX - dAbsLeft) < viewport.clientWidth * 0.5;
+            // Tighter window: chrome stays visible longer on the project before/after a divider
+            return Math.abs(scrollX - dAbsLeft) < viewport.clientWidth * 0.22;
           });
           viewport.classList.toggle("is-on-divider", isOnDivider);
         };
@@ -89,7 +102,7 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
             trigger: shell,
             start: "top top",
             end: () => `+=${getDistance()}`,
-            scrub: 0.45,
+            scrub: 0.5,
             invalidateOnRefresh: true,
             onRefreshInit: applyShellHeight,
             onRefresh: (self) => updateProjectChromeVisibility(self.progress),
@@ -147,40 +160,142 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
       });
     };
 
-    let velocity = 0;
-    const keysDown = new Set();
-    let rafKey = 0;
+    // ── unified panel-by-panel navigation ──────────────────────
+    const getDistanceOuter = () =>
+      Math.max(0, track.scrollWidth - viewport.clientWidth);
 
-    const tickKey = () => {
-      const right = keysDown.has("ArrowRight");
-      const left  = keysDown.has("ArrowLeft");
-      const target = right ? 22 : left ? -22 : 0;
-      velocity += (target - velocity) * 0.12;
-      if (Math.abs(velocity) > 0.01) {
-        window.scrollBy(0, velocity);
-        rafKey = requestAnimationFrame(tickKey);
+    const getSnapTargets = () => {
+      const distance = getDistanceOuter();
+      if (!distance) return [0];
+      const panels = Array.from(track.querySelectorAll(".horizontal-panel"));
+      const trackLeft = track.getBoundingClientRect().left;
+      const offsets = panels.map((p) => {
+        const left = p.getBoundingClientRect().left - trackLeft;
+        return Math.min(distance, Math.max(0, Math.round(left)));
+      });
+      if (!offsets.includes(distance)) offsets.push(distance);
+      return Array.from(new Set(offsets)).sort((a, b) => a - b);
+    };
+
+    let navBusy = false;
+    let navReleaseTimer = 0;
+
+    const navigateBy = (direction) => {
+      const distance = getDistanceOuter();
+      if (!distance) return false;
+      const targets = getSnapTargets();
+      const current = window.scrollY;
+      let target;
+      if (direction > 0) {
+        target = targets.find((t) => t > current + 4) ?? targets[targets.length - 1];
       } else {
-        velocity = 0;
-        rafKey = 0;
+        target = [...targets].reverse().find((t) => t < current - 4) ?? targets[0];
       }
+      if (target === current) return false;
+      navBusy = true;
+      const lenis = window.__lenis;
+      const release = () => {
+        window.clearTimeout(navReleaseTimer);
+        navReleaseTimer = window.setTimeout(() => { navBusy = false; }, 80);
+      };
+      if (lenis && typeof lenis.scrollTo === "function") {
+        lenis.scrollTo(target, {
+          duration: 0.95,
+          easing: (t) => 1 - Math.pow(1 - t, 3),
+          lock: true,
+          onComplete: release,
+        });
+      } else {
+        window.scrollTo({ top: target, behavior: "smooth" });
+        window.setTimeout(release, 950);
+      }
+      return true;
+    };
+
+    // wheel / trackpad: detect end-of-gesture, snap on intent
+    let wheelLastTime = 0;
+    let wheelAccum = 0;
+    let wheelLastSign = 0;
+
+    const handleWheel = (e) => {
+      if (mediaQuery.matches) return;
+      const distance = getDistanceOuter();
+      if (!distance) return;
+      const scrollY = window.scrollY;
+      if (scrollY < 0 || scrollY > distance) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (navBusy) return;
+
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      if (!delta) return;
+      const sign = delta > 0 ? 1 : -1;
+      const now = performance.now();
+
+      // reset accumulator on direction change or long pause
+      if (sign !== wheelLastSign || now - wheelLastTime > 220) {
+        wheelAccum = 0;
+      }
+      wheelAccum += delta;
+      wheelLastTime = now;
+      wheelLastSign = sign;
+
+      if (Math.abs(wheelAccum) < 20) return;
+      wheelAccum = 0;
+      navigateBy(sign);
     };
 
     const handleKeyDown = (e) => {
-      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-        e.preventDefault();
-        keysDown.add(e.key);
-        if (!rafKey) rafKey = requestAnimationFrame(tickKey);
+      const tag = e.target?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      let direction = 0;
+      switch (e.key) {
+        case "ArrowRight":
+        case "ArrowDown":
+        case "PageDown":
+        case " ":
+          direction = 1;
+          break;
+        case "ArrowLeft":
+        case "ArrowUp":
+        case "PageUp":
+          direction = -1;
+          break;
+        case "Home":
+          e.preventDefault();
+          if (!navBusy) {
+            navBusy = true;
+            const lenis = window.__lenis;
+            const release = () => { navBusy = false; };
+            if (lenis) lenis.scrollTo(0, { duration: 1.0, lock: true, onComplete: release });
+            else { window.scrollTo({ top: 0, behavior: "smooth" }); setTimeout(release, 1000); }
+          }
+          return;
+        case "End":
+          e.preventDefault();
+          if (!navBusy) {
+            const targets = getSnapTargets();
+            const target = targets[targets.length - 1];
+            navBusy = true;
+            const lenis = window.__lenis;
+            const release = () => { navBusy = false; };
+            if (lenis) lenis.scrollTo(target, { duration: 1.0, lock: true, onComplete: release });
+            else { window.scrollTo({ top: target, behavior: "smooth" }); setTimeout(release, 1000); }
+          }
+          return;
+        default:
+          return;
       }
-    };
-
-    const handleKeyUp = (e) => {
-      keysDown.delete(e.key);
+      e.preventDefault();
+      if (!navBusy) navigateBy(direction);
     };
 
     mediaQuery.addEventListener("change", handleMotionChange);
     window.addEventListener("load", handleLoad);
     window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("keyup", handleKeyUp);
+    window.addEventListener("wheel", handleWheel, { passive: false });
 
     if (document.fonts?.ready) {
       document.fonts.ready.then(handleFontsReady).catch(() => {});
@@ -197,8 +312,8 @@ export default function useHorizontalScroll({ shellRef, viewportRef, trackRef })
       mediaQuery.removeEventListener("change", handleMotionChange);
       window.removeEventListener("load", handleLoad);
       window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("keyup", handleKeyUp);
-      cancelAnimationFrame(rafKey);
+      window.removeEventListener("wheel", handleWheel);
+      window.clearTimeout(navReleaseTimer);
     };
   }, [shellRef, viewportRef, trackRef]);
 }

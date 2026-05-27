@@ -363,15 +363,90 @@ export const workEntries = [
     ...getProjectMedia("MEASURED SELF"),
     objectPosition: "50% 50%",
   },
+  {
+    title: "TACTE HUMÀ",
+    authors: ["Vlada Ivaniv"],
+    year: "2025",
+    tipus: "INSTAL·LACIÓ INTERACTIVA",
+    duracio: "",
+    format: "INSTAL·LACIÓ",
+    tags: ["AIGUA", "TACTE", "NATURA"],
+    category: "COMMERCIAL",
+    program: "LABORATORI DE CREACIONS ARTISTIQUES",
+    description: "Una obra interactiva sobre la transformació de l'aigua a través de la intervenció humana. A partir del tacte, la peça activa una resposta de llum i so que simbolitza el pas d'un estat natural a un altre de més artificial i funcional. El projecte reflexiona sobre com un recurs natural essencial pot canviar de significat quan passa a formar part de sistemes tecnològics i processos de control.",
+    ...getProjectMedia("TACTE HUMÀ"),
+    objectPosition: "50% 50%",
+  },
+  {
+    title: "COLÒNIES DIGITALS",
+    authors: ["Míriam Llaquet"],
+    year: "2025",
+    tipus: "INSTAL·LACIÓ INTERACTIVA",
+    duracio: "",
+    format: "INSTAL·LACIÓ / ARDUINO",
+    tags: ["BIOLOGIA", "TECNOLOGIA", "MICROSCÒPIC"],
+    category: "COMMERCIAL",
+    program: "LABORATORI DE CREACIONS ARTISTIQUES",
+    description: "Colònies Digitals explora la relació invisible entre biologia i tecnologia a través de bacteris presents en dispositius quotidians com mòbils, teclats i ordinadors. Mitjançant plaques de Petri, llum LED i interacció amb Arduino, l'obra revela allò microscòpic que normalment passa desapercebut, convertint la presència humana en l'activadora d'un arxiu viu entre laboratori, instal·lació i ecosistema digital.",
+    ...getProjectMedia("COLÒNIES DIGITALS"),
+    objectPosition: "50% 50%",
+  },
+  {
+    title: "MORUS ALBA",
+    authors: ["Sònia Soldevila"],
+    year: "2025",
+    tipus: "PROJECTE D'ART DIGITAL",
+    duracio: "",
+    format: "ESTAMPACIÓ / MIDI / SO",
+    tags: ["NATURA", "SO", "TRADUCCIÓ"],
+    category: "COMMERCIAL",
+    program: "LABORATORI DE CREACIONS ARTISTIQUES",
+    description: "Morus Alba transforma les cicatrius i textures d'una morera blanca en llenguatge sonor. A través de l'estampació amb coure i la traducció digital de les formes a MIDI, l'obra converteix la memòria física de l'arbre en una composició experimental. La peça reflexiona sobre la relació entre natura i tecnologia, proposant una manera alternativa d'escoltar el paisatge. Les marques de l'escorça deixen de ser només matèria i es converteixen en informació, ritme i ressonància. El projecte reivindica una escolta més lenta i sensible de la natura, posant en valor allò que sovint passa desapercebut.",
+    ...getProjectMedia("MORUS ALBA"),
+    objectPosition: "50% 50%",
+  },
+  {
+    title: "RAIGS DE SEQUERA",
+    authors: ["Colau Sabater"],
+    year: "2025",
+    tipus: "INSTAL·LACIÓ INTERACTIVA",
+    duracio: "",
+    format: "INSTAL·LACIÓ / ARDUINO",
+    tags: ["SEQUERA", "AIGUA", "NATURA"],
+    category: "COMMERCIAL",
+    program: "LABORATORI DE CREACIONS ARTISTIQUES",
+    description: "Raigs de Sequera és una instal·lació interactiva que reflexiona sobre l'impacte humà en la natura a través de la dualitat entre l'aigua i la sequera. L'obra combina argila natural esquerdada amb una projecció digital de reflexos d'aigua que desapareix quan l'espectador s'apropa, revelant les esquerdes del suport. Mitjançant Arduino, un sensor de distància i TouchDesigner, la peça mostra com la presència humana pot alterar i deteriorar els ecosistemes, unint materials naturals i tecnologia en una experiència visual i contemplativa.",
+    ...getProjectMedia("RAIGS DE SEQUERA"),
+    objectPosition: "50% 50%",
+  },
+  {
+    title: "TEMPS INSCRIT",
+    authors: ["Berta Güell"],
+    year: "2025",
+    tipus: "PROJECTE D'ART DIGITAL",
+    duracio: "",
+    format: "BIOART / JOIERIA / DISSENY GENERATIU",
+    tags: ["BIOART", "DADES", "TEMPS"],
+    category: "COMMERCIAL",
+    program: "LABORATORI DE CREACIONS ARTISTIQUES",
+    description: "Temps inscrit és un projecte situat entre el bioart, el disseny generatiu i la joieria contemporània. Durant 17 dies es van registrar el pes i la temperatura interior de tres organismes en procés de descomposició — poma, pera i plàtan — amb l'objectiu de transformar aquestes dades en llenguatge visual. A partir d'un sistema generatiu basat en anelles i deformacions orgàniques, les dades es converteixen en patrons gravats sobre acer inoxidable, materialitzant el pas del temps en forma de joia.",
+    ...getProjectMedia("TEMPS INSCRIT"),
+    objectPosition: "50% 50%",
+  },
 ];
 
 export const WORK_FILTERS = [
   "ART I CULTURA DIGITAL",
+  "LABORATORI DE CREACIONS ARTISTIQUES",
 ];
 
 export const PROGRAM_SEPARATORS = {
   "ART I CULTURA DIGITAL": {
     titleLines: ["PROJECTES", "TREPAT"],
-    subtitle: "Assignatura ART i Cultura Digital"
+    subtitle: "ART i Cultura Digital"
+  },
+  "LABORATORI DE CREACIONS ARTISTIQUES": {
+    titleLines: ["PROJECTES", "D'ART DIGITAL"],
+    subtitle: "Laboratori per a creacions artístiques"
   },
 };

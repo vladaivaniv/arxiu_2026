@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const TITLES = [
+const DEFAULT_TITLES = [
   "End of Shift",
   "Blastur",
   "Quan Ningú Mira",
@@ -18,7 +18,8 @@ const BATCH = 4;
 
 function rand(a, b) { return a + Math.random() * (b - a); }
 
-export default function FloatingTitles({ active = true }) {
+export default function FloatingTitles({ active = true, titles }) {
+  const TITLES = titles && titles.length > 0 ? titles : DEFAULT_TITLES;
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -90,7 +91,7 @@ export default function FloatingTitles({ active = true }) {
       intervals.forEach(clearInterval);
       container.querySelectorAll("span").forEach(el => el.remove());
     };
-  }, [active]);
+  }, [active, TITLES]);
 
   return (
     <div
