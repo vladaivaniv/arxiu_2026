@@ -4,6 +4,15 @@ import WebcamAscii from "./WebcamAscii.jsx";
 import logoDdtec from "../../assets/logo-ddtec-blanc.png";
 
 export default function EndingSection() {
+  const handleBackToStart = () => {
+    const lenis = window.__lenis;
+    if (lenis && typeof lenis.scrollTo === "function") {
+      lenis.scrollTo(0, { duration: 2.4, easing: (t) => 1 - Math.pow(1 - t, 3) });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="ending-section horizontal-panel">
       <AsciiScatter fullSpread count={30} maxOpacity={0.18} />
@@ -48,6 +57,16 @@ export default function EndingSection() {
       </div>
 
       <div className="ending-corner ending-corner--tl" aria-hidden="true">[ FI DEL TRAJECTE ]</div>
+
+      <button
+        type="button"
+        className="ending-back-button"
+        onClick={handleBackToStart}
+        aria-label="Tornar al començament"
+      >
+        <span className="ending-back-arrow" aria-hidden="true">←</span>
+        <span className="ending-back-label">TORNAR A L'INICI</span>
+      </button>
     </section>
   );
 }

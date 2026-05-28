@@ -5,6 +5,8 @@ import HeroSection from "./components/HeroSection.jsx";
 import ProjectsChrome from "./components/ProjectsChrome.jsx";
 import SectionDivider from "./components/SectionDivider.jsx";
 import EndingSection from "./components/EndingSection.jsx";
+import BackToStartButton from "./components/BackToStartButton.jsx";
+import NextPageButton from "./components/NextPageButton.jsx";
 import WorksSection from "./components/WorksSection.jsx";
 import useHorizontalScroll from "./hooks/useHorizontalScroll.js";
 import useNoiseLayer from "./hooks/useNoiseLayer.js";
@@ -73,6 +75,8 @@ export default function App() {
     <main ref={shellRef} className="landing-shell">
       <AsciiCursor />
       <SiteTrailLine />
+      <BackToStartButton />
+      <NextPageButton />
       <div ref={viewportRef} className="horizontal-viewport">
         <div ref={noiseRef} className="noise-layer" aria-hidden="true" />
         <div className="scanline-layer" aria-hidden="true" />

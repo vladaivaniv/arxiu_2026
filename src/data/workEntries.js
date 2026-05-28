@@ -257,8 +257,8 @@ export const workEntries = [
     program: "ART I CULTURA DIGITAL",
     description: "Instal·lació interactiva que reflexiona sobre el boicot i la resistència col·lectiva dins del context industrial. A través d'una capsa aparentment anònima, el públic activa un sistema ocult que revela vídeos, so i missatges vinculats a lluites laborals, invisibilització i acció compartida. L'obra transforma un gest mínim en una metàfora sobre el poder de l'acció col·lectiva.",
     ...prioritizeMediaItems(
-      getProjectMedia("QUAN NINGÚ MIRA", ["IMG_9180.optimized.mp4", "IMG_9177"]),
-      ["IMG_9187.optimized.mp4", "f613669b-fadf-4902-927b-2668887fd34c.jpg"],
+      getProjectMedia("QUAN NINGÚ MIRA", ["IMG_9180.optimized.mp4", "IMG_9177", "IMG_9187.optimized"]),
+      ["Video.optimized.mp4", "f613669b-fadf-4902-927b-2668887fd34c.jpg"],
     ),
     objectPosition: "50% 50%",
   },

@@ -211,7 +211,58 @@ export default function SectionDivider({
         })() : null}
         <AsciiScatter fullSpread count={25} maxOpacity={0.18} active={motionReady} />
         <div className="section-divider-bg" aria-hidden="true" />
-        <FloatingTitles active={motionReady} titles={floatingTitles} />
+
+        {floatingTitles && floatingTitles.length > 0 ? (
+          <nav className="section-divider-toc" aria-label="Index de projectes">
+            <ShuffleText
+              as="span"
+              className="section-divider-toc-label"
+              text="[ INDEX ]"
+              delay={200}
+              duration={520}
+              interval={4800}
+              externalTrigger={motionReady}
+              triggerOnView
+              threshold={0.1}
+            />
+            <ul className="section-divider-toc-list">
+              {floatingTitles.map((title, i) => (
+                <li key={title}>
+                  <button
+                    type="button"
+                    className="section-divider-toc-item"
+                    onClick={() => {
+                      const el = document.querySelector(`[data-work-title="${CSS.escape(title)}"]`);
+                      if (!el) return;
+                      const track = document.querySelector(".horizontal-track");
+                      if (!track) return;
+                      const elRect = el.getBoundingClientRect();
+                      const trackRect = track.getBoundingClientRect();
+                      const targetY = Math.max(0, elRect.left - trackRect.left);
+                      const lenis = window.__lenis;
+                      if (lenis && typeof lenis.scrollTo === "function") {
+                        lenis.scrollTo(targetY, { duration: 1.4 });
+                      } else {
+                        window.scrollTo({ top: targetY, behavior: "smooth" });
+                      }
+                    }}
+                  >
+                    <ShuffleText
+                      as="span"
+                      text={title}
+                      delay={350 + i * 120}
+                      duration={640}
+                      interval={5400}
+                      externalTrigger={motionReady}
+                      triggerOnView
+                      threshold={0.1}
+                    />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : null}
 
         <div className="section-divider-inner" ref={layoutRef}>
           <div className="section-divider-titles">
@@ -249,13 +300,6 @@ export default function SectionDivider({
           />
         </div>
 
-        <div
-          ref={cornerRef}
-          className="section-divider-corner section-divider-corner--br"
-          aria-hidden="true"
-        >
-          <span>2025–2026</span>
-        </div>
 
         {stats && stats.length > 0 && (
           <div className="section-divider-stats" aria-hidden="true">

@@ -146,9 +146,12 @@ export default function ArchiveIntroSection() {
         const copyProgress = smoothstep(Math.min(1, Math.max(0, (clamped - 0.14) / 0.34)));
         const statsProgress = smoothstep(Math.min(1, Math.max(0, (clamped - 0.24) / 0.3)));
 
-        const isInView = rect.right > 0 && rect.left < viewportWidth;
-        if (isInView && ep > 0.1) setTypingActive(true);
-        else if (!isInView || ep < 0.02) setTypingActive(false);
+        // Require the archive intro to be substantially the visible panel
+        // (at least 40% of the viewport width must be covered by it)
+        const overlap = Math.max(0, Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0));
+        const isMainlyInView = overlap > viewportWidth * 0.4;
+        if (isMainlyInView && ep > 0.1) setTypingActive(true);
+        else if (!isMainlyInView || ep < 0.02) setTypingActive(false);
 
         gsap.set(layout, {
           opacity: ep,

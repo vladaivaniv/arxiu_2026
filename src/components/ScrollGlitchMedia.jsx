@@ -85,9 +85,9 @@ function drawCoverFrame(context, source, targetWidth, targetHeight, objectPositi
   context.drawImage(source, offsetX, offsetY, drawWidth, drawHeight);
 }
 
-// density ramp: space=dark → @=bright
-const ASCII_RAMP = " `.-':,;^~=+<>!?|()[]iIlrft1{}vjsxJTYCLnuczXVUOZ0QkmwqpdbhaoS#$%&@".split("");
-const ASCII_CELL = 4;
+// density ramp: space=dark → @=bright (no leading space → every cell gets a glyph)
+const ASCII_RAMP = "`.-':,;^~=+<>!?|()[]iIlrft1{}vjsxJTYCLnuczXVUOZ0QkmwqpdbhaoS#$%&@".split("");
+const ASCII_CELL = 3;
 const PIXEL_CANVAS_DPR_LIMIT = 1;
 const HALFTONE_FRAME_INTERVAL = 1000 / 30;
 
@@ -109,10 +109,12 @@ function renderAsciiToCtx(ctx, video, width, height) {
   const { data } = _asciiOffCtx.getImageData(0, 0, cols, rows);
 
   ctx.clearRect(0, 0, width, height);
-  // No solid background fill — keep transparent so the video shows through
-  // by default. Only the ASCII glyphs themselves are painted on top.
+  // Semi-opaque dark fill so the ASCII layer noticeably covers the video
+  // (still transparent enough that some video shows through behind the glyphs)
+  ctx.fillStyle = "rgba(5, 6, 8, 0.85)";
+  ctx.fillRect(0, 0, width, height);
 
-  ctx.font = `bold ${ASCII_CELL + 1}px "Space Mono", monospace`;
+  ctx.font = `bold ${ASCII_CELL + 2}px "Space Mono", monospace`;
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
 
@@ -124,13 +126,13 @@ function renderAsciiToCtx(ctx, video, width, height) {
     for (let col = 0; col < cols; col++) {
       const i = (row * cols + col) * 4;
       const raw = (data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114) / 255;
-      const b = Math.min(1, Math.max(0, (raw - 0.04) * 1.6));
-      if (b < 0.08) continue;
+      const b = Math.min(1, Math.max(0, raw * 1.6));
+      // draw every cell — no skip — so the ASCII layer fully covers the video
       const char = ASCII_RAMP[Math.round(b * last)];
       if (b > 0.99) {
         ctx.fillStyle = `rgba(255,0,0,1.00)`;
       } else {
-        ctx.fillStyle = `rgba(255,255,255,${(0.7 + b * 0.3).toFixed(2)})`;
+        ctx.fillStyle = `rgba(255,255,255,${(0.95 + b * 0.05).toFixed(2)})`;
       }
       ctx.fillText(char, col * cellW, row * cellH);
     }
@@ -209,29 +211,44 @@ export default function ScrollGlitchMedia({
 
     const onMouseMove = (e) => {
       const rect = media.getBoundingClientRect();
+      if (rect.width <= 0 || rect.height <= 0) {
+        isHovered = false;
+        return;
+      }
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+      isHovered = inside;
+      if (!inside) return;
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       const dist = Math.hypot(x - lastMX, y - lastMY);
-      if (dist > 10) {
+      // dense brush points — every ~4px of cursor travel adds a paint stroke
+      if (dist > 4) {
+        // interpolate between last and current so fast cursor still leaves
+        // a continuous painted line (like a real paintbrush)
+        const steps = Math.min(8, Math.max(1, Math.ceil(dist / 4)));
+        for (let s = 1; s <= steps; s += 1) {
+          const t = s / steps;
+          const ix = lastMX + (x - lastMX) * t;
+          const iy = lastMY + (y - lastMY) * t;
+          eraseTrail.push({ x: ix, y: iy, r: 0, maxR: 110 + Math.random() * 60 });
+        }
         lastMX = x;
         lastMY = y;
         lastMoveTime = performance.now();
-        eraseTrail.push({ x, y, r: 0, maxR: 220 + Math.random() * 100 });
-        if (eraseTrail.length > 36) eraseTrail.shift();
+        if (eraseTrail.length > 80) eraseTrail.splice(0, eraseTrail.length - 80);
       }
     };
 
-    const onMouseEnter = () => {
-      isHovered = true;
-    };
+    const onMouseEnter = () => {};
+    const onMouseLeave = () => { isHovered = false; };
 
-    const onMouseLeave = () => {
-      isHovered = false;
-    };
-
-    media.addEventListener("mousemove", onMouseMove);
-    media.addEventListener("mouseenter", onMouseEnter);
-    media.addEventListener("mouseleave", onMouseLeave);
+    // bind on document so that pointer-events: none on .work-media doesn't block the detection
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onMouseLeave);
 
     const applyPlaybackStart = () => {
       if (!playbackStart || !Number.isFinite(video.duration) || video.duration <= playbackStart) {
@@ -392,6 +409,14 @@ export default function ScrollGlitchMedia({
         }
         return pt.r > 0;
       });
+
+      // Natural time-based fade only — the cursor "paintbrush" trail below
+      // punches holes into this overlay where the cursor moves, so we don't
+      // also globally fade on hover (that would hide the brush effect).
+      const baseTarget = typeof timeFadeOpacity === "number" ? timeFadeOpacity : 1;
+      const current = parseFloat(halftone.style.opacity || "1");
+      const next = current + (baseTarget - current) * 0.12;
+      halftone.style.opacity = String(next);
 
       // Composite: ASCII buffer → halftone, then punch erase holes
       halftoneCtx.clearRect(0, 0, w, h);
@@ -678,34 +703,38 @@ const setupAnimation = () => {
     // ── Fade temporal del halftone ASCII quan la card entra a viewport ──
     let asciiFadeRaf = 0;
     let asciiFadeStart = 0;
-    const ASCII_HOLD_MS = 1000;
-    const ASCII_FADE_MS = 3000;
+    // Track natural time-based opacity separately so the hover-fade in the
+    // render loop can compose with it without fighting.
+    let timeFadeOpacity = 1;
+    const ASCII_HOLD_MS = 1200;   // hold full ASCII visible briefly
+    const ASCII_FADE_MS = 2200;   // then fade quicker
     const runAsciiFade = (now) => {
       if (!asciiFadeStart) asciiFadeStart = now;
       const elapsed = now - asciiFadeStart;
-      let alpha;
-      if (elapsed < ASCII_HOLD_MS) alpha = 1;
-      else {
+      if (elapsed < ASCII_HOLD_MS) {
+        timeFadeOpacity = 1;
+      } else {
         const t = (elapsed - ASCII_HOLD_MS) / ASCII_FADE_MS;
         if (t >= 1) {
-          halftone.style.opacity = "0";
+          timeFadeOpacity = 0;
           asciiFadeRaf = 0;
           return;
         }
         const e = t * t * (3 - 2 * t);
-        alpha = 1 - e;
+        timeFadeOpacity = 1 - e;
       }
-      halftone.style.opacity = alpha.toFixed(3);
       asciiFadeRaf = window.requestAnimationFrame(runAsciiFade);
     };
 
     halftone.style.opacity = skipIntro ? "0" : "1";
+    timeFadeOpacity = skipIntro ? 0 : 1;
 
     const startAsciiFadeOnce = () => {
       if (skipIntro) return;
       if (asciiFadeStart || asciiFadeRaf) return;
       asciiFadeRaf = window.requestAnimationFrame(runAsciiFade);
     };
+
 
     const setVisibility = (nextVisible) => {
       isVisible = nextVisible;

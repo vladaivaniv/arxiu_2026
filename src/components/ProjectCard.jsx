@@ -68,16 +68,12 @@ function AsciiLine({ length = DEFAULT_LINE_LEN }) {
   return <div ref={lineRef} className="wc-rule-ascii" aria-hidden="true" />;
 }
 
-function ViewfinderOverlay({ current, total }) {
+function ViewfinderOverlay() {
   return (
     <div className="vf-overlay" aria-hidden="true">
       <span className="vf-corner vf-tl" />
       <span className="vf-corner vf-tr" />
       <span className="vf-corner vf-br" />
-      <span className="vf-num" style={{ top: "12%", left: "3%" }}>00</span>
-      <span className="vf-num" style={{ top: "12%", right: "3%" }}>00</span>
-      <span className="vf-num" style={{ bottom: "12%", left: "3%" }}>33</span>
-      <span className="vf-num" style={{ bottom: "12%", right: "3%" }}>100</span>
     </div>
   );
 }

@@ -28,8 +28,6 @@ export default function HeroSection() {
         <TypeLine text="PROJECTES ARTISTICS" delay={1600} speed={8} />
       </div>
 
-      <div className="hero-credit" aria-label="created by Vlada Ivaniv">by vlada ivaniv</div>
-
       <div className="copy copy-right">
         <div className="hero-scroll-callout">
           <ShuffleText

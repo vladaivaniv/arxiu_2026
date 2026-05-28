@@ -57,6 +57,39 @@ export default function WebcamAscii({ color = "245,245,245", className = "" } = 
       }
     };
 
+    // Fallback pool when there is no camera feed: scattered words & symbols
+    const FALLBACK_TOKENS = [
+      "·", ".", ":", ";", "·.", ".·",
+      "▒", "░", "▓", "◇", "◌", "○", "•",
+      "/", "\\", "|", "-", "_", "+",
+      "*", "·*·", "..",
+      "▲", "▼", "◁", "▷",
+      "λ", "Ø", "ε", "∴", "∵",
+      ">", "<", "//", "::",
+      "0", "1", "01", "10",
+    ];
+    let fallbackTokens = [];
+    let fallbackLastShuffle = 0;
+    let fallbackInit = false;
+
+    const buildFallbackTokens = (width, height) => {
+      // very sparse — just a handful of subtle marks across the panel
+      const count = Math.max(5, Math.floor((width * height) / 55000));
+      fallbackTokens = [];
+      for (let i = 0; i < count; i += 1) {
+        fallbackTokens.push({
+          text: FALLBACK_TOKENS[Math.floor(Math.random() * FALLBACK_TOKENS.length)],
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.14,
+          vy: (Math.random() - 0.5) * 0.14,
+          alpha: 0.05 + Math.random() * 0.1,
+          size: 7 + Math.random() * 3,
+          phase: Math.random() * Math.PI * 2,
+        });
+      }
+    };
+
     let prevCols = 0;
     let prevRows = 0;
 
@@ -105,6 +138,53 @@ export default function WebcamAscii({ color = "245,245,245", className = "" } = 
 
       bufferCtx.setTransform(1, 0, 0, 1, 0, 0);
       bufferCtx.clearRect(0, 0, w, h);
+
+      // FALLBACK: when no camera, render scattered ASCII tokens/symbols on black
+      if (!hasVideo) {
+        if (!fallbackInit || fallbackTokens.length === 0) {
+          buildFallbackTokens(w, h);
+          fallbackInit = true;
+          fallbackLastShuffle = now;
+        }
+        // periodically reshuffle a few tokens
+        if (now - fallbackLastShuffle > 2500) {
+          fallbackLastShuffle = now;
+          const swapCount = Math.max(1, Math.floor(fallbackTokens.length * 0.08));
+          for (let s = 0; s < swapCount; s += 1) {
+            const tok = fallbackTokens[Math.floor(Math.random() * fallbackTokens.length)];
+            tok.text = FALLBACK_TOKENS[Math.floor(Math.random() * FALLBACK_TOKENS.length)];
+            tok.x = Math.random() * w;
+            tok.y = Math.random() * h;
+            tok.alpha = 0.08 + Math.random() * 0.18;
+          }
+        }
+
+        bufferCtx.textAlign = "left";
+        bufferCtx.textBaseline = "alphabetic";
+        const tnow = now * 0.001;
+        for (const tok of fallbackTokens) {
+          // slow drift
+          tok.x += tok.vx;
+          tok.y += tok.vy;
+          // gentle wobble layered on top
+          const wobbleX = Math.sin(tnow * 0.7 + tok.phase) * 0.35;
+          const wobbleY = Math.cos(tnow * 0.5 + tok.phase * 1.3) * 0.25;
+          // wrap around edges
+          if (tok.x < -20) tok.x = w + 20;
+          else if (tok.x > w + 20) tok.x = -20;
+          if (tok.y < -20) tok.y = h + 20;
+          else if (tok.y > h + 20) tok.y = -20;
+
+          const breathing = 0.78 + 0.22 * Math.sin(tnow * 1.4 + tok.phase);
+          bufferCtx.font = `${tok.size}px "Space Mono",monospace`;
+          bufferCtx.fillStyle = `rgba(${color},${(tok.alpha * breathing).toFixed(3)})`;
+          bufferCtx.fillText(tok.text, tok.x + wobbleX, tok.y + wobbleY);
+        }
+
+        ctx.clearRect(0, 0, w, h);
+        ctx.drawImage(bufferCanvas, 0, 0);
+        return;
+      }
 
       const fontSize = CELL_SIZE * 0.92;
       bufferCtx.font = `${fontSize}px "Space Mono",monospace`;
